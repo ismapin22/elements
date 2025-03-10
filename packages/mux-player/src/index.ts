@@ -458,8 +458,12 @@ class MuxPlayerElement extends VideoApiElement implements MuxPlayerElement {
     this.#render();
   }
 
+  protected getTemplate(props: MuxTemplateProps) {
+    return template(props);
+  }
+
   #render(props: Record<string, any> = {}) {
-    render(template(getProps(this, { ...this.#state, ...props })), this.shadowRoot as Node);
+    render(this.getTemplate(getProps(this, { ...this.#state, ...props })), this.shadowRoot as Node);
   }
 
   #setUpThemeAttributes() {
