@@ -1,0 +1,133 @@
+/* Main Playlist Container */
+.playlist {
+  display: flex;
+  background-color: #121212;
+  padding: 1.25rem;
+    border-radius: 0.5rem;
+  color: white;
+  width: 100%;
+}
+
+/* Video Section */
+.video-section {
+  flex: 2;
+  margin-right: 1.25rem;
+}
+
+.video-container {
+  position: relative;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.625rem;
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.video-thumbnail {
+  width: 100%;
+  display: block;
+  border-radius: 0.375rem;
+}
+
+.video-title {
+  font-size: 1rem;
+    margin-top: 0.5rem;
+    cursor: pointer;
+    color: #ffffff;
+    text-decoration: none;
+  }
+  
+  .video-title:hover {
+    text-decoration: underline;
+}
+
+/* Countdown Timer */
+.countdown-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 3.75rem;
+    height: 3.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.countdown-ring {
+  position: absolute;
+}
+
+.circle-background {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.2);
+  stroke-width: 0.25rem;
+}
+
+.circle-progress {
+  fill: none;
+  stroke: #00a3dd;
+  stroke-width: 0.25rem;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1s linear;
+}
+
+.count-text {
+  position: absolute;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+/* Related Videos */
+.related-videos-section {
+  flex: 1;
+  background-color: #1e1e1e;
+  padding: 0.625rem;
+    border-radius: 0.375rem;
+}
+
+.related-title {
+  font-size: 1.125rem;
+  font-weight: bold;
+  margin-bottom: 0.625rem;
+}
+
+.related-list {
+  list-style: none;
+  padding: 0;
+}
+
+.related-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.625rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.625rem;
+}
+
+.related-thumbnail {
+  width: 5rem;
+    height: 3.125rem;
+  object-fit: cover;
+  border-radius: 0.25rem;
+    margin-right: 0.625rem;
+}
+
+.related-text {
+  font-size: 0.875rem;
+    color: #ffffff;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .related-text:hover {
+    text-decoration: underline;
+}
