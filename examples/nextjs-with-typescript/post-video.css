@@ -1,13 +1,16 @@
 /* Main Playlist Container */
 .playlist {
-  display: flex;
-    flex-wrap: wrap;
-      /* Ensure it wraps on smaller screens */
+  /* Ensure it wraps on smaller screens */
   background-color: #121212;
   padding: 1.25rem;
   border-radius: 0.5rem;
   color: white;
   z-index: 2;
+}
+
+.post-video-section {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 /* Video Section */
