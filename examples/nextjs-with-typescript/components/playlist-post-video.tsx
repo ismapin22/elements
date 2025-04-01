@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../post-video.css";
 
-const VideoPlaylist = ({ video, relatedVideos }) => {
+const VideoPlaylist = ({ video, relatedVideos, children }) => {
   const [count, setCount] = useState(3);
 
   useEffect(() => {
@@ -13,6 +13,7 @@ const VideoPlaylist = ({ video, relatedVideos }) => {
 
   return (
     <div className="playlist">
+      {children}
       <div className="video-section">
         <div className="video-container">
           <h2 className="title">Video</h2>

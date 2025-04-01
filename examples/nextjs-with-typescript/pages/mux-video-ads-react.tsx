@@ -72,7 +72,9 @@ function MuxVideoPage() {
         <title>&lt;MuxVideoAds/&gt; Demo</title>
       </Head>
 
-      {sdkLoaded && <MuxVideoAds
+
+      <VideoPlaylist video={mainVideo} relatedVideos={relatedVideos} > 
+        {sdkLoaded && <MuxVideoAds
         ref={mediaElRef}
         playbackId="23s11nz72DsoN657h4314PjKKjsF2JG33eBQQt6B95I"
         controls
@@ -89,14 +91,20 @@ function MuxVideoPage() {
         onPause={() => {
           setPaused(true);
         }}
-      />}
+          onEnded={() => {
 
-      <div className="options">
+          }}
+        >
+        </MuxVideoAds>}
+      </VideoPlaylist>
+
+
+      {/* <div className="options">
         <h1>Playlist</h1>
         <div>
           <VideoPlaylist video={mainVideo} relatedVideos={relatedVideos} />
         </div>
-      </div>
+      </div> */}
     </>
   );
 }
