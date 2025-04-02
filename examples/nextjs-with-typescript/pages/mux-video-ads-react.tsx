@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import { useRef, useState, useEffect } from "react";
 import MuxVideoAds from "@mux/mux-video-ads/react";
-import VideoPlaylist from '../components/playlist-post-video';
 import '../post-video.css'
 
 const INITIAL_AUTOPLAY = false;
@@ -72,9 +71,7 @@ function MuxVideoPage() {
         <title>&lt;MuxVideoAds/&gt; Demo</title>
       </Head>
 
-
-      <VideoPlaylist video={mainVideo} relatedVideos={relatedVideos} > 
-        {sdkLoaded && <MuxVideoAds
+      {sdkLoaded && <MuxVideoAds
         ref={mediaElRef}
         playbackId="23s11nz72DsoN657h4314PjKKjsF2JG33eBQQt6B95I"
         controls
@@ -95,16 +92,7 @@ function MuxVideoPage() {
 
           }}
         >
-        </MuxVideoAds>}
-      </VideoPlaylist>
-
-
-      {/* <div className="options">
-        <h1>Playlist</h1>
-        <div>
-          <VideoPlaylist video={mainVideo} relatedVideos={relatedVideos} />
-        </div>
-      </div> */}
+      </MuxVideoAds>}
     </>
   );
 }

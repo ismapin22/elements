@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react";
 import "../post-video.css";
 
-const VideoPlaylist = ({ video, relatedVideos, children }) => {
+const PlaylistPostVideo = ({ video, relatedVideos, children }) => {
   const [count, setCount] = useState(3);
 
   useEffect(() => {
+    if (count === 0) return;
+
     const timer = setInterval(() => {
-      setCount((prev) => (prev > 0 ? prev - 1 : 0));
+      setCount(prev => Math.max(prev - 1, 0));
     }, 1000);
+
     return () => clearInterval(timer);
-  }, []);
+  }, [count]);
 
   return (
     <div className="playlist">
@@ -60,4 +63,4 @@ const VideoPlaylist = ({ video, relatedVideos, children }) => {
   );
 };
 
-export default VideoPlaylist;
+export default PlaylistPostVideo;
