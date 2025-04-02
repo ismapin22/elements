@@ -13,6 +13,7 @@ const VideoPlaylist = ({ video, relatedVideos, children }) => {
 
   return (
     <div className="playlist">
+      <div className="overlay"/>
       <div className="video-section">
         {children}
       </div>
@@ -42,7 +43,7 @@ const VideoPlaylist = ({ video, relatedVideos, children }) => {
             <p className="video-title">{video.title}</p>
           </div>
         </div>
-
+        <hr/>
         <div className="related-videos-section">
           <h3 className="related-title">Related Videos</h3>
           <ul className="related-list">
