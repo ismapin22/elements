@@ -16,7 +16,6 @@
 }
 
 .post-video-section {
-  display: grid;
   grid-template-columns: 1fr auto 1fr;
   padding: 1.5rem 2rem;
   position:absolute;

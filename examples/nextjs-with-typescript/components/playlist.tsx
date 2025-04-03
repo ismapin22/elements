@@ -12,6 +12,7 @@ const Playlist = ({videoList}) => {
   const [paused, setPaused] = useState<boolean | undefined>(true);
   const [sdkLoaded, setSdkLoaded] = useState(false);  
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isEndScreenVisible, setIsEndScreenVisible] = useState(false);
   
   
   useEffect(() => {
@@ -42,9 +43,14 @@ const Playlist = ({videoList}) => {
     };
   }, []);
 
+  function playVideo() {
+    setIsEndScreenVisible(false);
+    mediaElRef.current.play();
+  }
+
   return (
     <div>
-      <PlaylistPostVideo video={videoList[currentIndex]} relatedVideos={videoList} > 
+      <PlaylistPostVideo video={videoList[currentIndex]} relatedVideos={videoList} isVisible={isEndScreenVisible} callback={playVideo} > 
         {sdkLoaded && <MuxVideoAds
         ref={mediaElRef}
         playbackId={videoList[currentIndex].playbackId}
@@ -65,9 +71,9 @@ const Playlist = ({videoList}) => {
           onEnded={(event) => {
             if (currentIndex < videoList.length -1) {
               setCurrentIndex(currentIndex + 1);
-              setTimeout(() => {
-                setAutoplay(true);
-              }, 200);
+              setIsEndScreenVisible(true);
+            } else {
+              setCurrentIndex(0);
             }
           }}
         >

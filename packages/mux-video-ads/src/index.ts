@@ -120,6 +120,8 @@ video::-webkit-media-text-track-container {
         console.log('ended', { adTagUrl: this.adTagUrl, isReady: this.#muxAdManager?.isReadyForComplete() });
         if (this.adTagUrl && this.#muxAdManager?.isReadyForComplete()) {
           this.#muxAdManager.contentComplete();
+        } else {
+          this.addEventListener('play', this.play);
         }
       },
       { once: true }
@@ -196,6 +198,8 @@ video::-webkit-media-text-track-container {
       if (this.#muxAdManager?.isReadyForInitialization()) {
         console.log('initializeAdDisplayContainer');
         this.#muxAdManager.initializeAdDisplayContainer();
+        this.#muxAdManager.requestAds(this.adTagUrl);
+      } else if (this.#muxAdManager?.isInitialized()) {
         this.#muxAdManager.requestAds(this.adTagUrl);
       } else if (this.#muxAdManager?.isAdPaused()) {
         console.log('resumeAdManager');

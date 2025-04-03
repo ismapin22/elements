@@ -1,26 +1,34 @@
 import React, { useEffect, useState } from "react";
 import "../post-video.css";
 
-const PlaylistPostVideo = ({ video, relatedVideos, children }) => {
+const PlaylistPostVideo = ({ video, relatedVideos, children, isVisible, callback }) => {
   const [count, setCount] = useState(3);
 
   useEffect(() => {
-    if (count === 0) return;
 
+    if (!isVisible) {
+      setCount(3);
+      return;
+    }
+
+    if (count === 0) {
+      callback();
+      return;
+    } 
     const timer = setInterval(() => {
       setCount(prev => Math.max(prev - 1, 0));
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [count]);
+  }, [count, isVisible]);
 
   return (
     <div className="playlist">
-      <div className="overlay"/>
+      <div className="overlay" style={{ display: isVisible ? "flex" : "none" }} />
       <div className="video-section">
         {children}
       </div>
-      <div className="post-video-section">
+      <div className="post-video-section" style={{ display: isVisible ? "flex" : "none" }}>
         <div className="video-section">
           <div className="video-container">
             <h2 className="title">Video</h2>
