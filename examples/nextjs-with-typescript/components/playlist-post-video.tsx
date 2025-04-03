@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../post-video.css";
 
-const PlaylistPostVideo = ({ video, relatedVideos, children, isVisible, callback }) => {
+const PlaylistPostVideo = ({ video, relatedVideos, children, isVisible, selectVideoCallback, timerCallback }) => {
   const [count, setCount] = useState(3);
 
   useEffect(() => {
@@ -12,7 +12,7 @@ const PlaylistPostVideo = ({ video, relatedVideos, children, isVisible, callback
     }
 
     if (count === 0) {
-      callback();
+      timerCallback();
       return;
     } 
     const timer = setInterval(() => {
@@ -61,7 +61,7 @@ const PlaylistPostVideo = ({ video, relatedVideos, children, isVisible, callback
             {relatedVideos.map((relatedVideo, index) => (
               <li key={index} className="related-item">
                 <img className="related-thumbnail" src={relatedVideo.imageUrl} alt={relatedVideo.title} />
-                <p className="related-text">{relatedVideo.title}</p>
+                <p className="related-text" onClick={() => selectVideoCallback(index)}  >{relatedVideo.title}</p>
               </li>
             ))}
           </ul>

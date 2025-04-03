@@ -50,7 +50,7 @@ const Playlist = ({videoList}) => {
 
   return (
     <div>
-      <PlaylistPostVideo video={videoList[currentIndex]} relatedVideos={videoList} isVisible={isEndScreenVisible} callback={playVideo} > 
+      <PlaylistPostVideo video={videoList[currentIndex]} relatedVideos={videoList} isVisible={isEndScreenVisible} selectVideoCallback={setCurrentIndex} timerCallback={playVideo} > 
         {sdkLoaded && <MuxVideoAds
         ref={mediaElRef}
         playbackId={videoList[currentIndex].playbackId}
