@@ -23,10 +23,14 @@ class MuxVideoAds extends MuxVideoElement {
     return `
 <style>
 :host {
-    display: inline-block;
-    line-height: 0;
+  display: inline-block;
+  line-height: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 video {
+  display: block;
   max-width: 100%;
   max-height: 100%;
   min-width: 100%;
@@ -40,6 +44,8 @@ video::-webkit-media-text-track-container {
 }
 #mainContainer {
     position: relative;
+    width: 100%;
+    height: 100%;
 }
 #adContainer {
     position: absolute;
@@ -48,17 +54,17 @@ video::-webkit-media-text-track-container {
     bottom: 0px;
     right: 0px;
     z-index: -1;
+    width: 100%;
+    height: 100%;
 }
 #mainContainer #adContainer.ad-playing {
     z-index: 2;
 }
 </style>
 <div id="mainContainer">
-  <div id="content">
     <slot name="media">
       <video id="contentElement" ${serializeAttributes(attrs)}></video>
     </slot>
-  </div>
   <div id="adContainer"></div>
 </div>
 <slot></slot>
@@ -120,6 +126,8 @@ video::-webkit-media-text-track-container {
         console.log('ended', { adTagUrl: this.adTagUrl, isReady: this.#muxAdManager?.isReadyForComplete() });
         if (this.adTagUrl && this.#muxAdManager?.isReadyForComplete()) {
           this.#muxAdManager.contentComplete();
+        } else {
+          this.addEventListener('play', this.play);
         }
       },
       { once: true }
@@ -196,6 +204,8 @@ video::-webkit-media-text-track-container {
       if (this.#muxAdManager?.isReadyForInitialization()) {
         console.log('initializeAdDisplayContainer');
         this.#muxAdManager.initializeAdDisplayContainer();
+        this.#muxAdManager.requestAds(this.adTagUrl);
+      } else if (this.#muxAdManager?.isInitialized()) {
         this.#muxAdManager.requestAds(this.adTagUrl);
       } else if (this.#muxAdManager?.isAdPaused()) {
         console.log('resumeAdManager');

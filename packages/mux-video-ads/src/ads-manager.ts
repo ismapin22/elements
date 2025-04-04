@@ -214,6 +214,10 @@ export class MuxAdManager {
     return this.#adDisplayContainer && !this.#adsManager;
   }
 
+  isInitialized() {
+    return this.#adDisplayContainer && this.#adsManager;
+  }
+
   isReadyForComplete() {
     return this.#adsLoader && this.#adsManager;
   }
