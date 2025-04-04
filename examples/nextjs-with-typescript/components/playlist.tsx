@@ -54,6 +54,7 @@ const Playlist = ({videoList}) => {
         {sdkLoaded && <MuxVideoAds
         ref={mediaElRef}
         playbackId={videoList[currentIndex].playbackId}
+        style={{aspectRatio: "16/9"}}
         controls
         autoplay={autoplay}
         muted={muted}
