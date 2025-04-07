@@ -46,12 +46,23 @@ const Playlist = ({videoList}) => {
 
   function playVideo() {
     setIsEndScreenVisible(false);
-    mediaElRef.current.play();
+    setCurrentIndex(currentIndex + 1);
+    setTimeout(() => {
+      mediaElRef.current.play();
+    }, 200);
+  }
+
+  function selectVideo(index) {
+    setIsEndScreenVisible(false);
+    setCurrentIndex(index);
+    setTimeout(() => {
+      mediaElRef.current.play();
+    }, 200);
   }
 
   return (
     <div>
-      <PlaylistPostVideo video={videoList[currentIndex]} relatedVideos={videoList} isVisible={isEndScreenVisible} selectVideoCallback={setCurrentIndex} timerCallback={playVideo} > 
+      <PlaylistPostVideo video={currentIndex < videoList.length - 1 ? videoList[currentIndex + 1] : videoList[0]} relatedVideos={videoList} isVisible={isEndScreenVisible} selectVideoCallback={selectVideo} timerCallback={playVideo} > 
         {sdkLoaded && <MuxVideoAds
         ref={mediaElRef}
         key={`player-${playerKey}`}
@@ -72,8 +83,7 @@ const Playlist = ({videoList}) => {
           setPaused(true);
         }}
           onEnded={(event) => {
-            if (currentIndex < videoList.length -1) {
-              setCurrentIndex(currentIndex + 1);
+            if (currentIndex < videoList.length - 1) {
               setIsEndScreenVisible(true);
             } else {
               setCurrentIndex(0);
