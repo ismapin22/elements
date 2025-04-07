@@ -13,6 +13,7 @@ const Playlist = ({videoList}) => {
   const [sdkLoaded, setSdkLoaded] = useState(false);  
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isEndScreenVisible, setIsEndScreenVisible] = useState(false);
+  const [playerKey, setPlayerKey] = useState(0);
   
   
   useEffect(() => {
@@ -53,6 +54,7 @@ const Playlist = ({videoList}) => {
       <PlaylistPostVideo video={videoList[currentIndex]} relatedVideos={videoList} isVisible={isEndScreenVisible} selectVideoCallback={setCurrentIndex} timerCallback={playVideo} > 
         {sdkLoaded && <MuxVideoAds
         ref={mediaElRef}
+        key={`player-${playerKey}`}
         playbackId={videoList[currentIndex].playbackId}
         style={{aspectRatio: "16/9"}}
         controls
@@ -75,6 +77,7 @@ const Playlist = ({videoList}) => {
               setIsEndScreenVisible(true);
             } else {
               setCurrentIndex(0);
+              setPlayerKey(prev => prev + 1);
             }
           }}
         >
