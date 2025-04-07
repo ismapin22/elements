@@ -82,10 +82,11 @@ export class MuxAdManager {
           console.log('Disconnecting Hls for iOS');
           this.#customMediaElement._hls.detachMedia();
           this.#customMediaElement._hls.stopLoad();
-          this.#videoElement.removeAttribute('src');
-          this.#videoElement.load();
+          const tracks = Array.from(this.#videoElement.getElementsByTagName('track'));
+          while (tracks.length > 0) {
+            tracks.shift()?.remove();
+          }
         }
-        this.#customMediaElement.src = '';
       } else {
         // Non-iOS handling
         console.log('Standard content pause for non-iOS');
@@ -100,9 +101,9 @@ export class MuxAdManager {
           this.#customMediaElement.src = this.#videoBackup.originalSrc;
 
           if (this.#customMediaElement._hls) {
-            this.#customMediaElement._hls.attachMedia(this.#videoElement);
+            this.#videoElement.removeAttribute('src');
+            this.#customMediaElement.refreshHLS();
             this.#customMediaElement._hls.loadSource(this.#videoBackup.originalSrc);
-            this.#customMediaElement._hls.startLoad(this.#videoBackup.contentTime);
           }
 
           // Restore content position

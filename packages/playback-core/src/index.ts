@@ -540,6 +540,24 @@ export const initialize = (props: Partial<MuxMediaPropsInternal>, mediaEl: HTMLM
   };
 };
 
+export const generateNewHLS = (
+  props: Partial<MuxMediaPropsInternal>,
+  mediaEl: HTMLMediaElement,
+  core?: PlaybackCore
+) => {
+  const hls = core?.engine;
+  if (hls) {
+    hls.detachMedia();
+    hls.destroy();
+  }
+  const nextHlsInstance = setupHls(props, mediaEl);
+  setupMux(props, mediaEl, nextHlsInstance);
+  loadMedia(props, mediaEl, nextHlsInstance);
+  return {
+    engine: nextHlsInstance,
+  };
+};
+
 export const teardown = (mediaEl?: HTMLMediaElement | null, core?: PlaybackCore) => {
   const hls = core?.engine;
   if (hls) {

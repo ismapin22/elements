@@ -27,6 +27,7 @@ import {
   getChapters,
   toPlaybackIdFromSrc,
   toPlaybackIdParts,
+  generateNewHLS,
   // isMuxVideoSrc,
 } from '@mux/playback-core';
 import type {
@@ -713,6 +714,15 @@ class MuxVideoBaseElement extends CustomVideoElement implements Partial<MuxMedia
 
   load() {
     this.#core = initialize(this as Partial<MuxMediaProps>, this.nativeEl, this.#core);
+  }
+
+  refreshHLS() {
+    const newHLS = generateNewHLS(this as Partial<MuxMediaProps>, this.nativeEl, this.#core);
+    this.#core = {
+      engine: newHLS.engine,
+      setAutoplay: this.#core?.setAutoplay ?? (() => {}),
+      setPreload: this.#core?.setPreload ?? (() => {}),
+    };
   }
 
   unload() {
