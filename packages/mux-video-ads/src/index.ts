@@ -15,6 +15,41 @@ const Attributes = {
   AD_BREAK: 'adbreak',
 } as const;
 
+class CustomVideoWrapper extends HTMLElement {
+  #video: HTMLMediaElement;
+  #shadowRoot: ShadowRoot;
+  proxy: HTMLVideoElement;
+
+  constructor() {
+    console.log('CustomVideoWrapper constructor');
+    super();
+
+    this.#shadowRoot = this.attachShadow({ mode: 'open' });
+    this.#video = document.createElement('video');
+    this.#shadowRoot.appendChild(this.#video);
+
+    this.proxy = new Proxy(this.#video, {
+      get: (target, prop, receiver) => {
+        // @ts-ignore
+        const value = target[prop];
+        if (typeof value === 'function') {
+          return value.bind(target);
+        }
+        return value;
+      },
+      set: (target, prop, value, receiver) => {
+        // @ts-ignore
+        target[prop] = value;
+        return true;
+      },
+    }) as HTMLVideoElement;
+
+    Object.setPrototypeOf(this.proxy, Object.getPrototypeOf(this.#video));
+  }
+}
+
+customElements.define('custom-video-wrapper', CustomVideoWrapper);
+
 class MuxVideoAds extends MuxVideoElement {
   #muxAdManager: MuxAdManager | undefined;
   #mediaIsFullscreen = false;
@@ -56,7 +91,7 @@ video::-webkit-media-text-track-container {
 <div id="mainContainer">
   <div id="content">
     <slot name="media">
-      <video id="contentElement" ${serializeAttributes(attrs)}></video>
+      <custom-video-wrapper id="contentElement" ${serializeAttributes(attrs)}></custom-video-wrapper>
     </slot>
   </div>
   <div id="adContainer"></div>
@@ -66,6 +101,7 @@ video::-webkit-media-text-track-container {
   };
 
   constructor() {
+    console.log('MuxVideoAds constructor');
     super();
   }
 
@@ -114,7 +150,7 @@ video::-webkit-media-text-track-container {
       { once: true }
     );
 
-    this.addEventListener(
+    this.nativeEl.addEventListener(
       'ended',
       () => {
         console.log('ended', { adTagUrl: this.adTagUrl, isReady: this.#muxAdManager?.isReadyForComplete() });
@@ -125,28 +161,33 @@ video::-webkit-media-text-track-container {
       { once: true }
     );
 
-    this.addEventListener('play', this.play);
+    this.nativeEl.addEventListener('play', () => this.play());
 
     this.addEventListener('onAdsCompleted', () => {
       this.#adBreak = false;
       this.adTagUrl = undefined;
       this.#setAdContainerPlaying(false);
       this.#dispatchAdBreakChange(false);
-      this.removeEventListener('play', this.play);
+      this.nativeEl.removeEventListener('play', () => this.play());
       setTimeout(() => {
         this.play();
       }, 200);
     });
 
-    this.addEventListener('webkitbeginfullscreen', () => {
+    this.nativeEl.addEventListener('webkitbeginfullscreen', () => {
       this.#mediaIsFullscreen = true;
       this.#muxAdManager?.updateViewMode(true);
     });
 
-    this.addEventListener('webkitendfullscreen', () => {
+    this.nativeEl.addEventListener('webkitendfullscreen', () => {
       this.#mediaIsFullscreen = false;
       this.#muxAdManager?.updateViewMode(false);
     });
+  }
+
+  get nativeEl() {
+    const wrapper = this.shadowRoot?.getElementById('contentElement') as CustomVideoWrapper;
+    return wrapper.proxy;
   }
 
   get #adContainer() {
@@ -189,8 +230,6 @@ video::-webkit-media-text-track-container {
   }
 
   play() {
-    console.log('play', { adTagUrl: this.adTagUrl });
-
     if (this.adTagUrl) {
       this.#setAdContainerPlaying(true);
       if (this.#muxAdManager?.isReadyForInitialization()) {
