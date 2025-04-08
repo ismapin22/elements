@@ -11,12 +11,12 @@ const PlaylistPostVideo = ({ video, relatedVideos, children, isVisible, selectVi
       return;
     }
 
-    if (count === 0) {
+    if (count < 0) {
       timerCallback();
       return;
     } 
     const timer = setInterval(() => {
-      setCount(prev => Math.max(prev - 1, 0));
+      setCount(prev => Math.max(prev - 1, -1));
     }, 1000);
 
     return () => clearInterval(timer);
