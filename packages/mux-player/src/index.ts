@@ -5,6 +5,7 @@ import { MediaUIAttributes } from 'media-chrome/dist/constants.js';
 import 'media-chrome/dist/experimental/index.js';
 import { MediaThemeElement } from 'media-chrome/dist/media-theme-element.js';
 import MuxVideoElement, { MediaError, Attributes as MuxVideoAttributes } from '@mux/mux-video';
+import MuxVideoAds from '@mux/mux-video-ads';
 import {
   StreamTypes,
   PlaybackTypes,
@@ -394,7 +395,11 @@ class MuxPlayerElement extends VideoApiElement implements MuxPlayerElement {
 
     try {
       customElements.upgrade(this.media as Node);
-      if (!(this.media instanceof MuxVideoElement)) throw '';
+      if (!(this.media instanceof MuxVideoAds)) {
+        if (!(this.media instanceof MuxVideoAds)) {
+          throw '';
+        }
+      }
     } catch (_error) {
       logger.error('<mux-video> failed to upgrade!');
     }
@@ -451,7 +456,9 @@ class MuxPlayerElement extends VideoApiElement implements MuxPlayerElement {
   }
 
   connectedCallback() {
-    const muxVideo = this.shadowRoot?.querySelector('mux-video') as MuxVideoElement;
+    const muxVideo =
+      (this.shadowRoot?.querySelector('mux-video') as MuxVideoElement) ??
+      (this.shadowRoot?.querySelector('mux-video-ads') as MuxVideoAds);
     if (muxVideo) {
       muxVideo.metadata = getMetadataFromAttrs(this);
     }

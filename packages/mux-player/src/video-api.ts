@@ -1,6 +1,9 @@
+/// <reference types="google_interactive_media_ads_types" />
+
 import { globalThis } from './polyfills';
 import { VideoEvents } from '@mux/mux-video';
 import type MuxVideoElement from '@mux/mux-video';
+import type MuxVideoAds from '@mux/mux-video-ads';
 import * as logger from './logger';
 import { toNumberOrUndefined } from './utils';
 
@@ -13,6 +16,10 @@ export type CastOptions = {
 };
 
 export type MuxVideoElementExt = MuxVideoElement & {
+  requestCast(options: CastOptions): Promise<undefined>;
+};
+
+export type MuxVideoAdsExt = MuxVideoAds & {
   requestCast(options: CastOptions): Promise<undefined>;
 };
 
@@ -201,8 +208,8 @@ class VideoApiElement extends globalThis.HTMLElement implements VideoApiElement 
     return this.media?.requestCast(options);
   }
 
-  get media(): MuxVideoElementExt | null | undefined {
-    return this.shadowRoot?.querySelector('mux-video');
+  get media(): MuxVideoElementExt | MuxVideoAdsExt | null | undefined {
+    return this.shadowRoot?.querySelector('mux-video') ?? this.shadowRoot?.querySelector('mux-video-ads');
   }
 
   get audioTracks() {

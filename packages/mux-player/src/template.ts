@@ -81,7 +81,6 @@ export const partsListStr = Object.values(Parts).join(', ');
 
 const getTagSpecificProps = (tag: string, props: MuxTemplateProps) => {
   const baseProps = {
-    slot: 'media',
     'target-live-window': props.targetLiveWindow ?? false,
     'stream-type': getStreamTypeFromAttr(props.streamType) ?? false,
     crossorigin: props.crossOrigin ?? '',
@@ -130,7 +129,7 @@ export const content = (props: MuxTemplateProps) => {
 
   const tagProps = getTagSpecificProps(tag, props);
 
-  const templateStrings = [`<${tag} `];
+  const templateStrings = [`<${tag} slot='media' `];
   const values = [];
 
   Object.entries(tagProps).forEach(([key, value], index) => {
