@@ -135,6 +135,7 @@ video::-webkit-media-text-track-container {
 
     this.addEventListener('onAdsCompleted', () => {
       this.#adBreak = false;
+      this.dispatchEvent(new Event('durationchange'));
       this.adTagUrl = undefined;
       this.#setAdContainerPlaying(false);
       this.#dispatchAdBreakChange(false);
@@ -198,6 +199,8 @@ video::-webkit-media-text-track-container {
     console.log('play', { adTagUrl: this.adTagUrl });
 
     if (this.adTagUrl) {
+      this.#adBreak = true;
+      this.dispatchEvent(new Event('durationchange'));
       this.#setAdContainerPlaying(true);
       if (this.#muxAdManager?.isReadyForInitialization()) {
         console.log('initializeAdDisplayContainer');
