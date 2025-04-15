@@ -293,6 +293,7 @@ export class MuxAdManager {
   }
 
   updateViewMode(isFullscreen: boolean) {
+    console.log('updateViewMode', isFullscreen);
     this.#viewMode = isFullscreen ? google.ima.ViewMode.FULLSCREEN : google.ima.ViewMode.NORMAL;
   }
 

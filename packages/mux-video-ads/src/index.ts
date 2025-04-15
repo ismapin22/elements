@@ -145,12 +145,14 @@ video::-webkit-media-text-track-container {
       }, 200);
     });
 
-    this.addEventListener('webkitbeginfullscreen', () => {
+    globalThis.addEventListener('mediaenterfullscreenrequest', () => {
+      console.log('mediaenterfullscreenrequest');
       this.#mediaIsFullscreen = true;
       this.#muxAdManager?.updateViewMode(true);
     });
 
-    this.addEventListener('webkitendfullscreen', () => {
+    globalThis.addEventListener('mediaexitfullscreenrequest', () => {
+      console.log('mediaexitfullscreenrequest');
       this.#mediaIsFullscreen = false;
       this.#muxAdManager?.updateViewMode(false);
     });
@@ -252,7 +254,7 @@ video::-webkit-media-text-track-container {
   set currentTime(val: number) {
     if (this.#adBreak) {
       console.error('CANNOT SEEK DURING AD BREAK');
-      this.dispatchEvent(new Event('timeupdate'));
+      // this.dispatchEvent(new Event('timeupdate'));
       return;
     }
     super.currentTime = val;
