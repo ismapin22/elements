@@ -396,7 +396,7 @@ class MuxPlayerElement extends VideoApiElement implements MuxPlayerElement {
     try {
       customElements.upgrade(this.media as Node);
       if (!(this.media instanceof MuxVideoAds)) {
-        if (!(this.media instanceof MuxVideoAds)) {
+        if (!(this.media instanceof MuxVideoElement)) {
           throw '';
         }
       }
