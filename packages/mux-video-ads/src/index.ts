@@ -196,9 +196,9 @@ video::-webkit-media-text-track-container {
   }
 
   play() {
-    console.log('play', { adTagUrl: this.adTagUrl });
-
     if (this.adTagUrl && this.#adBreak) {
+      this.#muxAdManager?.resumeAdManager();
+      this.dispatchEvent(new Event('playing'));
       return Promise.resolve();
     }
 
@@ -210,14 +210,10 @@ video::-webkit-media-text-track-container {
         console.log('initializeAdDisplayContainer');
         this.#muxAdManager.initializeAdDisplayContainer();
         this.#muxAdManager.requestAds(this.adTagUrl);
-      } else if (this.#muxAdManager?.isAdPaused()) {
-        console.log('resumeAdManager');
-        this.#muxAdManager.resumeAdManager();
       }
       return Promise.resolve();
     }
     this.#setAdContainerPlaying(false);
-    this.dispatchEvent(new CustomEvent('play', { composed: true, bubbles: true }));
     return super.play();
   }
 
@@ -225,8 +221,14 @@ video::-webkit-media-text-track-container {
     if (this.#adBreak) {
       this.#muxAdManager?.pauseAdManager();
     }
-    this.dispatchEvent(new CustomEvent('pause', { composed: true, bubbles: true }));
     super.pause();
+  }
+
+  get paused(): boolean {
+    if (this.#adBreak) {
+      return this.#muxAdManager?.isAdPaused() ?? false;
+    }
+    return super.paused;
   }
 
   #setAdContainerPlaying(isPlaying: boolean): void {
