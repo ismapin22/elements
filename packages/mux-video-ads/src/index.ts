@@ -198,6 +198,10 @@ video::-webkit-media-text-track-container {
   play() {
     console.log('play', { adTagUrl: this.adTagUrl });
 
+    if (this.adTagUrl && this.#adBreak) {
+      return Promise.resolve();
+    }
+
     if (this.adTagUrl) {
       this.#adBreak = true;
       this.dispatchEvent(new Event('durationchange'));
@@ -213,6 +217,7 @@ video::-webkit-media-text-track-container {
       return Promise.resolve();
     }
     this.#setAdContainerPlaying(false);
+    this.dispatchEvent(new CustomEvent('play', { composed: true, bubbles: true }));
     return super.play();
   }
 
@@ -220,6 +225,7 @@ video::-webkit-media-text-track-container {
     if (this.#adBreak) {
       this.#muxAdManager?.pauseAdManager();
     }
+    this.dispatchEvent(new CustomEvent('pause', { composed: true, bubbles: true }));
     super.pause();
   }
 
