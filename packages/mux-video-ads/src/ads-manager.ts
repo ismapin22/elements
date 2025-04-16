@@ -55,7 +55,10 @@ export class MuxAdManager {
 
       this.#adsLoader.addEventListener(
         google.ima.AdErrorEvent.Type.AD_ERROR,
-        console.log.bind(null, 'AD_ERROR'),
+        (adErrorEvent: google.ima.AdErrorEvent) => {
+          console.log('AD_ERROR Loader', adErrorEvent);
+          this.#customMediaElement.dispatchEvent(new Event('onAdsCompleted'));
+        },
         false
       );
     }
@@ -64,6 +67,7 @@ export class MuxAdManager {
   #startAdsManager() {
     console.log('startAdsManager', this.#adsManager);
     this.#adsManager?.addEventListener(google.ima.AdEvent.Type.CONTENT_PAUSE_REQUESTED, () => {
+      console.log('CONTENT_PAUSE_REQUESTED');
       const currentTime = this.#customMediaElement.currentTime;
       const wasPlaying = !this.#customMediaElement.paused;
 
@@ -99,6 +103,7 @@ export class MuxAdManager {
     this.#adsManager?.addEventListener(
       google.ima.AdEvent.Type.CONTENT_RESUME_REQUESTED,
       () => {
+        console.log('CONTENT_RESUME_REQUESTED');
         if (this.#videoBackup && this.isIOSMse(this.#videoBackup.originalSrc)) {
           this.#customMediaElement.src = this.#videoBackup.originalSrc;
 
@@ -133,7 +138,7 @@ export class MuxAdManager {
 
     this.#adsManager?.addEventListener(
       google.ima.AdErrorEvent.Type.AD_ERROR,
-      console.log.bind(null, 'AD_ERROR'),
+      console.log.bind(null, 'AD_ERROR Manager'),
       false
     );
 
@@ -305,12 +310,10 @@ export class MuxAdManager {
   }
 
   updateViewMode(isFullscreen: boolean) {
-    console.log('updateViewMode', isFullscreen);
     this.#viewMode = isFullscreen ? google.ima.ViewMode.FULLSCREEN : google.ima.ViewMode.NORMAL;
   }
 
   updateAdsManagerSize(width: number, height: number) {
-    console.log('updateAdsManagerSize', width, height, this.#viewMode);
     this.#adsManager?.resize(width, height, this.#viewMode);
   }
 
