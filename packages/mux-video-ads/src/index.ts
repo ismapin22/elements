@@ -23,7 +23,6 @@ const Attributes = {
 
 class MuxVideoAds extends MuxVideoElement {
   #muxAdManager: MuxAdManager | undefined;
-  #mediaIsFullscreen = false;
 
   static getTemplateHTML = (attrs: Record<string, string>) => {
     return `
@@ -88,7 +87,6 @@ video::-webkit-media-text-track-container {
 
     const config: MuxAdManagerConfig = {
       videoElement: this,
-      isFullscreen: this.mediaIsFullscreen,
       contentVideoElement: this.nativeEl,
     };
 
@@ -146,14 +144,10 @@ video::-webkit-media-text-track-container {
     });
 
     globalThis.addEventListener('mediaenterfullscreenrequest', () => {
-      console.log('mediaenterfullscreenrequest');
-      this.#mediaIsFullscreen = true;
       this.#muxAdManager?.updateViewMode(true);
     });
 
     globalThis.addEventListener('mediaexitfullscreenrequest', () => {
-      console.log('mediaexitfullscreenrequest');
-      this.#mediaIsFullscreen = false;
       this.#muxAdManager?.updateViewMode(false);
     });
   }
@@ -300,15 +294,6 @@ video::-webkit-media-text-track-container {
       throw new Error('Cannot use PiP while ads are playing!');
     }
     return super.requestPictureInPicture();
-  }
-
-  get mediaIsFullscreen(): boolean {
-    return this.#mediaIsFullscreen;
-  }
-
-  set mediaIsFullscreen(val: boolean) {
-    if (val === this.mediaIsFullscreen) return;
-    this.#mediaIsFullscreen = val;
   }
 
   // get muxDataSDK() {

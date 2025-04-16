@@ -5,7 +5,6 @@ import { Hls } from '@mux/playback-core';
 
 export type MuxAdManagerConfig = {
   videoElement: MuxVideoElement;
-  isFullscreen: boolean;
   contentVideoElement: HTMLVideoElement;
 };
 
@@ -26,15 +25,16 @@ export class MuxAdManager {
   #customMediaElement: MuxVideoElement;
   #viewMode: google.ima.ViewMode;
   #videoBackup: VideoBackup | null = null;
+  #originalSize: DOMRect;
 
   constructor(config: MuxAdManagerConfig) {
     this.#customMediaElement = config.videoElement;
     this.#videoElement = config.contentVideoElement;
-    this.#viewMode = config.isFullscreen ? google.ima.ViewMode.FULLSCREEN : google.ima.ViewMode.NORMAL;
+    this.#viewMode = google.ima.ViewMode.NORMAL;
+    this.#originalSize = this.#videoElement.getBoundingClientRect();
   }
 
   setupAdsManager(adContainer: HTMLElement) {
-    console.log('Setting up Ad Manager', adContainer, this.#adDisplayContainer);
     if (!this.#adDisplayContainer) {
       this.#adDisplayContainer = new google.ima.AdDisplayContainer(adContainer, this.#videoElement);
 
@@ -137,6 +137,14 @@ export class MuxAdManager {
     );
 
     this.#adsManager?.addEventListener(
+      google.ima.AdEvent.Type.CLICK,
+      (adEvent: google.ima.AdEvent) => {
+        this.updateViewMode(false);
+      },
+      false
+    );
+
+    this.#adsManager?.addEventListener(
       google.ima.AdEvent.Type.LOADED,
       (adEvent: google.ima.AdEvent) => {
         console.log('loaded', adEvent);
@@ -195,8 +203,7 @@ export class MuxAdManager {
       false
     );
 
-    const elementDims = this.#videoElement.getBoundingClientRect();
-    this.#adsManager?.init(elementDims.width, elementDims.height, this.#viewMode);
+    this.#adsManager?.init(this.#originalSize.width, this.#originalSize.height, this.#viewMode);
     this.#adsManager?.start();
   }
 
@@ -294,7 +301,13 @@ export class MuxAdManager {
 
   updateViewMode(isFullscreen: boolean) {
     console.log('updateViewMode', isFullscreen);
+
     this.#viewMode = isFullscreen ? google.ima.ViewMode.FULLSCREEN : google.ima.ViewMode.NORMAL;
+    if (isFullscreen) {
+      this.#adsManager?.resize(screen.width, screen.height, this.#viewMode);
+    } else {
+      this.#adsManager?.resize(this.#originalSize.width, this.#originalSize.height, this.#viewMode);
+    }
   }
 
   get adsLoader() {
