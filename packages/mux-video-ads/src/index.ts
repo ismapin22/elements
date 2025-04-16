@@ -28,6 +28,7 @@ class MuxVideoAds extends MuxVideoElement {
     return `
 <style>
 :host {
+  aspect-ratio: var(--media-aspect-ratio, 16 / 9);
   display: inline-block;
   line-height: 0;
   width: 100%;
@@ -82,7 +83,9 @@ video::-webkit-media-text-track-container {
     const resizeObserver = new ResizeObserver((entries) => {
       for (const entry of entries) {
         const { width, height } = entry.contentRect;
-        this.#muxAdManager?.updateAdsManagerSize(width, height);
+        if (width > 0 && height > 0) {
+          this.#muxAdManager?.updateAdsManagerSize(width, height);
+        }
       }
     });
     resizeObserver.observe(this);
