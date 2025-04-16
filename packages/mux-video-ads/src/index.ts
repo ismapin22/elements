@@ -23,7 +23,6 @@ const Attributes = {
 
 class MuxVideoAds extends MuxVideoElement {
   #muxAdManager: MuxAdManager | undefined;
-  #mediaIsFullscreen = false;
 
   static getTemplateHTML = (attrs: Record<string, string>) => {
     return `
@@ -79,6 +78,14 @@ video::-webkit-media-text-track-container {
 
   constructor() {
     super();
+
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        const { width, height } = entry.contentRect;
+        this.#muxAdManager?.updateAdsManagerSize(width, height);
+      }
+    });
+    resizeObserver.observe(this);
   }
 
   connectedCallback(): void {
@@ -94,8 +101,8 @@ video::-webkit-media-text-track-container {
 
     const config: MuxAdManagerConfig = {
       videoElement: this,
-      isFullscreen: this.mediaIsFullscreen,
       contentVideoElement: this.nativeEl,
+      originalSize: this.getBoundingClientRect(),
     };
 
     this.#muxAdManager = new MuxAdManager(config);
@@ -142,15 +149,13 @@ video::-webkit-media-text-track-container {
       }, 200);
     });
 
+    //TODO: should we move this to muxplayer?
     globalThis.addEventListener('mediaenterfullscreenrequest', () => {
-      console.log('mediaenterfullscreenrequest');
-      this.#mediaIsFullscreen = true;
       this.#muxAdManager?.updateViewMode(true);
     });
 
+    //TODO: should we move this to muxplayer?
     globalThis.addEventListener('mediaexitfullscreenrequest', () => {
-      console.log('mediaexitfullscreenrequest');
-      this.#mediaIsFullscreen = false;
       this.#muxAdManager?.updateViewMode(false);
     });
   }
@@ -314,15 +319,6 @@ video::-webkit-media-text-track-container {
       throw new Error('Cannot use PiP while ads are playing!');
     }
     return super.requestPictureInPicture();
-  }
-
-  get mediaIsFullscreen(): boolean {
-    return this.#mediaIsFullscreen;
-  }
-
-  set mediaIsFullscreen(val: boolean) {
-    if (val === this.mediaIsFullscreen) return;
-    this.#mediaIsFullscreen = val;
   }
 
   // get muxDataSDK() {
