@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import PlaylistPostVideo from "./playlist-post-video";
-import MuxVideoAds from "@mux/mux-video-ads/react";
+import MuxPlayer from "@mux/mux-player-react";
 
 const INITIAL_AUTOPLAY = false;
 const INITIAL_MUTED = false;
@@ -63,26 +63,27 @@ const Playlist = ({videoList}) => {
   return (
     <div>
       <PlaylistPostVideo video={currentIndex < videoList.length - 1 ? videoList[currentIndex + 1] : videoList[0]} relatedVideos={videoList} isVisible={isEndScreenVisible} selectVideoCallback={selectVideo} timerCallback={playVideo} > 
-        {sdkLoaded && <MuxVideoAds
-        ref={mediaElRef}
-        key={`player-${playerKey}`}
-        playbackId={videoList[currentIndex].playbackId}
-        style={{aspectRatio: "16/9"}}
-        controls
-        autoplay={autoplay}
-        muted={muted}
-        maxResolution="2160p"
-        minResolution="540p"
-        renditionOrder="desc"
-        preferPlayback="native"
-        adTagUrl={videoList[currentIndex].adTagUrl}
-        onPlay={() => {
-          setPaused(false);
-        }}
-        onPause={() => {
-          setPaused(true);
-        }}
+        {sdkLoaded && <MuxPlayer
+          ref={mediaElRef}
+          key={`player-${playerKey}`}
+          playbackId={videoList[currentIndex].playbackId}
+          style={{ aspectRatio: "16/9" }}
+          muxVideoElement='mux-video-ads'
+          autoPlay={autoplay}
+          muted={muted}
+          maxResolution="2160p"
+          minResolution="540p"
+          renditionOrder="desc"
+          preferPlayback="native"
+          adTagUrl={videoList[currentIndex].adTagUrl}
+          onPlay={() => {
+            setPaused(false);
+          }}
+          onPause={() => {
+            setPaused(true);
+          }}
           onEnded={(event) => {
+            console.log('ONENDED');
             if (currentIndex < videoList.length - 1) {
               setIsEndScreenVisible(true);
             } else {
@@ -91,7 +92,7 @@ const Playlist = ({videoList}) => {
             }
           }}
         >
-        </MuxVideoAds>}
+        </MuxPlayer>}
       </PlaylistPostVideo>
     </div>
   )
