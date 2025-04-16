@@ -88,8 +88,8 @@ const Playlist = ({videoList}) => {
               setIsEndScreenVisible(true);
             } else {
               setCurrentIndex(0);
-              setPlayerKey(prev => prev + 1);
             }
+            setPlayerKey(prev => prev + 1);
           }}
         >
         </MuxPlayer>}
