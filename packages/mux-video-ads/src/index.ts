@@ -5,7 +5,7 @@ import MuxVideoElement from '@mux/mux-video';
 // @ts-ignore
 import mux from '@mux/mux-data-google-ima';
 import { MuxAdManagerConfig, MuxAdManager } from './ads-manager';
-import type { MuxDataSDK } from '@mux/playback-core';
+// import type { MuxDataSDK } from '@mux/playback-core';
 
 const serializeAttributes = (attrs = {}) => {
   return (
@@ -143,6 +143,7 @@ video::-webkit-media-text-track-container {
 
     this.addEventListener('onAdsCompleted', () => {
       this.#adBreak = false;
+      this.dispatchEvent(new Event('durationchange'));
       this.adTagUrl = undefined;
       this.#setAdContainerPlaying(false);
       this.#dispatchAdBreakChange(false);
@@ -152,12 +153,14 @@ video::-webkit-media-text-track-container {
       }, 200);
     });
 
-    this.addEventListener('webkitbeginfullscreen', () => {
+    globalThis.addEventListener('mediaenterfullscreenrequest', () => {
+      console.log('mediaenterfullscreenrequest');
       this.#mediaIsFullscreen = true;
       this.#muxAdManager?.updateViewMode(true);
     });
 
-    this.addEventListener('webkitendfullscreen', () => {
+    globalThis.addEventListener('mediaexitfullscreenrequest', () => {
+      console.log('mediaexitfullscreenrequest');
       this.#mediaIsFullscreen = false;
       this.#muxAdManager?.updateViewMode(false);
     });
@@ -203,9 +206,15 @@ video::-webkit-media-text-track-container {
   }
 
   play() {
-    console.log('play', { adTagUrl: this.adTagUrl });
+    if (this.adTagUrl && this.#adBreak) {
+      this.#muxAdManager?.resumeAdManager();
+      this.dispatchEvent(new Event('playing'));
+      return Promise.resolve();
+    }
 
     if (this.adTagUrl) {
+      this.#adBreak = true;
+      this.dispatchEvent(new Event('durationchange'));
       this.#setAdContainerPlaying(true);
       if (this.#muxAdManager?.isReadyForInitialization()) {
         console.log('initializeAdDisplayContainer');
@@ -230,6 +239,13 @@ video::-webkit-media-text-track-container {
     super.pause();
   }
 
+  get paused(): boolean {
+    if (this.#adBreak) {
+      return this.#muxAdManager?.isAdPaused() ?? false;
+    }
+    return super.paused;
+  }
+
   #setAdContainerPlaying(isPlaying: boolean): void {
     this.#adContainer?.classList.toggle('ad-playing', isPlaying);
   }
@@ -251,7 +267,7 @@ video::-webkit-media-text-track-container {
   set currentTime(val: number) {
     if (this.#adBreak) {
       console.error('CANNOT SEEK DURING AD BREAK');
-      this.dispatchEvent(new Event('timeupdate'));
+      // this.dispatchEvent(new Event('timeupdate'));
       return;
     }
     super.currentTime = val;
@@ -308,9 +324,9 @@ video::-webkit-media-text-track-container {
     this.#mediaIsFullscreen = val;
   }
 
-  get muxDataSDK() {
-    return mux as MuxDataSDK;
-  }
+  // get muxDataSDK() {
+  //   return mux as MuxDataSDK;
+  // }
 
   get muxDataSDKOptions() {
     return {

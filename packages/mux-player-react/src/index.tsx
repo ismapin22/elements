@@ -1,3 +1,5 @@
+/// <reference types="google_interactive_media_ads_types" />
+
 'use client';
 import React, { useEffect, useState } from 'react';
 import type { CSSProperties } from 'react';
@@ -88,6 +90,8 @@ export type MuxPlayerProps = {
   programStartTime?: number;
   programEndTime?: number;
   proudlyDisplayMuxBadge?: boolean;
+  muxVideoElement?: string;
+  adTagUrl?: string;
   assetStartTime?: number;
   assetEndTime?: number;
   metadataVideoId?: string;

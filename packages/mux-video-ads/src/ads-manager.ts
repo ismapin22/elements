@@ -125,11 +125,7 @@ export class MuxAdManager {
         this.#adProgressData = undefined;
         this.#ad = undefined;
         this.#customMediaElement.dispatchEvent(new Event('durationchange'));
-
-        if (this.#videoElement?.paused && (this.#customMediaElement.paused || this.#customMediaElement.loop)) {
-          console.log('contentResumeRequested play');
-          this.#customMediaElement.dispatchEvent(new Event('onAdsCompleted'));
-        }
+        this.#customMediaElement.dispatchEvent(new Event('onAdsCompleted'));
       },
       false
     );
@@ -195,9 +191,6 @@ export class MuxAdManager {
       google.ima.AdEvent.Type.ALL_ADS_COMPLETED,
       () => {
         console.log('allAdsCompleted');
-        if (this.#customMediaElement.ended && !this.#customMediaElement.loop) {
-          this.#customMediaElement.dispatchEvent(new Event('pause'));
-        }
       },
       false
     );
@@ -304,6 +297,7 @@ export class MuxAdManager {
   }
 
   updateViewMode(isFullscreen: boolean) {
+    console.log('updateViewMode', isFullscreen);
     this.#viewMode = isFullscreen ? google.ima.ViewMode.FULLSCREEN : google.ima.ViewMode.NORMAL;
   }
 
