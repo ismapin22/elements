@@ -6,6 +6,7 @@ import { Hls } from '@mux/playback-core';
 export type MuxAdManagerConfig = {
   videoElement: MuxVideoElement;
   contentVideoElement: HTMLVideoElement;
+  originalSize: DOMRect;
 };
 
 type VideoBackup = {
@@ -31,7 +32,7 @@ export class MuxAdManager {
     this.#customMediaElement = config.videoElement;
     this.#videoElement = config.contentVideoElement;
     this.#viewMode = google.ima.ViewMode.NORMAL;
-    this.#originalSize = this.#videoElement.getBoundingClientRect();
+    this.#originalSize = config.originalSize;
   }
 
   setupAdsManager(adContainer: HTMLElement) {
@@ -301,13 +302,12 @@ export class MuxAdManager {
 
   updateViewMode(isFullscreen: boolean) {
     console.log('updateViewMode', isFullscreen);
-
     this.#viewMode = isFullscreen ? google.ima.ViewMode.FULLSCREEN : google.ima.ViewMode.NORMAL;
-    if (isFullscreen) {
-      this.#adsManager?.resize(screen.width, screen.height, this.#viewMode);
-    } else {
-      this.#adsManager?.resize(this.#originalSize.width, this.#originalSize.height, this.#viewMode);
-    }
+  }
+
+  updateAdsManagerSize(width: number, height: number) {
+    console.log('updateAdsManagerSize', width, height, this.#viewMode);
+    this.#adsManager?.resize(width, height, this.#viewMode);
   }
 
   get adsLoader() {

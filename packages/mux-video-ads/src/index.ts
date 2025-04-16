@@ -72,6 +72,14 @@ video::-webkit-media-text-track-container {
 
   constructor() {
     super();
+
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        const { width, height } = entry.contentRect;
+        this.#muxAdManager?.updateAdsManagerSize(width, height);
+      }
+    });
+    resizeObserver.observe(this);
   }
 
   connectedCallback(): void {
@@ -88,6 +96,7 @@ video::-webkit-media-text-track-container {
     const config: MuxAdManagerConfig = {
       videoElement: this,
       contentVideoElement: this.nativeEl,
+      originalSize: this.getBoundingClientRect(),
     };
 
     this.#muxAdManager = new MuxAdManager(config);
@@ -143,10 +152,12 @@ video::-webkit-media-text-track-container {
       }, 200);
     });
 
+    //TODO: should we move this to muxplayer?
     globalThis.addEventListener('mediaenterfullscreenrequest', () => {
       this.#muxAdManager?.updateViewMode(true);
     });
 
+    //TODO: should we move this to muxplayer?
     globalThis.addEventListener('mediaexitfullscreenrequest', () => {
       this.#muxAdManager?.updateViewMode(false);
     });
