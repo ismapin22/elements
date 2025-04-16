@@ -136,8 +136,6 @@ video::-webkit-media-text-track-container {
       { once: true }
     );
 
-    this.addEventListener('ended', this.onEnded);
-
     this.addEventListener('play', this.play);
 
     this.addEventListener('onAdsCompleted', () => {
@@ -146,7 +144,6 @@ video::-webkit-media-text-track-container {
       this.adTagUrl = undefined;
       this.#setAdContainerPlaying(false);
       this.#dispatchAdBreakChange(false);
-      this.removeEventListener('play', this.play);
       setTimeout(() => {
         this.play();
       }, 200);
@@ -203,18 +200,19 @@ video::-webkit-media-text-track-container {
   }
 
   onEnded() {
-    this.removeEventListener('ended', this.onEnded);
+    //TODO: this is a hack to prevent the play event from being called twice but we are able to propagate the event to the parent
     this.dispatchEvent(new CustomEvent('ended', { composed: true, bubbles: true }));
-    this.addEventListener('ended', this.onEnded);
-    console.log('ended', { adTagUrl: this.adTagUrl, isReady: this.#muxAdManager?.isReadyForComplete() });
     if (this.adTagUrl && this.#muxAdManager?.isReadyForComplete()) {
       this.#muxAdManager.contentComplete();
-    } else {
-      this.addEventListener('play', this.play);
     }
   }
 
   play() {
+    //TODO: this is a hack to prevent the play event from being called twice but we are able to propagate the event to the parent
+    this.removeEventListener('play', this.play);
+    this.dispatchEvent(new CustomEvent('play', { composed: true, bubbles: true }));
+    this.addEventListener('play', this.play);
+
     if (this.adTagUrl && this.#adBreak) {
       this.#muxAdManager?.resumeAdManager();
       this.dispatchEvent(new Event('playing'));
@@ -225,16 +223,18 @@ video::-webkit-media-text-track-container {
       this.#adBreak = true;
       this.dispatchEvent(new Event('durationchange'));
       this.#setAdContainerPlaying(true);
+
       if (this.#muxAdManager?.isReadyForInitialization()) {
-        console.log('initializeAdDisplayContainer');
         this.#muxAdManager.initializeAdDisplayContainer();
+      }
+
+      if (this.#muxAdManager?.isReadyForInitialization() || this.#muxAdManager?.isInitialized()) {
         this.#muxAdManager.requestAds(this.adTagUrl);
-      } else if (this.#muxAdManager?.isInitialized()) {
-        this.#muxAdManager.requestAds(this.adTagUrl);
+        this.addEventListener('ended', this.onEnded, { once: true });
       } else if (this.#muxAdManager?.isAdPaused()) {
-        console.log('resumeAdManager');
         this.#muxAdManager.resumeAdManager();
       }
+
       return Promise.resolve();
     }
     this.#setAdContainerPlaying(false);
@@ -242,6 +242,11 @@ video::-webkit-media-text-track-container {
   }
 
   pause(): void {
+    //TODO: this is a hack to prevent the play event from being called twice but we are able to propagate the event to the parent
+    this.removeEventListener('pause', this.pause);
+    this.dispatchEvent(new CustomEvent('pause', { composed: true, bubbles: true }));
+    this.addEventListener('pause', this.pause);
+
     if (this.#adBreak) {
       this.#muxAdManager?.pauseAdManager();
     }
