@@ -179,6 +179,7 @@ function getProps(el: MuxPlayerElement, state?: any): MuxTemplateProps {
     castReceiver: el.castReceiver,
     muxVideoElement: el.getAttribute(PlayerAttributes.MUX_VIDEO_ELEMENT) ?? 'mux-video',
     adTagUrl: el.getAttribute(PlayerAttributes.AD_TAG_URL) ?? undefined,
+    adBreak: el.adBreak,
     proudlyDisplayMuxBadge: el.hasAttribute(PlayerAttributes.PROUDLY_DISPLAY_MUX_BADGE),
     ...state,
     // NOTE: since the attribute value is used as the "source of truth" for the property getter,
@@ -460,6 +461,11 @@ class MuxPlayerElement extends VideoApiElement implements MuxPlayerElement {
       (this.shadowRoot?.querySelector('mux-video') as MuxVideoElement) ??
       (this.shadowRoot?.querySelector('mux-video-ads') as MuxVideoAds);
     if (muxVideo) {
+      this.media?.addEventListener('adbreakchange', () => {
+        // MediaUIEvents.MEDIA_EXIT_PIP_REQUEST
+        // this.mediaController?.dispatchEvent(new CustomEvent('mediaexitpiprequest'));
+        this.#render();
+      });
       muxVideo.metadata = getMetadataFromAttrs(this);
     }
   }
@@ -1336,6 +1342,15 @@ class MuxPlayerElement extends VideoApiElement implements MuxPlayerElement {
       this.setAttribute(MuxVideoAttributes.BEACON_COLLECTION_DOMAIN, val);
     } else {
       this.removeAttribute(MuxVideoAttributes.BEACON_COLLECTION_DOMAIN);
+    }
+  }
+
+  get adBreak() {
+    const muxVideoAds = this.media as MuxVideoAds;
+    if (muxVideoAds) {
+      return muxVideoAds.adBreak ?? false;
+    } else {
+      return false;
     }
   }
 

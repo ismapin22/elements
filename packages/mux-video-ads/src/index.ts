@@ -182,12 +182,12 @@ video::-webkit-media-text-track-container {
   }
 
   get adBreak(): boolean {
-    return this.#mainContainer.hasAttribute(Attributes.AD_BREAK);
+    return this.hasAttribute(Attributes.AD_BREAK);
   }
 
   set #adBreak(val: boolean) {
     if (val === this.adBreak) return;
-    this.#mainContainer.toggleAttribute(Attributes.AD_BREAK, val);
+    this.toggleAttribute(Attributes.AD_BREAK, !!val);
     this.#dispatchAdBreakChange(val);
   }
 
@@ -195,6 +195,8 @@ video::-webkit-media-text-track-container {
     this.dispatchEvent(
       new CustomEvent('adbreakchange', {
         detail: { isAdBreak },
+        composed: true,
+        bubbles: true,
       })
     );
   }
