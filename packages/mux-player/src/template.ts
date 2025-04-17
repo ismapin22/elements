@@ -151,6 +151,7 @@ export const content = (props: MuxTemplateProps) => {
   return html`
     <media-theme
       template="${props.themeTemplate || false}"
+      mediaadbreak="${props.adBreak ?? false}"
       defaultstreamtype="${props.defaultStreamType ?? false}"
       hotkeys="${getHotKeys(props) || false}"
       nohotkeys="${props.noHotKeys || !props.hasSrc || false}"

@@ -100,7 +100,7 @@ video::-webkit-media-text-track-container {
       return;
     }
 
-    console.log('AdBreak connectedCallbk', this.#adBreak, this.adTagUrl);
+    console.log('AdBreak connectedCallbk', this.adBreak, this.adTagUrl);
 
     const config: MuxAdManagerConfig = {
       videoElement: this,
@@ -181,12 +181,12 @@ video::-webkit-media-text-track-container {
     this.setAttribute(Attributes.AD_TAG_URL, value);
   }
 
-  get #adBreak(): boolean {
+  get adBreak(): boolean {
     return this.#mainContainer.hasAttribute(Attributes.AD_BREAK);
   }
 
   set #adBreak(val: boolean) {
-    if (val === this.#adBreak) return;
+    if (val === this.adBreak) return;
     this.#mainContainer.toggleAttribute(Attributes.AD_BREAK, val);
     this.#dispatchAdBreakChange(val);
   }
@@ -213,7 +213,7 @@ video::-webkit-media-text-track-container {
     this.dispatchEvent(new CustomEvent('play', { composed: true, bubbles: true }));
     this.addEventListener('play', this.play);
 
-    if (this.adTagUrl && this.#adBreak) {
+    if (this.adTagUrl && this.adBreak) {
       this.#muxAdManager?.resumeAdManager();
       this.dispatchEvent(new Event('playing'));
       return Promise.resolve();
@@ -247,14 +247,14 @@ video::-webkit-media-text-track-container {
     this.dispatchEvent(new CustomEvent('pause', { composed: true, bubbles: true }));
     this.addEventListener('pause', this.pause);
 
-    if (this.#adBreak) {
+    if (this.adBreak) {
       this.#muxAdManager?.pauseAdManager();
     }
     super.pause();
   }
 
   get paused(): boolean {
-    if (this.#adBreak) {
+    if (this.adBreak) {
       return this.#muxAdManager?.isAdPaused() ?? false;
     }
     return super.paused;
@@ -265,21 +265,21 @@ video::-webkit-media-text-track-container {
   }
 
   get duration(): number {
-    if (this.#adBreak) {
+    if (this.adBreak) {
       return this.#muxAdManager?.getDuration() ?? 0;
     }
     return super.duration;
   }
 
   get currentTime(): number {
-    if (this.#adBreak) {
+    if (this.adBreak) {
       return this.#muxAdManager?.getCurrentTime() ?? 0;
     }
     return super.currentTime;
   }
 
   set currentTime(val: number) {
-    if (this.#adBreak) {
+    if (this.adBreak) {
       console.error('CANNOT SEEK DURING AD BREAK');
       // this.dispatchEvent(new Event('timeupdate'));
       return;
@@ -288,42 +288,42 @@ video::-webkit-media-text-track-container {
   }
 
   get volume(): number {
-    if (this.#adBreak) {
+    if (this.adBreak) {
       return this.#muxAdManager?.getVolume() ?? 0;
     }
     return super.volume;
   }
 
   set volume(val: number) {
-    if (this.#adBreak) {
+    if (this.adBreak) {
       this.#muxAdManager?.setVolume(val);
     }
     super.volume = val;
   }
 
   get muted(): boolean {
-    if (this.#adBreak) {
+    if (this.adBreak) {
       return !this.#muxAdManager?.getVolume();
     }
     return super.muted;
   }
 
   set muted(val: boolean) {
-    if (this.#adBreak) {
+    if (this.adBreak) {
       this.#muxAdManager?.setVolume(val ? 0 : this.volume);
     }
     super.muted = val;
   }
 
   get readyState(): number {
-    if (this.#adBreak) {
+    if (this.adBreak) {
       return 4;
     }
     return super.readyState;
   }
 
   async requestPictureInPicture(): Promise<PictureInPictureWindow> {
-    if (this.#adBreak) {
+    if (this.adBreak) {
       throw new Error('Cannot use PiP while ads are playing!');
     }
     return super.requestPictureInPicture();

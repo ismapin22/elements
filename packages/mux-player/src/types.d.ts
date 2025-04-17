@@ -58,6 +58,7 @@ export type MuxTemplateProps = Partial<MuxPlayerProps> & {
   proudlyDisplayMuxBadge?: boolean;
   muxVideoElement: string;
   adTagUrl: string | undefined;
+  adBreak: boolean;
 };
 
 export type DialogOptions = {
