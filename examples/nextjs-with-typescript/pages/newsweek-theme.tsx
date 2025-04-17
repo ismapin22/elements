@@ -74,7 +74,7 @@ export default function NewsweekTheme() {
   gesturesdisabled="{{disabled}}"
   hotkeys="{{hotkeys}}"
   nohotkeys="{{nohotkeys}}"
-  streamType="{{streamType}}"
+  mediaadbreak="{{mediaadbreak}}"
   part="controller"
 >
   <slot name="media" slot="media"></slot>
@@ -98,11 +98,11 @@ export default function NewsweekTheme() {
   </style>
   <div class="nw-gradient-bottom"></div>
 
-  <!-- Settings Menu -->
+  <!-- Rendition Menu -->
   <style>
-    media-settings-menu {
+    media-rendition-menu {
       position: absolute;
-      border-radius: 12px;
+      border-radius: 0.3rem;
       right: 12px;
       bottom: 61px;
       z-index: 70;
@@ -111,13 +111,17 @@ export default function NewsweekTheme() {
       transition: opacity 0.1s cubic-bezier(0, 0, 0.2, 1);
       user-select: none;
       --media-settings-menu-min-width: 220px;
+      --media-menu-item-checked-background: #f72210;
+      --media-menu-item-checked-indicator-display: none;
+      font-weight: 500; 
     }
-    [mediaisfullscreen] media-settings-menu {
+
+    [mediaisfullscreen] media-rendition-menu {
       --media-settings-menu-min-width: 320px;
       right: 24px;
       bottom: 70px;
     }
-    media-settings-menu-item {
+    media-chrome-menu-item {
       height: 40px;
       font-size: 13px;
       font-weight: 500;
@@ -138,15 +142,11 @@ export default function NewsweekTheme() {
     .quality-settings[submenusize='1'] {
       display: none;
     }
+
   </style>
-  <media-settings-menu hidden anchor="auto">
-    <media-settings-menu-item class="quality-settings">
-      Quality
-      <media-rendition-menu slot="submenu" hidden>
-        <div slot="title">Quality</div>
-      </media-rendition-menu>
-    </media-settings-menu-item>
-  </media-settings-menu>
+
+  <media-rendition-menu anchor="auto" hidden>
+  </media-rendition-menu>
 
   <!-- Time Range / Progress Bar -->
 
@@ -177,7 +177,7 @@ export default function NewsweekTheme() {
     }
 
     media-play-button[slot="centered-chrome"][mediapaused]:hover {
-      color: red;
+      color: #f72210;
     }
 
     media-play-button[slot="centered-chrome"] p {
@@ -215,9 +215,9 @@ export default function NewsweekTheme() {
       --media-range-track-background: rgba(255, 255, 255, 0.2);
       --media-range-track-pointer-background: rgba(255, 255, 255, 0.5);
       --media-time-range-buffered-color: rgba(255, 255, 255, 0.4);
-      --media-range-bar-color: var(--media-accent-color, rgb(229, 9, 20));
+      --media-range-bar-color: var(--media-accent-color, #f72210);
       --media-range-thumb-border-radius: 13px;
-      --media-range-thumb-background: var(--media-accent-color, #f00);
+      --media-range-thumb-background: var(--media-accent-color, #f72210);
       --media-range-thumb-transition: transform 0.1s linear;
       --media-range-thumb-transform: scale(0) translate(0%, 0%);
     }
@@ -246,6 +246,13 @@ export default function NewsweekTheme() {
 
     media-preview-time-display {
       padding-top: 0;
+      background: #d8d8d8;
+      color: black;
+      padding: 0.25rem 0.5rem;
+      text-shadow: none;
+      display: block !important;
+      opacity: 1;
+      margin-bottom: 1rem;
     }
   </style>
   <media-time-range>
@@ -327,7 +334,8 @@ export default function NewsweekTheme() {
       </svg>
     </media-play-button>
 
-    <template if="streamtype != 'live'">
+    
+    <template if="mediaadbreak == null">
       <media-seek-backward-button seekoffset="10">
       <svg slot="icon" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M16.908 21.7465C16.616 21.2426 16.2047 20.8212 15.7116 20.5206C15.2185 20.22 14.6594 20.0499 14.0851 20.0257C13.5109 20.0499 12.9518 20.22 12.4587 20.5206C11.9656 20.8212 11.5543 21.2426 11.2623 21.7465C10.5893 22.8804 10.2336 24.18 10.2336 25.5047C10.2336 26.8295 10.5893 28.129 11.2623 29.2629C11.5543 29.7668 11.9656 30.1882 12.4587 30.4888C12.9518 30.7894 13.5109 30.9595 14.0851 30.9838C14.6594 30.9595 15.2185 30.7894 15.7116 30.4888C16.2047 30.1882 16.616 29.7668 16.908 29.2629C17.581 28.129 17.9367 26.8295 17.9367 25.5047C17.9367 24.18 17.581 22.8804 16.908 21.7465ZM14.0851 29.409C12.8412 29.409 11.7886 27.6233 11.7886 25.4966C11.7886 23.3699 12.8412 21.5841 14.0851 21.5841C15.3291 21.5841 16.3817 23.3699 16.3817 25.4966C16.3817 27.6233 15.3451 29.409 14.0851 29.409ZM7.16351 30.9838V22.7043L6.39798 23.4836L5.31349 22.3796L7.38679 20.2692C7.49386 20.1598 7.63043 20.0853 7.77917 20.0551C7.92792 20.0248 8.08213 20.0403 8.22225 20.0994C8.36236 20.1585 8.48206 20.2587 8.56615 20.3872C8.65024 20.5157 8.69493 20.6667 8.69456 20.8211V31L7.16351 30.9838ZM33 9.8468V30.1883C32.9972 30.3941 32.9157 30.5907 32.7727 30.7362C32.6298 30.8817 32.4366 30.9647 32.2345 30.9675H22.2348V27.8343H29.9219V12.1845H11.4696V15.3177C11.4696 16.1782 10.8954 16.4866 10.1937 16.0158L3.52726 11.4865C3.30225 11.371 3.13094 11.17 3.05035 10.927C2.96977 10.6839 2.98641 10.4184 3.09666 10.1877C3.18836 9.99697 3.33987 9.84275 3.52726 9.7494L10.1937 5.22005C10.8954 4.74926 11.4696 5.05771 11.4696 5.91812V9.05133H32.2185C32.4248 9.05443 32.6218 9.13923 32.7677 9.28775C32.9136 9.43626 32.997 9.6368 33 9.8468Z" fill="currentColor"/>
@@ -348,11 +356,11 @@ export default function NewsweekTheme() {
       }
     </style>
 
-    <template if="streamtype != 'live'">
+    <template if="mediaadbreak == null">
       <media-time-display showduration></media-time-display>
     </template>
 
-    <template if="streamtype == 'live'">
+    <template if="mediaadbreak != null">
       Advertisement
       <media-time-display remaining></media-time-display>
     </template>
@@ -444,7 +452,7 @@ export default function NewsweekTheme() {
     <media-volume-range></media-volume-range>
 
     <!-- Settings Menu Button -->
-    <template if="streamtype == 'on-demand'">
+    <template if="mediaadbreak == null">
     <style>
       media-settings-menu-button svg {
         transition: transform 0.1s cubic-bezier(0.4, 0, 1, 1);
@@ -454,7 +462,7 @@ export default function NewsweekTheme() {
         transform: rotateZ(30deg);
       }
     </style>
-    <media-settings-menu-button class="nw-button">
+    <media-rendition-menu-button class="nw-button">
       <svg slot="icon" viewBox="0 0 36 36">
         <use class="svg-shadow" xlink:href="#settings-icon"></use>
         <path
@@ -462,7 +470,8 @@ export default function NewsweekTheme() {
           d="M11.8153 12.0477L14.2235 12.9602C14.6231 12.6567 15.0599 12.3996 15.5258 12.1971L15.9379 9.66561C16.5985 9.50273 17.2891 9.41632 18 9.41632C18.7109 9.41632 19.4016 9.50275 20.0622 9.66566L20.4676 12.1555C20.9584 12.3591 21.418 12.6227 21.8372 12.9372L24.1846 12.0477C25.1391 13.0392 25.8574 14.2597 26.249 15.6186L24.3196 17.1948C24.3531 17.4585 24.3704 17.7272 24.3704 18C24.3704 18.2727 24.3531 18.5415 24.3196 18.8051L26.249 20.3814C25.8574 21.7403 25.1391 22.9607 24.1846 23.9522L21.8372 23.0628C21.4179 23.3772 20.9584 23.6408 20.4676 23.8445L20.0622 26.3343C19.4016 26.4972 18.7109 26.5836 18 26.5836C17.2891 26.5836 16.5985 26.4972 15.9379 26.3344L15.5258 23.8029C15.0599 23.6003 14.6231 23.3433 14.2236 23.0398L11.8154 23.9523C10.8609 22.9608 10.1426 21.7404 9.75098 20.3815L11.7633 18.7375C11.7352 18.4955 11.7208 18.2495 11.7208 18C11.7208 17.7505 11.7352 17.5044 11.7633 17.2625L9.75098 15.6185C10.1426 14.2596 10.8609 13.0392 11.8153 12.0477ZM18 20.75C19.5188 20.75 20.75 19.5188 20.75 18C20.75 16.4812 19.5188 15.25 18 15.25C16.4812 15.25 15.25 16.4812 15.25 18C15.25 19.5188 16.4812 20.75 18 20.75Z"
         />
       </svg>
-    </media-settings-menu-button>
+
+    </media-rendition-menu-button>
     </template>
 
     <!-- Fullscreen Button -->
