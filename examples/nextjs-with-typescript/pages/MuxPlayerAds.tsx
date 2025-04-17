@@ -1,8 +1,10 @@
+'use client';
 import Link from "next/link";
 import Head from 'next/head';
 import { useRef, useState, useEffect } from "react";
 import MuxPlayer from "@mux/mux-player-react";
 import "@mux/mux-player/themes/microvideo";
+import  NewsweekTheme  from "./newsweek-theme";
 
 const INITIAL_AUTOPLAY = false;
 const INITIAL_MUTED = false;
@@ -48,17 +50,19 @@ function MuxPlayerAdsPage() {
       <Head>
         <title>&lt;MuxPlayer/&gt; (theme) Demo</title>
       </Head>
+      <NewsweekTheme/>
 
       {sdkLoaded && <MuxPlayer
         ref={mediaElRef}
         playbackId="Sc89iWAyNkhJ3P1rQ02nrEdCFTnfT01CZ2KmaEcxXfB008"
-        // theme="microvideo"
+        theme="newsweek-theme"
         // themeProps={{ controlBarVertical: true, controlBarPlace: 'start start' }}
         metadata={{
           video_id: "video-id-12345",
           video_title: "Mad Max: Fury Road Trailer",
           viewer_user_id: "user-id-6789",
         }}
+        streamType="on-demand"
         // envKey="mux-data-env-key"
         autoPlay={autoplay}
         muted={muted}
