@@ -1,6 +1,7 @@
 /* Main Playlist Container */
 .playlist {
   /* Ensure it wraps on smaller screens */
+  display: inline;
   position: relative;
   background-color: #121212;
   z-index: 2;
