@@ -56,7 +56,7 @@ function MuxPlayerAdsPage() {
         ref={mediaElRef}
         playbackId="Sc89iWAyNkhJ3P1rQ02nrEdCFTnfT01CZ2KmaEcxXfB008"
         theme="newsweek-theme"
-        themeProps={{ controlBarVertical: true, controlBarPlace: 'start start', mediaadbreak: true }}
+        themeProps={{ controlBarVertical: true, controlBarPlace: 'start start' }}
         metadata={{
           video_id: "video-id-12345",
           video_title: "Mad Max: Fury Road Trailer",

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import PlaylistPostVideo from "./playlist-post-video";
 import MuxPlayer from "@mux/mux-player-react";
+import NewsweekTheme from "../pages/newsweek-theme";
 
 const INITIAL_AUTOPLAY = false;
 const INITIAL_MUTED = false;
@@ -62,9 +63,12 @@ const Playlist = ({videoList}) => {
 
   return (
     <div>
+      <NewsweekTheme />
       <PlaylistPostVideo video={currentIndex < videoList.length - 1 ? videoList[currentIndex + 1] : videoList[0]} relatedVideos={videoList} isVisible={isEndScreenVisible} selectVideoCallback={selectVideo} timerCallback={playVideo} > 
         {sdkLoaded && <MuxPlayer
           ref={mediaElRef}
+          theme="newsweek-theme"
+          themeProps={{ controlBarVertical: true, controlBarPlace: 'start start' }}
           key={`player-${playerKey}`}
           playbackId={videoList[currentIndex].playbackId}
           style={{ aspectRatio: "16/9" }}
