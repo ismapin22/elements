@@ -5,9 +5,10 @@
     <title>&lt;mux-playe adsr&gt; example</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
     <link rel="stylesheet" href="./styles.css">
-    <script type="module" src="./dist/mux-player.js"></script>
+    <!-- NOTE: make sure you load dependencies (like '<mux-video-ads>' definition) *BEFORE* player -->
+      <script src="https://imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
     <script type="module" src="./dist/mux-video-ads.js"></script>
-    <script src="https://imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
+    <script type="module" src="./dist/mux-player.js"></script>
     <style>
       mux-player {
         display: block;
