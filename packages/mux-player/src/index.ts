@@ -343,6 +343,9 @@ class MuxPlayerElement extends VideoApiElement implements MuxPlayerElement {
     },
   };
 
+  #isMuxVideoElementProcessed = false;
+  #attributeQueue: Array<{ attrName: string; oldValue: string | null; newValue: string }> = [];
+
   static get NAME() {
     return playerSoftwareName;
   }
@@ -682,7 +685,26 @@ class MuxPlayerElement extends VideoApiElement implements MuxPlayerElement {
     });
   }
 
+  //This method is to ensure that the init execute in the correct media element the first time.
+  #processAttributeQueue(attrName: string, oldValue: string | null, newValue: string) {
+    if (attrName === PlayerAttributes.MUX_VIDEO_ELEMENT) {
+      this.#isMuxVideoElementProcessed = true;
+      this.#attributeQueue.unshift({ attrName, oldValue, newValue });
+      this.#attributeQueue.forEach(({ attrName, oldValue, newValue }) => {
+        this.attributeChangedCallback(attrName, oldValue, newValue);
+      });
+      this.#attributeQueue = [];
+    } else {
+      this.#attributeQueue.push({ attrName, oldValue, newValue });
+    }
+  }
+
   attributeChangedCallback(attrName: string, oldValue: string | null, newValue: string) {
+    if (!this.#isMuxVideoElementProcessed) {
+      this.#processAttributeQueue(attrName, oldValue, newValue);
+      return;
+    }
+
     // Initialize right after construction when the attributes become available.
     this.#init();
 

@@ -140,6 +140,7 @@ export type MuxPlayerProps = {
   Partial<VideoApiAttributes>;
 
 const MuxPlayerInternal = React.forwardRef<MuxPlayerRefAttributes, MuxPlayerProps>(({ children, ...props }, ref) => {
+  if (!props.muxVideoElement) props.muxVideoElement = 'mux-video';
   return React.createElement('mux-player', toNativeProps({ ...props, ref }), children);
 });
 
