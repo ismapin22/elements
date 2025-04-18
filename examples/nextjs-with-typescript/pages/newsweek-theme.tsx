@@ -155,12 +155,12 @@ export default function NewsweekTheme() {
       display: grid;
       grid-template-columns: 1.5rem auto;
       align-items: center;
-      gap: 1rem;
+      gap: 1.2rem;
       background: #000;
       border-radius: 2rem;
       opacity: 1;
       padding: 1rem;
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       font-weight: 400;
       text-transform: uppercase;
       margin: 0;
@@ -188,8 +188,8 @@ export default function NewsweekTheme() {
     }
 
     media-play-button[slot="centered-chrome"] svg {
-      width: 2rem;
-      height: 2rem;
+      width: 1.8rem;
+      height: auto;
     }
 
   </style>
@@ -212,6 +212,7 @@ export default function NewsweekTheme() {
       bottom: 36px;
       width: 100%;
       height: 5px;
+      z-index: 2;
       --media-range-track-background: rgba(255, 255, 255, 0.2);
       --media-range-track-pointer-background: rgba(255, 255, 255, 0.5);
       --media-time-range-buffered-color: rgba(255, 255, 255, 0.4);

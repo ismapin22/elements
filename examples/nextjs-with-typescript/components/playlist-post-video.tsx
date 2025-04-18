@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../post-video.css";
 
-const PlaylistPostVideo = ({ video, relatedVideos, children, isVisible, selectVideoCallback, timerCallback }) => {
+const PlaylistPostVideo = ({ video, relatedVideos, isVisible, selectVideoCallback, timerCallback }) => {
   const [count, setCount] = useState(3);
 
   useEffect(() => {
@@ -23,12 +23,9 @@ const PlaylistPostVideo = ({ video, relatedVideos, children, isVisible, selectVi
   }, [count, isVisible]);
 
   return (
-    <div className="playlist">
-      <div className="overlay" style={{ display: isVisible ? "flex" : "none" }} />
-      <div className="video-section">
-        {children}
-      </div>
-      <div className="post-video-section" style={{ display: isVisible ? "flex" : "none" }}>
+    <div className="playlist" style={{ display: isVisible ? "grid" : "none" }} >
+      <div className="overlay" style={{ display: isVisible ? "grid" : "none" }} />
+      <div className="post-video-section" style={{ display: isVisible ? "grid" : "none", zIndex: 99 }}>
         <div className="video-section">
           <div className="video-container">
             <h2 className="title">Video</h2>
@@ -59,9 +56,11 @@ const PlaylistPostVideo = ({ video, relatedVideos, children, isVisible, selectVi
           <h3 className="related-title">Related Videos</h3>
           <ul className="related-list">
             {relatedVideos.map((relatedVideo, index) => (
-              <li key={index} className="related-item">
-                <img className="related-thumbnail" src={relatedVideo.imageUrl} alt={relatedVideo.title} />
-                <p className="related-text" onClick={() => selectVideoCallback(index)}  >{relatedVideo.title}</p>
+              <li key={index}>
+                <button className="related-item" onClick={() => selectVideoCallback(index)}>
+                  <img className="related-thumbnail" src={relatedVideo.imageUrl} alt={relatedVideo.title} />
+                  <p className="related-text" >{relatedVideo.title}</p>
+                </button>
               </li>
             ))}
           </ul>
