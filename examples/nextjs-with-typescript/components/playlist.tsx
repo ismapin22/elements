@@ -23,13 +23,41 @@ const Playlist = ({videoList}) => {
       const script = document.createElement("script");
       script.src = "https://imasdk.googleapis.com/js/sdkloader/ima3.js";
       script.async = true;
+
       script.onload = () => {
-        setSdkLoaded(true);  // Mark SDK as loaded
+        setSdkLoaded(true); // Mark SDK as loaded
         console.log("Google IMA SDK loaded");
       };
+
+      script.onerror = () => {
+        console.warn("Google IMA SDK failed to load. Likely blocked by ad blocker.");
+        showImaBlockedMessage();
+      };
+
       document.head.appendChild(script);
     };
     
+    const showImaBlockedMessage = () => {
+      const message = document.createElement("div");
+      message.textContent = "Ad experience is unavailable due to an ad blocker.";
+      message.className = "ima-blocked-message";
+
+      Object.assign(message.style, {
+        position: "absolute",
+        bottom: "1em",
+        left: "50%",
+        transform: "translateX(-50%)",
+        background: "#000",
+        color: "#fff",
+        padding: "0.5em 1em",
+        fontSize: "0.875em",
+        borderRadius: "4px",
+        zIndex: "9999",
+      });
+
+      document.body.appendChild(message);
+    };
+
     if (!window.google || !window.google.ima) {
       loadImaSdk();
     } else {
