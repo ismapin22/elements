@@ -123,7 +123,7 @@ const Playlist = ({videoList}) => {
             }
           }}
         >
-           <PlaylistPostVideo video={currentIndex < videoList.length - 1 ? videoList[currentIndex + 1] : videoList[0]} relatedVideos={videoList} isVisible={true} selectVideoCallback={selectVideo} timerCallback={playVideo} />
+           <PlaylistPostVideo video={currentIndex < videoList.length - 1 ? videoList[currentIndex + 1] : videoList[0]} relatedVideos={videoList} isVisible={isEndScreenVisible} selectVideoCallback={selectVideo} timerCallback={playVideo} />
         </MuxPlayer>}
 
     </div>
