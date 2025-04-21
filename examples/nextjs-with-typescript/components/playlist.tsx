@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import PlaylistPostVideo from "./playlist-post-video";
+import '@mux/mux-video-ads';
 import MuxPlayer from "@mux/mux-player-react";
 import NewsweekTheme from "../pages/newsweek-theme";
 

@@ -2,6 +2,7 @@
 import Link from "next/link";
 import Head from 'next/head';
 import { useRef, useState, useEffect } from "react";
+import '@mux/mux-video-ads';
 import MuxPlayer from "@mux/mux-player-react";
 import "@mux/mux-player/themes/microvideo";
 import  NewsweekTheme  from "./newsweek-theme";

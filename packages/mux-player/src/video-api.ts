@@ -19,10 +19,6 @@ export type MuxVideoElementExt = MuxVideoElement & {
   requestCast(options: CastOptions): Promise<undefined>;
 };
 
-export type MuxVideoAdsExt = MuxVideoAds & {
-  requestCast(options: CastOptions): Promise<undefined>;
-};
-
 const AllowedVideoAttributes = {
   AUTOPLAY: 'autoplay',
   CROSSORIGIN: 'crossorigin',
@@ -30,7 +26,7 @@ const AllowedVideoAttributes = {
   MUTED: 'muted',
   PLAYSINLINE: 'playsinline',
   PRELOAD: 'preload',
-};
+} as const;
 
 const CustomVideoAttributes = {
   VOLUME: 'volume',
@@ -38,7 +34,14 @@ const CustomVideoAttributes = {
   // This muted attribute also reflects to the muted property while the muted
   // attribute on a native video element reflects only to video.defaultMuted.
   MUTED: 'muted',
+  /** @TODO Consider renaming to a more generic identifier e.g. media-element-name (CJP) */
+  MUX_VIDEO_ELEMENT: 'mux-video-element',
 };
+
+export const Attributes = {
+  ...AllowedVideoAttributes,
+  ...CustomVideoAttributes,
+} as const;
 
 const emptyTimeRanges: TimeRanges = Object.freeze({
   length: 0,
@@ -64,9 +67,11 @@ const emptyTimeRanges: TimeRanges = Object.freeze({
 
 const AllowedVideoEvents = VideoEvents.filter((type) => type !== 'error');
 const AllowedVideoAttributeNames = Object.values(AllowedVideoAttributes).filter(
-  (name) => ![AllowedVideoAttributes.PLAYSINLINE].includes(name)
+  (name) => AllowedVideoAttributes.PLAYSINLINE !== name
 );
 const CustomVideoAttributesNames = Object.values(CustomVideoAttributes);
+
+export const AttributeNames = [...AllowedVideoAttributeNames, ...CustomVideoAttributesNames];
 
 // NOTE: Some of these are defined in MuxPlayerElement. We may want to apply a
 // `Pick<>` on these to also enforce consistency (CJP).
@@ -139,7 +144,7 @@ interface VideoApiElement extends PartialHTMLVideoElement, HTMLElement {
 // eslint-disable-next-line @typescript-eslint/no-unsafe-declaration-merging
 class VideoApiElement extends globalThis.HTMLElement implements VideoApiElement {
   static get observedAttributes() {
-    return [...AllowedVideoAttributeNames, ...CustomVideoAttributesNames];
+    return AttributeNames as string[];
   }
 
   /**
@@ -208,8 +213,12 @@ class VideoApiElement extends globalThis.HTMLElement implements VideoApiElement 
     return this.media?.requestCast(options);
   }
 
-  get media(): MuxVideoElementExt | MuxVideoAdsExt | null | undefined {
-    return this.shadowRoot?.querySelector('mux-video') ?? this.shadowRoot?.querySelector('mux-video-ads');
+  get muxVideoElement() {
+    return this.getAttribute(Attributes.MUX_VIDEO_ELEMENT) ?? 'mux-video';
+  }
+
+  get media(): MuxVideoElementExt | null | undefined {
+    return this.shadowRoot?.querySelector(this.muxVideoElement);
   }
 
   get audioTracks() {

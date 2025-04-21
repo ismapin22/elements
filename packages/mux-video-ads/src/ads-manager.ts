@@ -1,4 +1,5 @@
-/// <reference types="google_interactive_media_ads_types" />
+/* eslint @typescript-eslint/triple-slash-reference: "off" */
+/// <reference types="google_interactive_media_ads_types" preserve="true"/>
 
 import MuxVideoElement from '@mux/mux-video';
 import { Hls } from '@mux/playback-core';

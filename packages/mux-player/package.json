@@ -94,11 +94,9 @@
   },
   "dependencies": {
     "@mux/mux-video": "0.24.4",
-    "@mux/mux-video-ads": "1.0.0",
     "@mux/playback-core": "0.28.4",
     "media-chrome": "~4.8.0",
-    "player.style": "^0.1.6",
-    "@types/google_interactive_media_ads_types": "^1.20241219.0"
+    "player.style": "^0.1.6"
   },
   "devDependencies": {
     "@mux/esbuilder": "0.1.0",
