@@ -92,9 +92,8 @@ const Playlist = ({videoList}) => {
 
   return (
     <div>
-      <NewsweekTheme />
-      <PlaylistPostVideo video={currentIndex < videoList.length - 1 ? videoList[currentIndex + 1] : videoList[0]} relatedVideos={videoList} isVisible={isEndScreenVisible} selectVideoCallback={selectVideo} timerCallback={playVideo} > 
-        {sdkLoaded && <MuxPlayer
+      <NewsweekTheme/>
+      {sdkLoaded && <MuxPlayer
           ref={mediaElRef}
           theme="newsweek-theme"
           themeProps={{ controlBarVertical: true, controlBarPlace: 'start start' }}
@@ -125,8 +124,9 @@ const Playlist = ({videoList}) => {
             }
           }}
         >
+           <PlaylistPostVideo video={currentIndex < videoList.length - 1 ? videoList[currentIndex + 1] : videoList[0]} relatedVideos={videoList} isVisible={isEndScreenVisible} selectVideoCallback={selectVideo} timerCallback={playVideo} />
         </MuxPlayer>}
-      </PlaylistPostVideo>
+
     </div>
   )
 }
