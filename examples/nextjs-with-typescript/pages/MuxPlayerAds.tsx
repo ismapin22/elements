@@ -28,6 +28,10 @@ function MuxPlayerAdsPage() {
         setSdkLoaded(true);  // Mark SDK as loaded
         console.log("Google IMA SDK loaded");
       };
+      script.onerror = () => {
+        console.warn("Google IMA SDK failed to load. Likely blocked by ad blocker.");
+        setSdkLoaded(true);
+      };
       document.head.appendChild(script);
     };
 
@@ -53,7 +57,7 @@ function MuxPlayerAdsPage() {
       </Head>
       <NewsweekTheme/>
 
-      <MuxPlayer
+      {sdkLoaded && <MuxPlayer
         ref={mediaElRef}
         playbackId="Sc89iWAyNkhJ3P1rQ02nrEdCFTnfT01CZ2KmaEcxXfB008"
         theme="newsweek-theme"
@@ -75,7 +79,7 @@ function MuxPlayerAdsPage() {
         onPause={() => {
           setPaused(true);
         }}
-      />
+      />}
     </>
   );
 }
