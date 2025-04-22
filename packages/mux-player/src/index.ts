@@ -4,8 +4,7 @@ import { Attributes as MediaControllerAttributes } from 'media-chrome/dist/media
 import { MediaUIAttributes } from 'media-chrome/dist/constants.js';
 import 'media-chrome/dist/experimental/index.js';
 import { MediaThemeElement } from 'media-chrome/dist/media-theme-element.js';
-import MuxVideoElement, { MediaError, Attributes as MuxVideoAttributes } from '@mux/mux-video';
-import MuxVideoAds from '@mux/mux-video-ads';
+import { MediaError, Attributes as MuxVideoAttributes } from '@mux/mux-video';
 import {
   StreamTypes,
   PlaybackTypes,
@@ -55,7 +54,7 @@ export { MediaError, generatePlayerInitTime };
 const VideoAttributes = {
   SRC: 'src',
   POSTER: 'poster',
-};
+} as const;
 
 const PlayerAttributes = {
   STYLE: 'style',
@@ -87,9 +86,8 @@ const PlayerAttributes = {
   CAST_RECEIVER: 'cast-receiver',
   NO_TOOLTIPS: 'no-tooltips',
   PROUDLY_DISPLAY_MUX_BADGE: 'proudly-display-mux-badge',
-  MUX_VIDEO_ELEMENT: 'mux-video-element',
   AD_TAG_URL: 'adtagurl',
-};
+} as const;
 
 const ThemeAttributeNames = [
   'audio',
@@ -177,7 +175,7 @@ function getProps(el: MuxPlayerElement, state?: any): MuxTemplateProps {
     title: el.getAttribute(PlayerAttributes.TITLE),
     novolumepref: el.hasAttribute(PlayerAttributes.NO_VOLUME_PREF),
     castReceiver: el.castReceiver,
-    muxVideoElement: el.getAttribute(PlayerAttributes.MUX_VIDEO_ELEMENT) ?? 'mux-video',
+    muxVideoElement: el.muxVideoElement,
     adTagUrl: el.getAttribute(PlayerAttributes.AD_TAG_URL) ?? undefined,
     proudlyDisplayMuxBadge: el.hasAttribute(PlayerAttributes.PROUDLY_DISPLAY_MUX_BADGE),
     ...state,
@@ -394,14 +392,15 @@ class MuxPlayerElement extends VideoApiElement implements MuxPlayerElement {
     }
 
     try {
-      customElements.upgrade(this.media as Node);
-      if (!(this.media instanceof MuxVideoAds)) {
-        if (!(this.media instanceof MuxVideoElement)) {
+      if (this.muxVideoElement.includes('-')) {
+        customElements.upgrade(this.media as Node);
+        const mediaClass = customElements.get(this.muxVideoElement);
+        if (!(mediaClass && this.media instanceof mediaClass)) {
           throw '';
         }
       }
     } catch (_error) {
-      logger.error('<mux-video> failed to upgrade!');
+      logger.error('underlying media element failed to upgrade!');
     }
 
     try {
@@ -456,9 +455,7 @@ class MuxPlayerElement extends VideoApiElement implements MuxPlayerElement {
   }
 
   connectedCallback() {
-    const muxVideo =
-      (this.shadowRoot?.querySelector('mux-video') as MuxVideoElement) ??
-      (this.shadowRoot?.querySelector('mux-video-ads') as MuxVideoAds);
+    const muxVideo = this.media;
     if (muxVideo) {
       muxVideo.metadata = getMetadataFromAttrs(this);
     }
@@ -811,6 +808,7 @@ class MuxPlayerElement extends VideoApiElement implements MuxPlayerElement {
       MuxVideoAttributes.PLAYBACK_ID,
       VideoAttributes.SRC,
       PlayerAttributes.PLAYBACK_TOKEN,
+      // @ts-ignore
     ].includes(attrName);
 
     if (shouldClearState && oldValue !== newValue) {
