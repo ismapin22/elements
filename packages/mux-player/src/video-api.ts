@@ -3,7 +3,6 @@
 import { globalThis } from './polyfills';
 import { VideoEvents } from '@mux/mux-video';
 import type MuxVideoElement from '@mux/mux-video';
-import type MuxVideoAds from '@mux/mux-video-ads';
 import * as logger from './logger';
 import { toNumberOrUndefined } from './utils';
 

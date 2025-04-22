@@ -53,7 +53,7 @@ function MuxPlayerAdsPage() {
       </Head>
       <NewsweekTheme/>
 
-      {sdkLoaded && <MuxPlayer
+      <MuxPlayer
         ref={mediaElRef}
         playbackId="Sc89iWAyNkhJ3P1rQ02nrEdCFTnfT01CZ2KmaEcxXfB008"
         theme="newsweek-theme"
@@ -75,7 +75,7 @@ function MuxPlayerAdsPage() {
         onPause={() => {
           setPaused(true);
         }}
-      />}
+      />
     </>
   );
 }

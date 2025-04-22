@@ -66,6 +66,22 @@ video::-webkit-media-text-track-container {
 #mainContainer #adContainer.ad-playing {
     z-index: 2;
 }
+#imaUnavailableMessage {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 1em 1.5em;
+  border-radius: 6px;
+  font-size: 0.9em;
+  text-align: center;
+  max-width: 90%;
+  line-height: 1.4;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
 </style>
 <div id="mainContainer">
     <slot name="media">
@@ -97,6 +113,7 @@ video::-webkit-media-text-track-container {
 
     if (!MuxAdManager.isGoogleImaSDKAvailable()) {
       console.error('Missing google.ima SDK. Make sure you include it via a script tag.');
+      this.#showAdBlockedMessage();
       return;
     }
 
@@ -112,6 +129,16 @@ video::-webkit-media-text-track-container {
     this.#muxAdManager.setupAdsManager(this.#adContainer);
 
     this.#setupEventListeners();
+  }
+
+  #showAdBlockedMessage() {
+    const fallback = document.createElement('div');
+    fallback.id = 'imaUnavailableMessage';
+    fallback.innerHTML = `
+  <strong>Ad experience unavailable.</strong><br />
+  <span>This may be due to a missing SDK, network issue, or ad blocker.</span>
+`;
+    this.shadowRoot?.getElementById('mainContainer')?.appendChild(fallback);
   }
 
   #setupEventListeners(): void {
