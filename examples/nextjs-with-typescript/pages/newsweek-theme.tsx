@@ -207,7 +207,7 @@ export default function NewsweekTheme() {
       display: none;
     }
 
-    media-controller[mediacurrenttime="0"] span {
+    media-controller[mediacurrenttime="0"] media-play-button[slot="centered-chrome"] span {
       display: none;
     }
 
