@@ -1,5 +1,3 @@
-/// <reference types="google_interactive_media_ads_types" />
-
 import { globalThis } from './polyfills';
 import { VideoEvents } from '@mux/mux-video';
 import type MuxVideoElement from '@mux/mux-video';

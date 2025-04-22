@@ -1,5 +1,3 @@
-/// <reference types="google_interactive_media_ads_types" />
-
 'use client';
 import React, { useEffect, useState } from 'react';
 import type { CSSProperties } from 'react';
