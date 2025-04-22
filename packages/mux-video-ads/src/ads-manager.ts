@@ -315,7 +315,8 @@ export class MuxAdManager {
   }
 
   updateAdsManagerSize(width: number, height: number) {
-    this.#adsManager?.resize(width, height, this.#viewMode);
+    this.#originalSize = { ...this.#originalSize, width, height };
+    this.#adsManager?.resize(this.#originalSize.width, this.#originalSize.height, this.#viewMode);
   }
 
   get adsLoader() {
