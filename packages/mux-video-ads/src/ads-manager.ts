@@ -159,9 +159,18 @@ export class MuxAdManager {
     );
 
     this.#adsManager?.addEventListener(google.ima.AdEvent.Type.PAUSED, () => {
-      console.log('paused');
+      console.log('Ads paused');
       this.#adPaused = true;
       this.#customMediaElement.dispatchEvent(new Event('pause'));
+    });
+
+    this.#adsManager?.addEventListener(google.ima.AdEvent.Type.RESUMED, () => {
+      console.log('Ads resumed');
+      this.#adPaused = false;
+      //TODO: only fornative playback and same video element
+      //this.#videoElement.play();
+      //TODO: only for mse and same video element
+      //this.#customMediaElement._hls?.startLoad(this.#customMediaElement.currentTime);
     });
 
     this.#adsManager?.addEventListener(

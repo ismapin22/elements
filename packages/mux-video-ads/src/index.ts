@@ -171,9 +171,10 @@ video::-webkit-media-text-track-container {
       this.adTagUrl = undefined;
       this.#setAdContainerPlaying(false);
       this.#dispatchAdBreakChange(false);
+      this.addEventListener('ended', this.onEnded, { once: true });
       setTimeout(() => {
         this.play();
-      }, 200);
+      }, 100);
     });
 
     //TODO: should we move this to muxplayer?
@@ -243,7 +244,9 @@ video::-webkit-media-text-track-container {
     this.addEventListener('play', this.play);
 
     if (this.adTagUrl && this.adBreak) {
-      this.#muxAdManager?.resumeAdManager();
+      if (this.#muxAdManager?.isAdPaused()) {
+        this.#muxAdManager?.resumeAdManager();
+      }
       this.dispatchEvent(new Event('playing'));
       return Promise.resolve();
     }
@@ -259,7 +262,6 @@ video::-webkit-media-text-track-container {
 
       if (this.#muxAdManager?.isReadyForInitialization() || this.#muxAdManager?.isInitialized()) {
         this.#muxAdManager.requestAds(this.adTagUrl);
-        this.addEventListener('ended', this.onEnded, { once: true });
       } else if (this.#muxAdManager?.isAdPaused()) {
         this.#muxAdManager.resumeAdManager();
       }
