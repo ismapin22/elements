@@ -123,10 +123,11 @@ video::-webkit-media-text-track-container {
       videoElement: this,
       contentVideoElement: this.nativeEl,
       originalSize: this.getBoundingClientRect(),
+      adContainer: this.#adContainer,
     };
 
     this.#muxAdManager = new MuxAdManager(config);
-    this.#muxAdManager.setupAdsManager(this.#adContainer);
+    this.#muxAdManager.setupAdsManager();
 
     this.#setupEventListeners();
   }
