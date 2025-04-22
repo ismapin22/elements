@@ -2,7 +2,6 @@
 /// <reference types="google_interactive_media_ads_types" preserve="true"/>
 
 import MuxVideoElement from '@mux/mux-video';
-import { Hls } from '@mux/playback-core';
 
 export type MuxAdManagerConfig = {
   videoElement: MuxVideoElement;
@@ -179,13 +178,6 @@ export class MuxAdManager {
     this.#adsManager?.addEventListener(google.ima.AdEvent.Type.RESUMED, () => {
       console.log('Ads resumed');
       this.#adPaused = false;
-      // if(this.isUsingSameVideoElement()){
-      //   console.log('Ads resumed', this.isMSE(), this.isNative());
-      //   if(this.isMSE())
-      //     this.#customMediaElement._hls?.startLoad(this.#customMediaElement.currentTime);
-      //   else if(this.isNative())
-      //     this.#videoElement.play();
-      // }
     });
 
     this.#adsManager?.addEventListener(
