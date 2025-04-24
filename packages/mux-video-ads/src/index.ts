@@ -5,7 +5,7 @@ import MuxVideoElement from '@mux/mux-video';
 // @ts-ignore
 import mux from '@mux/mux-data-google-ima';
 import { MuxAdManagerConfig, MuxAdManager } from './ads-manager';
-// import type { MuxDataSDK } from '@mux/playback-core';
+import type { MuxDataSDK } from '@mux/playback-core';
 
 const serializeAttributes = (attrs = {}) => {
   return (
@@ -231,19 +231,12 @@ video::-webkit-media-text-track-container {
   }
 
   onEnded() {
-    //TODO: this is a hack to prevent the play event from being called twice but we are able to propagate the event to the parent
-    this.dispatchEvent(new CustomEvent('ended', { composed: true, bubbles: true }));
     if (this.adTagUrl && this.#muxAdManager?.isReadyForComplete()) {
       this.#muxAdManager.contentComplete();
     }
   }
 
   play() {
-    //TODO: this is a hack to prevent the play event from being called twice but we are able to propagate the event to the parent
-    this.removeEventListener('play', this.play);
-    this.dispatchEvent(new CustomEvent('play', { composed: true, bubbles: true }));
-    this.addEventListener('play', this.play);
-
     if (this.adTagUrl && this.adBreak) {
       if (this.#muxAdManager?.isAdPaused()) {
         this.#muxAdManager?.resumeAdManager();
@@ -274,11 +267,6 @@ video::-webkit-media-text-track-container {
   }
 
   pause(): void {
-    //TODO: this is a hack to prevent the play event from being called twice but we are able to propagate the event to the parent
-    this.removeEventListener('pause', this.pause);
-    this.dispatchEvent(new CustomEvent('pause', { composed: true, bubbles: true }));
-    this.addEventListener('pause', this.pause);
-
     if (this.adBreak) {
       this.#muxAdManager?.pauseAdManager();
     }
@@ -361,14 +349,22 @@ video::-webkit-media-text-track-container {
     return super.requestPictureInPicture();
   }
 
-  // get muxDataSDK() {
-  //   return mux as MuxDataSDK;
-  // }
+  get muxDataSDK() {
+    return mux as MuxDataSDK;
+  }
 
   get muxDataSDKOptions() {
     return {
       imaAdsLoader: this.#muxAdManager?.adsLoader,
     };
+  }
+
+  set muxDataKeepSession(val: boolean) {
+    this.toggleAttribute('mux-data-keep-session', Boolean(val));
+  }
+
+  get muxDataKeepSession(): boolean {
+    return this.hasAttribute('mux-data-keep-session');
   }
 }
 
