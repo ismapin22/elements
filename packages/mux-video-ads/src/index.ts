@@ -23,7 +23,7 @@ const Attributes = {
 
 class MuxVideoAds extends MuxVideoElement {
   #muxAdManager: MuxAdManager | undefined;
-  #isUsingSameVideoElement: boolean | undefined;
+  #lastCurrentime: number | undefined;
 
   static getTemplateHTML = (attrs: Record<string, string>) => {
     return `
@@ -161,7 +161,6 @@ video::-webkit-media-text-track-container {
             this.#muxAdManager.requestAds(this.adTagUrl);
           }
         }
-        this.#isUsingSameVideoElement = this.#muxAdManager?.isUsingSameVideoElement();
       },
       { once: true }
     );
@@ -179,7 +178,7 @@ video::-webkit-media-text-track-container {
     this.nativeEl.addEventListener('seeking', (event) => {
       if (this.adBreak && !this.#isUsingSameVideoElement) {
         console.warn('Seek prevented during ad break');
-        this.nativeEl.currentTime = 0;
+        this.nativeEl.currentTime = this.#lastCurrentime ?? 0;
         this.nativeEl.dispatchEvent(new Event('timeupdate'));
       }
     });
@@ -271,6 +270,7 @@ video::-webkit-media-text-track-container {
     }
 
     if (this.adTagUrl) {
+      this.#lastCurrentime = this.nativeEl.currentTime;
       this.#adBreak = true;
       this.dispatchEvent(new Event('durationchange'));
       this.#setAdContainerPlaying(true);
@@ -307,6 +307,13 @@ video::-webkit-media-text-track-container {
 
   #setAdContainerPlaying(isPlaying: boolean): void {
     this.#adContainer?.classList.toggle('ad-playing', isPlaying);
+  }
+
+  get #isUsingSameVideoElement() {
+    if (this.#muxAdManager) {
+      return this.#muxAdManager.isUsingSameVideoElement();
+    }
+    return undefined;
   }
 
   get duration(): number {
