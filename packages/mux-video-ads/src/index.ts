@@ -23,6 +23,7 @@ const Attributes = {
 
 class MuxVideoAds extends MuxVideoElement {
   #muxAdManager: MuxAdManager | undefined;
+  #isUsingSameVideoElement: boolean | undefined;
 
   static getTemplateHTML = (attrs: Record<string, string>) => {
     return `
@@ -160,11 +161,28 @@ video::-webkit-media-text-track-container {
             this.#muxAdManager.requestAds(this.adTagUrl);
           }
         }
+        this.#isUsingSameVideoElement = this.#muxAdManager?.isUsingSameVideoElement();
       },
       { once: true }
     );
 
     this.addEventListener('play', this.play);
+
+    this.nativeEl.addEventListener('play', (event) => {
+      if (this.adBreak && !this.#isUsingSameVideoElement) {
+        console.warn('Video play prevented during ad break');
+        this.nativeEl.pause();
+        return;
+      }
+    });
+
+    this.nativeEl.addEventListener('seeking', (event) => {
+      if (this.adBreak && !this.#isUsingSameVideoElement) {
+        console.warn('Seek prevented during ad break');
+        this.nativeEl.currentTime = 0;
+        this.nativeEl.dispatchEvent(new Event('timeupdate'));
+      }
+    });
 
     this.addEventListener('onAdsCompleted', () => {
       this.#adBreak = false;
