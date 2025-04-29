@@ -88,6 +88,8 @@ export type MuxPlayerProps = {
   programStartTime?: number;
   programEndTime?: number;
   proudlyDisplayMuxBadge?: boolean;
+  muxVideoElement?: string;
+  adTagUrl?: string;
   assetStartTime?: number;
   assetEndTime?: number;
   metadataVideoId?: string;
@@ -275,6 +277,7 @@ const MuxPlayer = React.forwardRef<
     <MuxPlayerInternal
       /** @TODO Fix types relationships (CJP) */
       ref={playerRef as typeof innerPlayerRef}
+      muxVideoElement={props.muxVideoElement}
       playerSoftwareName={playerSoftwareName}
       playerSoftwareVersion={playerSoftwareVersion}
       playerInitTime={playerInitTime}

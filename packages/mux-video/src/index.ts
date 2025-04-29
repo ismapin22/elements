@@ -716,7 +716,7 @@ class MuxVideoBaseElement extends CustomVideoElement implements Partial<MuxMedia
   }
 
   unload() {
-    teardown(this.nativeEl, this.#core);
+    teardown(this.nativeEl, this.#core, this as Partial<MuxMediaProps>);
     this.#core = undefined;
   }
 
