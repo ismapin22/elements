@@ -1,199 +1,1076 @@
-var Be=t=>{throw TypeError(t)};var Ee=(t,a,e)=>a.has(t)||Be("Cannot "+e);var u=(t,a,e)=>(Ee(t,a,"read from private field"),e?e.call(t):a.get(t)),A=(t,a,e)=>a.has(t)?Be("Cannot add the same private member more than once"):a instanceof WeakSet?a.add(t):a.set(t,e),R=(t,a,e,i)=>(Ee(t,a,"write to private field"),i?i.call(t,e):a.set(t,e),e),b=(t,a,e)=>(Ee(t,a,"access private method"),e);var G=class{addEventListener(){}removeEventListener(){}dispatchEvent(a){return!0}};if(typeof DocumentFragment=="undefined"){class t extends G{}globalThis.DocumentFragment=t}var Q=class extends G{},Ae=class extends G{},At={get(t){},define(t,a,e){},getName(t){return null},upgrade(t){},whenDefined(t){return Promise.resolve(Q)}},ee,Ce=class{constructor(a,e={}){A(this,ee);R(this,ee,e==null?void 0:e.detail)}get detail(){return u(this,ee)}initCustomEvent(){}};ee=new WeakMap;function Ct(t,a){return new Q}var Ke={document:{createElement:Ct},DocumentFragment,customElements:At,CustomEvent:Ce,EventTarget:G,HTMLElement:Q,HTMLVideoElement:Ae},He=typeof window=="undefined"||typeof globalThis.customElements=="undefined",C=He?Ke:globalThis,j=He?Ke.document:globalThis.document;import{MediaController as ra,MediaErrorDialog as gt}from"media-chrome";import{Attributes as Pe}from"media-chrome/dist/media-container.js";import{MediaUIAttributes as ut}from"media-chrome/dist/constants.js";import"media-chrome/dist/experimental/index.js";import{MediaError as re,Attributes as s}from"@mux/mux-video";import{StreamTypes as M,PlaybackTypes as Te,addTextTrack as oa,removeTextTrack as na,CmcdTypeValues as mt,i18n as W,parseJwt as Ie,MuxJWTAud as De,generatePlayerInitTime as sa}from"@mux/playback-core";import{VideoEvents as Mt}from"@mux/mux-video";import{i18n as Ot}from"@mux/playback-core";import{StreamTypes as _e,parseJwt as $e}from"@mux/playback-core";function Ye(t){let a="";return Object.entries(t).forEach(([e,i])=>{i!=null&&(a+=`${ce(e)}: ${i}; `)}),a?a.trim():void 0}function ce(t){return t.replace(/([a-z])([A-Z])/g,"$1-$2").toLowerCase()}function pe(t){return t.replace(/[-_]([a-z])/g,(a,e)=>e.toUpperCase())}function T(t){if(t==null)return;let a=+t;return Number.isNaN(a)?void 0:a}function ke(t){let a=kt(t).toString();return a?"?"+a:""}function kt(t){let a={};for(let e in t)t[e]!=null&&(a[e]=t[e]);return new URLSearchParams(a)}var xe=(t,a)=>!t||!a?!1:t.contains(a)?!0:xe(t,a.getRootNode().host);var Fe="mux.com",xt=()=>{try{return"3.3.1"}catch{}return"UNKNOWN"},_t=xt(),he=()=>_t,We=(t,{token:a,customDomain:e=Fe,thumbnailTime:i,programTime:r}={})=>{var l;let n=a==null?i:void 0,{aud:d}=(l=$e(a))!=null?l:{};if(!(a&&d!=="t"))return`https://image.${e}/${t}/thumbnail.webp${ke({token:a,time:n,program_time:r})}`},Ze=(t,{token:a,customDomain:e=Fe,programStartTime:i,programEndTime:r}={})=>{var d;let{aud:n}=(d=$e(a))!=null?d:{};if(!(a&&n!=="s"))return`https://image.${e}/${t}/storyboard.vtt${ke({token:a,format:"webp",program_start_time:i,program_end_time:r})}`},te=t=>{if(t){if([_e.LIVE,_e.ON_DEMAND].includes(t))return t;if(t!=null&&t.includes("live"))return _e.LIVE}};var Rt={crossorigin:"crossOrigin",playsinline:"playsInline"};function Ge(t){var a;return(a=Rt[t])!=null?a:pe(t)}var H,Y,E,be=class{constructor(a,e){A(this,H);A(this,Y);A(this,E,[]);R(this,H,a),R(this,Y,e)}[Symbol.iterator](){return u(this,E).values()}get length(){return u(this,E).length}get value(){var a;return(a=u(this,E).join(" "))!=null?a:""}set value(a){var e;a!==this.value&&(R(this,E,[]),this.add(...(e=a==null?void 0:a.split(" "))!=null?e:[]))}toString(){return this.value}item(a){return u(this,E)[a]}values(){return u(this,E).values()}keys(){return u(this,E).keys()}forEach(a){u(this,E).forEach(a)}add(...a){var e,i;a.forEach(r=>{this.contains(r)||u(this,E).push(r)}),!(this.value===""&&!((e=u(this,H))!=null&&e.hasAttribute(`${u(this,Y)}`)))&&((i=u(this,H))==null||i.setAttribute(`${u(this,Y)}`,`${this.value}`))}remove(...a){var e;a.forEach(i=>{u(this,E).splice(u(this,E).indexOf(i),1)}),(e=u(this,H))==null||e.setAttribute(`${u(this,Y)}`,`${this.value}`)}contains(a){return u(this,E).includes(a)}toggle(a,e){return typeof e!="undefined"?e?(this.add(a),!0):(this.remove(a),!1):this.contains(a)?(this.remove(a),!1):(this.add(a),!0)}replace(a,e){this.remove(a),this.add(e)}};H=new WeakMap,Y=new WeakMap,E=new WeakMap;var je=`[mux-player ${he()}]`;function O(...t){console.warn(je,...t)}function k(...t){console.error(je,...t)}function Re(t){var e;let a=(e=t.message)!=null?e:"";t.context&&(a+=` ${t.context}`),t.file&&(a+=` ${Ot("Read more: ")}
-https://github.com/muxinc/elements/blob/main/errors/${t.file}`),O(a)}var g={AUTOPLAY:"autoplay",CROSSORIGIN:"crossorigin",LOOP:"loop",MUTED:"muted",PLAYSINLINE:"playsinline",PRELOAD:"preload"},D={VOLUME:"volume",PLAYBACKRATE:"playbackrate",MUTED:"muted",MUX_VIDEO_ELEMENT:"mux-video-element"},Lt={...g,...D},Xe=Object.freeze({length:0,start(t){let a=t>>>0;if(a>=this.length)throw new DOMException(`Failed to execute 'start' on 'TimeRanges': The index provided (${a}) is greater than or equal to the maximum bound (${this.length}).`);return 0},end(t){let a=t>>>0;if(a>=this.length)throw new DOMException(`Failed to execute 'end' on 'TimeRanges': The index provided (${a}) is greater than or equal to the maximum bound (${this.length}).`);return 0}}),Nt=Mt.filter(t=>t!=="error"),St=Object.values(g).filter(t=>g.PLAYSINLINE!==t),wt=Object.values(D),Pt=[...St,...wt],Oe=class extends C.HTMLElement{static get observedAttributes(){return Pt}constructor(){super()}init(){Nt.forEach(a=>{var e;(e=this.media)==null||e.addEventListener(a,i=>{this.dispatchEvent(new Event(i.type))})})}attributeChangedCallback(a,e,i){var r,n;switch(a){case D.MUTED:{this.media&&(this.media.muted=i!=null,this.media.defaultMuted=i!=null);return}case D.VOLUME:{let d=(r=T(i))!=null?r:1;this.media&&(this.media.volume=d);return}case D.PLAYBACKRATE:{let d=(n=T(i))!=null?n:1;this.media&&(this.media.playbackRate=d,this.media.defaultPlaybackRate=d);return}}}play(){var a,e;return(e=(a=this.media)==null?void 0:a.play())!=null?e:Promise.reject()}pause(){var a;(a=this.media)==null||a.pause()}load(){var a;(a=this.media)==null||a.load()}requestCast(a){var e;return(e=this.media)==null?void 0:e.requestCast(a)}get muxVideoElement(){var a;return(a=this.getAttribute(Lt.MUX_VIDEO_ELEMENT))!=null?a:"mux-video"}get media(){var a;return(a=this.shadowRoot)==null?void 0:a.querySelector(this.muxVideoElement)}get audioTracks(){return this.media.audioTracks}get videoTracks(){return this.media.videoTracks}get audioRenditions(){return this.media.audioRenditions}get videoRenditions(){return this.media.videoRenditions}get paused(){var a,e;return(e=(a=this.media)==null?void 0:a.paused)!=null?e:!0}get duration(){var a,e;return(e=(a=this.media)==null?void 0:a.duration)!=null?e:NaN}get ended(){var a,e;return(e=(a=this.media)==null?void 0:a.ended)!=null?e:!1}get buffered(){var a,e;return(e=(a=this.media)==null?void 0:a.buffered)!=null?e:Xe}get seekable(){var a,e;return(e=(a=this.media)==null?void 0:a.seekable)!=null?e:Xe}get readyState(){var a,e;return(e=(a=this.media)==null?void 0:a.readyState)!=null?e:0}get videoWidth(){var a,e;return(e=(a=this.media)==null?void 0:a.videoWidth)!=null?e:0}get videoHeight(){var a,e;return(e=(a=this.media)==null?void 0:a.videoHeight)!=null?e:0}get currentSrc(){var a,e;return(e=(a=this.media)==null?void 0:a.currentSrc)!=null?e:""}get currentTime(){var a,e;return(e=(a=this.media)==null?void 0:a.currentTime)!=null?e:0}set currentTime(a){this.media&&(this.media.currentTime=Number(a))}get volume(){var a,e;return(e=(a=this.media)==null?void 0:a.volume)!=null?e:1}set volume(a){this.media&&(this.media.volume=Number(a))}get playbackRate(){var a,e;return(e=(a=this.media)==null?void 0:a.playbackRate)!=null?e:1}set playbackRate(a){this.media&&(this.media.playbackRate=Number(a))}get defaultPlaybackRate(){var a;return(a=T(this.getAttribute(D.PLAYBACKRATE)))!=null?a:1}set defaultPlaybackRate(a){a!=null?this.setAttribute(D.PLAYBACKRATE,`${a}`):this.removeAttribute(D.PLAYBACKRATE)}get crossOrigin(){return ae(this,g.CROSSORIGIN)}set crossOrigin(a){this.setAttribute(g.CROSSORIGIN,`${a}`)}get autoplay(){return ae(this,g.AUTOPLAY)!=null}set autoplay(a){a?this.setAttribute(g.AUTOPLAY,typeof a=="string"?a:""):this.removeAttribute(g.AUTOPLAY)}get loop(){return ae(this,g.LOOP)!=null}set loop(a){a?this.setAttribute(g.LOOP,""):this.removeAttribute(g.LOOP)}get muted(){var a,e;return(e=(a=this.media)==null?void 0:a.muted)!=null?e:!1}set muted(a){this.media&&(this.media.muted=!!a)}get defaultMuted(){return ae(this,g.MUTED)!=null}set defaultMuted(a){a?this.setAttribute(g.MUTED,""):this.removeAttribute(g.MUTED)}get playsInline(){return ae(this,g.PLAYSINLINE)!=null}set playsInline(a){k("playsInline is set to true by default and is not currently supported as a setter.")}get preload(){return this.media?this.media.preload:this.getAttribute("preload")}set preload(a){["","none","metadata","auto"].includes(a)?this.setAttribute(g.PRELOAD,a):this.removeAttribute(g.PRELOAD)}};function ae(t,a){return t.media?t.media.getAttribute(a):t.getAttribute(a)}var Me=Oe;import"media-chrome/dist/media-theme-element.js";var qe=`:host {
-  --media-control-display: var(--controls);
-  --media-loading-indicator-display: var(--loading-indicator);
-  --media-dialog-display: var(--dialog);
-  --media-play-button-display: var(--play-button);
-  --media-live-button-display: var(--live-button);
-  --media-seek-backward-button-display: var(--seek-backward-button);
-  --media-seek-forward-button-display: var(--seek-forward-button);
-  --media-mute-button-display: var(--mute-button);
-  --media-captions-button-display: var(--captions-button);
-  --media-captions-menu-button-display: var(--captions-menu-button, var(--media-captions-button-display));
-  --media-rendition-menu-button-display: var(--rendition-menu-button);
-  --media-audio-track-menu-button-display: var(--audio-track-menu-button);
-  --media-airplay-button-display: var(--airplay-button);
-  --media-pip-button-display: var(--pip-button);
-  --media-fullscreen-button-display: var(--fullscreen-button);
-  --media-cast-button-display: var(--cast-button, var(--_cast-button-drm-display));
-  --media-playback-rate-button-display: var(--playback-rate-button);
-  --media-playback-rate-menu-button-display: var(--playback-rate-menu-button);
-  --media-volume-range-display: var(--volume-range);
-  --media-time-range-display: var(--time-range);
-  --media-time-display-display: var(--time-display);
-  --media-duration-display-display: var(--duration-display);
-  --media-title-display-display: var(--title-display);
+var __typeError = (msg) => {
+  throw TypeError(msg);
+};
+var __accessCheck = (obj, member, msg) => member.has(obj) || __typeError("Cannot " + msg);
+var __privateGet = (obj, member, getter) => (__accessCheck(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
+var __privateAdd = (obj, member, value) => member.has(obj) ? __typeError("Cannot add the same private member more than once") : member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+var __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
+var __privateMethod = (obj, member, method) => (__accessCheck(obj, member, "access private method"), method);
 
-  display: inline-block;
-  line-height: 0;
-  width: 100%;
+// src/polyfills/index.ts
+var EventTarget = class {
+  addEventListener() {
+  }
+  removeEventListener() {
+  }
+  dispatchEvent(_event) {
+    return true;
+  }
+};
+if (typeof DocumentFragment === "undefined") {
+  class DocumentFragment2 extends EventTarget {
+  }
+  globalThis.DocumentFragment = DocumentFragment2;
+}
+var HTMLElement = class extends EventTarget {
+};
+var HTMLVideoElement = class extends EventTarget {
+};
+var customElements2 = {
+  get(_name) {
+    return void 0;
+  },
+  define(_name, _constructor, _options) {
+  },
+  getName(_constructor) {
+    return null;
+  },
+  upgrade(_root) {
+  },
+  whenDefined(_name) {
+    return Promise.resolve(HTMLElement);
+  }
+};
+var _detail;
+var CustomEvent2 = class {
+  constructor(_typeArg, eventInitDict = {}) {
+    __privateAdd(this, _detail);
+    __privateSet(this, _detail, eventInitDict == null ? void 0 : eventInitDict.detail);
+  }
+  get detail() {
+    return __privateGet(this, _detail);
+  }
+  initCustomEvent() {
+  }
+};
+_detail = new WeakMap();
+function createElement(_tagName, _options) {
+  return new HTMLElement();
+}
+var globalThisShim = {
+  document: {
+    createElement
+  },
+  DocumentFragment,
+  customElements: customElements2,
+  CustomEvent: CustomEvent2,
+  EventTarget,
+  HTMLElement,
+  HTMLVideoElement
+};
+var isServer = typeof window === "undefined" || typeof globalThis.customElements === "undefined";
+var internalGlobalThis = isServer ? globalThisShim : globalThis;
+var internalDocument = isServer ? globalThisShim.document : globalThis.document;
+
+// src/index.ts
+import { MediaController, MediaErrorDialog } from "media-chrome";
+import { Attributes as MediaControllerAttributes } from "media-chrome/dist/media-container.js";
+import { MediaUIAttributes } from "media-chrome/dist/constants.js";
+import "media-chrome/dist/experimental/index.js";
+import { MediaError as MediaError2, Attributes as MuxVideoAttributes } from "@mux/mux-video";
+import {
+  StreamTypes as StreamTypes3,
+  PlaybackTypes,
+  addTextTrack,
+  removeTextTrack,
+  CmcdTypeValues,
+  i18n as i18n3,
+  parseJwt as parseJwt2,
+  MuxJWTAud,
+  generatePlayerInitTime
+} from "@mux/playback-core";
+
+// src/video-api.ts
+import { VideoEvents } from "@mux/mux-video";
+
+// src/logger.ts
+import { i18n } from "@mux/playback-core";
+
+// src/helpers.ts
+import { StreamTypes, parseJwt } from "@mux/playback-core";
+
+// src/utils.ts
+function stylePropsToString(props) {
+  let style = "";
+  Object.entries(props).forEach(([key, value]) => {
+    if (value == null) return;
+    style += `${kebabCase(key)}: ${value}; `;
+  });
+  return style ? style.trim() : void 0;
+}
+function kebabCase(name) {
+  return name.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase();
+}
+function camelCase(name) {
+  return name.replace(/[-_]([a-z])/g, (_$0, $1) => $1.toUpperCase());
+}
+function toNumberOrUndefined(val) {
+  if (val == null) return void 0;
+  const num = +val;
+  return !Number.isNaN(num) ? num : void 0;
+}
+function toQuery(obj) {
+  const params = toParams(obj).toString();
+  return params ? "?" + params : "";
+}
+function toParams(obj) {
+  const params = {};
+  for (const key in obj) {
+    if (obj[key] != null) params[key] = obj[key];
+  }
+  return new URLSearchParams(params);
+}
+var containsComposedNode = (rootNode, childNode) => {
+  if (!rootNode || !childNode) return false;
+  if (rootNode.contains(childNode)) return true;
+  return containsComposedNode(rootNode, childNode.getRootNode().host);
+};
+
+// src/helpers.ts
+var MUX_VIDEO_DOMAIN = "mux.com";
+var getEnvPlayerVersion = () => {
+  try {
+    return "3.3.1";
+  } catch {
+  }
+  return "UNKNOWN";
+};
+var player_version = getEnvPlayerVersion();
+var getPlayerVersion = () => player_version;
+var getPosterURLFromPlaybackId = (playbackId, {
+  token,
+  customDomain: domain = MUX_VIDEO_DOMAIN,
+  thumbnailTime,
+  programTime: program_time
+} = {}) => {
+  var _a2;
+  const time = token == null ? thumbnailTime : void 0;
+  const { aud } = (_a2 = parseJwt(token)) != null ? _a2 : {};
+  if (token && aud !== "t") {
+    return;
+  }
+  return `https://image.${domain}/${playbackId}/thumbnail.webp${toQuery({
+    token,
+    time,
+    program_time
+  })}`;
+};
+var getStoryboardURLFromPlaybackId = (playbackId, {
+  token,
+  customDomain: domain = MUX_VIDEO_DOMAIN,
+  programStartTime: program_start_time,
+  programEndTime: program_end_time
+} = {}) => {
+  var _a2;
+  const { aud } = (_a2 = parseJwt(token)) != null ? _a2 : {};
+  if (token && aud !== "s") {
+    return;
+  }
+  return `https://image.${domain}/${playbackId}/storyboard.vtt${toQuery({
+    token,
+    format: "webp",
+    program_start_time,
+    program_end_time
+  })}`;
+};
+var getStreamTypeFromAttr = (streamTypeAttr) => {
+  if (!streamTypeAttr) return void 0;
+  if ([StreamTypes.LIVE, StreamTypes.ON_DEMAND].includes(streamTypeAttr))
+    return streamTypeAttr;
+  if (streamTypeAttr == null ? void 0 : streamTypeAttr.includes("live")) return StreamTypes.LIVE;
+  return void 0;
+};
+var attrToPropNameMap = {
+  crossorigin: "crossOrigin",
+  playsinline: "playsInline"
+};
+function toPropName(attrName) {
+  var _a2;
+  return (_a2 = attrToPropNameMap[attrName]) != null ? _a2 : camelCase(attrName);
+}
+var _el, _attr, _tokens;
+var AttributeTokenList = class {
+  constructor(el, attr) {
+    __privateAdd(this, _el);
+    __privateAdd(this, _attr);
+    __privateAdd(this, _tokens, []);
+    __privateSet(this, _el, el);
+    __privateSet(this, _attr, attr);
+  }
+  [Symbol.iterator]() {
+    return __privateGet(this, _tokens).values();
+  }
+  get length() {
+    return __privateGet(this, _tokens).length;
+  }
+  get value() {
+    var _a2;
+    return (_a2 = __privateGet(this, _tokens).join(" ")) != null ? _a2 : "";
+  }
+  set value(val) {
+    var _a2;
+    if (val === this.value) return;
+    __privateSet(this, _tokens, []);
+    this.add(...(_a2 = val == null ? void 0 : val.split(" ")) != null ? _a2 : []);
+  }
+  toString() {
+    return this.value;
+  }
+  item(index) {
+    return __privateGet(this, _tokens)[index];
+  }
+  values() {
+    return __privateGet(this, _tokens).values();
+  }
+  keys() {
+    return __privateGet(this, _tokens).keys();
+  }
+  forEach(callback) {
+    __privateGet(this, _tokens).forEach(callback);
+  }
+  add(...tokens) {
+    var _a2, _b2;
+    tokens.forEach((t) => {
+      if (!this.contains(t)) __privateGet(this, _tokens).push(t);
+    });
+    if (this.value === "" && !((_a2 = __privateGet(this, _el)) == null ? void 0 : _a2.hasAttribute(`${__privateGet(this, _attr)}`))) {
+      return;
+    }
+    (_b2 = __privateGet(this, _el)) == null ? void 0 : _b2.setAttribute(`${__privateGet(this, _attr)}`, `${this.value}`);
+  }
+  remove(...tokens) {
+    var _a2;
+    tokens.forEach((t) => {
+      __privateGet(this, _tokens).splice(__privateGet(this, _tokens).indexOf(t), 1);
+    });
+    (_a2 = __privateGet(this, _el)) == null ? void 0 : _a2.setAttribute(`${__privateGet(this, _attr)}`, `${this.value}`);
+  }
+  contains(token) {
+    return __privateGet(this, _tokens).includes(token);
+  }
+  toggle(token, force) {
+    if (typeof force !== "undefined") {
+      if (force) {
+        this.add(token);
+        return true;
+      } else {
+        this.remove(token);
+        return false;
+      }
+    }
+    if (this.contains(token)) {
+      this.remove(token);
+      return false;
+    }
+    this.add(token);
+    return true;
+  }
+  replace(oldToken, newToken) {
+    this.remove(oldToken);
+    this.add(newToken);
+  }
+};
+_el = new WeakMap();
+_attr = new WeakMap();
+_tokens = new WeakMap();
+
+// src/logger.ts
+var prefix = `[mux-player ${getPlayerVersion()}]`;
+function warn(...args) {
+  console.warn(prefix, ...args);
+}
+function error(...args) {
+  console.error(prefix, ...args);
+}
+function devlog(opts) {
+  var _a2;
+  let message = (_a2 = opts.message) != null ? _a2 : "";
+  if (opts.context) {
+    message += ` ${opts.context}`;
+  }
+  if (opts.file) {
+    const githubErrorsBase = "https://github.com/muxinc/elements/blob/main/errors/";
+    message += ` ${i18n(`Read more: `)}
+${githubErrorsBase}${opts.file}`;
+  }
+  warn(message);
 }
 
-a {
-  color: #fff;
-  font-size: 0.9em;
-  text-decoration: underline;
+// src/video-api.ts
+var AllowedVideoAttributes = {
+  AUTOPLAY: "autoplay",
+  CROSSORIGIN: "crossorigin",
+  LOOP: "loop",
+  MUTED: "muted",
+  PLAYSINLINE: "playsinline",
+  PRELOAD: "preload"
+};
+var CustomVideoAttributes = {
+  VOLUME: "volume",
+  PLAYBACKRATE: "playbackrate",
+  // This muted attribute also reflects to the muted property while the muted
+  // attribute on a native video element reflects only to video.defaultMuted.
+  MUTED: "muted",
+  /** @TODO Consider renaming to a more generic identifier e.g. media-element-name (CJP) */
+  MUX_VIDEO_ELEMENT: "mux-video-element"
+};
+var Attributes = {
+  ...AllowedVideoAttributes,
+  ...CustomVideoAttributes
+};
+var emptyTimeRanges = Object.freeze({
+  length: 0,
+  start(index) {
+    const unsignedIdx = index >>> 0;
+    if (unsignedIdx >= this.length) {
+      throw new DOMException(
+        `Failed to execute 'start' on 'TimeRanges': The index provided (${unsignedIdx}) is greater than or equal to the maximum bound (${this.length}).`
+      );
+    }
+    return 0;
+  },
+  end(index) {
+    const unsignedIdx = index >>> 0;
+    if (unsignedIdx >= this.length) {
+      throw new DOMException(
+        `Failed to execute 'end' on 'TimeRanges': The index provided (${unsignedIdx}) is greater than or equal to the maximum bound (${this.length}).`
+      );
+    }
+    return 0;
+  }
+});
+var AllowedVideoEvents = VideoEvents.filter((type) => type !== "error");
+var AllowedVideoAttributeNames = Object.values(AllowedVideoAttributes).filter(
+  (name) => AllowedVideoAttributes.PLAYSINLINE !== name
+);
+var CustomVideoAttributesNames = Object.values(CustomVideoAttributes);
+var AttributeNames = [...AllowedVideoAttributeNames, ...CustomVideoAttributesNames];
+var VideoApiElement = class extends internalGlobalThis.HTMLElement {
+  static get observedAttributes() {
+    return AttributeNames;
+  }
+  /**
+   * Create a HTMLVideoElement like API with opt-in methods to expose publicly.
+   * This class is intentionally not extending MuxVideoElement but composing it
+   * to opt in methods and not expose too much. More flexibility in the future.
+   */
+  constructor() {
+    super();
+  }
+  /**
+   * Gets called from mux-player when mux-video is rendered and upgraded.
+   * We might just merge VideoApiElement in MuxPlayerElement and remove this?
+   */
+  init() {
+    AllowedVideoEvents.forEach((type) => {
+      var _a2;
+      (_a2 = this.media) == null ? void 0 : _a2.addEventListener(type, (evt) => {
+        this.dispatchEvent(new Event(evt.type));
+      });
+    });
+  }
+  attributeChangedCallback(attrName, _oldValue, newValue) {
+    var _a2, _b2;
+    switch (attrName) {
+      case CustomVideoAttributes.MUTED: {
+        if (this.media) {
+          this.media.muted = newValue != null;
+          this.media.defaultMuted = newValue != null;
+        }
+        return;
+      }
+      case CustomVideoAttributes.VOLUME: {
+        const val = (_a2 = toNumberOrUndefined(newValue)) != null ? _a2 : 1;
+        if (this.media) {
+          this.media.volume = val;
+        }
+        return;
+      }
+      case CustomVideoAttributes.PLAYBACKRATE: {
+        const val = (_b2 = toNumberOrUndefined(newValue)) != null ? _b2 : 1;
+        if (this.media) {
+          this.media.playbackRate = val;
+          this.media.defaultPlaybackRate = val;
+        }
+        return;
+      }
+    }
+  }
+  play() {
+    var _a2, _b2;
+    return (_b2 = (_a2 = this.media) == null ? void 0 : _a2.play()) != null ? _b2 : Promise.reject();
+  }
+  pause() {
+    var _a2;
+    (_a2 = this.media) == null ? void 0 : _a2.pause();
+  }
+  load() {
+    var _a2;
+    (_a2 = this.media) == null ? void 0 : _a2.load();
+  }
+  requestCast(options) {
+    var _a2;
+    return (_a2 = this.media) == null ? void 0 : _a2.requestCast(options);
+  }
+  get muxVideoElement() {
+    var _a2;
+    return (_a2 = this.getAttribute(Attributes.MUX_VIDEO_ELEMENT)) != null ? _a2 : "mux-video";
+  }
+  get media() {
+    var _a2;
+    return (_a2 = this.shadowRoot) == null ? void 0 : _a2.querySelector(this.muxVideoElement);
+  }
+  get audioTracks() {
+    return this.media.audioTracks;
+  }
+  get videoTracks() {
+    return this.media.videoTracks;
+  }
+  get audioRenditions() {
+    return this.media.audioRenditions;
+  }
+  get videoRenditions() {
+    return this.media.videoRenditions;
+  }
+  get paused() {
+    var _a2, _b2;
+    return (_b2 = (_a2 = this.media) == null ? void 0 : _a2.paused) != null ? _b2 : true;
+  }
+  get duration() {
+    var _a2, _b2;
+    return (_b2 = (_a2 = this.media) == null ? void 0 : _a2.duration) != null ? _b2 : NaN;
+  }
+  get ended() {
+    var _a2, _b2;
+    return (_b2 = (_a2 = this.media) == null ? void 0 : _a2.ended) != null ? _b2 : false;
+  }
+  get buffered() {
+    var _a2, _b2;
+    return (_b2 = (_a2 = this.media) == null ? void 0 : _a2.buffered) != null ? _b2 : emptyTimeRanges;
+  }
+  get seekable() {
+    var _a2, _b2;
+    return (_b2 = (_a2 = this.media) == null ? void 0 : _a2.seekable) != null ? _b2 : emptyTimeRanges;
+  }
+  get readyState() {
+    var _a2, _b2;
+    return (_b2 = (_a2 = this.media) == null ? void 0 : _a2.readyState) != null ? _b2 : 0;
+  }
+  get videoWidth() {
+    var _a2, _b2;
+    return (_b2 = (_a2 = this.media) == null ? void 0 : _a2.videoWidth) != null ? _b2 : 0;
+  }
+  get videoHeight() {
+    var _a2, _b2;
+    return (_b2 = (_a2 = this.media) == null ? void 0 : _a2.videoHeight) != null ? _b2 : 0;
+  }
+  get currentSrc() {
+    var _a2, _b2;
+    return (_b2 = (_a2 = this.media) == null ? void 0 : _a2.currentSrc) != null ? _b2 : "";
+  }
+  get currentTime() {
+    var _a2, _b2;
+    return (_b2 = (_a2 = this.media) == null ? void 0 : _a2.currentTime) != null ? _b2 : 0;
+  }
+  set currentTime(val) {
+    if (this.media) {
+      this.media.currentTime = Number(val);
+    }
+  }
+  get volume() {
+    var _a2, _b2;
+    return (_b2 = (_a2 = this.media) == null ? void 0 : _a2.volume) != null ? _b2 : 1;
+  }
+  set volume(val) {
+    if (this.media) {
+      this.media.volume = Number(val);
+    }
+  }
+  get playbackRate() {
+    var _a2, _b2;
+    return (_b2 = (_a2 = this.media) == null ? void 0 : _a2.playbackRate) != null ? _b2 : 1;
+  }
+  set playbackRate(val) {
+    if (this.media) {
+      this.media.playbackRate = Number(val);
+    }
+  }
+  get defaultPlaybackRate() {
+    var _a2;
+    return (_a2 = toNumberOrUndefined(this.getAttribute(CustomVideoAttributes.PLAYBACKRATE))) != null ? _a2 : 1;
+  }
+  set defaultPlaybackRate(val) {
+    if (val != null) {
+      this.setAttribute(CustomVideoAttributes.PLAYBACKRATE, `${val}`);
+    } else {
+      this.removeAttribute(CustomVideoAttributes.PLAYBACKRATE);
+    }
+  }
+  get crossOrigin() {
+    return getVideoAttribute(this, AllowedVideoAttributes.CROSSORIGIN);
+  }
+  set crossOrigin(val) {
+    this.setAttribute(AllowedVideoAttributes.CROSSORIGIN, `${val}`);
+  }
+  get autoplay() {
+    return getVideoAttribute(this, AllowedVideoAttributes.AUTOPLAY) != null;
+  }
+  set autoplay(val) {
+    if (val) {
+      this.setAttribute(AllowedVideoAttributes.AUTOPLAY, typeof val === "string" ? val : "");
+    } else {
+      this.removeAttribute(AllowedVideoAttributes.AUTOPLAY);
+    }
+  }
+  get loop() {
+    return getVideoAttribute(this, AllowedVideoAttributes.LOOP) != null;
+  }
+  set loop(val) {
+    if (val) {
+      this.setAttribute(AllowedVideoAttributes.LOOP, "");
+    } else {
+      this.removeAttribute(AllowedVideoAttributes.LOOP);
+    }
+  }
+  get muted() {
+    var _a2, _b2;
+    return (_b2 = (_a2 = this.media) == null ? void 0 : _a2.muted) != null ? _b2 : false;
+  }
+  set muted(val) {
+    if (this.media) {
+      this.media.muted = Boolean(val);
+    }
+  }
+  get defaultMuted() {
+    return getVideoAttribute(this, AllowedVideoAttributes.MUTED) != null;
+  }
+  set defaultMuted(val) {
+    if (val) {
+      this.setAttribute(AllowedVideoAttributes.MUTED, "");
+    } else {
+      this.removeAttribute(AllowedVideoAttributes.MUTED);
+    }
+  }
+  get playsInline() {
+    return getVideoAttribute(this, AllowedVideoAttributes.PLAYSINLINE) != null;
+  }
+  set playsInline(val) {
+    error("playsInline is set to true by default and is not currently supported as a setter.");
+  }
+  get preload() {
+    return this.media ? this.media.preload : this.getAttribute("preload");
+  }
+  set preload(val) {
+    if (["", "none", "metadata", "auto"].includes(val)) {
+      this.setAttribute(AllowedVideoAttributes.PRELOAD, val);
+    } else {
+      this.removeAttribute(AllowedVideoAttributes.PRELOAD);
+    }
+  }
+};
+function getVideoAttribute(el, name) {
+  return el.media ? el.media.getAttribute(name) : el.getAttribute(name);
+}
+var video_api_default = VideoApiElement;
+
+// src/template.ts
+import "media-chrome/dist/media-theme-element.js";
+
+// src/styles.css
+var styles_default = ":host {\n  --media-control-display: var(--controls);\n  --media-loading-indicator-display: var(--loading-indicator);\n  --media-dialog-display: var(--dialog);\n  --media-play-button-display: var(--play-button);\n  --media-live-button-display: var(--live-button);\n  --media-seek-backward-button-display: var(--seek-backward-button);\n  --media-seek-forward-button-display: var(--seek-forward-button);\n  --media-mute-button-display: var(--mute-button);\n  --media-captions-button-display: var(--captions-button);\n  --media-captions-menu-button-display: var(--captions-menu-button, var(--media-captions-button-display));\n  --media-rendition-menu-button-display: var(--rendition-menu-button);\n  --media-audio-track-menu-button-display: var(--audio-track-menu-button);\n  --media-airplay-button-display: var(--airplay-button);\n  --media-pip-button-display: var(--pip-button);\n  --media-fullscreen-button-display: var(--fullscreen-button);\n  --media-cast-button-display: var(--cast-button, var(--_cast-button-drm-display));\n  --media-playback-rate-button-display: var(--playback-rate-button);\n  --media-playback-rate-menu-button-display: var(--playback-rate-menu-button);\n  --media-volume-range-display: var(--volume-range);\n  --media-time-range-display: var(--time-range);\n  --media-time-display-display: var(--time-display);\n  --media-duration-display-display: var(--duration-display);\n  --media-title-display-display: var(--title-display);\n\n  display: inline-block;\n  line-height: 0;\n  width: 100%;\n}\n\na {\n  color: #fff;\n  font-size: 0.9em;\n  text-decoration: underline;\n}\n\nmedia-theme {\n  display: inline-block;\n  line-height: 0;\n  width: 100%;\n  height: 100%;\n  direction: ltr;\n}\n\nmedia-poster-image {\n  display: inline-block;\n  line-height: 0;\n  width: 100%;\n  height: 100%;\n}\n\nmedia-poster-image:not([src]):not([placeholdersrc]) {\n  display: none;\n}\n\n::part(top),\n[part~='top'] {\n  --media-control-display: var(--controls, var(--top-controls));\n  --media-play-button-display: var(--play-button, var(--top-play-button));\n  --media-live-button-display: var(--live-button, var(--top-live-button));\n  --media-seek-backward-button-display: var(--seek-backward-button, var(--top-seek-backward-button));\n  --media-seek-forward-button-display: var(--seek-forward-button, var(--top-seek-forward-button));\n  --media-mute-button-display: var(--mute-button, var(--top-mute-button));\n  --media-captions-button-display: var(--captions-button, var(--top-captions-button));\n  --media-captions-menu-button-display: var(\n    --captions-menu-button,\n    var(--media-captions-button-display, var(--top-captions-menu-button))\n  );\n  --media-rendition-menu-button-display: var(--rendition-menu-button, var(--top-rendition-menu-button));\n  --media-audio-track-menu-button-display: var(--audio-track-menu-button, var(--top-audio-track-menu-button));\n  --media-airplay-button-display: var(--airplay-button, var(--top-airplay-button));\n  --media-pip-button-display: var(--pip-button, var(--top-pip-button));\n  --media-fullscreen-button-display: var(--fullscreen-button, var(--top-fullscreen-button));\n  --media-cast-button-display: var(--cast-button, var(--top-cast-button, var(--_cast-button-drm-display)));\n  --media-playback-rate-button-display: var(--playback-rate-button, var(--top-playback-rate-button));\n  --media-playback-rate-menu-button-display: var(\n    --captions-menu-button,\n    var(--media-playback-rate-button-display, var(--top-playback-rate-menu-button))\n  );\n  --media-volume-range-display: var(--volume-range, var(--top-volume-range));\n  --media-time-range-display: var(--time-range, var(--top-time-range));\n  --media-time-display-display: var(--time-display, var(--top-time-display));\n  --media-duration-display-display: var(--duration-display, var(--top-duration-display));\n  --media-title-display-display: var(--title-display, var(--top-title-display));\n}\n\n::part(center),\n[part~='center'] {\n  --media-control-display: var(--controls, var(--center-controls));\n  --media-play-button-display: var(--play-button, var(--center-play-button));\n  --media-live-button-display: var(--live-button, var(--center-live-button));\n  --media-seek-backward-button-display: var(--seek-backward-button, var(--center-seek-backward-button));\n  --media-seek-forward-button-display: var(--seek-forward-button, var(--center-seek-forward-button));\n  --media-mute-button-display: var(--mute-button, var(--center-mute-button));\n  --media-captions-button-display: var(--captions-button, var(--center-captions-button));\n  --media-captions-menu-button-display: var(\n    --captions-menu-button,\n    var(--media-captions-button-display, var(--center-captions-menu-button))\n  );\n  --media-rendition-menu-button-display: var(--rendition-menu-button, var(--center-rendition-menu-button));\n  --media-audio-track-menu-button-display: var(--audio-track-menu-button, var(--center-audio-track-menu-button));\n  --media-airplay-button-display: var(--airplay-button, var(--center-airplay-button));\n  --media-pip-button-display: var(--pip-button, var(--center-pip-button));\n  --media-fullscreen-button-display: var(--fullscreen-button, var(--center-fullscreen-button));\n  --media-cast-button-display: var(--cast-button, var(--center-cast-button, var(--_cast-button-drm-display)));\n  --media-playback-rate-button-display: var(--playback-rate-button, var(--center-playback-rate-button));\n  --media-playback-rate-menu-button-display: var(\n    --playback-rate-menu-button,\n    var(--media-playback-rate-button-display, var(--center-playback-rate-menu-button))\n  );\n  --media-volume-range-display: var(--volume-range, var(--center-volume-range));\n  --media-time-range-display: var(--time-range, var(--center-time-range));\n  --media-time-display-display: var(--time-display, var(--center-time-display));\n  --media-duration-display-display: var(--duration-display, var(--center-duration-display));\n}\n\n::part(bottom),\n[part~='bottom'] {\n  --media-control-display: var(--controls, var(--bottom-controls));\n  --media-play-button-display: var(--play-button, var(--bottom-play-button));\n  --media-live-button-display: var(--live-button, var(--bottom-live-button));\n  --media-seek-backward-button-display: var(--seek-backward-button, var(--bottom-seek-backward-button));\n  --media-seek-forward-button-display: var(--seek-forward-button, var(--bottom-seek-forward-button));\n  --media-mute-button-display: var(--mute-button, var(--bottom-mute-button));\n  --media-captions-button-display: var(--captions-button, var(--bottom-captions-button));\n  --media-captions-menu-button-display: var(\n    --captions-menu-button,\n    var(--media-captions-button-display, var(--bottom-captions-menu-button))\n  );\n  --media-rendition-menu-button-display: var(--rendition-menu-button, var(--bottom-rendition-menu-button));\n  --media-audio-track-menu-button-display: var(--audio-track-menu-button, var(--bottom-audio-track-menu-button));\n  --media-airplay-button-display: var(--airplay-button, var(--bottom-airplay-button));\n  --media-pip-button-display: var(--pip-button, var(--bottom-pip-button));\n  --media-fullscreen-button-display: var(--fullscreen-button, var(--bottom-fullscreen-button));\n  --media-cast-button-display: var(--cast-button, var(--bottom-cast-button, var(--_cast-button-drm-display)));\n  --media-playback-rate-button-display: var(--playback-rate-button, var(--bottom-playback-rate-button));\n  --media-playback-rate-menu-button-display: var(\n    --playback-rate-menu-button,\n    var(--media-playback-rate-button-display, var(--bottom-playback-rate-menu-button))\n  );\n  --media-volume-range-display: var(--volume-range, var(--bottom-volume-range));\n  --media-time-range-display: var(--time-range, var(--bottom-time-range));\n  --media-time-display-display: var(--time-display, var(--bottom-time-display));\n  --media-duration-display-display: var(--duration-display, var(--bottom-duration-display));\n  --media-title-display-display: var(--title-display, var(--bottom-title-display));\n}\n\n:host([no-tooltips]) {\n  --media-tooltip-display: none;\n}\n";
+
+// src/html.ts
+import { TemplateInstance, ChildNodePart, AttrPart } from "media-chrome/dist/media-theme-element.js";
+var eventListeners = /* @__PURE__ */ new WeakMap();
+var EventHandler = class _EventHandler {
+  constructor(element, type) {
+    this.element = element;
+    this.type = type;
+    this.element.addEventListener(this.type, this);
+    const elementMap = eventListeners.get(this.element);
+    if (elementMap) {
+      elementMap.set(this.type, this);
+    }
+  }
+  set(listener) {
+    if (typeof listener == "function") {
+      this.handleEvent = listener.bind(this.element);
+    } else if (typeof listener === "object" && typeof listener.handleEvent === "function") {
+      this.handleEvent = listener.handleEvent.bind(listener);
+    } else {
+      this.element.removeEventListener(this.type, this);
+      const elementMap = eventListeners.get(this.element);
+      if (elementMap) {
+        elementMap.delete(this.type);
+      }
+    }
+  }
+  static for(part) {
+    if (!eventListeners.has(part.element)) eventListeners.set(part.element, /* @__PURE__ */ new Map());
+    const type = part.attributeName.slice(2);
+    const elementListeners = eventListeners.get(part.element);
+    if (elementListeners && elementListeners.has(type)) return elementListeners.get(type);
+    return new _EventHandler(part.element, type);
+  }
+};
+function processEvent(part, value) {
+  if (part instanceof AttrPart && part.attributeName.startsWith("on")) {
+    EventHandler.for(part).set(value);
+    part.element.removeAttributeNS(part.attributeNamespace, part.attributeName);
+    return true;
+  }
+  return false;
+}
+function processSubTemplate(part, value) {
+  if (value instanceof TemplateResult && part instanceof ChildNodePart) {
+    value.renderInto(part);
+    return true;
+  }
+  return false;
+}
+function processDocumentFragment(part, value) {
+  if (value instanceof DocumentFragment && part instanceof ChildNodePart) {
+    if (value.childNodes.length) part.replace(...value.childNodes);
+    return true;
+  }
+  return false;
+}
+function processPropertyIdentity(part, value) {
+  if (part instanceof AttrPart) {
+    const ns = part.attributeNamespace;
+    const oldValue = part.element.getAttributeNS(ns, part.attributeName);
+    if (String(value) !== oldValue) {
+      part.value = String(value);
+    }
+    return true;
+  }
+  part.value = String(value);
+  return true;
+}
+function processElementAttribute(part, value) {
+  if (part instanceof AttrPart && value instanceof Element) {
+    const element = part.element;
+    if (element[part.attributeName] !== value) {
+      part.element.removeAttributeNS(part.attributeNamespace, part.attributeName);
+      element[part.attributeName] = value;
+    }
+    return true;
+  }
+  return false;
+}
+function processBooleanAttribute(part, value) {
+  if (typeof value === "boolean" && part instanceof AttrPart) {
+    const ns = part.attributeNamespace;
+    const oldValue = part.element.hasAttributeNS(ns, part.attributeName);
+    if (value !== oldValue) {
+      part.booleanValue = value;
+    }
+    return true;
+  }
+  return false;
+}
+function processBooleanNode(part, value) {
+  if (value === false && part instanceof ChildNodePart) {
+    part.replace("");
+    return true;
+  }
+  return false;
+}
+function processPart(part, value) {
+  processElementAttribute(part, value) || processBooleanAttribute(part, value) || processEvent(part, value) || processBooleanNode(part, value) || processSubTemplate(part, value) || processDocumentFragment(part, value) || processPropertyIdentity(part, value);
+}
+var templates = /* @__PURE__ */ new Map();
+var renderedTemplates = /* @__PURE__ */ new WeakMap();
+var renderedTemplateInstances = /* @__PURE__ */ new WeakMap();
+var TemplateResult = class {
+  constructor(strings, values, processor) {
+    this.strings = strings;
+    this.values = values;
+    this.processor = processor;
+    this.stringsKey = this.strings.join("");
+  }
+  get template() {
+    if (templates.has(this.stringsKey)) {
+      return templates.get(this.stringsKey);
+    } else {
+      const template3 = internalDocument.createElement("template");
+      const end = this.strings.length - 1;
+      template3.innerHTML = this.strings.reduce((str, cur, i) => str + cur + (i < end ? `{{ ${i} }}` : ""), "");
+      templates.set(this.stringsKey, template3);
+      return template3;
+    }
+  }
+  renderInto(element) {
+    var _a2;
+    const template3 = this.template;
+    if (renderedTemplates.get(element) !== template3) {
+      renderedTemplates.set(element, template3);
+      const instance = new TemplateInstance(template3, this.values, this.processor);
+      renderedTemplateInstances.set(element, instance);
+      if (element instanceof ChildNodePart) {
+        element.replace(...instance.children);
+      } else {
+        element.appendChild(instance);
+      }
+      return;
+    }
+    const templateInstance = renderedTemplateInstances.get(element);
+    (_a2 = templateInstance == null ? void 0 : templateInstance.update) == null ? void 0 : _a2.call(templateInstance, this.values);
+  }
+};
+var defaultProcessor = {
+  processCallback(_instance, parts, state) {
+    var _a2;
+    if (!state) return;
+    for (const [expression, part] of parts) {
+      if (expression in state) {
+        const value = (_a2 = state[expression]) != null ? _a2 : "";
+        processPart(part, value);
+      }
+    }
+  }
+};
+function html(strings, ...values) {
+  return new TemplateResult(strings, values, defaultProcessor);
+}
+function render(result, element) {
+  result.renderInto(element);
 }
 
-media-theme {
-  display: inline-block;
-  line-height: 0;
-  width: 100%;
-  height: 100%;
-  direction: ltr;
-}
-
-media-poster-image {
-  display: inline-block;
-  line-height: 0;
-  width: 100%;
-  height: 100%;
-}
-
-media-poster-image:not([src]):not([placeholdersrc]) {
-  display: none;
-}
-
-::part(top),
-[part~='top'] {
-  --media-control-display: var(--controls, var(--top-controls));
-  --media-play-button-display: var(--play-button, var(--top-play-button));
-  --media-live-button-display: var(--live-button, var(--top-live-button));
-  --media-seek-backward-button-display: var(--seek-backward-button, var(--top-seek-backward-button));
-  --media-seek-forward-button-display: var(--seek-forward-button, var(--top-seek-forward-button));
-  --media-mute-button-display: var(--mute-button, var(--top-mute-button));
-  --media-captions-button-display: var(--captions-button, var(--top-captions-button));
-  --media-captions-menu-button-display: var(
-    --captions-menu-button,
-    var(--media-captions-button-display, var(--top-captions-menu-button))
-  );
-  --media-rendition-menu-button-display: var(--rendition-menu-button, var(--top-rendition-menu-button));
-  --media-audio-track-menu-button-display: var(--audio-track-menu-button, var(--top-audio-track-menu-button));
-  --media-airplay-button-display: var(--airplay-button, var(--top-airplay-button));
-  --media-pip-button-display: var(--pip-button, var(--top-pip-button));
-  --media-fullscreen-button-display: var(--fullscreen-button, var(--top-fullscreen-button));
-  --media-cast-button-display: var(--cast-button, var(--top-cast-button, var(--_cast-button-drm-display)));
-  --media-playback-rate-button-display: var(--playback-rate-button, var(--top-playback-rate-button));
-  --media-playback-rate-menu-button-display: var(
-    --captions-menu-button,
-    var(--media-playback-rate-button-display, var(--top-playback-rate-menu-button))
-  );
-  --media-volume-range-display: var(--volume-range, var(--top-volume-range));
-  --media-time-range-display: var(--time-range, var(--top-time-range));
-  --media-time-display-display: var(--time-display, var(--top-time-display));
-  --media-duration-display-display: var(--duration-display, var(--top-duration-display));
-  --media-title-display-display: var(--title-display, var(--top-title-display));
-}
-
-::part(center),
-[part~='center'] {
-  --media-control-display: var(--controls, var(--center-controls));
-  --media-play-button-display: var(--play-button, var(--center-play-button));
-  --media-live-button-display: var(--live-button, var(--center-live-button));
-  --media-seek-backward-button-display: var(--seek-backward-button, var(--center-seek-backward-button));
-  --media-seek-forward-button-display: var(--seek-forward-button, var(--center-seek-forward-button));
-  --media-mute-button-display: var(--mute-button, var(--center-mute-button));
-  --media-captions-button-display: var(--captions-button, var(--center-captions-button));
-  --media-captions-menu-button-display: var(
-    --captions-menu-button,
-    var(--media-captions-button-display, var(--center-captions-menu-button))
-  );
-  --media-rendition-menu-button-display: var(--rendition-menu-button, var(--center-rendition-menu-button));
-  --media-audio-track-menu-button-display: var(--audio-track-menu-button, var(--center-audio-track-menu-button));
-  --media-airplay-button-display: var(--airplay-button, var(--center-airplay-button));
-  --media-pip-button-display: var(--pip-button, var(--center-pip-button));
-  --media-fullscreen-button-display: var(--fullscreen-button, var(--center-fullscreen-button));
-  --media-cast-button-display: var(--cast-button, var(--center-cast-button, var(--_cast-button-drm-display)));
-  --media-playback-rate-button-display: var(--playback-rate-button, var(--center-playback-rate-button));
-  --media-playback-rate-menu-button-display: var(
-    --playback-rate-menu-button,
-    var(--media-playback-rate-button-display, var(--center-playback-rate-menu-button))
-  );
-  --media-volume-range-display: var(--volume-range, var(--center-volume-range));
-  --media-time-range-display: var(--time-range, var(--center-time-range));
-  --media-time-display-display: var(--time-display, var(--center-time-display));
-  --media-duration-display-display: var(--duration-display, var(--center-duration-display));
-}
-
-::part(bottom),
-[part~='bottom'] {
-  --media-control-display: var(--controls, var(--bottom-controls));
-  --media-play-button-display: var(--play-button, var(--bottom-play-button));
-  --media-live-button-display: var(--live-button, var(--bottom-live-button));
-  --media-seek-backward-button-display: var(--seek-backward-button, var(--bottom-seek-backward-button));
-  --media-seek-forward-button-display: var(--seek-forward-button, var(--bottom-seek-forward-button));
-  --media-mute-button-display: var(--mute-button, var(--bottom-mute-button));
-  --media-captions-button-display: var(--captions-button, var(--bottom-captions-button));
-  --media-captions-menu-button-display: var(
-    --captions-menu-button,
-    var(--media-captions-button-display, var(--bottom-captions-menu-button))
-  );
-  --media-rendition-menu-button-display: var(--rendition-menu-button, var(--bottom-rendition-menu-button));
-  --media-audio-track-menu-button-display: var(--audio-track-menu-button, var(--bottom-audio-track-menu-button));
-  --media-airplay-button-display: var(--airplay-button, var(--bottom-airplay-button));
-  --media-pip-button-display: var(--pip-button, var(--bottom-pip-button));
-  --media-fullscreen-button-display: var(--fullscreen-button, var(--bottom-fullscreen-button));
-  --media-cast-button-display: var(--cast-button, var(--bottom-cast-button, var(--_cast-button-drm-display)));
-  --media-playback-rate-button-display: var(--playback-rate-button, var(--bottom-playback-rate-button));
-  --media-playback-rate-menu-button-display: var(
-    --playback-rate-menu-button,
-    var(--media-playback-rate-button-display, var(--bottom-playback-rate-menu-button))
-  );
-  --media-volume-range-display: var(--volume-range, var(--bottom-volume-range));
-  --media-time-range-display: var(--time-range, var(--bottom-time-range));
-  --media-time-display-display: var(--time-display, var(--bottom-time-display));
-  --media-duration-display-display: var(--duration-display, var(--bottom-duration-display));
-  --media-title-display-display: var(--title-display, var(--bottom-title-display));
-}
-
-:host([no-tooltips]) {
-  --media-tooltip-display: none;
-}
-`;import{TemplateInstance as Dt,ChildNodePart as fe,AttrPart as ye}from"media-chrome/dist/media-theme-element.js";var ie=new WeakMap,Ne=class t{constructor(a,e){this.element=a;this.type=e;this.element.addEventListener(this.type,this);let i=ie.get(this.element);i&&i.set(this.type,this)}set(a){if(typeof a=="function")this.handleEvent=a.bind(this.element);else if(typeof a=="object"&&typeof a.handleEvent=="function")this.handleEvent=a.handleEvent.bind(a);else{this.element.removeEventListener(this.type,this);let e=ie.get(this.element);e&&e.delete(this.type)}}static for(a){ie.has(a.element)||ie.set(a.element,new Map);let e=a.attributeName.slice(2),i=ie.get(a.element);return i&&i.has(e)?i.get(e):new t(a.element,e)}};function Vt(t,a){return t instanceof ye&&t.attributeName.startsWith("on")?(Ne.for(t).set(a),t.element.removeAttributeNS(t.attributeNamespace,t.attributeName),!0):!1}function Ut(t,a){return a instanceof ge&&t instanceof fe?(a.renderInto(t),!0):!1}function Bt(t,a){return a instanceof DocumentFragment&&t instanceof fe?(a.childNodes.length&&t.replace(...a.childNodes),!0):!1}function Kt(t,a){if(t instanceof ye){let e=t.attributeNamespace,i=t.element.getAttributeNS(e,t.attributeName);return String(a)!==i&&(t.value=String(a)),!0}return t.value=String(a),!0}function Ht(t,a){if(t instanceof ye&&a instanceof Element){let e=t.element;return e[t.attributeName]!==a&&(t.element.removeAttributeNS(t.attributeNamespace,t.attributeName),e[t.attributeName]=a),!0}return!1}function Yt(t,a){if(typeof a=="boolean"&&t instanceof ye){let e=t.attributeNamespace,i=t.element.hasAttributeNS(e,t.attributeName);return a!==i&&(t.booleanValue=a),!0}return!1}function $t(t,a){return a===!1&&t instanceof fe?(t.replace(""),!0):!1}function Ft(t,a){Ht(t,a)||Yt(t,a)||Vt(t,a)||$t(t,a)||Ut(t,a)||Bt(t,a)||Kt(t,a)}var Le=new Map,Je=new WeakMap,Qe=new WeakMap,ge=class{constructor(a,e,i){this.strings=a;this.values=e;this.processor=i;this.stringsKey=this.strings.join("")}get template(){if(Le.has(this.stringsKey))return Le.get(this.stringsKey);{let a=j.createElement("template"),e=this.strings.length-1;return a.innerHTML=this.strings.reduce((i,r,n)=>i+r+(n<e?`{{ ${n} }}`:""),""),Le.set(this.stringsKey,a),a}}renderInto(a){var r;let e=this.template;if(Je.get(a)!==e){Je.set(a,e);let n=new Dt(e,this.values,this.processor);Qe.set(a,n),a instanceof fe?a.replace(...n.children):a.appendChild(n);return}let i=Qe.get(a);(r=i==null?void 0:i.update)==null||r.call(i,this.values)}},Wt={processCallback(t,a,e){var i;if(e){for(let[r,n]of a)if(r in e){let d=(i=e[r])!=null?i:"";Ft(n,d)}}}};function $(t,...a){return new ge(t,a,Wt)}function et(t,a){t.renderInto(a)}import{StreamTypes as Zt,toMuxVideoURL as tt}from"@mux/playback-core";var Gt=t=>{let{tokens:a}=t;return a.drm?":host { --_cast-button-drm-display: none; }":""},at=t=>$`
+// src/template.ts
+import { StreamTypes as StreamTypes2, toMuxVideoURL } from "@mux/playback-core";
+var getPropsCSS = (props) => {
+  const { tokens } = props;
+  if (!tokens.drm) return "";
+  return ":host { --_cast-button-drm-display: none; }";
+};
+var template = (props) => html`
   <style>
-    ${Gt(t)}
-    ${qe}
+    ${getPropsCSS(props)}
+    ${styles_default}
   </style>
-  ${Jt(t)}
-`,jt=t=>{let a=t.hotKeys?`${t.hotKeys}`:"";return te(t.streamType)==="live"&&(a+=" noarrowleft noarrowright"),a},zt={TOP:"top",CENTER:"center",BOTTOM:"bottom",LAYER:"layer",MEDIA_LAYER:"media-layer",POSTER_LAYER:"poster-layer",VERTICAL_LAYER:"vertical-layer",CENTERED_LAYER:"centered-layer",GESTURE_LAYER:"gesture-layer",CONTROLLER_LAYER:"controller",BUTTON:"button",RANGE:"range",DISPLAY:"display",CONTROL_BAR:"control-bar",MENU_BUTTON:"menu-button",MENU:"menu",OPTION:"option",POSTER:"poster",LIVE:"live",PLAY:"play",PRE_PLAY:"pre-play",SEEK_BACKWARD:"seek-backward",SEEK_FORWARD:"seek-forward",MUTE:"mute",CAPTIONS:"captions",AIRPLAY:"airplay",PIP:"pip",FULLSCREEN:"fullscreen",CAST:"cast",PLAYBACK_RATE:"playback-rate",VOLUME:"volume",TIME:"time",TITLE:"title",AUDIO_TRACK:"audio-track",RENDITION:"rendition"},Xt=Object.values(zt).join(", "),qt=(t,a)=>{var i,r,n,d,l,p,x,w,v,y,_,L,h,K,P,I,z,X,q,J,ue,me;let e={"target-live-window":(i=a.targetLiveWindow)!=null?i:!1,"stream-type":(r=te(a.streamType))!=null?r:!1,crossorigin:(n=a.crossOrigin)!=null?n:"",playsinline:"",autoplay:(d=a.autoplay)!=null?d:!1,muted:(l=a.muted)!=null?l:!1,loop:(p=a.loop)!=null?p:!1,preload:(x=a.preload)!=null?x:!1,debug:(w=a.debug)!=null?w:!1,"prefer-cmcd":(v=a.preferCmcd)!=null?v:!1,"disable-tracking":(y=a.disableTracking)!=null?y:!1,"disable-cookies":(_=a.disableCookies)!=null?_:!1,"prefer-playback":(L=a.preferPlayback)!=null?L:!1,"start-time":a.startTime!=null?a.startTime:!1,"beacon-collection-domain":(h=a.beaconCollectionDomain)!=null?h:!1,"player-init-time":(K=a.playerInitTime)!=null?K:!1,"player-software-name":(P=a.playerSoftwareName)!=null?P:!1,"player-software-version":(I=a.playerSoftwareVersion)!=null?I:!1,"env-key":(z=a.envKey)!=null?z:!1,"custom-domain":(X=a.customDomain)!=null?X:!1,src:a.src?a.src:a.playbackId?tt(a):!1,"cast-src":a.src?a.src:a.playbackId?tt(a):!1,"cast-receiver":(q=a.castReceiver)!=null?q:!1,"drm-token":(ue=(J=a.tokens)==null?void 0:J.drm)!=null?ue:!1,exportparts:"video"};switch(t){case"mux-video-ads":return{...e,adTagUrl:(me=a.adTagUrl)!=null?me:!1};default:return e}},Jt=t=>{var p,x,w,v,y,_,L,h,K,P,I,z,X,q;let a=t.muxVideoElement||"mux-video",e=$`
-    ${t.storyboard?$`<track label="thumbnails" default kind="metadata" src="${t.storyboard}" />`:$``}
+  ${content(props)}
+`;
+var getHotKeys = (props) => {
+  let hotKeys = props.hotKeys ? `${props.hotKeys}` : "";
+  if (getStreamTypeFromAttr(props.streamType) === "live") {
+    hotKeys += " noarrowleft noarrowright";
+  }
+  return hotKeys;
+};
+var Parts = {
+  // media container regions
+  TOP: "top",
+  CENTER: "center",
+  BOTTOM: "bottom",
+  // media container layers
+  LAYER: "layer",
+  // Generic
+  MEDIA_LAYER: "media-layer",
+  POSTER_LAYER: "poster-layer",
+  VERTICAL_LAYER: "vertical-layer",
+  CENTERED_LAYER: "centered-layer",
+  GESTURE_LAYER: "gesture-layer",
+  CONTROLLER_LAYER: "controller",
+  // component/subcomponent types
+  BUTTON: "button",
+  RANGE: "range",
+  DISPLAY: "display",
+  CONTROL_BAR: "control-bar",
+  MENU_BUTTON: "menu-button",
+  MENU: "menu",
+  OPTION: "option",
+  // component/subcomponent purposes
+  POSTER: "poster",
+  LIVE: "live",
+  PLAY: "play",
+  PRE_PLAY: "pre-play",
+  SEEK_BACKWARD: "seek-backward",
+  SEEK_FORWARD: "seek-forward",
+  MUTE: "mute",
+  CAPTIONS: "captions",
+  AIRPLAY: "airplay",
+  PIP: "pip",
+  FULLSCREEN: "fullscreen",
+  CAST: "cast",
+  PLAYBACK_RATE: "playback-rate",
+  VOLUME: "volume",
+  TIME: "time",
+  TITLE: "title",
+  AUDIO_TRACK: "audio-track",
+  RENDITION: "rendition"
+};
+var partsListStr = Object.values(Parts).join(", ");
+var getTagSpecificProps = (tag, props) => {
+  var _a2, _b2, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p, _q, _r, _s, _t, _u, _v;
+  const baseProps = {
+    "target-live-window": (_a2 = props.targetLiveWindow) != null ? _a2 : false,
+    "stream-type": (_b2 = getStreamTypeFromAttr(props.streamType)) != null ? _b2 : false,
+    crossorigin: (_c = props.crossOrigin) != null ? _c : "",
+    playsinline: "",
+    autoplay: (_d = props.autoplay) != null ? _d : false,
+    muted: (_e = props.muted) != null ? _e : false,
+    loop: (_f = props.loop) != null ? _f : false,
+    preload: (_g = props.preload) != null ? _g : false,
+    debug: (_h = props.debug) != null ? _h : false,
+    "prefer-cmcd": (_i = props.preferCmcd) != null ? _i : false,
+    "disable-tracking": (_j = props.disableTracking) != null ? _j : false,
+    "disable-cookies": (_k = props.disableCookies) != null ? _k : false,
+    "prefer-playback": (_l = props.preferPlayback) != null ? _l : false,
+    "start-time": props.startTime != null ? props.startTime : false,
+    "beacon-collection-domain": (_m = props.beaconCollectionDomain) != null ? _m : false,
+    "player-init-time": (_n = props.playerInitTime) != null ? _n : false,
+    "player-software-name": (_o = props.playerSoftwareName) != null ? _o : false,
+    "player-software-version": (_p = props.playerSoftwareVersion) != null ? _p : false,
+    "env-key": (_q = props.envKey) != null ? _q : false,
+    "custom-domain": (_r = props.customDomain) != null ? _r : false,
+    src: !!props.src ? props.src : props.playbackId ? toMuxVideoURL(props) : false,
+    "cast-src": !!props.src ? props.src : props.playbackId ? toMuxVideoURL(props) : false,
+    "cast-receiver": (_s = props.castReceiver) != null ? _s : false,
+    "drm-token": (_u = (_t = props.tokens) == null ? void 0 : _t.drm) != null ? _u : false,
+    exportparts: "video"
+  };
+  switch (tag) {
+    case "mux-video-ads":
+      return {
+        ...baseProps,
+        adTagUrl: (_v = props.adTagUrl) != null ? _v : false
+      };
+    default:
+      return baseProps;
+  }
+};
+var content = (props) => {
+  var _a2, _b2, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n;
+  const tag = props.muxVideoElement || "mux-video";
+  const videoSlots = html`
+    ${props.storyboard ? html`<track label="thumbnails" default kind="metadata" src="${props.storyboard}" />` : html``}
     <slot></slot>
-  `,i=qt(a,t),r=[`<${a} slot='media' `],n=[];Object.entries(i).forEach(([J,ue],me)=>{me==0?r[0]+=` ${J}="`:r.push(`" ${J}="`),n.push(ue)}),r.push('">'),r.push("</"+a+">"),n.push(e);let d=Object.assign([],r,{raw:r}),l=$(d,...n);return $`
+  `;
+  const tagProps = getTagSpecificProps(tag, props);
+  const templateStrings = [`<${tag} slot='media' `];
+  const values = [];
+  Object.entries(tagProps).forEach(([key, value], index) => {
+    if (index == 0) {
+      templateStrings[0] += ` ${key}="`;
+    } else {
+      templateStrings.push(`" ${key}="`);
+    }
+    values.push(value);
+  });
+  templateStrings.push('">');
+  templateStrings.push("</" + tag + ">");
+  values.push(videoSlots);
+  const templateArray = Object.assign([], templateStrings, { raw: templateStrings });
+  const videoElement = html(templateArray, ...values);
+  return html`
     <media-theme
-      template="${t.themeTemplate||!1}"
-      mediaadbreak="${(p=t.adBreak)!=null?p:!1}"
-      defaultstreamtype="${(x=t.defaultStreamType)!=null?x:!1}"
-      hotkeys="${jt(t)||!1}"
-      nohotkeys="${t.noHotKeys||!t.hasSrc||!1}"
-      noautoseektolive="${!!((w=t.streamType)!=null&&w.includes(Zt.LIVE))&&t.targetLiveWindow!==0}"
-      novolumepref="${t.novolumepref||!1}"
-      disabled="${!t.hasSrc||t.isDialogOpen}"
-      audio="${(v=t.audio)!=null?v:!1}"
-      style="${(y=Ye({"--media-primary-color":t.primaryColor,"--media-secondary-color":t.secondaryColor,"--media-accent-color":t.accentColor}))!=null?y:!1}"
-      defaultsubtitles="${!t.defaultHiddenCaptions}"
-      forwardseekoffset="${(_=t.forwardSeekOffset)!=null?_:!1}"
-      backwardseekoffset="${(L=t.backwardSeekOffset)!=null?L:!1}"
-      playbackrates="${(h=t.playbackRates)!=null?h:!1}"
-      defaultshowremainingtime="${(K=t.defaultShowRemainingTime)!=null?K:!1}"
-      defaultduration="${(P=t.defaultDuration)!=null?P:!1}"
-      hideduration="${(I=t.hideDuration)!=null?I:!1}"
-      title="${(z=t.title)!=null?z:!1}"
-      proudlydisplaymuxbadge="${(X=t.proudlyDisplayMuxBadge)!=null?X:!1}"
-      exportparts="${Xt}"
-      onclose="${t.onCloseErrorDialog}"
-      onfocusin="${t.onFocusInErrorDialog}"
+      template="${props.themeTemplate || false}"
+      mediaadbreak="${(_a2 = props.adBreak) != null ? _a2 : false}"
+      defaultstreamtype="${(_b2 = props.defaultStreamType) != null ? _b2 : false}"
+      hotkeys="${getHotKeys(props) || false}"
+      nohotkeys="${props.noHotKeys || !props.hasSrc || false}"
+      noautoseektolive="${!!((_c = props.streamType) == null ? void 0 : _c.includes(StreamTypes2.LIVE)) && props.targetLiveWindow !== 0}"
+      novolumepref="${props.novolumepref || false}"
+      disabled="${!props.hasSrc || props.isDialogOpen}"
+      audio="${(_d = props.audio) != null ? _d : false}"
+      style="${(_e = stylePropsToString({
+    "--media-primary-color": props.primaryColor,
+    "--media-secondary-color": props.secondaryColor,
+    "--media-accent-color": props.accentColor
+  })) != null ? _e : false}"
+      defaultsubtitles="${!props.defaultHiddenCaptions}"
+      forwardseekoffset="${(_f = props.forwardSeekOffset) != null ? _f : false}"
+      backwardseekoffset="${(_g = props.backwardSeekOffset) != null ? _g : false}"
+      playbackrates="${(_h = props.playbackRates) != null ? _h : false}"
+      defaultshowremainingtime="${(_i = props.defaultShowRemainingTime) != null ? _i : false}"
+      defaultduration="${(_j = props.defaultDuration) != null ? _j : false}"
+      hideduration="${(_k = props.hideDuration) != null ? _k : false}"
+      title="${(_l = props.title) != null ? _l : false}"
+      proudlydisplaymuxbadge="${(_m = props.proudlyDisplayMuxBadge) != null ? _m : false}"
+      exportparts="${partsListStr}"
+      onclose="${props.onCloseErrorDialog}"
+      onfocusin="${props.onFocusInErrorDialog}"
     >
-      ${l}
+      ${videoElement}
       <slot name="poster" slot="poster">
         <media-poster-image
           part="poster"
           exportparts="poster, img"
-          src="${t.poster?t.poster:!1}"
-          placeholdersrc="${(q=t.placeholder)!=null?q:!1}"
+          src="${!!props.poster ? props.poster : false}"
+          placeholdersrc="${(_n = props.placeholder) != null ? _n : false}"
         ></media-poster-image>
       </slot>
     </media-theme>
-  `};import{errorCategoryToTokenNameOrPrefix as it,i18n as f,MediaError as N,MuxErrorCategory as rt,MuxErrorCode as c}from"@mux/playback-core";var ot=t=>t.charAt(0).toUpperCase()+t.slice(1),Qt=(t,a=!1)=>{var e,i;if(t.muxCode){let r=ot((e=t.errorCategory)!=null?e:"video"),n=it((i=t.errorCategory)!=null?i:rt.VIDEO);if(t.muxCode===c.NETWORK_OFFLINE)return f("Your device appears to be offline",a);if(t.muxCode===c.NETWORK_TOKEN_EXPIRED)return f("{category} URL has expired",a).format({category:r});if([c.NETWORK_TOKEN_SUB_MISMATCH,c.NETWORK_TOKEN_AUD_MISMATCH,c.NETWORK_TOKEN_AUD_MISSING,c.NETWORK_TOKEN_MALFORMED].includes(t.muxCode))return f("{category} URL is formatted incorrectly",a).format({category:r});if(t.muxCode===c.NETWORK_TOKEN_MISSING)return f("Invalid {categoryName} URL",a).format({categoryName:n});if(t.muxCode===c.NETWORK_NOT_FOUND)return f("{category} does not exist",a).format({category:r});if(t.muxCode===c.NETWORK_NOT_READY)return f("{category} is not currently available",a).format({category:r})}if(t.code){if(t.code===N.MEDIA_ERR_NETWORK)return f("Network Error",a);if(t.code===N.MEDIA_ERR_DECODE)return f("Media Error",a);if(t.code===N.MEDIA_ERR_SRC_NOT_SUPPORTED)return f("Source Not Supported",a)}return f("Error",a)},ea=(t,a=!1)=>{var e,i;if(t.muxCode){let r=ot((e=t.errorCategory)!=null?e:"video"),n=it((i=t.errorCategory)!=null?i:rt.VIDEO);return t.muxCode===c.NETWORK_OFFLINE?f("Check your internet connection and try reloading this video.",a):t.muxCode===c.NETWORK_TOKEN_EXPIRED?f("The video\u2019s secured {tokenNamePrefix}-token has expired.",a).format({tokenNamePrefix:n}):t.muxCode===c.NETWORK_TOKEN_SUB_MISMATCH?f("The video\u2019s playback ID does not match the one encoded in the {tokenNamePrefix}-token.",a).format({tokenNamePrefix:n}):t.muxCode===c.NETWORK_TOKEN_MALFORMED?f("{category} URL is formatted incorrectly",a).format({category:r}):[c.NETWORK_TOKEN_AUD_MISMATCH,c.NETWORK_TOKEN_AUD_MISSING].includes(t.muxCode)?f("The {tokenNamePrefix}-token is formatted with incorrect information.",a).format({tokenNamePrefix:n}):[c.NETWORK_TOKEN_MISSING,c.NETWORK_INVALID_URL].includes(t.muxCode)?f("The video URL or {tokenNamePrefix}-token are formatted with incorrect or incomplete information.",a).format({tokenNamePrefix:n}):t.muxCode===c.NETWORK_NOT_FOUND?"":t.muxCode===c.NETWORK_NOT_READY?f("The live stream or video file are not yet ready.",a):t.message}return t.code&&(t.code===N.MEDIA_ERR_NETWORK||t.code===N.MEDIA_ERR_DECODE||t.code===N.MEDIA_ERR_SRC_NOT_SUPPORTED),t.message},nt=(t,a=!1)=>{let e=Qt(t,a),i=ea(t,a);return{title:e,message:i}},ta=t=>{if(t.muxCode){if(t.muxCode===c.NETWORK_TOKEN_EXPIRED)return"403-expired-token.md";if(t.muxCode===c.NETWORK_TOKEN_MALFORMED)return"403-malformatted-token.md";if([c.NETWORK_TOKEN_AUD_MISMATCH,c.NETWORK_TOKEN_AUD_MISSING].includes(t.muxCode))return"403-incorrect-aud-value.md";if(t.muxCode===c.NETWORK_TOKEN_SUB_MISMATCH)return"403-playback-id-mismatch.md";if(t.muxCode===c.NETWORK_TOKEN_MISSING)return"missing-signed-tokens.md";if(t.muxCode===c.NETWORK_NOT_FOUND)return"404-not-found.md";if(t.muxCode===c.NETWORK_NOT_READY)return"412-not-playable.md"}if(t.code){if(t.code===N.MEDIA_ERR_NETWORK)return"";if(t.code===N.MEDIA_ERR_DECODE)return"media-decode-error.md";if(t.code===N.MEDIA_ERR_SRC_NOT_SUPPORTED)return"media-src-not-supported.md"}return""},Se=(t,a)=>{let e=ta(t);return{message:t.message,context:t.context,file:e}};var st=`<template id="media-theme-gerwig">
+  `;
+};
+
+// src/errors.ts
+import { errorCategoryToTokenNameOrPrefix, i18n as i18n2, MediaError, MuxErrorCategory, MuxErrorCode } from "@mux/playback-core";
+var capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1);
+var muxMediaErrorToDialogTitle = (mediaError, translate = false) => {
+  var _a2, _b2;
+  if (mediaError.muxCode) {
+    const category = capitalizeFirstLetter((_a2 = mediaError.errorCategory) != null ? _a2 : "video");
+    const categoryName = errorCategoryToTokenNameOrPrefix((_b2 = mediaError.errorCategory) != null ? _b2 : MuxErrorCategory.VIDEO);
+    if (mediaError.muxCode === MuxErrorCode.NETWORK_OFFLINE) {
+      return i18n2(`Your device appears to be offline`, translate);
+    }
+    if (mediaError.muxCode === MuxErrorCode.NETWORK_TOKEN_EXPIRED) {
+      return i18n2(`{category} URL has expired`, translate).format({
+        category
+      });
+    }
+    if ([
+      MuxErrorCode.NETWORK_TOKEN_SUB_MISMATCH,
+      MuxErrorCode.NETWORK_TOKEN_AUD_MISMATCH,
+      MuxErrorCode.NETWORK_TOKEN_AUD_MISSING,
+      MuxErrorCode.NETWORK_TOKEN_MALFORMED
+      // @ts-ignore
+    ].includes(mediaError.muxCode)) {
+      return i18n2(`{category} URL is formatted incorrectly`, translate).format({ category });
+    }
+    if (mediaError.muxCode === MuxErrorCode.NETWORK_TOKEN_MISSING) {
+      return i18n2(`Invalid {categoryName} URL`, translate).format({ categoryName });
+    }
+    if (mediaError.muxCode === MuxErrorCode.NETWORK_NOT_FOUND) {
+      return i18n2(`{category} does not exist`, translate).format({ category });
+    }
+    if (mediaError.muxCode === MuxErrorCode.NETWORK_NOT_READY) {
+      return i18n2(`{category} is not currently available`, translate).format({ category });
+    }
+  }
+  if (mediaError.code) {
+    if (mediaError.code === MediaError.MEDIA_ERR_NETWORK) return i18n2(`Network Error`, translate);
+    if (mediaError.code === MediaError.MEDIA_ERR_DECODE) return i18n2(`Media Error`, translate);
+    if (mediaError.code === MediaError.MEDIA_ERR_SRC_NOT_SUPPORTED) return i18n2(`Source Not Supported`, translate);
+  }
+  return i18n2(`Error`, translate);
+};
+var muxMediaErrorToDialogMessage = (mediaError, translate = false) => {
+  var _a2, _b2;
+  if (mediaError.muxCode) {
+    const category = capitalizeFirstLetter((_a2 = mediaError.errorCategory) != null ? _a2 : "video");
+    const tokenNamePrefix = errorCategoryToTokenNameOrPrefix((_b2 = mediaError.errorCategory) != null ? _b2 : MuxErrorCategory.VIDEO);
+    if (mediaError.muxCode === MuxErrorCode.NETWORK_OFFLINE) {
+      return i18n2(`Check your internet connection and try reloading this video.`, translate);
+    }
+    if (mediaError.muxCode === MuxErrorCode.NETWORK_TOKEN_EXPIRED) {
+      return i18n2(`The video\u2019s secured {tokenNamePrefix}-token has expired.`, translate).format({
+        tokenNamePrefix
+      });
+    }
+    if (mediaError.muxCode === MuxErrorCode.NETWORK_TOKEN_SUB_MISMATCH) {
+      return i18n2(
+        `The video\u2019s playback ID does not match the one encoded in the {tokenNamePrefix}-token.`,
+        translate
+      ).format({
+        tokenNamePrefix
+      });
+    }
+    if (mediaError.muxCode === MuxErrorCode.NETWORK_TOKEN_MALFORMED) {
+      return i18n2(`{category} URL is formatted incorrectly`, translate).format({ category });
+    }
+    if ([
+      MuxErrorCode.NETWORK_TOKEN_AUD_MISMATCH,
+      MuxErrorCode.NETWORK_TOKEN_AUD_MISSING
+      // @ts-ignore
+    ].includes(mediaError.muxCode)) {
+      return i18n2(`The {tokenNamePrefix}-token is formatted with incorrect information.`, translate).format({
+        tokenNamePrefix
+      });
+    }
+    if ([
+      MuxErrorCode.NETWORK_TOKEN_MISSING,
+      MuxErrorCode.NETWORK_INVALID_URL
+      // @ts-ignore
+    ].includes(mediaError.muxCode)) {
+      return i18n2(
+        `The video URL or {tokenNamePrefix}-token are formatted with incorrect or incomplete information.`,
+        translate
+      ).format({
+        tokenNamePrefix
+      });
+    }
+    if (mediaError.muxCode === MuxErrorCode.NETWORK_NOT_FOUND) {
+      return "";
+    }
+    if (mediaError.muxCode === MuxErrorCode.NETWORK_NOT_READY) {
+      return i18n2(`The live stream or video file are not yet ready.`, translate);
+    }
+    return mediaError.message;
+  }
+  if (mediaError.code) {
+    if (mediaError.code === MediaError.MEDIA_ERR_NETWORK) return mediaError.message;
+    if (mediaError.code === MediaError.MEDIA_ERR_DECODE) return mediaError.message;
+    if (mediaError.code === MediaError.MEDIA_ERR_SRC_NOT_SUPPORTED) return mediaError.message;
+  }
+  return mediaError.message;
+};
+var muxMediaErrorToDialog = (mediaError, translate = false) => {
+  const title = muxMediaErrorToDialogTitle(mediaError, translate);
+  const message = muxMediaErrorToDialogMessage(mediaError, translate);
+  return {
+    title,
+    message
+  };
+};
+var muxMediaErrorToDevlogFile = (mediaError) => {
+  if (mediaError.muxCode) {
+    if (mediaError.muxCode === MuxErrorCode.NETWORK_TOKEN_EXPIRED) {
+      return "403-expired-token.md";
+    }
+    if (mediaError.muxCode === MuxErrorCode.NETWORK_TOKEN_MALFORMED) {
+      return "403-malformatted-token.md";
+    }
+    if ([
+      MuxErrorCode.NETWORK_TOKEN_AUD_MISMATCH,
+      MuxErrorCode.NETWORK_TOKEN_AUD_MISSING
+      // @ts-ignore
+    ].includes(mediaError.muxCode)) {
+      return "403-incorrect-aud-value.md";
+    }
+    if (mediaError.muxCode === MuxErrorCode.NETWORK_TOKEN_SUB_MISMATCH) {
+      return "403-playback-id-mismatch.md";
+    }
+    if (mediaError.muxCode === MuxErrorCode.NETWORK_TOKEN_MISSING) {
+      return "missing-signed-tokens.md";
+    }
+    if (mediaError.muxCode === MuxErrorCode.NETWORK_NOT_FOUND) {
+      return "404-not-found.md";
+    }
+    if (mediaError.muxCode === MuxErrorCode.NETWORK_NOT_READY) {
+      return "412-not-playable.md";
+    }
+  }
+  if (mediaError.code) {
+    if (mediaError.code === MediaError.MEDIA_ERR_NETWORK) return "";
+    if (mediaError.code === MediaError.MEDIA_ERR_DECODE) return "media-decode-error.md";
+    if (mediaError.code === MediaError.MEDIA_ERR_SRC_NOT_SUPPORTED) return "media-src-not-supported.md";
+  }
+  return "";
+};
+var muxMediaErrorToDevlog = (mediaError, _translate) => {
+  const file = muxMediaErrorToDevlogFile(mediaError);
+  return {
+    message: mediaError.message,
+    context: mediaError.context,
+    file
+  };
+};
+
+// src/themes/gerwig/gerwig.html
+var gerwig_default = `<template id="media-theme-gerwig">
   <style>
     @keyframes pre-play-hide {
       0% {
@@ -1310,17 +2187,1545 @@ media-poster-image:not([src]):not([placeholdersrc]) {
     <slot></slot>
   </media-controller>
 </template>
-`;import{MediaThemeElement as ia}from"media-chrome/dist/media-theme-element.js";import"media-chrome/dist/menu";var we=j.createElement("template");"innerHTML"in we&&(we.innerHTML=st);var dt,lt,ve=class extends ia{};ve.template=(lt=(dt=we.content)==null?void 0:dt.children)==null?void 0:lt[0];C.customElements.get("media-theme-gerwig")||C.customElements.define("media-theme-gerwig",ve);var da="gerwig";var S={SRC:"src",POSTER:"poster"},o={STYLE:"style",DEFAULT_HIDDEN_CAPTIONS:"default-hidden-captions",PRIMARY_COLOR:"primary-color",SECONDARY_COLOR:"secondary-color",ACCENT_COLOR:"accent-color",FORWARD_SEEK_OFFSET:"forward-seek-offset",BACKWARD_SEEK_OFFSET:"backward-seek-offset",PLAYBACK_TOKEN:"playback-token",THUMBNAIL_TOKEN:"thumbnail-token",STORYBOARD_TOKEN:"storyboard-token",DRM_TOKEN:"drm-token",STORYBOARD_SRC:"storyboard-src",THUMBNAIL_TIME:"thumbnail-time",AUDIO:"audio",NOHOTKEYS:"nohotkeys",HOTKEYS:"hotkeys",PLAYBACK_RATES:"playbackrates",DEFAULT_SHOW_REMAINING_TIME:"default-show-remaining-time",DEFAULT_DURATION:"default-duration",TITLE:"title",PLACEHOLDER:"placeholder",THEME:"theme",DEFAULT_STREAM_TYPE:"default-stream-type",TARGET_LIVE_WINDOW:"target-live-window",EXTRA_SOURCE_PARAMS:"extra-source-params",NO_VOLUME_PREF:"no-volume-pref",CAST_RECEIVER:"cast-receiver",NO_TOOLTIPS:"no-tooltips",PROUDLY_DISPLAY_MUX_BADGE:"proudly-display-mux-badge",AD_TAG_URL:"adtagurl"},Ve=["audio","backwardseekoffset","defaultduration","defaultshowremainingtime","defaultsubtitles","noautoseektolive","disabled","exportparts","forwardseekoffset","hideduration","hotkeys","nohotkeys","playbackrates","defaultstreamtype","streamtype","style","targetlivewindow","template","title","novolumepref","proudlydisplaymuxbadge","mediaadbreak"];function la(t,a){var i,r;return{src:!t.playbackId&&t.src,playbackId:t.playbackId,hasSrc:!!t.playbackId||!!t.src||!!t.currentSrc,poster:t.poster,storyboard:t.storyboard,storyboardSrc:t.getAttribute(o.STORYBOARD_SRC),placeholder:t.getAttribute("placeholder"),themeTemplate:ma(t),thumbnailTime:!t.tokens.thumbnail&&t.thumbnailTime,autoplay:t.autoplay,crossOrigin:t.crossOrigin,loop:t.loop,noHotKeys:t.hasAttribute(o.NOHOTKEYS),hotKeys:t.getAttribute(o.HOTKEYS),muted:t.muted,paused:t.paused,preload:t.preload,envKey:t.envKey,preferCmcd:t.preferCmcd,debug:t.debug,disableTracking:t.disableTracking,disableCookies:t.disableCookies,tokens:t.tokens,beaconCollectionDomain:t.beaconCollectionDomain,maxResolution:t.maxResolution,minResolution:t.minResolution,programStartTime:t.programStartTime,programEndTime:t.programEndTime,assetStartTime:t.assetStartTime,assetEndTime:t.assetEndTime,renditionOrder:t.renditionOrder,metadata:t.metadata,playerInitTime:t.playerInitTime,playerSoftwareName:t.playerSoftwareName,playerSoftwareVersion:t.playerSoftwareVersion,startTime:t.startTime,preferPlayback:t.preferPlayback,audio:t.audio,defaultStreamType:t.defaultStreamType,targetLiveWindow:t.getAttribute(s.TARGET_LIVE_WINDOW),streamType:te(t.getAttribute(s.STREAM_TYPE)),primaryColor:t.getAttribute(o.PRIMARY_COLOR),secondaryColor:t.getAttribute(o.SECONDARY_COLOR),accentColor:t.getAttribute(o.ACCENT_COLOR),forwardSeekOffset:t.forwardSeekOffset,backwardSeekOffset:t.backwardSeekOffset,defaultHiddenCaptions:t.defaultHiddenCaptions,defaultDuration:t.defaultDuration,defaultShowRemainingTime:t.defaultShowRemainingTime,hideDuration:ca(t),playbackRates:t.getAttribute(o.PLAYBACK_RATES),customDomain:(i=t.getAttribute(s.CUSTOM_DOMAIN))!=null?i:void 0,title:t.getAttribute(o.TITLE),novolumepref:t.hasAttribute(o.NO_VOLUME_PREF),castReceiver:t.castReceiver,muxVideoElement:t.muxVideoElement,adTagUrl:(r=t.getAttribute(o.AD_TAG_URL))!=null?r:void 0,adBreak:t.adBreak,proudlyDisplayMuxBadge:t.hasAttribute(o.PROUDLY_DISPLAY_MUX_BADGE),...a,extraSourceParams:t.extraSourceParams}}var ua=gt.formatErrorMessage;gt.formatErrorMessage=t=>{var a,e;if(t instanceof re){let i=nt(t,!1);return`
-      ${i!=null&&i.title?`<h3>${i.title}</h3>`:""}
-      ${i!=null&&i.message||i!=null&&i.linkUrl?`<p>
-        ${i==null?void 0:i.message}
-        ${i!=null&&i.linkUrl?`<a
-              href="${i.linkUrl}"
+`;
+
+// src/themes/gerwig/index.ts
+import { MediaThemeElement } from "media-chrome/dist/media-theme-element.js";
+import "media-chrome/dist/menu";
+var template2 = internalDocument.createElement("template");
+if ("innerHTML" in template2) template2.innerHTML = gerwig_default;
+var _a, _b;
+var MediaThemeGerwig = class extends MediaThemeElement {
+};
+MediaThemeGerwig.template = (_b = (_a = template2.content) == null ? void 0 : _a.children) == null ? void 0 : _b[0];
+if (!internalGlobalThis.customElements.get("media-theme-gerwig")) {
+  internalGlobalThis.customElements.define("media-theme-gerwig", MediaThemeGerwig);
+}
+
+// src/index.ts
+var DefaultThemeName = "gerwig";
+var VideoAttributes = {
+  SRC: "src",
+  POSTER: "poster"
+};
+var PlayerAttributes = {
+  STYLE: "style",
+  DEFAULT_HIDDEN_CAPTIONS: "default-hidden-captions",
+  PRIMARY_COLOR: "primary-color",
+  SECONDARY_COLOR: "secondary-color",
+  ACCENT_COLOR: "accent-color",
+  FORWARD_SEEK_OFFSET: "forward-seek-offset",
+  BACKWARD_SEEK_OFFSET: "backward-seek-offset",
+  PLAYBACK_TOKEN: "playback-token",
+  THUMBNAIL_TOKEN: "thumbnail-token",
+  STORYBOARD_TOKEN: "storyboard-token",
+  DRM_TOKEN: "drm-token",
+  STORYBOARD_SRC: "storyboard-src",
+  THUMBNAIL_TIME: "thumbnail-time",
+  AUDIO: "audio",
+  NOHOTKEYS: "nohotkeys",
+  HOTKEYS: "hotkeys",
+  PLAYBACK_RATES: "playbackrates",
+  DEFAULT_SHOW_REMAINING_TIME: "default-show-remaining-time",
+  DEFAULT_DURATION: "default-duration",
+  TITLE: "title",
+  PLACEHOLDER: "placeholder",
+  THEME: "theme",
+  DEFAULT_STREAM_TYPE: "default-stream-type",
+  TARGET_LIVE_WINDOW: "target-live-window",
+  EXTRA_SOURCE_PARAMS: "extra-source-params",
+  NO_VOLUME_PREF: "no-volume-pref",
+  CAST_RECEIVER: "cast-receiver",
+  NO_TOOLTIPS: "no-tooltips",
+  PROUDLY_DISPLAY_MUX_BADGE: "proudly-display-mux-badge",
+  AD_TAG_URL: "adtagurl"
+};
+var ThemeAttributeNames = [
+  "audio",
+  "backwardseekoffset",
+  "defaultduration",
+  "defaultshowremainingtime",
+  "defaultsubtitles",
+  "noautoseektolive",
+  "disabled",
+  "exportparts",
+  "forwardseekoffset",
+  "hideduration",
+  "hotkeys",
+  "nohotkeys",
+  "playbackrates",
+  "defaultstreamtype",
+  "streamtype",
+  "style",
+  "targetlivewindow",
+  "template",
+  "title",
+  "novolumepref",
+  "proudlydisplaymuxbadge",
+  "mediaadbreak"
+];
+function getProps(el, state) {
+  var _a2, _b2;
+  const props = {
+    // Give priority to playbackId derrived asset URL's if playbackId is set.
+    src: !el.playbackId && el.src,
+    playbackId: el.playbackId,
+    hasSrc: !!el.playbackId || !!el.src || !!el.currentSrc,
+    poster: el.poster,
+    storyboard: el.storyboard,
+    storyboardSrc: el.getAttribute(PlayerAttributes.STORYBOARD_SRC),
+    placeholder: el.getAttribute("placeholder"),
+    themeTemplate: getThemeTemplate(el),
+    thumbnailTime: !el.tokens.thumbnail && el.thumbnailTime,
+    autoplay: el.autoplay,
+    crossOrigin: el.crossOrigin,
+    loop: el.loop,
+    // NOTE: Renaming internal prop due to state (sometimes derived from attributeChangedCallback attr values)
+    // overwriting prop value (type mismatch: string vs. boolean) (CJP)
+    noHotKeys: el.hasAttribute(PlayerAttributes.NOHOTKEYS),
+    hotKeys: el.getAttribute(PlayerAttributes.HOTKEYS),
+    muted: el.muted,
+    paused: el.paused,
+    // NOTE: Currently unsupported due to "default true attribute" problem
+    // playsInline: el.playsInline,
+    preload: el.preload,
+    envKey: el.envKey,
+    preferCmcd: el.preferCmcd,
+    debug: el.debug,
+    disableTracking: el.disableTracking,
+    disableCookies: el.disableCookies,
+    tokens: el.tokens,
+    beaconCollectionDomain: el.beaconCollectionDomain,
+    maxResolution: el.maxResolution,
+    minResolution: el.minResolution,
+    programStartTime: el.programStartTime,
+    programEndTime: el.programEndTime,
+    assetStartTime: el.assetStartTime,
+    assetEndTime: el.assetEndTime,
+    renditionOrder: el.renditionOrder,
+    metadata: el.metadata,
+    playerInitTime: el.playerInitTime,
+    playerSoftwareName: el.playerSoftwareName,
+    playerSoftwareVersion: el.playerSoftwareVersion,
+    startTime: el.startTime,
+    preferPlayback: el.preferPlayback,
+    audio: el.audio,
+    defaultStreamType: el.defaultStreamType,
+    targetLiveWindow: el.getAttribute(MuxVideoAttributes.TARGET_LIVE_WINDOW),
+    streamType: getStreamTypeFromAttr(el.getAttribute(MuxVideoAttributes.STREAM_TYPE)),
+    primaryColor: el.getAttribute(PlayerAttributes.PRIMARY_COLOR),
+    secondaryColor: el.getAttribute(PlayerAttributes.SECONDARY_COLOR),
+    accentColor: el.getAttribute(PlayerAttributes.ACCENT_COLOR),
+    forwardSeekOffset: el.forwardSeekOffset,
+    backwardSeekOffset: el.backwardSeekOffset,
+    defaultHiddenCaptions: el.defaultHiddenCaptions,
+    defaultDuration: el.defaultDuration,
+    defaultShowRemainingTime: el.defaultShowRemainingTime,
+    hideDuration: getHideDuration(el),
+    playbackRates: el.getAttribute(PlayerAttributes.PLAYBACK_RATES),
+    customDomain: (_a2 = el.getAttribute(MuxVideoAttributes.CUSTOM_DOMAIN)) != null ? _a2 : void 0,
+    title: el.getAttribute(PlayerAttributes.TITLE),
+    novolumepref: el.hasAttribute(PlayerAttributes.NO_VOLUME_PREF),
+    castReceiver: el.castReceiver,
+    muxVideoElement: el.muxVideoElement,
+    adTagUrl: (_b2 = el.getAttribute(PlayerAttributes.AD_TAG_URL)) != null ? _b2 : void 0,
+    adBreak: el.adBreak,
+    proudlyDisplayMuxBadge: el.hasAttribute(PlayerAttributes.PROUDLY_DISPLAY_MUX_BADGE),
+    ...state,
+    // NOTE: since the attribute value is used as the "source of truth" for the property getter,
+    // moving this below the `...state` spread so it resolves to the default value when unset (CJP)
+    extraSourceParams: el.extraSourceParams
+  };
+  return props;
+}
+var baseFormatErrorMessage = MediaErrorDialog.formatErrorMessage;
+MediaErrorDialog.formatErrorMessage = (error2) => {
+  var _a2, _b2;
+  if (error2 instanceof MediaError2) {
+    const dialog = muxMediaErrorToDialog(error2, false);
+    return `
+      ${(dialog == null ? void 0 : dialog.title) ? `<h3>${dialog.title}</h3>` : ""}
+      ${(dialog == null ? void 0 : dialog.message) || (dialog == null ? void 0 : dialog.linkUrl) ? `<p>
+        ${dialog == null ? void 0 : dialog.message}
+        ${(dialog == null ? void 0 : dialog.linkUrl) ? `<a
+              href="${dialog.linkUrl}"
               target="_blank"
               rel="external noopener"
-              aria-label="${(a=i.linkText)!=null?a:""} ${W("(opens in a new window)")}"
-              >${(e=i.linkText)!=null?e:i.linkUrl}</a
-            >`:""}
-      </p>`:""}
-    `}return ua(t)};function ma(t){var e,i;let a=t.theme;if(a){let r=(i=(e=t.getRootNode())==null?void 0:e.getElementById)==null?void 0:i.call(e,a);if(r&&r instanceof HTMLTemplateElement)return r;a.startsWith("media-theme-")||(a=`media-theme-${a}`);let n=C.customElements.get(a);if(n!=null&&n.template)return n.template}}function ca(t){var e;let a=(e=t.mediaController)==null?void 0:e.querySelector("media-time-display");return a&&getComputedStyle(a).getPropertyValue("--media-duration-display-display").trim()==="none"}function ct(t){let a=t.hasAttribute(o.TITLE)?{video_title:t.getAttribute(o.TITLE)}:{};return t.getAttributeNames().filter(e=>e.startsWith("metadata-")).reduce((e,i)=>{let r=t.getAttribute(i);return r!==null&&(e[i.replace(/^metadata-/,"").replace(/-/g,"_")]=r),e},a)}var pa=Object.values(s),ba=Object.values(S),ha=Object.values(o),pt=he(),bt="mux-player",ht={isDialogOpen:!1},ga={redundant_streams:!0},ne,se,de,B,le,Z,m,V,ft,Ue,U,yt,vt,Tt,Et,oe=class extends Me{constructor(){super();A(this,m);A(this,ne);A(this,se,!1);A(this,de,{});A(this,B,!0);A(this,le,new be(this,"hotkeys"));A(this,Z,{...ht,onCloseErrorDialog:e=>{var r;((r=e.composedPath()[0])==null?void 0:r.localName)==="media-error-dialog"&&b(this,m,Ue).call(this,{isDialogOpen:!1})},onFocusInErrorDialog:e=>{var n;if(((n=e.composedPath()[0])==null?void 0:n.localName)!=="media-error-dialog")return;xe(this,j.activeElement)||e.preventDefault()}});R(this,ne,sa()),this.attachShadow({mode:"open"}),b(this,m,ft).call(this),this.isConnected&&b(this,m,V).call(this)}static get NAME(){return bt}static get VERSION(){return pt}static get observedAttributes(){var e;return[...(e=Me.observedAttributes)!=null?e:[],...ba,...pa,...ha]}get mediaTheme(){var e;return(e=this.shadowRoot)==null?void 0:e.querySelector("media-theme")}get mediaController(){var e,i;return(i=(e=this.mediaTheme)==null?void 0:e.shadowRoot)==null?void 0:i.querySelector("media-controller")}connectedCallback(){var i;let e=this.media;e&&((i=this.media)==null||i.addEventListener("adbreakchange",()=>{b(this,m,U).call(this)}),e.metadata=ct(this))}attributeChangedCallback(e,i,r){switch(b(this,m,V).call(this),super.attributeChangedCallback(e,i,r),e){case o.HOTKEYS:u(this,le).value=r;break;case o.THUMBNAIL_TIME:{r!=null&&this.tokens.thumbnail&&O(W("Use of thumbnail-time with thumbnail-token is currently unsupported. Ignore thumbnail-time."));break}case o.THUMBNAIL_TOKEN:{if(r){let d=Ie(r);if(d){let{aud:l}=d,p=De.THUMBNAIL;l!==p&&O(W("The {tokenNamePrefix}-token has an incorrect aud value: {aud}. aud value should be {expectedAud}.").format({aud:l,expectedAud:p,tokenNamePrefix:"thumbnail"}))}}break}case o.STORYBOARD_TOKEN:{if(r){let d=Ie(r);if(d){let{aud:l}=d,p=De.STORYBOARD;l!==p&&O(W("The {tokenNamePrefix}-token has an incorrect aud value: {aud}. aud value should be {expectedAud}.").format({aud:l,expectedAud:p,tokenNamePrefix:"storyboard"}))}}break}case o.DRM_TOKEN:{if(r){let d=Ie(r);if(d){let{aud:l}=d,p=De.DRM;l!==p&&O(W("The {tokenNamePrefix}-token has an incorrect aud value: {aud}. aud value should be {expectedAud}.").format({aud:l,expectedAud:p,tokenNamePrefix:"drm"}))}}break}case s.PLAYBACK_ID:{r!=null&&r.includes("?token")&&k(W("The specificed playback ID {playbackId} contains a token which must be provided via the playback-token attribute.").format({playbackId:r}));break}case s.STREAM_TYPE:r&&![M.LIVE,M.ON_DEMAND,M.UNKNOWN].includes(r)?["ll-live","live:dvr","ll-live:dvr"].includes(this.streamType)?this.targetLiveWindow=r.includes("dvr")?Number.POSITIVE_INFINITY:0:Re({file:"invalid-stream-type.md",message:W("Invalid stream-type value supplied: `{streamType}`. Please provide stream-type as either: `on-demand` or `live`").format({streamType:this.streamType})}):r===M.LIVE?this.getAttribute(o.TARGET_LIVE_WINDOW)==null&&(this.targetLiveWindow=0):this.targetLiveWindow=Number.NaN}[s.PLAYBACK_ID,S.SRC,o.PLAYBACK_TOKEN].includes(e)&&i!==r&&R(this,Z,{...u(this,Z),...ht}),b(this,m,U).call(this,{[Ge(e)]:r})}get preferCmcd(){var e;return(e=this.getAttribute(s.PREFER_CMCD))!=null?e:void 0}set preferCmcd(e){e!==this.preferCmcd&&(e?mt.includes(e)?this.setAttribute(s.PREFER_CMCD,e):O(`Invalid value for preferCmcd. Must be one of ${mt.join()}`):this.removeAttribute(s.PREFER_CMCD))}get hasPlayed(){var e,i;return(i=(e=this.mediaController)==null?void 0:e.hasAttribute(ut.MEDIA_HAS_PLAYED))!=null?i:!1}get inLiveWindow(){var e;return(e=this.mediaController)==null?void 0:e.hasAttribute(ut.MEDIA_TIME_IS_LIVE)}get _hls(){var e;return(e=this.media)==null?void 0:e._hls}get mux(){var e;return(e=this.media)==null?void 0:e.mux}get theme(){var e;return(e=this.getAttribute(o.THEME))!=null?e:da}set theme(e){this.setAttribute(o.THEME,`${e}`)}get themeProps(){let e=this.mediaTheme;if(!e)return;let i={};for(let r of e.getAttributeNames()){if(Ve.includes(r))continue;let n=e.getAttribute(r);i[pe(r)]=n===""?!0:n}return i}set themeProps(e){var r,n;b(this,m,V).call(this);let i={...this.themeProps,...e};for(let d in i){if(Ve.includes(d))continue;let l=e==null?void 0:e[d];typeof l=="boolean"||l==null?(r=this.mediaTheme)==null||r.toggleAttribute(ce(d),!!l):(n=this.mediaTheme)==null||n.setAttribute(ce(d),l)}}get playbackId(){var e;return(e=this.getAttribute(s.PLAYBACK_ID))!=null?e:void 0}set playbackId(e){e?this.setAttribute(s.PLAYBACK_ID,e):this.removeAttribute(s.PLAYBACK_ID)}get src(){var e,i;return this.playbackId?(e=F(this,S.SRC))!=null?e:void 0:(i=this.getAttribute(S.SRC))!=null?i:void 0}set src(e){e?this.setAttribute(S.SRC,e):this.removeAttribute(S.SRC)}get poster(){var r;let e=this.getAttribute(S.POSTER);if(e!=null)return e;let{tokens:i}=this;if(i.playback&&!i.thumbnail){O("Missing expected thumbnail token. No poster image will be shown");return}if(this.playbackId&&!this.audio)return We(this.playbackId,{customDomain:this.customDomain,thumbnailTime:(r=this.thumbnailTime)!=null?r:this.startTime,programTime:this.programStartTime,token:i.thumbnail})}set poster(e){e||e===""?this.setAttribute(S.POSTER,e):this.removeAttribute(S.POSTER)}get storyboardSrc(){var e;return(e=this.getAttribute(o.STORYBOARD_SRC))!=null?e:void 0}set storyboardSrc(e){e?this.setAttribute(o.STORYBOARD_SRC,e):this.removeAttribute(o.STORYBOARD_SRC)}get storyboard(){let{tokens:e}=this;if(this.storyboardSrc&&!e.storyboard)return this.storyboardSrc;if(!(this.audio||!this.playbackId||!this.streamType||[M.LIVE,M.UNKNOWN].includes(this.streamType)||e.playback&&!e.storyboard))return Ze(this.playbackId,{customDomain:this.customDomain,token:e.storyboard,programStartTime:this.programStartTime,programEndTime:this.programEndTime})}get audio(){return this.hasAttribute(o.AUDIO)}set audio(e){if(!e){this.removeAttribute(o.AUDIO);return}this.setAttribute(o.AUDIO,"")}get hotkeys(){return u(this,le)}get nohotkeys(){return this.hasAttribute(o.NOHOTKEYS)}set nohotkeys(e){if(!e){this.removeAttribute(o.NOHOTKEYS);return}this.setAttribute(o.NOHOTKEYS,"")}get thumbnailTime(){return T(this.getAttribute(o.THUMBNAIL_TIME))}set thumbnailTime(e){this.setAttribute(o.THUMBNAIL_TIME,`${e}`)}get title(){var e;return(e=this.getAttribute(o.TITLE))!=null?e:""}set title(e){e!==this.title&&(e?this.setAttribute(o.TITLE,e):this.removeAttribute("title"),super.title=e)}get placeholder(){var e;return(e=F(this,o.PLACEHOLDER))!=null?e:""}set placeholder(e){this.setAttribute(o.PLACEHOLDER,`${e}`)}get primaryColor(){var i,r;let e=this.getAttribute(o.PRIMARY_COLOR);if(e!=null||this.mediaTheme&&(e=(r=(i=C.getComputedStyle(this.mediaTheme))==null?void 0:i.getPropertyValue("--_primary-color"))==null?void 0:r.trim(),e))return e}set primaryColor(e){this.setAttribute(o.PRIMARY_COLOR,`${e}`)}get secondaryColor(){var i,r;let e=this.getAttribute(o.SECONDARY_COLOR);if(e!=null||this.mediaTheme&&(e=(r=(i=C.getComputedStyle(this.mediaTheme))==null?void 0:i.getPropertyValue("--_secondary-color"))==null?void 0:r.trim(),e))return e}set secondaryColor(e){this.setAttribute(o.SECONDARY_COLOR,`${e}`)}get accentColor(){var i,r;let e=this.getAttribute(o.ACCENT_COLOR);if(e!=null||this.mediaTheme&&(e=(r=(i=C.getComputedStyle(this.mediaTheme))==null?void 0:i.getPropertyValue("--_accent-color"))==null?void 0:r.trim(),e))return e}set accentColor(e){this.setAttribute(o.ACCENT_COLOR,`${e}`)}get defaultShowRemainingTime(){return this.hasAttribute(o.DEFAULT_SHOW_REMAINING_TIME)}set defaultShowRemainingTime(e){e?this.setAttribute(o.DEFAULT_SHOW_REMAINING_TIME,""):this.removeAttribute(o.DEFAULT_SHOW_REMAINING_TIME)}get playbackRates(){if(this.hasAttribute(o.PLAYBACK_RATES))return this.getAttribute(o.PLAYBACK_RATES).trim().split(/\s*,?\s+/).map(e=>Number(e)).filter(e=>!Number.isNaN(e)).sort((e,i)=>e-i)}set playbackRates(e){if(!e){this.removeAttribute(o.PLAYBACK_RATES);return}this.setAttribute(o.PLAYBACK_RATES,e.join(" "))}get forwardSeekOffset(){var e;return(e=T(this.getAttribute(o.FORWARD_SEEK_OFFSET)))!=null?e:10}set forwardSeekOffset(e){this.setAttribute(o.FORWARD_SEEK_OFFSET,`${e}`)}get backwardSeekOffset(){var e;return(e=T(this.getAttribute(o.BACKWARD_SEEK_OFFSET)))!=null?e:10}set backwardSeekOffset(e){this.setAttribute(o.BACKWARD_SEEK_OFFSET,`${e}`)}get defaultHiddenCaptions(){return this.hasAttribute(o.DEFAULT_HIDDEN_CAPTIONS)}set defaultHiddenCaptions(e){e?this.setAttribute(o.DEFAULT_HIDDEN_CAPTIONS,""):this.removeAttribute(o.DEFAULT_HIDDEN_CAPTIONS)}get defaultDuration(){return T(this.getAttribute(o.DEFAULT_DURATION))}set defaultDuration(e){e==null?this.removeAttribute(o.DEFAULT_DURATION):this.setAttribute(o.DEFAULT_DURATION,`${e}`)}get playerInitTime(){return this.hasAttribute(s.PLAYER_INIT_TIME)?T(this.getAttribute(s.PLAYER_INIT_TIME)):u(this,ne)}set playerInitTime(e){e!=this.playerInitTime&&(e==null?this.removeAttribute(s.PLAYER_INIT_TIME):this.setAttribute(s.PLAYER_INIT_TIME,`${+e}`))}get playerSoftwareName(){var e;return(e=this.getAttribute(s.PLAYER_SOFTWARE_NAME))!=null?e:bt}get playerSoftwareVersion(){var e;return(e=this.getAttribute(s.PLAYER_SOFTWARE_VERSION))!=null?e:pt}get beaconCollectionDomain(){var e;return(e=this.getAttribute(s.BEACON_COLLECTION_DOMAIN))!=null?e:void 0}set beaconCollectionDomain(e){e!==this.beaconCollectionDomain&&(e?this.setAttribute(s.BEACON_COLLECTION_DOMAIN,e):this.removeAttribute(s.BEACON_COLLECTION_DOMAIN))}get adBreak(){var i;let e=this.media;return e&&(i=e.getAttribute("adBreak"))!=null?i:!1}get maxResolution(){var e;return(e=this.getAttribute(s.MAX_RESOLUTION))!=null?e:void 0}set maxResolution(e){e!==this.maxResolution&&(e?this.setAttribute(s.MAX_RESOLUTION,e):this.removeAttribute(s.MAX_RESOLUTION))}get minResolution(){var e;return(e=this.getAttribute(s.MIN_RESOLUTION))!=null?e:void 0}set minResolution(e){e!==this.minResolution&&(e?this.setAttribute(s.MIN_RESOLUTION,e):this.removeAttribute(s.MIN_RESOLUTION))}get renditionOrder(){var e;return(e=this.getAttribute(s.RENDITION_ORDER))!=null?e:void 0}set renditionOrder(e){e!==this.renditionOrder&&(e?this.setAttribute(s.RENDITION_ORDER,e):this.removeAttribute(s.RENDITION_ORDER))}get programStartTime(){return T(this.getAttribute(s.PROGRAM_START_TIME))}set programStartTime(e){e==null?this.removeAttribute(s.PROGRAM_START_TIME):this.setAttribute(s.PROGRAM_START_TIME,`${e}`)}get programEndTime(){return T(this.getAttribute(s.PROGRAM_END_TIME))}set programEndTime(e){e==null?this.removeAttribute(s.PROGRAM_END_TIME):this.setAttribute(s.PROGRAM_END_TIME,`${e}`)}get assetStartTime(){return T(this.getAttribute(s.ASSET_START_TIME))}set assetStartTime(e){e==null?this.removeAttribute(s.ASSET_START_TIME):this.setAttribute(s.ASSET_START_TIME,`${e}`)}get assetEndTime(){return T(this.getAttribute(s.ASSET_END_TIME))}set assetEndTime(e){e==null?this.removeAttribute(s.ASSET_END_TIME):this.setAttribute(s.ASSET_END_TIME,`${e}`)}get extraSourceParams(){return this.hasAttribute(o.EXTRA_SOURCE_PARAMS)?[...new URLSearchParams(this.getAttribute(o.EXTRA_SOURCE_PARAMS)).entries()].reduce((e,[i,r])=>(e[i]=r,e),{}):ga}set extraSourceParams(e){e==null?this.removeAttribute(o.EXTRA_SOURCE_PARAMS):this.setAttribute(o.EXTRA_SOURCE_PARAMS,new URLSearchParams(e).toString())}get customDomain(){var e;return(e=this.getAttribute(s.CUSTOM_DOMAIN))!=null?e:void 0}set customDomain(e){e!==this.customDomain&&(e?this.setAttribute(s.CUSTOM_DOMAIN,e):this.removeAttribute(s.CUSTOM_DOMAIN))}get envKey(){var e;return(e=F(this,s.ENV_KEY))!=null?e:void 0}set envKey(e){this.setAttribute(s.ENV_KEY,`${e}`)}get noVolumePref(){return this.hasAttribute(o.NO_VOLUME_PREF)}set noVolumePref(e){e?this.setAttribute(o.NO_VOLUME_PREF,""):this.removeAttribute(o.NO_VOLUME_PREF)}get debug(){return F(this,s.DEBUG)!=null}set debug(e){e?this.setAttribute(s.DEBUG,""):this.removeAttribute(s.DEBUG)}get disableTracking(){return F(this,s.DISABLE_TRACKING)!=null}set disableTracking(e){this.toggleAttribute(s.DISABLE_TRACKING,!!e)}get disableCookies(){return F(this,s.DISABLE_COOKIES)!=null}set disableCookies(e){e?this.setAttribute(s.DISABLE_COOKIES,""):this.removeAttribute(s.DISABLE_COOKIES)}get streamType(){var e,i,r;return(r=(i=this.getAttribute(s.STREAM_TYPE))!=null?i:(e=this.media)==null?void 0:e.streamType)!=null?r:M.UNKNOWN}set streamType(e){this.setAttribute(s.STREAM_TYPE,`${e}`)}get defaultStreamType(){var e,i,r;return(r=(i=this.getAttribute(o.DEFAULT_STREAM_TYPE))!=null?i:(e=this.mediaController)==null?void 0:e.getAttribute(o.DEFAULT_STREAM_TYPE))!=null?r:M.ON_DEMAND}set defaultStreamType(e){e?this.setAttribute(o.DEFAULT_STREAM_TYPE,e):this.removeAttribute(o.DEFAULT_STREAM_TYPE)}get targetLiveWindow(){var e,i;return this.hasAttribute(o.TARGET_LIVE_WINDOW)?+this.getAttribute(o.TARGET_LIVE_WINDOW):(i=(e=this.media)==null?void 0:e.targetLiveWindow)!=null?i:Number.NaN}set targetLiveWindow(e){e==this.targetLiveWindow||Number.isNaN(e)&&Number.isNaN(this.targetLiveWindow)||(e==null?this.removeAttribute(o.TARGET_LIVE_WINDOW):this.setAttribute(o.TARGET_LIVE_WINDOW,`${+e}`))}get liveEdgeStart(){var e;return(e=this.media)==null?void 0:e.liveEdgeStart}get startTime(){return T(F(this,s.START_TIME))}set startTime(e){this.setAttribute(s.START_TIME,`${e}`)}get preferPlayback(){let e=this.getAttribute(s.PREFER_PLAYBACK);if(e===Te.MSE||e===Te.NATIVE)return e}set preferPlayback(e){e!==this.preferPlayback&&(e===Te.MSE||e===Te.NATIVE?this.setAttribute(s.PREFER_PLAYBACK,e):this.removeAttribute(s.PREFER_PLAYBACK))}get metadata(){var e;return(e=this.media)==null?void 0:e.metadata}set metadata(e){if(b(this,m,V).call(this),!this.media){k("underlying media element missing when trying to set metadata. metadata will not be set.");return}this.media.metadata={...ct(this),...e}}get _hlsConfig(){var e;return(e=this.media)==null?void 0:e._hlsConfig}set _hlsConfig(e){if(b(this,m,V).call(this),!this.media){k("underlying media element missing when trying to set _hlsConfig. _hlsConfig will not be set.");return}this.media._hlsConfig=e}async addCuePoints(e){var i;if(b(this,m,V).call(this),!this.media){k("underlying media element missing when trying to addCuePoints. cuePoints will not be added.");return}return(i=this.media)==null?void 0:i.addCuePoints(e)}get activeCuePoint(){var e;return(e=this.media)==null?void 0:e.activeCuePoint}get cuePoints(){var e,i;return(i=(e=this.media)==null?void 0:e.cuePoints)!=null?i:[]}addChapters(e){var i;if(b(this,m,V).call(this),!this.media){k("underlying media element missing when trying to addChapters. chapters will not be added.");return}return(i=this.media)==null?void 0:i.addChapters(e)}get activeChapter(){var e;return(e=this.media)==null?void 0:e.activeChapter}get chapters(){var e,i;return(i=(e=this.media)==null?void 0:e.chapters)!=null?i:[]}getStartDate(){var e;return(e=this.media)==null?void 0:e.getStartDate()}get currentPdt(){var e;return(e=this.media)==null?void 0:e.currentPdt}get tokens(){let e=this.getAttribute(o.PLAYBACK_TOKEN),i=this.getAttribute(o.DRM_TOKEN),r=this.getAttribute(o.THUMBNAIL_TOKEN),n=this.getAttribute(o.STORYBOARD_TOKEN);return{...u(this,de),...e!=null?{playback:e}:{},...i!=null?{drm:i}:{},...r!=null?{thumbnail:r}:{},...n!=null?{storyboard:n}:{}}}set tokens(e){R(this,de,e!=null?e:{})}get playbackToken(){var e;return(e=this.getAttribute(o.PLAYBACK_TOKEN))!=null?e:void 0}set playbackToken(e){this.setAttribute(o.PLAYBACK_TOKEN,`${e}`)}get drmToken(){var e;return(e=this.getAttribute(o.DRM_TOKEN))!=null?e:void 0}set drmToken(e){this.setAttribute(o.DRM_TOKEN,`${e}`)}get thumbnailToken(){var e;return(e=this.getAttribute(o.THUMBNAIL_TOKEN))!=null?e:void 0}set thumbnailToken(e){this.setAttribute(o.THUMBNAIL_TOKEN,`${e}`)}get storyboardToken(){var e;return(e=this.getAttribute(o.STORYBOARD_TOKEN))!=null?e:void 0}set storyboardToken(e){this.setAttribute(o.STORYBOARD_TOKEN,`${e}`)}addTextTrack(e,i,r,n){var l;let d=(l=this.media)==null?void 0:l.nativeEl;if(d)return oa(d,e,i,r,n)}removeTextTrack(e){var r;let i=(r=this.media)==null?void 0:r.nativeEl;if(i)return na(i,e)}get textTracks(){var e;return(e=this.media)==null?void 0:e.textTracks}get castReceiver(){var e;return(e=this.getAttribute(o.CAST_RECEIVER))!=null?e:void 0}set castReceiver(e){e!==this.castReceiver&&(e?this.setAttribute(o.CAST_RECEIVER,e):this.removeAttribute(o.CAST_RECEIVER))}get castCustomData(){var e;return(e=this.media)==null?void 0:e.castCustomData}set castCustomData(e){if(!this.media){k("underlying media element missing when trying to set castCustomData. castCustomData will not be set.");return}this.media.castCustomData=e}get noTooltips(){return this.hasAttribute(o.NO_TOOLTIPS)}set noTooltips(e){if(!e){this.removeAttribute(o.NO_TOOLTIPS);return}this.setAttribute(o.NO_TOOLTIPS,"")}get proudlyDisplayMuxBadge(){return this.hasAttribute(o.PROUDLY_DISPLAY_MUX_BADGE)}set proudlyDisplayMuxBadge(e){e?this.setAttribute(o.PROUDLY_DISPLAY_MUX_BADGE,""):this.removeAttribute(o.PROUDLY_DISPLAY_MUX_BADGE)}};ne=new WeakMap,se=new WeakMap,de=new WeakMap,B=new WeakMap,le=new WeakMap,Z=new WeakMap,m=new WeakSet,V=function(){var e,i,r,n;if(!u(this,se)){R(this,se,!0),b(this,m,U).call(this);try{if(customElements.upgrade(this.mediaTheme),!(this.mediaTheme instanceof C.HTMLElement))throw""}catch{k("<media-theme> failed to upgrade!")}try{if(customElements.upgrade(this.media),this.muxVideoElement.includes("-")){customElements.upgrade(this.media);let d=customElements.get(this.muxVideoElement);if(!(d&&this.media instanceof d))throw""}}catch{k("underlying media element failed to upgrade!")}try{if(customElements.upgrade(this.mediaController),!(this.mediaController instanceof ra))throw""}catch{k("<media-controller> failed to upgrade!")}this.init(),b(this,m,yt).call(this),b(this,m,vt).call(this),b(this,m,Tt).call(this),R(this,B,(i=(e=this.mediaController)==null?void 0:e.hasAttribute(Pe.USER_INACTIVE))!=null?i:!0),b(this,m,Et).call(this),(r=this.media)==null||r.addEventListener("streamtypechange",()=>b(this,m,U).call(this)),(n=this.media)==null||n.addEventListener("loadstart",()=>b(this,m,U).call(this))}},ft=function(){var e,i;try{(e=window==null?void 0:window.CSS)==null||e.registerProperty({name:"--media-primary-color",syntax:"<color>",inherits:!0}),(i=window==null?void 0:window.CSS)==null||i.registerProperty({name:"--media-secondary-color",syntax:"<color>",inherits:!0})}catch{}},Ue=function(e){Object.assign(u(this,Z),e),b(this,m,U).call(this)},U=function(e={}){et(at(la(this,{...u(this,Z),...e})),this.shadowRoot)},yt=function(){let e=r=>{var l,p;if(!(r!=null&&r.startsWith("theme-")))return;let n=r.replace(/^theme-/,"");if(Ve.includes(n))return;let d=this.getAttribute(r);d!=null?(l=this.mediaTheme)==null||l.setAttribute(n,d):(p=this.mediaTheme)==null||p.removeAttribute(n)};new MutationObserver(r=>{for(let{attributeName:n}of r)e(n)}).observe(this,{attributes:!0}),this.getAttributeNames().forEach(e)},vt=function(){var i;let e=r=>{let{detail:n}=r;if(n instanceof re||(n=new re(n.message,n.code,n.fatal)),!(n!=null&&n.fatal)){O(n),n.data&&O(`${n.name} data:`,n.data);return}let d=Se(n,!1);d.message&&Re(d),k(n),n.data&&k(`${n.name} data:`,n.data),b(this,m,Ue).call(this,{isDialogOpen:!0})};this.addEventListener("error",e),this.media&&(this.media.errorTranslator=(r={})=>{var d,l,p;if(!(((d=this.media)==null?void 0:d.error)instanceof re))return r;let n=Se((l=this.media)==null?void 0:l.error,!1);return{player_error_code:(p=this.media)==null?void 0:p.error.code,player_error_message:n.message?String(n.message):r.player_error_message,player_error_context:n.context?String(n.context):r.player_error_context}}),(i=this.media)==null||i.addEventListener("error",r=>{var d,l;let{detail:n}=r;if(!n){let{message:p,code:x}=(l=(d=this.media)==null?void 0:d.error)!=null?l:{};n=new re(p,x)}n!=null&&n.fatal&&this.dispatchEvent(new CustomEvent("error",{detail:n}))})},Tt=function(){var i,r,n,d;let e=()=>b(this,m,U).call(this);(r=(i=this.media)==null?void 0:i.textTracks)==null||r.addEventListener("addtrack",e),(d=(n=this.media)==null?void 0:n.textTracks)==null||d.addEventListener("removetrack",e)},Et=function(){var x,w;if(!/Firefox/i.test(navigator.userAgent))return;let i,r=new WeakMap,n=()=>this.streamType===M.LIVE&&!this.secondaryColor&&this.offsetWidth>=800,d=(v,y,_=!1)=>{if(n())return;Array.from(v&&v.activeCues||[]).forEach(h=>{if(!(!h.snapToLines||h.line<-5||h.line>=0&&h.line<10))if(!y||this.paused){let K=h.text.split(`
-`).length,P=-3;this.streamType===M.LIVE&&(P=-2);let I=P-K;if(h.line===I&&!_)return;r.has(h)||r.set(h,h.line),h.line=I}else setTimeout(()=>{h.line=r.get(h)||"auto"},500)})},l=()=>{var v,y;d(i,(y=(v=this.mediaController)==null?void 0:v.hasAttribute(Pe.USER_INACTIVE))!=null?y:!1)},p=()=>{var _,L;let y=Array.from(((L=(_=this.mediaController)==null?void 0:_.media)==null?void 0:L.textTracks)||[]).filter(h=>["subtitles","captions"].includes(h.kind)&&h.mode==="showing")[0];y!==i&&(i==null||i.removeEventListener("cuechange",l)),i=y,i==null||i.addEventListener("cuechange",l),d(i,u(this,B))};p(),(x=this.textTracks)==null||x.addEventListener("change",p),(w=this.textTracks)==null||w.addEventListener("addtrack",p),this.addEventListener("userinactivechange",()=>{var y,_;let v=(_=(y=this.mediaController)==null?void 0:y.hasAttribute(Pe.USER_INACTIVE))!=null?_:!0;u(this,B)!==v&&(R(this,B,v),d(i,u(this,B)))})};function F(t,a){return t.media?t.media.getAttribute(a):t.getAttribute(a)}C.customElements.get("mux-player")||(C.customElements.define("mux-player",oe),C.MuxPlayerElement=oe);var ci=oe;export{re as MediaError,ci as default,sa as generatePlayerInitTime,F as getVideoAttribute,bt as playerSoftwareName,pt as playerSoftwareVersion};
+              aria-label="${(_a2 = dialog.linkText) != null ? _a2 : ""} ${i18n3(`(opens in a new window)`)}"
+              >${(_b2 = dialog.linkText) != null ? _b2 : dialog.linkUrl}</a
+            >` : ""}
+      </p>` : ""}
+    `;
+  }
+  return baseFormatErrorMessage(error2);
+};
+function getThemeTemplate(el) {
+  var _a2, _b2;
+  let themeName = el.theme;
+  if (themeName) {
+    const templateElement = (_b2 = (_a2 = el.getRootNode()) == null ? void 0 : _a2.getElementById) == null ? void 0 : _b2.call(_a2, themeName);
+    if (templateElement && templateElement instanceof HTMLTemplateElement) return templateElement;
+    if (!themeName.startsWith("media-theme-")) {
+      themeName = `media-theme-${themeName}`;
+    }
+    const ThemeElement = internalGlobalThis.customElements.get(themeName);
+    if (ThemeElement == null ? void 0 : ThemeElement.template) return ThemeElement.template;
+  }
+}
+function getHideDuration(el) {
+  var _a2;
+  const timeDisplay = (_a2 = el.mediaController) == null ? void 0 : _a2.querySelector("media-time-display");
+  return timeDisplay && getComputedStyle(timeDisplay).getPropertyValue("--media-duration-display-display").trim() === "none";
+}
+function getMetadataFromAttrs(el) {
+  const seedValue = el.hasAttribute(PlayerAttributes.TITLE) ? { video_title: el.getAttribute(PlayerAttributes.TITLE) } : {};
+  return el.getAttributeNames().filter((attrName) => attrName.startsWith("metadata-")).reduce((currAttrs, attrName) => {
+    const value = el.getAttribute(attrName);
+    if (value !== null) {
+      currAttrs[attrName.replace(/^metadata-/, "").replace(/-/g, "_")] = value;
+    }
+    return currAttrs;
+  }, seedValue);
+}
+var MuxVideoAttributeNames = Object.values(MuxVideoAttributes);
+var VideoAttributeNames = Object.values(VideoAttributes);
+var PlayerAttributeNames = Object.values(PlayerAttributes);
+var playerSoftwareVersion = getPlayerVersion();
+var playerSoftwareName = "mux-player";
+var initialState = {
+  isDialogOpen: false
+};
+var DEFAULT_EXTRA_PLAYLIST_PARAMS = { redundant_streams: true };
+var _defaultPlayerInitTime, _isInit, _tokens2, _userInactive, _hotkeys, _state, _MuxPlayerElement_instances, init_fn, setupCSSProperties_fn, setState_fn, render_fn, setUpThemeAttributes_fn, setUpErrors_fn, setUpCaptionsButton_fn, setUpCaptionsMovement_fn;
+var MuxPlayerElement = class extends video_api_default {
+  constructor() {
+    super();
+    __privateAdd(this, _MuxPlayerElement_instances);
+    __privateAdd(this, _defaultPlayerInitTime);
+    __privateAdd(this, _isInit, false);
+    __privateAdd(this, _tokens2, {});
+    __privateAdd(this, _userInactive, true);
+    __privateAdd(this, _hotkeys, new AttributeTokenList(this, "hotkeys"));
+    __privateAdd(this, _state, {
+      ...initialState,
+      onCloseErrorDialog: (event) => {
+        var _a2;
+        const localName = (_a2 = event.composedPath()[0]) == null ? void 0 : _a2.localName;
+        if (localName !== "media-error-dialog") return;
+        __privateMethod(this, _MuxPlayerElement_instances, setState_fn).call(this, { isDialogOpen: false });
+      },
+      onFocusInErrorDialog: (event) => {
+        var _a2;
+        const localName = (_a2 = event.composedPath()[0]) == null ? void 0 : _a2.localName;
+        if (localName !== "media-error-dialog") return;
+        const isFocusedElementInPlayer = containsComposedNode(this, internalDocument.activeElement);
+        if (!isFocusedElementInPlayer) event.preventDefault();
+      }
+    });
+    __privateSet(this, _defaultPlayerInitTime, generatePlayerInitTime());
+    this.attachShadow({ mode: "open" });
+    __privateMethod(this, _MuxPlayerElement_instances, setupCSSProperties_fn).call(this);
+    if (this.isConnected) {
+      __privateMethod(this, _MuxPlayerElement_instances, init_fn).call(this);
+    }
+  }
+  static get NAME() {
+    return playerSoftwareName;
+  }
+  static get VERSION() {
+    return playerSoftwareVersion;
+  }
+  static get observedAttributes() {
+    var _a2;
+    return [
+      ...(_a2 = video_api_default.observedAttributes) != null ? _a2 : [],
+      ...VideoAttributeNames,
+      ...MuxVideoAttributeNames,
+      ...PlayerAttributeNames
+    ];
+  }
+  get mediaTheme() {
+    var _a2;
+    return (_a2 = this.shadowRoot) == null ? void 0 : _a2.querySelector("media-theme");
+  }
+  get mediaController() {
+    var _a2, _b2;
+    return (_b2 = (_a2 = this.mediaTheme) == null ? void 0 : _a2.shadowRoot) == null ? void 0 : _b2.querySelector("media-controller");
+  }
+  connectedCallback() {
+    var _a2;
+    const muxVideo = this.media;
+    if (muxVideo) {
+      (_a2 = this.media) == null ? void 0 : _a2.addEventListener("adbreakchange", () => {
+        __privateMethod(this, _MuxPlayerElement_instances, render_fn).call(this);
+      });
+      muxVideo.metadata = getMetadataFromAttrs(this);
+    }
+  }
+  attributeChangedCallback(attrName, oldValue, newValue) {
+    __privateMethod(this, _MuxPlayerElement_instances, init_fn).call(this);
+    super.attributeChangedCallback(attrName, oldValue, newValue);
+    switch (attrName) {
+      case PlayerAttributes.HOTKEYS:
+        __privateGet(this, _hotkeys).value = newValue;
+        break;
+      case PlayerAttributes.THUMBNAIL_TIME: {
+        if (newValue != null && this.tokens.thumbnail) {
+          warn(
+            i18n3(`Use of thumbnail-time with thumbnail-token is currently unsupported. Ignore thumbnail-time.`)
+          );
+        }
+        break;
+      }
+      case PlayerAttributes.THUMBNAIL_TOKEN: {
+        if (newValue) {
+          const jwtObj = parseJwt2(newValue);
+          if (jwtObj) {
+            const { aud } = jwtObj;
+            const expectedAud = MuxJWTAud.THUMBNAIL;
+            const tokenNamePrefix = "thumbnail";
+            if (aud !== expectedAud) {
+              warn(
+                i18n3(
+                  `The {tokenNamePrefix}-token has an incorrect aud value: {aud}. aud value should be {expectedAud}.`
+                ).format({ aud, expectedAud, tokenNamePrefix })
+              );
+            }
+          }
+        }
+        break;
+      }
+      case PlayerAttributes.STORYBOARD_TOKEN: {
+        if (newValue) {
+          const jwtObj = parseJwt2(newValue);
+          if (jwtObj) {
+            const { aud } = jwtObj;
+            const expectedAud = MuxJWTAud.STORYBOARD;
+            const tokenNamePrefix = "storyboard";
+            if (aud !== expectedAud) {
+              warn(
+                i18n3(
+                  `The {tokenNamePrefix}-token has an incorrect aud value: {aud}. aud value should be {expectedAud}.`
+                ).format({ aud, expectedAud, tokenNamePrefix })
+              );
+            }
+          }
+        }
+        break;
+      }
+      case PlayerAttributes.DRM_TOKEN: {
+        if (newValue) {
+          const jwtObj = parseJwt2(newValue);
+          if (jwtObj) {
+            const { aud } = jwtObj;
+            const expectedAud = MuxJWTAud.DRM;
+            const tokenNamePrefix = "drm";
+            if (aud !== expectedAud) {
+              warn(
+                i18n3(
+                  `The {tokenNamePrefix}-token has an incorrect aud value: {aud}. aud value should be {expectedAud}.`
+                ).format({ aud, expectedAud, tokenNamePrefix })
+              );
+            }
+          }
+        }
+        break;
+      }
+      case MuxVideoAttributes.PLAYBACK_ID: {
+        if (newValue == null ? void 0 : newValue.includes("?token")) {
+          error(
+            i18n3(
+              "The specificed playback ID {playbackId} contains a token which must be provided via the playback-token attribute."
+            ).format({
+              playbackId: newValue
+            })
+          );
+        }
+        break;
+      }
+      case MuxVideoAttributes.STREAM_TYPE: {
+        if (newValue && ![StreamTypes3.LIVE, StreamTypes3.ON_DEMAND, StreamTypes3.UNKNOWN].includes(newValue)) {
+          if (["ll-live", "live:dvr", "ll-live:dvr"].includes(this.streamType)) {
+            this.targetLiveWindow = newValue.includes("dvr") ? Number.POSITIVE_INFINITY : 0;
+          } else {
+            devlog({
+              file: "invalid-stream-type.md",
+              message: i18n3(
+                "Invalid stream-type value supplied: `{streamType}`. Please provide stream-type as either: `on-demand` or `live`"
+              ).format({ streamType: this.streamType })
+            });
+          }
+        } else {
+          if (newValue === StreamTypes3.LIVE) {
+            if (this.getAttribute(PlayerAttributes.TARGET_LIVE_WINDOW) == null) {
+              this.targetLiveWindow = 0;
+            }
+          } else {
+            this.targetLiveWindow = Number.NaN;
+          }
+        }
+      }
+    }
+    const shouldClearState = [
+      MuxVideoAttributes.PLAYBACK_ID,
+      VideoAttributes.SRC,
+      PlayerAttributes.PLAYBACK_TOKEN
+      // @ts-ignore
+    ].includes(attrName);
+    if (shouldClearState && oldValue !== newValue) {
+      __privateSet(this, _state, { ...__privateGet(this, _state), ...initialState });
+    }
+    __privateMethod(this, _MuxPlayerElement_instances, render_fn).call(this, { [toPropName(attrName)]: newValue });
+  }
+  get preferCmcd() {
+    var _a2;
+    return (_a2 = this.getAttribute(MuxVideoAttributes.PREFER_CMCD)) != null ? _a2 : void 0;
+  }
+  set preferCmcd(value) {
+    if (value === this.preferCmcd) return;
+    if (!value) {
+      this.removeAttribute(MuxVideoAttributes.PREFER_CMCD);
+    } else if (CmcdTypeValues.includes(value)) {
+      this.setAttribute(MuxVideoAttributes.PREFER_CMCD, value);
+    } else {
+      warn(`Invalid value for preferCmcd. Must be one of ${CmcdTypeValues.join()}`);
+    }
+  }
+  get hasPlayed() {
+    var _a2, _b2;
+    return (_b2 = (_a2 = this.mediaController) == null ? void 0 : _a2.hasAttribute(MediaUIAttributes.MEDIA_HAS_PLAYED)) != null ? _b2 : false;
+  }
+  get inLiveWindow() {
+    var _a2;
+    return (_a2 = this.mediaController) == null ? void 0 : _a2.hasAttribute(MediaUIAttributes.MEDIA_TIME_IS_LIVE);
+  }
+  get _hls() {
+    var _a2;
+    return (_a2 = this.media) == null ? void 0 : _a2._hls;
+  }
+  get mux() {
+    var _a2;
+    return (_a2 = this.media) == null ? void 0 : _a2.mux;
+  }
+  /**
+   * Gets the theme.
+   */
+  get theme() {
+    var _a2;
+    return (_a2 = this.getAttribute(PlayerAttributes.THEME)) != null ? _a2 : DefaultThemeName;
+  }
+  /**
+   * Sets the theme.
+   */
+  set theme(val) {
+    this.setAttribute(PlayerAttributes.THEME, `${val}`);
+  }
+  /**
+   * Get the theme attributes in a plain object (camelCase keys).
+   * This doesn't include already defined attributes. e.g. streamType, disabled, etc.
+   */
+  get themeProps() {
+    const theme = this.mediaTheme;
+    if (!theme) return;
+    const props = {};
+    for (const name of theme.getAttributeNames()) {
+      if (ThemeAttributeNames.includes(name)) continue;
+      const value = theme.getAttribute(name);
+      props[camelCase(name)] = value === "" ? true : value;
+    }
+    return props;
+  }
+  /**
+   * Set the theme attributes via a plain object.
+   */
+  set themeProps(props) {
+    var _a2, _b2;
+    __privateMethod(this, _MuxPlayerElement_instances, init_fn).call(this);
+    const themeProps = { ...this.themeProps, ...props };
+    for (const name in themeProps) {
+      if (ThemeAttributeNames.includes(name)) continue;
+      const value = props == null ? void 0 : props[name];
+      if (typeof value === "boolean" || value == null) {
+        (_a2 = this.mediaTheme) == null ? void 0 : _a2.toggleAttribute(kebabCase(name), Boolean(value));
+      } else {
+        (_b2 = this.mediaTheme) == null ? void 0 : _b2.setAttribute(kebabCase(name), value);
+      }
+    }
+  }
+  /**
+   * Get Mux asset playback id.
+   */
+  get playbackId() {
+    var _a2;
+    return (_a2 = this.getAttribute(MuxVideoAttributes.PLAYBACK_ID)) != null ? _a2 : void 0;
+  }
+  /**
+   * Set Mux asset playback id.
+   */
+  set playbackId(val) {
+    if (val) {
+      this.setAttribute(MuxVideoAttributes.PLAYBACK_ID, val);
+    } else {
+      this.removeAttribute(MuxVideoAttributes.PLAYBACK_ID);
+    }
+  }
+  /**
+   * Get the string that reflects the src HTML attribute, which contains the URL of a media resource to use.
+   */
+  get src() {
+    var _a2, _b2;
+    if (this.playbackId) {
+      return (_a2 = getVideoAttribute2(this, VideoAttributes.SRC)) != null ? _a2 : void 0;
+    }
+    return (_b2 = this.getAttribute(VideoAttributes.SRC)) != null ? _b2 : void 0;
+  }
+  /**
+   * Set the string that reflects the src HTML attribute, which contains the URL of a media resource to use.
+   */
+  set src(val) {
+    if (val) {
+      this.setAttribute(VideoAttributes.SRC, val);
+    } else {
+      this.removeAttribute(VideoAttributes.SRC);
+    }
+  }
+  /**
+   * Gets a URL of an image to display, for example, like a movie poster. This can be a still frame from the video, or another image if no video data is available.
+   */
+  get poster() {
+    var _a2;
+    const val = this.getAttribute(VideoAttributes.POSTER);
+    if (val != null) return val;
+    const { tokens } = this;
+    if (tokens.playback && !tokens.thumbnail) {
+      warn("Missing expected thumbnail token. No poster image will be shown");
+      return void 0;
+    }
+    if (this.playbackId && !this.audio) {
+      return getPosterURLFromPlaybackId(this.playbackId, {
+        customDomain: this.customDomain,
+        thumbnailTime: (_a2 = this.thumbnailTime) != null ? _a2 : this.startTime,
+        programTime: this.programStartTime,
+        token: tokens.thumbnail
+      });
+    }
+    return void 0;
+  }
+  /**
+   * Sets a URL of an image to display, for example, like a movie poster. This can be a still frame from the video, or another image if no video data is available.
+   */
+  set poster(val) {
+    if (val || val === "") {
+      this.setAttribute(VideoAttributes.POSTER, val);
+    } else {
+      this.removeAttribute(VideoAttributes.POSTER);
+    }
+  }
+  /**
+   * Return the storyboard-src attribute URL
+   */
+  get storyboardSrc() {
+    var _a2;
+    return (_a2 = this.getAttribute(PlayerAttributes.STORYBOARD_SRC)) != null ? _a2 : void 0;
+  }
+  /**
+   * Set the storyboard-src attribute URL
+   */
+  set storyboardSrc(src) {
+    if (!src) {
+      this.removeAttribute(PlayerAttributes.STORYBOARD_SRC);
+    } else {
+      this.setAttribute(PlayerAttributes.STORYBOARD_SRC, src);
+    }
+  }
+  /**
+   * Return the storyboard URL when a playback ID or storyboard-src is provided,
+   * we aren't an audio player and the stream-type isn't live.
+   */
+  get storyboard() {
+    const { tokens } = this;
+    if (this.storyboardSrc && !tokens.storyboard) return this.storyboardSrc;
+    if (
+      // NOTE: Some audio use cases may have a storyboard (e.g. it's an audio+video stream being played *as* audio)
+      // Consider supporting cases (CJP)
+      this.audio || !this.playbackId || !this.streamType || [StreamTypes3.LIVE, StreamTypes3.UNKNOWN].includes(this.streamType) || // If a playback token but no storyboard token is provided,
+      // assume a token is required for the storyboard URL URL and
+      // simply avoid requesting it in this case.
+      tokens.playback && !tokens.storyboard
+    ) {
+      return void 0;
+    }
+    return getStoryboardURLFromPlaybackId(this.playbackId, {
+      customDomain: this.customDomain,
+      token: tokens.storyboard,
+      programStartTime: this.programStartTime,
+      programEndTime: this.programEndTime
+    });
+  }
+  /**
+   * Gets the boolean indicator this is an audio player.
+   */
+  get audio() {
+    return this.hasAttribute(PlayerAttributes.AUDIO);
+  }
+  /**
+   * Sets the boolean indicator this is an audio player.
+   */
+  set audio(val) {
+    if (!val) {
+      this.removeAttribute(PlayerAttributes.AUDIO);
+      return;
+    }
+    this.setAttribute(PlayerAttributes.AUDIO, "");
+  }
+  get hotkeys() {
+    return __privateGet(this, _hotkeys);
+  }
+  get nohotkeys() {
+    return this.hasAttribute(PlayerAttributes.NOHOTKEYS);
+  }
+  set nohotkeys(val) {
+    if (!val) {
+      this.removeAttribute(PlayerAttributes.NOHOTKEYS);
+      return;
+    }
+    this.setAttribute(PlayerAttributes.NOHOTKEYS, "");
+  }
+  /**
+   * Get the thumbnailTime offset used for the poster image.
+   */
+  get thumbnailTime() {
+    return toNumberOrUndefined(this.getAttribute(PlayerAttributes.THUMBNAIL_TIME));
+  }
+  /**
+   * Set the thumbnailTime offset used for the poster image.
+   */
+  set thumbnailTime(val) {
+    this.setAttribute(PlayerAttributes.THUMBNAIL_TIME, `${val}`);
+  }
+  /**
+   * Get the title shown in the player.
+   */
+  get title() {
+    var _a2;
+    return (_a2 = this.getAttribute(PlayerAttributes.TITLE)) != null ? _a2 : "";
+  }
+  /**
+   * Set the title shown in the player.
+   */
+  set title(val) {
+    if (val === this.title) return;
+    if (!!val) {
+      this.setAttribute(PlayerAttributes.TITLE, val);
+    } else {
+      this.removeAttribute("title");
+    }
+    super.title = val;
+  }
+  /**
+   * Gets the data URL of a placeholder image shown before the thumbnail is loaded.
+   */
+  get placeholder() {
+    var _a2;
+    return (_a2 = getVideoAttribute2(this, PlayerAttributes.PLACEHOLDER)) != null ? _a2 : "";
+  }
+  /**
+   * Sets the data URL of a placeholder image shown before the thumbnail is loaded.
+   */
+  set placeholder(val) {
+    this.setAttribute(PlayerAttributes.PLACEHOLDER, `${val}`);
+  }
+  /**
+   * Get the primary color used by the player.
+   */
+  get primaryColor() {
+    var _a2, _b2;
+    let color = this.getAttribute(PlayerAttributes.PRIMARY_COLOR);
+    if (color != null) return color;
+    if (this.mediaTheme) {
+      color = (_b2 = (_a2 = internalGlobalThis.getComputedStyle(this.mediaTheme)) == null ? void 0 : _a2.getPropertyValue("--_primary-color")) == null ? void 0 : _b2.trim();
+      if (color) return color;
+    }
+  }
+  /**
+   * Set the primary color used by the player.
+   */
+  set primaryColor(val) {
+    this.setAttribute(PlayerAttributes.PRIMARY_COLOR, `${val}`);
+  }
+  /**
+   * Get the secondary color used by the player.
+   */
+  get secondaryColor() {
+    var _a2, _b2;
+    let color = this.getAttribute(PlayerAttributes.SECONDARY_COLOR);
+    if (color != null) return color;
+    if (this.mediaTheme) {
+      color = (_b2 = (_a2 = internalGlobalThis.getComputedStyle(this.mediaTheme)) == null ? void 0 : _a2.getPropertyValue("--_secondary-color")) == null ? void 0 : _b2.trim();
+      if (color) return color;
+    }
+  }
+  /**
+   * Set the secondary color used by the player.
+   */
+  set secondaryColor(val) {
+    this.setAttribute(PlayerAttributes.SECONDARY_COLOR, `${val}`);
+  }
+  /**
+   * Get the accent color used by the player.
+   */
+  get accentColor() {
+    var _a2, _b2;
+    let color = this.getAttribute(PlayerAttributes.ACCENT_COLOR);
+    if (color != null) return color;
+    if (this.mediaTheme) {
+      color = (_b2 = (_a2 = internalGlobalThis.getComputedStyle(this.mediaTheme)) == null ? void 0 : _a2.getPropertyValue("--_accent-color")) == null ? void 0 : _b2.trim();
+      if (color) return color;
+    }
+  }
+  /**
+   * Set the accent color used by the player.
+   */
+  set accentColor(val) {
+    this.setAttribute(PlayerAttributes.ACCENT_COLOR, `${val}`);
+  }
+  get defaultShowRemainingTime() {
+    return this.hasAttribute(PlayerAttributes.DEFAULT_SHOW_REMAINING_TIME);
+  }
+  set defaultShowRemainingTime(val) {
+    if (!val) {
+      this.removeAttribute(PlayerAttributes.DEFAULT_SHOW_REMAINING_TIME);
+    } else {
+      this.setAttribute(PlayerAttributes.DEFAULT_SHOW_REMAINING_TIME, "");
+    }
+  }
+  /**
+   * Get the playback rates applied to the playback rate control.
+   */
+  get playbackRates() {
+    if (!this.hasAttribute(PlayerAttributes.PLAYBACK_RATES)) return void 0;
+    return this.getAttribute(PlayerAttributes.PLAYBACK_RATES).trim().split(/\s*,?\s+/).map((str) => Number(str)).filter((num) => !Number.isNaN(num)).sort((a, b) => a - b);
+  }
+  /**
+   * Set the playback rates applied to the playback rate control.
+   */
+  set playbackRates(val) {
+    if (!val) {
+      this.removeAttribute(PlayerAttributes.PLAYBACK_RATES);
+      return;
+    }
+    this.setAttribute(PlayerAttributes.PLAYBACK_RATES, val.join(" "));
+  }
+  /**
+   * Get the offset applied to the forward seek button.
+   */
+  get forwardSeekOffset() {
+    var _a2;
+    return (_a2 = toNumberOrUndefined(this.getAttribute(PlayerAttributes.FORWARD_SEEK_OFFSET))) != null ? _a2 : 10;
+  }
+  /**
+   * Set the offset applied to the forward seek button.
+   */
+  set forwardSeekOffset(val) {
+    this.setAttribute(PlayerAttributes.FORWARD_SEEK_OFFSET, `${val}`);
+  }
+  /**
+   * Get the offset applied to the backward seek button.
+   */
+  get backwardSeekOffset() {
+    var _a2;
+    return (_a2 = toNumberOrUndefined(this.getAttribute(PlayerAttributes.BACKWARD_SEEK_OFFSET))) != null ? _a2 : 10;
+  }
+  /**
+   * Set the offset applied to the forward seek button.
+   */
+  set backwardSeekOffset(val) {
+    this.setAttribute(PlayerAttributes.BACKWARD_SEEK_OFFSET, `${val}`);
+  }
+  /**
+   * Get the boolean value of default hidden captions.
+   * By default returns false so captions are enabled on initial load.
+   */
+  get defaultHiddenCaptions() {
+    return this.hasAttribute(PlayerAttributes.DEFAULT_HIDDEN_CAPTIONS);
+  }
+  /**
+   * Set the default hidden captions flag.
+   */
+  set defaultHiddenCaptions(val) {
+    if (!val) {
+      this.removeAttribute(PlayerAttributes.DEFAULT_HIDDEN_CAPTIONS);
+    } else {
+      this.setAttribute(PlayerAttributes.DEFAULT_HIDDEN_CAPTIONS, "");
+    }
+  }
+  /**
+   * Get the boolean value of default hidden captions.
+   * By default returns false so captions are enabled on initial load.
+   */
+  get defaultDuration() {
+    return toNumberOrUndefined(this.getAttribute(PlayerAttributes.DEFAULT_DURATION));
+  }
+  /**
+   * Set the default hidden captions flag.
+   */
+  set defaultDuration(val) {
+    if (val == void 0) {
+      this.removeAttribute(PlayerAttributes.DEFAULT_DURATION);
+    } else {
+      this.setAttribute(PlayerAttributes.DEFAULT_DURATION, `${val}`);
+    }
+  }
+  get playerInitTime() {
+    if (!this.hasAttribute(MuxVideoAttributes.PLAYER_INIT_TIME)) return __privateGet(this, _defaultPlayerInitTime);
+    return toNumberOrUndefined(this.getAttribute(MuxVideoAttributes.PLAYER_INIT_TIME));
+  }
+  set playerInitTime(val) {
+    if (val == this.playerInitTime) return;
+    if (val == null) {
+      this.removeAttribute(MuxVideoAttributes.PLAYER_INIT_TIME);
+    } else {
+      this.setAttribute(MuxVideoAttributes.PLAYER_INIT_TIME, `${+val}`);
+    }
+  }
+  /**
+   * Get the player software name. Used by Mux Data.
+   */
+  get playerSoftwareName() {
+    var _a2;
+    return (_a2 = this.getAttribute(MuxVideoAttributes.PLAYER_SOFTWARE_NAME)) != null ? _a2 : playerSoftwareName;
+  }
+  /**
+   * Get the player software version. Used by Mux Data.
+   */
+  get playerSoftwareVersion() {
+    var _a2;
+    return (_a2 = this.getAttribute(MuxVideoAttributes.PLAYER_SOFTWARE_VERSION)) != null ? _a2 : playerSoftwareVersion;
+  }
+  /**
+   * Get the beacon collection domain. Used by Mux Data.
+   */
+  get beaconCollectionDomain() {
+    var _a2;
+    return (_a2 = this.getAttribute(MuxVideoAttributes.BEACON_COLLECTION_DOMAIN)) != null ? _a2 : void 0;
+  }
+  /**
+   * Set the beacon collection domain. Used by Mux Data.
+   */
+  set beaconCollectionDomain(val) {
+    if (val === this.beaconCollectionDomain) return;
+    if (val) {
+      this.setAttribute(MuxVideoAttributes.BEACON_COLLECTION_DOMAIN, val);
+    } else {
+      this.removeAttribute(MuxVideoAttributes.BEACON_COLLECTION_DOMAIN);
+    }
+  }
+  get adBreak() {
+    var _a2;
+    const muxVideoAds = this.media;
+    if (muxVideoAds) {
+      return (_a2 = muxVideoAds.getAttribute("adBreak")) != null ? _a2 : false;
+    } else {
+      return false;
+    }
+  }
+  get maxResolution() {
+    var _a2;
+    return (_a2 = this.getAttribute(MuxVideoAttributes.MAX_RESOLUTION)) != null ? _a2 : void 0;
+  }
+  set maxResolution(val) {
+    if (val === this.maxResolution) return;
+    if (val) {
+      this.setAttribute(MuxVideoAttributes.MAX_RESOLUTION, val);
+    } else {
+      this.removeAttribute(MuxVideoAttributes.MAX_RESOLUTION);
+    }
+  }
+  get minResolution() {
+    var _a2;
+    return (_a2 = this.getAttribute(MuxVideoAttributes.MIN_RESOLUTION)) != null ? _a2 : void 0;
+  }
+  set minResolution(val) {
+    if (val === this.minResolution) return;
+    if (val) {
+      this.setAttribute(MuxVideoAttributes.MIN_RESOLUTION, val);
+    } else {
+      this.removeAttribute(MuxVideoAttributes.MIN_RESOLUTION);
+    }
+  }
+  get renditionOrder() {
+    var _a2;
+    return (_a2 = this.getAttribute(MuxVideoAttributes.RENDITION_ORDER)) != null ? _a2 : void 0;
+  }
+  set renditionOrder(val) {
+    if (val === this.renditionOrder) return;
+    if (val) {
+      this.setAttribute(MuxVideoAttributes.RENDITION_ORDER, val);
+    } else {
+      this.removeAttribute(MuxVideoAttributes.RENDITION_ORDER);
+    }
+  }
+  get programStartTime() {
+    return toNumberOrUndefined(this.getAttribute(MuxVideoAttributes.PROGRAM_START_TIME));
+  }
+  set programStartTime(val) {
+    if (val == void 0) {
+      this.removeAttribute(MuxVideoAttributes.PROGRAM_START_TIME);
+    } else {
+      this.setAttribute(MuxVideoAttributes.PROGRAM_START_TIME, `${val}`);
+    }
+  }
+  get programEndTime() {
+    return toNumberOrUndefined(this.getAttribute(MuxVideoAttributes.PROGRAM_END_TIME));
+  }
+  set programEndTime(val) {
+    if (val == void 0) {
+      this.removeAttribute(MuxVideoAttributes.PROGRAM_END_TIME);
+    } else {
+      this.setAttribute(MuxVideoAttributes.PROGRAM_END_TIME, `${val}`);
+    }
+  }
+  get assetStartTime() {
+    return toNumberOrUndefined(this.getAttribute(MuxVideoAttributes.ASSET_START_TIME));
+  }
+  set assetStartTime(val) {
+    if (val == void 0) {
+      this.removeAttribute(MuxVideoAttributes.ASSET_START_TIME);
+    } else {
+      this.setAttribute(MuxVideoAttributes.ASSET_START_TIME, `${val}`);
+    }
+  }
+  get assetEndTime() {
+    return toNumberOrUndefined(this.getAttribute(MuxVideoAttributes.ASSET_END_TIME));
+  }
+  set assetEndTime(val) {
+    if (val == void 0) {
+      this.removeAttribute(MuxVideoAttributes.ASSET_END_TIME);
+    } else {
+      this.setAttribute(MuxVideoAttributes.ASSET_END_TIME, `${val}`);
+    }
+  }
+  get extraSourceParams() {
+    if (!this.hasAttribute(PlayerAttributes.EXTRA_SOURCE_PARAMS)) {
+      return DEFAULT_EXTRA_PLAYLIST_PARAMS;
+    }
+    return [...new URLSearchParams(this.getAttribute(PlayerAttributes.EXTRA_SOURCE_PARAMS)).entries()].reduce(
+      (paramsObj, [k, v]) => {
+        paramsObj[k] = v;
+        return paramsObj;
+      },
+      {}
+    );
+  }
+  set extraSourceParams(value) {
+    if (value == null) {
+      this.removeAttribute(PlayerAttributes.EXTRA_SOURCE_PARAMS);
+    } else {
+      this.setAttribute(PlayerAttributes.EXTRA_SOURCE_PARAMS, new URLSearchParams(value).toString());
+    }
+  }
+  /**
+   * Get Mux asset custom domain.
+   */
+  get customDomain() {
+    var _a2;
+    return (_a2 = this.getAttribute(MuxVideoAttributes.CUSTOM_DOMAIN)) != null ? _a2 : void 0;
+  }
+  /**
+   * Set Mux asset custom domain.
+   */
+  set customDomain(val) {
+    if (val === this.customDomain) return;
+    if (val) {
+      this.setAttribute(MuxVideoAttributes.CUSTOM_DOMAIN, val);
+    } else {
+      this.removeAttribute(MuxVideoAttributes.CUSTOM_DOMAIN);
+    }
+  }
+  /**
+   * Get Mux Data env key.
+   */
+  get envKey() {
+    var _a2;
+    return (_a2 = getVideoAttribute2(this, MuxVideoAttributes.ENV_KEY)) != null ? _a2 : void 0;
+  }
+  /**
+   * Set Mux Data env key.
+   */
+  set envKey(val) {
+    this.setAttribute(MuxVideoAttributes.ENV_KEY, `${val}`);
+  }
+  /**
+   * Get no-volume-pref flag.
+   */
+  get noVolumePref() {
+    return this.hasAttribute(PlayerAttributes.NO_VOLUME_PREF);
+  }
+  /**
+   * Set video engine debug flag.
+   */
+  set noVolumePref(val) {
+    if (val) {
+      this.setAttribute(PlayerAttributes.NO_VOLUME_PREF, "");
+    } else {
+      this.removeAttribute(PlayerAttributes.NO_VOLUME_PREF);
+    }
+  }
+  /**
+   * Get video engine debug flag.
+   */
+  get debug() {
+    return getVideoAttribute2(this, MuxVideoAttributes.DEBUG) != null;
+  }
+  /**
+   * Set video engine debug flag.
+   */
+  set debug(val) {
+    if (val) {
+      this.setAttribute(MuxVideoAttributes.DEBUG, "");
+    } else {
+      this.removeAttribute(MuxVideoAttributes.DEBUG);
+    }
+  }
+  /**
+   * Get video engine disable tracking flag.
+   */
+  get disableTracking() {
+    return getVideoAttribute2(this, MuxVideoAttributes.DISABLE_TRACKING) != null;
+  }
+  /**
+   * Set video engine disable tracking flag.
+   */
+  set disableTracking(val) {
+    this.toggleAttribute(MuxVideoAttributes.DISABLE_TRACKING, !!val);
+  }
+  /**
+   * Get video engine disable cookies flag.
+   */
+  get disableCookies() {
+    return getVideoAttribute2(this, MuxVideoAttributes.DISABLE_COOKIES) != null;
+  }
+  /**
+   * Set video engine disable cookies flag.
+   */
+  set disableCookies(val) {
+    if (val) {
+      this.setAttribute(MuxVideoAttributes.DISABLE_COOKIES, "");
+    } else {
+      this.removeAttribute(MuxVideoAttributes.DISABLE_COOKIES);
+    }
+  }
+  /**
+   * Get stream type.
+   */
+  get streamType() {
+    var _a2, _b2, _c;
+    return (_c = (_b2 = this.getAttribute(MuxVideoAttributes.STREAM_TYPE)) != null ? _b2 : (_a2 = this.media) == null ? void 0 : _a2.streamType) != null ? _c : StreamTypes3.UNKNOWN;
+  }
+  /**
+   * Set stream type.
+   */
+  set streamType(val) {
+    this.setAttribute(MuxVideoAttributes.STREAM_TYPE, `${val}`);
+  }
+  get defaultStreamType() {
+    var _a2, _b2, _c;
+    return (_c = (_b2 = this.getAttribute(PlayerAttributes.DEFAULT_STREAM_TYPE)) != null ? _b2 : (_a2 = this.mediaController) == null ? void 0 : _a2.getAttribute(PlayerAttributes.DEFAULT_STREAM_TYPE)) != null ? _c : StreamTypes3.ON_DEMAND;
+  }
+  set defaultStreamType(val) {
+    if (val) {
+      this.setAttribute(PlayerAttributes.DEFAULT_STREAM_TYPE, val);
+    } else {
+      this.removeAttribute(PlayerAttributes.DEFAULT_STREAM_TYPE);
+    }
+  }
+  get targetLiveWindow() {
+    var _a2, _b2;
+    if (this.hasAttribute(PlayerAttributes.TARGET_LIVE_WINDOW)) {
+      return +this.getAttribute(PlayerAttributes.TARGET_LIVE_WINDOW);
+    }
+    return (_b2 = (_a2 = this.media) == null ? void 0 : _a2.targetLiveWindow) != null ? _b2 : Number.NaN;
+  }
+  set targetLiveWindow(val) {
+    if (val == this.targetLiveWindow || Number.isNaN(val) && Number.isNaN(this.targetLiveWindow)) return;
+    if (val == null) {
+      this.removeAttribute(PlayerAttributes.TARGET_LIVE_WINDOW);
+    } else {
+      this.setAttribute(PlayerAttributes.TARGET_LIVE_WINDOW, `${+val}`);
+    }
+  }
+  get liveEdgeStart() {
+    var _a2;
+    return (_a2 = this.media) == null ? void 0 : _a2.liveEdgeStart;
+  }
+  /**
+   * Get the start time.
+   */
+  get startTime() {
+    return toNumberOrUndefined(getVideoAttribute2(this, MuxVideoAttributes.START_TIME));
+  }
+  /**
+   * Set the start time.
+   */
+  set startTime(val) {
+    this.setAttribute(MuxVideoAttributes.START_TIME, `${val}`);
+  }
+  get preferPlayback() {
+    const val = this.getAttribute(MuxVideoAttributes.PREFER_PLAYBACK);
+    if (val === PlaybackTypes.MSE || val === PlaybackTypes.NATIVE) return val;
+    return void 0;
+  }
+  set preferPlayback(val) {
+    if (val === this.preferPlayback) return;
+    if (val === PlaybackTypes.MSE || val === PlaybackTypes.NATIVE) {
+      this.setAttribute(MuxVideoAttributes.PREFER_PLAYBACK, val);
+    } else {
+      this.removeAttribute(MuxVideoAttributes.PREFER_PLAYBACK);
+    }
+  }
+  /**
+   * Get the metadata object for Mux Data.
+   */
+  get metadata() {
+    var _a2;
+    return (_a2 = this.media) == null ? void 0 : _a2.metadata;
+  }
+  /**
+   * Set the metadata object for Mux Data.
+   */
+  set metadata(val) {
+    __privateMethod(this, _MuxPlayerElement_instances, init_fn).call(this);
+    if (!this.media) {
+      error("underlying media element missing when trying to set metadata. metadata will not be set.");
+      return;
+    }
+    this.media.metadata = { ...getMetadataFromAttrs(this), ...val };
+  }
+  /**
+   * Get the metadata object for Mux Data.
+   */
+  get _hlsConfig() {
+    var _a2;
+    return (_a2 = this.media) == null ? void 0 : _a2._hlsConfig;
+  }
+  /**
+   * Set the metadata object for Mux Data.
+   */
+  set _hlsConfig(val) {
+    __privateMethod(this, _MuxPlayerElement_instances, init_fn).call(this);
+    if (!this.media) {
+      error("underlying media element missing when trying to set _hlsConfig. _hlsConfig will not be set.");
+      return;
+    }
+    this.media._hlsConfig = val;
+  }
+  async addCuePoints(cuePoints) {
+    var _a2;
+    __privateMethod(this, _MuxPlayerElement_instances, init_fn).call(this);
+    if (!this.media) {
+      error("underlying media element missing when trying to addCuePoints. cuePoints will not be added.");
+      return;
+    }
+    return (_a2 = this.media) == null ? void 0 : _a2.addCuePoints(cuePoints);
+  }
+  get activeCuePoint() {
+    var _a2;
+    return (_a2 = this.media) == null ? void 0 : _a2.activeCuePoint;
+  }
+  get cuePoints() {
+    var _a2, _b2;
+    return (_b2 = (_a2 = this.media) == null ? void 0 : _a2.cuePoints) != null ? _b2 : [];
+  }
+  addChapters(chapters) {
+    var _a2;
+    __privateMethod(this, _MuxPlayerElement_instances, init_fn).call(this);
+    if (!this.media) {
+      error("underlying media element missing when trying to addChapters. chapters will not be added.");
+      return;
+    }
+    return (_a2 = this.media) == null ? void 0 : _a2.addChapters(chapters);
+  }
+  get activeChapter() {
+    var _a2;
+    return (_a2 = this.media) == null ? void 0 : _a2.activeChapter;
+  }
+  get chapters() {
+    var _a2, _b2;
+    return (_b2 = (_a2 = this.media) == null ? void 0 : _a2.chapters) != null ? _b2 : [];
+  }
+  getStartDate() {
+    var _a2;
+    return (_a2 = this.media) == null ? void 0 : _a2.getStartDate();
+  }
+  get currentPdt() {
+    var _a2;
+    return (_a2 = this.media) == null ? void 0 : _a2.currentPdt;
+  }
+  /**
+   * Get the signing tokens for the Mux asset URL's.
+   */
+  get tokens() {
+    const playback = this.getAttribute(PlayerAttributes.PLAYBACK_TOKEN);
+    const drm = this.getAttribute(PlayerAttributes.DRM_TOKEN);
+    const thumbnail = this.getAttribute(PlayerAttributes.THUMBNAIL_TOKEN);
+    const storyboard = this.getAttribute(PlayerAttributes.STORYBOARD_TOKEN);
+    return {
+      ...__privateGet(this, _tokens2),
+      ...playback != null ? { playback } : {},
+      ...drm != null ? { drm } : {},
+      ...thumbnail != null ? { thumbnail } : {},
+      ...storyboard != null ? { storyboard } : {}
+    };
+  }
+  /**
+   * Set the signing tokens for the Mux asset URL's.
+   */
+  set tokens(val) {
+    __privateSet(this, _tokens2, val != null ? val : {});
+  }
+  /**
+   * Get the playback token for signing the src URL.
+   */
+  get playbackToken() {
+    var _a2;
+    return (_a2 = this.getAttribute(PlayerAttributes.PLAYBACK_TOKEN)) != null ? _a2 : void 0;
+  }
+  /**
+   * Set the playback token for signing the src URL.
+   */
+  set playbackToken(val) {
+    this.setAttribute(PlayerAttributes.PLAYBACK_TOKEN, `${val}`);
+  }
+  /**
+   * Get the playback token for signing the src URL.
+   */
+  get drmToken() {
+    var _a2;
+    return (_a2 = this.getAttribute(PlayerAttributes.DRM_TOKEN)) != null ? _a2 : void 0;
+  }
+  /**
+   * Set the playback token for signing the src URL.
+   */
+  set drmToken(val) {
+    this.setAttribute(PlayerAttributes.DRM_TOKEN, `${val}`);
+  }
+  /**
+   * Get the thumbnail token for signing the poster URL.
+   */
+  get thumbnailToken() {
+    var _a2;
+    return (_a2 = this.getAttribute(PlayerAttributes.THUMBNAIL_TOKEN)) != null ? _a2 : void 0;
+  }
+  /**
+   * Set the thumbnail token for signing the poster URL.
+   */
+  set thumbnailToken(val) {
+    this.setAttribute(PlayerAttributes.THUMBNAIL_TOKEN, `${val}`);
+  }
+  /**
+   * Get the storyboard token for signing the storyboard URL.
+   */
+  get storyboardToken() {
+    var _a2;
+    return (_a2 = this.getAttribute(PlayerAttributes.STORYBOARD_TOKEN)) != null ? _a2 : void 0;
+  }
+  /**
+   * Set the storyboard token for signing the storyboard URL.
+   */
+  set storyboardToken(val) {
+    this.setAttribute(PlayerAttributes.STORYBOARD_TOKEN, `${val}`);
+  }
+  addTextTrack(kind, label, lang, id) {
+    var _a2;
+    const mediaEl = (_a2 = this.media) == null ? void 0 : _a2.nativeEl;
+    if (!mediaEl) return;
+    return addTextTrack(mediaEl, kind, label, lang, id);
+  }
+  removeTextTrack(track) {
+    var _a2;
+    const mediaEl = (_a2 = this.media) == null ? void 0 : _a2.nativeEl;
+    if (!mediaEl) return;
+    return removeTextTrack(mediaEl, track);
+  }
+  get textTracks() {
+    var _a2;
+    return (_a2 = this.media) == null ? void 0 : _a2.textTracks;
+  }
+  get castReceiver() {
+    var _a2;
+    return (_a2 = this.getAttribute(PlayerAttributes.CAST_RECEIVER)) != null ? _a2 : void 0;
+  }
+  set castReceiver(val) {
+    if (val === this.castReceiver) return;
+    if (val) {
+      this.setAttribute(PlayerAttributes.CAST_RECEIVER, val);
+    } else {
+      this.removeAttribute(PlayerAttributes.CAST_RECEIVER);
+    }
+  }
+  get castCustomData() {
+    var _a2;
+    return (_a2 = this.media) == null ? void 0 : _a2.castCustomData;
+  }
+  set castCustomData(val) {
+    if (!this.media) {
+      error(
+        "underlying media element missing when trying to set castCustomData. castCustomData will not be set."
+      );
+      return;
+    }
+    this.media.castCustomData = val;
+  }
+  get noTooltips() {
+    return this.hasAttribute(PlayerAttributes.NO_TOOLTIPS);
+  }
+  set noTooltips(val) {
+    if (!val) {
+      this.removeAttribute(PlayerAttributes.NO_TOOLTIPS);
+      return;
+    }
+    this.setAttribute(PlayerAttributes.NO_TOOLTIPS, "");
+  }
+  get proudlyDisplayMuxBadge() {
+    return this.hasAttribute(PlayerAttributes.PROUDLY_DISPLAY_MUX_BADGE);
+  }
+  set proudlyDisplayMuxBadge(val) {
+    if (!val) {
+      this.removeAttribute(PlayerAttributes.PROUDLY_DISPLAY_MUX_BADGE);
+    } else {
+      this.setAttribute(PlayerAttributes.PROUDLY_DISPLAY_MUX_BADGE, "");
+    }
+  }
+};
+_defaultPlayerInitTime = new WeakMap();
+_isInit = new WeakMap();
+_tokens2 = new WeakMap();
+_userInactive = new WeakMap();
+_hotkeys = new WeakMap();
+_state = new WeakMap();
+_MuxPlayerElement_instances = new WeakSet();
+init_fn = function() {
+  var _a2, _b2, _c, _d;
+  if (__privateGet(this, _isInit)) return;
+  __privateSet(this, _isInit, true);
+  __privateMethod(this, _MuxPlayerElement_instances, render_fn).call(this);
+  try {
+    customElements.upgrade(this.mediaTheme);
+    if (!(this.mediaTheme instanceof internalGlobalThis.HTMLElement)) throw "";
+  } catch (_error) {
+    error(`<media-theme> failed to upgrade!`);
+  }
+  try {
+    customElements.upgrade(this.media);
+    if (this.muxVideoElement.includes("-")) {
+      customElements.upgrade(this.media);
+      const mediaClass = customElements.get(this.muxVideoElement);
+      if (!(mediaClass && this.media instanceof mediaClass)) {
+        throw "";
+      }
+    }
+  } catch (_error) {
+    error("underlying media element failed to upgrade!");
+  }
+  try {
+    customElements.upgrade(this.mediaController);
+    if (!(this.mediaController instanceof MediaController)) throw "";
+  } catch (_error) {
+    error(`<media-controller> failed to upgrade!`);
+  }
+  this.init();
+  __privateMethod(this, _MuxPlayerElement_instances, setUpThemeAttributes_fn).call(this);
+  __privateMethod(this, _MuxPlayerElement_instances, setUpErrors_fn).call(this);
+  __privateMethod(this, _MuxPlayerElement_instances, setUpCaptionsButton_fn).call(this);
+  __privateSet(this, _userInactive, (_b2 = (_a2 = this.mediaController) == null ? void 0 : _a2.hasAttribute(MediaControllerAttributes.USER_INACTIVE)) != null ? _b2 : true);
+  __privateMethod(this, _MuxPlayerElement_instances, setUpCaptionsMovement_fn).call(this);
+  (_c = this.media) == null ? void 0 : _c.addEventListener("streamtypechange", () => __privateMethod(this, _MuxPlayerElement_instances, render_fn).call(this));
+  (_d = this.media) == null ? void 0 : _d.addEventListener("loadstart", () => __privateMethod(this, _MuxPlayerElement_instances, render_fn).call(this));
+};
+setupCSSProperties_fn = function() {
+  var _a2, _b2;
+  try {
+    (_a2 = window == null ? void 0 : window.CSS) == null ? void 0 : _a2.registerProperty({
+      name: "--media-primary-color",
+      syntax: "<color>",
+      inherits: true
+    });
+    (_b2 = window == null ? void 0 : window.CSS) == null ? void 0 : _b2.registerProperty({
+      name: "--media-secondary-color",
+      syntax: "<color>",
+      inherits: true
+    });
+  } catch (_error) {
+  }
+};
+setState_fn = function(newState) {
+  Object.assign(__privateGet(this, _state), newState);
+  __privateMethod(this, _MuxPlayerElement_instances, render_fn).call(this);
+};
+render_fn = function(props = {}) {
+  render(template(getProps(this, { ...__privateGet(this, _state), ...props })), this.shadowRoot);
+};
+setUpThemeAttributes_fn = function() {
+  const setThemeAttribute = (attributeName) => {
+    var _a2, _b2;
+    if (!(attributeName == null ? void 0 : attributeName.startsWith("theme-"))) return;
+    const themeAttrName = attributeName.replace(/^theme-/, "");
+    if (ThemeAttributeNames.includes(themeAttrName)) return;
+    const value = this.getAttribute(attributeName);
+    if (value != null) {
+      (_a2 = this.mediaTheme) == null ? void 0 : _a2.setAttribute(themeAttrName, value);
+    } else {
+      (_b2 = this.mediaTheme) == null ? void 0 : _b2.removeAttribute(themeAttrName);
+    }
+  };
+  const observer = new MutationObserver((mutationList) => {
+    for (const { attributeName } of mutationList) {
+      setThemeAttribute(attributeName);
+    }
+  });
+  observer.observe(this, { attributes: true });
+  this.getAttributeNames().forEach(setThemeAttribute);
+};
+setUpErrors_fn = function() {
+  var _a2;
+  const onError = (event) => {
+    let { detail: error2 } = event;
+    if (!(error2 instanceof MediaError2)) {
+      error2 = new MediaError2(error2.message, error2.code, error2.fatal);
+    }
+    if (!(error2 == null ? void 0 : error2.fatal)) {
+      warn(error2);
+      if (error2.data) {
+        warn(`${error2.name} data:`, error2.data);
+      }
+      return;
+    }
+    const devlog2 = muxMediaErrorToDevlog(error2, false);
+    if (devlog2.message) {
+      devlog(devlog2);
+    }
+    error(error2);
+    if (error2.data) {
+      error(`${error2.name} data:`, error2.data);
+    }
+    __privateMethod(this, _MuxPlayerElement_instances, setState_fn).call(this, { isDialogOpen: true });
+  };
+  this.addEventListener("error", onError);
+  if (this.media) {
+    this.media.errorTranslator = (errorEvent = {}) => {
+      var _a3, _b2, _c;
+      if (!(((_a3 = this.media) == null ? void 0 : _a3.error) instanceof MediaError2)) return errorEvent;
+      const devlog2 = muxMediaErrorToDevlog((_b2 = this.media) == null ? void 0 : _b2.error, false);
+      return {
+        player_error_code: (_c = this.media) == null ? void 0 : _c.error.code,
+        player_error_message: devlog2.message ? String(devlog2.message) : errorEvent.player_error_message,
+        player_error_context: devlog2.context ? String(devlog2.context) : errorEvent.player_error_context
+      };
+    };
+  }
+  (_a2 = this.media) == null ? void 0 : _a2.addEventListener("error", (event) => {
+    var _a3, _b2;
+    let { detail: error2 } = event;
+    if (!error2) {
+      const { message, code } = (_b2 = (_a3 = this.media) == null ? void 0 : _a3.error) != null ? _b2 : {};
+      error2 = new MediaError2(message, code);
+    }
+    if (!(error2 == null ? void 0 : error2.fatal)) return;
+    this.dispatchEvent(
+      new CustomEvent("error", {
+        detail: error2
+      })
+    );
+  });
+};
+setUpCaptionsButton_fn = function() {
+  var _a2, _b2, _c, _d;
+  const onTrackCountChange = () => __privateMethod(this, _MuxPlayerElement_instances, render_fn).call(this);
+  (_b2 = (_a2 = this.media) == null ? void 0 : _a2.textTracks) == null ? void 0 : _b2.addEventListener("addtrack", onTrackCountChange);
+  (_d = (_c = this.media) == null ? void 0 : _c.textTracks) == null ? void 0 : _d.addEventListener("removetrack", onTrackCountChange);
+};
+setUpCaptionsMovement_fn = function() {
+  var _a2, _b2;
+  const isFirefox = /Firefox/i.test(navigator.userAgent);
+  if (!isFirefox) return;
+  let selectedTrack;
+  const cuesmap = /* @__PURE__ */ new WeakMap();
+  const shouldSkipLineToggle = () => {
+    return this.streamType === StreamTypes3.LIVE && !this.secondaryColor && this.offsetWidth >= 800;
+  };
+  const toggleLines = (track, userInactive, force = false) => {
+    if (shouldSkipLineToggle()) {
+      return;
+    }
+    const cues = Array.from(track && track.activeCues || []);
+    cues.forEach((cue) => {
+      if (!cue.snapToLines || cue.line < -5 || cue.line >= 0 && cue.line < 10) {
+        return;
+      }
+      if (!userInactive || this.paused) {
+        const lines = cue.text.split("\n").length;
+        let offset = -3;
+        if (this.streamType === StreamTypes3.LIVE) {
+          offset = -2;
+        }
+        const setTo = offset - lines;
+        if (cue.line === setTo && !force) {
+          return;
+        }
+        if (!cuesmap.has(cue)) {
+          cuesmap.set(cue, cue.line);
+        }
+        cue.line = setTo;
+      } else {
+        setTimeout(() => {
+          cue.line = cuesmap.get(cue) || "auto";
+        }, 500);
+      }
+    });
+  };
+  const cuechangeHandler = () => {
+    var _a3, _b3;
+    toggleLines(selectedTrack, (_b3 = (_a3 = this.mediaController) == null ? void 0 : _a3.hasAttribute(MediaControllerAttributes.USER_INACTIVE)) != null ? _b3 : false);
+  };
+  const selectTrack = () => {
+    var _a3, _b3;
+    const tracks = Array.from(((_b3 = (_a3 = this.mediaController) == null ? void 0 : _a3.media) == null ? void 0 : _b3.textTracks) || []);
+    const newSelectedTrack = tracks.filter(
+      (t) => ["subtitles", "captions"].includes(t.kind) && t.mode === "showing"
+    )[0];
+    if (newSelectedTrack !== selectedTrack) {
+      selectedTrack == null ? void 0 : selectedTrack.removeEventListener("cuechange", cuechangeHandler);
+    }
+    selectedTrack = newSelectedTrack;
+    selectedTrack == null ? void 0 : selectedTrack.addEventListener("cuechange", cuechangeHandler);
+    toggleLines(selectedTrack, __privateGet(this, _userInactive));
+  };
+  selectTrack();
+  (_a2 = this.textTracks) == null ? void 0 : _a2.addEventListener("change", selectTrack);
+  (_b2 = this.textTracks) == null ? void 0 : _b2.addEventListener("addtrack", selectTrack);
+  this.addEventListener("userinactivechange", () => {
+    var _a3, _b3;
+    const newUserInactive = (_b3 = (_a3 = this.mediaController) == null ? void 0 : _a3.hasAttribute(MediaControllerAttributes.USER_INACTIVE)) != null ? _b3 : true;
+    if (__privateGet(this, _userInactive) === newUserInactive) {
+      return;
+    }
+    __privateSet(this, _userInactive, newUserInactive);
+    toggleLines(selectedTrack, __privateGet(this, _userInactive));
+  });
+};
+function getVideoAttribute2(el, name) {
+  return el.media ? el.media.getAttribute(name) : el.getAttribute(name);
+}
+if (!internalGlobalThis.customElements.get("mux-player")) {
+  internalGlobalThis.customElements.define("mux-player", MuxPlayerElement);
+  internalGlobalThis.MuxPlayerElement = MuxPlayerElement;
+}
+var index_default = MuxPlayerElement;
+export {
+  MediaError2 as MediaError,
+  index_default as default,
+  generatePlayerInitTime,
+  getVideoAttribute2 as getVideoAttribute,
+  playerSoftwareName,
+  playerSoftwareVersion
+};

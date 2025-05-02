@@ -1,14 +1,1016 @@
-"use strict";var _o=Object.defineProperty;var uh=Object.getOwnPropertyDescriptor;var ch=Object.getOwnPropertyNames;var mh=Object.prototype.hasOwnProperty;var Md=i=>{throw TypeError(i)};var hh=(i,e)=>{for(var t in e)_o(i,t,{get:e[t],enumerable:!0})},ph=(i,e,t,a)=>{if(e&&typeof e=="object"||typeof e=="function")for(let r of ch(e))!mh.call(i,r)&&r!==t&&_o(i,r,{get:()=>e[r],enumerable:!(a=uh(e,r))||a.enumerable});return i};var fh=i=>ph(_o({},"__esModule",{value:!0}),i);var Ao=(i,e,t)=>e.has(i)||Md("Cannot "+t);var B=(i,e,t)=>(Ao(i,e,"read from private field"),t?t.call(i):e.get(i)),he=(i,e,t)=>e.has(i)?Md("Cannot add the same private member more than once"):e instanceof WeakSet?e.add(i):e.set(i,t),Ae=(i,e,t,a)=>(Ao(i,e,"write to private field"),a?a.call(i,t):e.set(i,t),t),Q=(i,e,t)=>(Ao(i,e,"access private method"),t);var bv={};hh(bv,{MediaError:()=>b.MediaError,default:()=>Ev,generatePlayerInitTime:()=>L.generatePlayerInitTime,getVideoAttribute:()=>Nt,playerSoftwareName:()=>Xl,playerSoftwareVersion:()=>Ql});module.exports=fh(bv);var bi=class{addEventListener(){}removeEventListener(){}dispatchEvent(e){return!0}};if(typeof DocumentFragment=="undefined"){class i extends bi{}globalThis.DocumentFragment=i}var na=class extends bi{},yo=class extends bi{},vh={get(i){},define(i,e,t){},getName(i){return null},upgrade(i){},whenDefined(i){return Promise.resolve(na)}},oa,To=class{constructor(e,t={}){he(this,oa);Ae(this,oa,t==null?void 0:t.detail)}get detail(){return B(this,oa)}initCustomEvent(){}};oa=new WeakMap;function Eh(i,e){return new na}var wd={document:{createElement:Eh},DocumentFragment,customElements:vh,CustomEvent:To,EventTarget:bi,HTMLElement:na,HTMLVideoElement:yo},Rd=typeof window=="undefined"||typeof globalThis.customElements=="undefined",pe=Rd?wd:globalThis,gi=Rd?wd.document:globalThis.document;var f={MEDIA_PLAY_REQUEST:"mediaplayrequest",MEDIA_PAUSE_REQUEST:"mediapauserequest",MEDIA_MUTE_REQUEST:"mediamuterequest",MEDIA_UNMUTE_REQUEST:"mediaunmuterequest",MEDIA_VOLUME_REQUEST:"mediavolumerequest",MEDIA_SEEK_REQUEST:"mediaseekrequest",MEDIA_AIRPLAY_REQUEST:"mediaairplayrequest",MEDIA_ENTER_FULLSCREEN_REQUEST:"mediaenterfullscreenrequest",MEDIA_EXIT_FULLSCREEN_REQUEST:"mediaexitfullscreenrequest",MEDIA_PREVIEW_REQUEST:"mediapreviewrequest",MEDIA_ENTER_PIP_REQUEST:"mediaenterpiprequest",MEDIA_EXIT_PIP_REQUEST:"mediaexitpiprequest",MEDIA_ENTER_CAST_REQUEST:"mediaentercastrequest",MEDIA_EXIT_CAST_REQUEST:"mediaexitcastrequest",MEDIA_SHOW_TEXT_TRACKS_REQUEST:"mediashowtexttracksrequest",MEDIA_HIDE_TEXT_TRACKS_REQUEST:"mediahidetexttracksrequest",MEDIA_SHOW_SUBTITLES_REQUEST:"mediashowsubtitlesrequest",MEDIA_DISABLE_SUBTITLES_REQUEST:"mediadisablesubtitlesrequest",MEDIA_TOGGLE_SUBTITLES_REQUEST:"mediatogglesubtitlesrequest",MEDIA_PLAYBACK_RATE_REQUEST:"mediaplaybackraterequest",MEDIA_RENDITION_REQUEST:"mediarenditionrequest",MEDIA_AUDIO_TRACK_REQUEST:"mediaaudiotrackrequest",MEDIA_SEEK_TO_LIVE_REQUEST:"mediaseektoliverequest",REGISTER_MEDIA_STATE_RECEIVER:"registermediastatereceiver",UNREGISTER_MEDIA_STATE_RECEIVER:"unregistermediastatereceiver"},R={MEDIA_CHROME_ATTRIBUTES:"mediachromeattributes",MEDIA_CONTROLLER:"mediacontroller"},ko={MEDIA_AIRPLAY_UNAVAILABLE:"mediaAirplayUnavailable",MEDIA_AUDIO_TRACK_ENABLED:"mediaAudioTrackEnabled",MEDIA_AUDIO_TRACK_LIST:"mediaAudioTrackList",MEDIA_AUDIO_TRACK_UNAVAILABLE:"mediaAudioTrackUnavailable",MEDIA_BUFFERED:"mediaBuffered",MEDIA_CAST_UNAVAILABLE:"mediaCastUnavailable",MEDIA_CHAPTERS_CUES:"mediaChaptersCues",MEDIA_CURRENT_TIME:"mediaCurrentTime",MEDIA_DURATION:"mediaDuration",MEDIA_ENDED:"mediaEnded",MEDIA_ERROR:"mediaError",MEDIA_ERROR_CODE:"mediaErrorCode",MEDIA_ERROR_MESSAGE:"mediaErrorMessage",MEDIA_FULLSCREEN_UNAVAILABLE:"mediaFullscreenUnavailable",MEDIA_HAS_PLAYED:"mediaHasPlayed",MEDIA_HEIGHT:"mediaHeight",MEDIA_IS_AIRPLAYING:"mediaIsAirplaying",MEDIA_IS_CASTING:"mediaIsCasting",MEDIA_IS_FULLSCREEN:"mediaIsFullscreen",MEDIA_IS_PIP:"mediaIsPip",MEDIA_LOADING:"mediaLoading",MEDIA_MUTED:"mediaMuted",MEDIA_PAUSED:"mediaPaused",MEDIA_PIP_UNAVAILABLE:"mediaPipUnavailable",MEDIA_PLAYBACK_RATE:"mediaPlaybackRate",MEDIA_PREVIEW_CHAPTER:"mediaPreviewChapter",MEDIA_PREVIEW_COORDS:"mediaPreviewCoords",MEDIA_PREVIEW_IMAGE:"mediaPreviewImage",MEDIA_PREVIEW_TIME:"mediaPreviewTime",MEDIA_RENDITION_LIST:"mediaRenditionList",MEDIA_RENDITION_SELECTED:"mediaRenditionSelected",MEDIA_RENDITION_UNAVAILABLE:"mediaRenditionUnavailable",MEDIA_SEEKABLE:"mediaSeekable",MEDIA_STREAM_TYPE:"mediaStreamType",MEDIA_SUBTITLES_LIST:"mediaSubtitlesList",MEDIA_SUBTITLES_SHOWING:"mediaSubtitlesShowing",MEDIA_TARGET_LIVE_WINDOW:"mediaTargetLiveWindow",MEDIA_TIME_IS_LIVE:"mediaTimeIsLive",MEDIA_VOLUME:"mediaVolume",MEDIA_VOLUME_LEVEL:"mediaVolumeLevel",MEDIA_VOLUME_UNAVAILABLE:"mediaVolumeUnavailable",MEDIA_WIDTH:"mediaWidth"},Ld=Object.entries(ko),o=Ld.reduce((i,[e,t])=>(i[e]=t.toLowerCase(),i),{}),bh={USER_INACTIVE:"userinactivechange",BREAKPOINTS_CHANGE:"breakpointchange",BREAKPOINTS_COMPUTED:"breakpointscomputed"},nt=Ld.reduce((i,[e,t])=>(i[e]=t.toLowerCase(),i),{...bh}),Tv=Object.entries(nt).reduce((i,[e,t])=>{let a=o[e];return a&&(i[t]=a),i},{userinactivechange:"userinactive"}),xd=Object.entries(o).reduce((i,[e,t])=>{let a=nt[e];return a&&(i[t]=a),i},{userinactive:"userinactivechange"}),fe={SUBTITLES:"subtitles",CAPTIONS:"captions",DESCRIPTIONS:"descriptions",CHAPTERS:"chapters",METADATA:"metadata"},bt={DISABLED:"disabled",HIDDEN:"hidden",SHOWING:"showing"};var So={MOUSE:"mouse",PEN:"pen",TOUCH:"touch"},ye={UNAVAILABLE:"unavailable",UNSUPPORTED:"unsupported"},Le={LIVE:"live",ON_DEMAND:"on-demand",UNKNOWN:"unknown"};var Dd={INLINE:"inline",FULLSCREEN:"fullscreen",PICTURE_IN_PICTURE:"picture-in-picture"};function Od(i){return i==null?void 0:i.map(_h).join(" ")}function Nd(i){return i==null?void 0:i.split(/\s+/).map(Ah)}function _h(i){if(i){let{id:e,width:t,height:a}=i;return[e,t,a].filter(r=>r!=null).join(":")}}function Ah(i){if(i){let[e,t,a]=i.split(":");return{id:e,width:+t,height:+a}}}function Pd(i){return i==null?void 0:i.map(yh).join(" ")}function Ud(i){return i==null?void 0:i.split(/\s+/).map(Th)}function yh(i){if(i){let{id:e,kind:t,language:a,label:r}=i;return[e,t,a,r].filter(n=>n!=null).join(":")}}function Th(i){if(i){let[e,t,a,r]=i.split(":");return{id:e,kind:t,language:a,label:r}}}function Bd(i){return i.replace(/[-_]([a-z])/g,(e,t)=>t.toUpperCase())}function _i(i){return typeof i=="number"&&!Number.isNaN(i)&&Number.isFinite(i)}function dr(i){return typeof i!="string"?!1:!isNaN(i)&&!isNaN(parseFloat(i))}var ur=i=>new Promise(e=>setTimeout(e,i));var Hd=[{singular:"hour",plural:"hours"},{singular:"minute",plural:"minutes"},{singular:"second",plural:"seconds"}],kh=(i,e)=>{let t=i===1?Hd[e].singular:Hd[e].plural;return`${i} ${t}`},Ht=i=>{if(!_i(i))return"";let e=Math.abs(i),t=e!==i,a=new Date(0,0,0,0,0,e,0);return`${[a.getHours(),a.getMinutes(),a.getSeconds()].map((l,u)=>l&&kh(l,u)).filter(l=>l).join(", ")}${t?" remaining":""}`};function Be(i,e){let t=!1;i<0&&(t=!0,i=0-i),i=i<0?0:i;let a=Math.floor(i%60),r=Math.floor(i/60%60),n=Math.floor(i/3600),s=Math.floor(e/60%60),l=Math.floor(e/3600);return(isNaN(i)||i===1/0)&&(n=r=a="0"),n=n>0||l>0?n+":":"",r=((n||s>=10)&&r<10?"0"+r:r)+":",a=a<10?"0"+a:a,(t?"-":"")+n+r+a}var Iv=Object.freeze({length:0,start(i){let e=i>>>0;if(e>=this.length)throw new DOMException(`Failed to execute 'start' on 'TimeRanges': The index provided (${e}) is greater than or equal to the maximum bound (${this.length}).`);return 0},end(i){let e=i>>>0;if(e>=this.length)throw new DOMException(`Failed to execute 'end' on 'TimeRanges': The index provided (${e}) is greater than or equal to the maximum bound (${this.length}).`);return 0}});var Io={"Start airplay":"Start airplay","Stop airplay":"Stop airplay",Audio:"Audio",Captions:"Captions","Enable captions":"Enable captions","Disable captions":"Disable captions","Start casting":"Start casting","Stop casting":"Stop casting","Enter fullscreen mode":"Enter fullscreen mode","Exit fullscreen mode":"Exit fullscreen mode",Mute:"Mute",Unmute:"Unmute","Enter picture in picture mode":"Enter picture in picture mode","Exit picture in picture mode":"Exit picture in picture mode",Play:"Play",Pause:"Pause","Playback rate":"Playback rate","Playback rate {playbackRate}":"Playback rate {playbackRate}",Quality:"Quality","Seek backward":"Seek backward","Seek forward":"Seek forward",Settings:"Settings","audio player":"audio player","video player":"video player",volume:"volume",seek:"seek","closed captions":"closed captions","current playback rate":"current playback rate","playback time":"playback time","media loading":"media loading",settings:"settings","audio tracks":"audio tracks",quality:"quality",play:"play",pause:"pause",mute:"mute",unmute:"unmute",live:"live","start airplay":"start airplay","stop airplay":"stop airplay","start casting":"start casting","stop casting":"stop casting","enter fullscreen mode":"enter fullscreen mode","exit fullscreen mode":"exit fullscreen mode","enter picture in picture mode":"enter picture in picture mode","exit picture in picture mode":"exit picture in picture mode","seek to live":"seek to live","playing live":"playing live","seek back {seekOffset} seconds":"seek back {seekOffset} seconds","seek forward {seekOffset} seconds":"seek forward {seekOffset} seconds","Network Error":"Network Error","Decode Error":"Decode Error","Source Not Supported":"Source Not Supported","Encryption Error":"Encryption Error","A network error caused the media download to fail.":"A network error caused the media download to fail.","A media error caused playback to be aborted. The media could be corrupt or your browser does not support this format.":"A media error caused playback to be aborted. The media could be corrupt or your browser does not support this format.","An unsupported error occurred. The server or network failed, or your browser does not support this format.":"An unsupported error occurred. The server or network failed, or your browser does not support this format.","The media is encrypted and there are no keys to decrypt it.":"The media is encrypted and there are no keys to decrypt it."};var Ih={en:Io};var Ch=()=>{var i;return((i=globalThis.navigator)==null?void 0:i.language.split("-")[0])||"en"},v=(i,e={})=>{var t;return(((t=Ih[Ch()])==null?void 0:t[i])||Io[i]).replace(/\{(\w+)\}/g,(r,n)=>e[n]!==void 0?String(e[n]):`{${n}}`)};var cr=class{addEventListener(){}removeEventListener(){}dispatchEvent(){return!0}},mr=class extends cr{},hr=class extends mr{constructor(){super(...arguments),this.role=null}},Co=class{observe(){}unobserve(){}disconnect(){}},Wd={createElement:function(){return new sa.HTMLElement},createElementNS:function(){return new sa.HTMLElement},addEventListener(){},removeEventListener(){},dispatchEvent(i){return!1}},sa={ResizeObserver:Co,document:Wd,Node:mr,Element:hr,HTMLElement:class extends hr{constructor(){super(...arguments),this.innerHTML=""}get content(){return new sa.DocumentFragment}},DocumentFragment:class extends cr{},customElements:{get:function(){},define:function(){},whenDefined:function(){}},localStorage:{getItem(i){return null},setItem(i,e){},removeItem(i){}},CustomEvent:function(){},getComputedStyle:function(){},navigator:{languages:[],get userAgent(){return""}},matchMedia(i){return{matches:!1,media:i}}},$d=typeof window=="undefined"||typeof window.customElements=="undefined",Fd=Object.keys(sa).every(i=>i in globalThis),d=$d&&!Fd?sa:globalThis,h=$d&&!Fd?Wd:globalThis.document;var Vd=new WeakMap,Mo=i=>{let e=Vd.get(i);return e||Vd.set(i,e=new Set),e},Kd=new d.ResizeObserver(i=>{for(let e of i)for(let t of Mo(e.target))t(e)});function ot(i,e){Mo(i).add(e),Kd.observe(i)}function st(i,e){let t=Mo(i);t.delete(e),t.size||Kd.unobserve(i)}function Gd(i){let e={};for(let t of i)e[t.name]=t.value;return e}function q(i){var e;return(e=pr(i))!=null?e:He(i,"media-controller")}function pr(i){var e;let{MEDIA_CONTROLLER:t}=R,a=i.getAttribute(t);if(a)return(e=Wt(i))==null?void 0:e.getElementById(a)}var fr=(i,e,t=".value")=>{let a=i.querySelector(t);a&&(a.textContent=e)},Mh=(i,e)=>{let t=`slot[name="${e}"]`,a=i.shadowRoot.querySelector(t);return a?a.children:[]},vr=(i,e)=>Mh(i,e)[0],de=(i,e)=>!i||!e?!1:i!=null&&i.contains(e)?!0:de(i,e.getRootNode().host),He=(i,e)=>{if(!i)return null;let t=i.closest(e);return t||He(i.getRootNode().host,e)};function la(i=document){var e;let t=i==null?void 0:i.activeElement;return t?(e=la(t.shadowRoot))!=null?e:t:null}function Wt(i){var e;let t=(e=i==null?void 0:i.getRootNode)==null?void 0:e.call(i);return t instanceof ShadowRoot||t instanceof Document?t:null}function Er(i,{depth:e=3,checkOpacity:t=!0,checkVisibilityCSS:a=!0}={}){if(i.checkVisibility)return i.checkVisibility({checkOpacity:t,checkVisibilityCSS:a});let r=i;for(;r&&e>0;){let n=getComputedStyle(r);if(t&&n.opacity==="0"||a&&n.visibility==="hidden"||n.display==="none")return!1;r=r.parentElement,e--}return!0}function Yd(i,e,t,a){let r=wo(t,a),n=wo(t,{x:i,y:e}),s=wo(a,{x:i,y:e});return n>r||s>r?n>s?1:0:n/r}function wo(i,e){return Math.sqrt(Math.pow(e.x-i.x,2)+Math.pow(e.y-i.y,2))}function $(i,e){let t=wh(i,a=>a===e);return t||Ro(i,e)}function wh(i,e){var t,a;let r;for(r of(t=i.querySelectorAll("style:not([media])"))!=null?t:[]){let n;try{n=(a=r.sheet)==null?void 0:a.cssRules}catch{continue}for(let s of n!=null?n:[])if(e(s.selectorText))return s}}function Ro(i,e){var t,a;let r=(t=i.querySelectorAll("style:not([media])"))!=null?t:[],n=r==null?void 0:r[r.length-1];return n!=null&&n.sheet?(n==null||n.sheet.insertRule(`${e}{}`,n.sheet.cssRules.length),(a=n.sheet.cssRules)==null?void 0:a[n.sheet.cssRules.length-1]):(console.warn("Media Chrome: No style sheet found on style tag of",i),{style:{setProperty:()=>{},removeProperty:()=>"",getPropertyValue:()=>""}})}function x(i,e,t=Number.NaN){let a=i.getAttribute(e);return a!=null?+a:t}function N(i,e,t){let a=+t;if(t==null||Number.isNaN(a)){i.hasAttribute(e)&&i.removeAttribute(e);return}x(i,e,void 0)!==a&&i.setAttribute(e,`${a}`)}function k(i,e){return i.hasAttribute(e)}function S(i,e,t){if(t==null){i.hasAttribute(e)&&i.removeAttribute(e);return}k(i,e)!=t&&i.toggleAttribute(e,t)}function M(i,e,t=null){var a;return(a=i.getAttribute(e))!=null?a:t}function w(i,e,t){if(t==null){i.hasAttribute(e)&&i.removeAttribute(e);return}let a=`${t}`;M(i,e,void 0)!==a&&i.setAttribute(e,a)}var qd=(i,e,t)=>{if(!e.has(i))throw TypeError("Cannot "+t)},gt=(i,e,t)=>(qd(i,e,"read from private field"),t?t.call(i):e.get(i)),Rh=(i,e,t)=>{if(e.has(i))throw TypeError("Cannot add the same private member more than once");e instanceof WeakSet?e.add(i):e.set(i,t)},br=(i,e,t,a)=>(qd(i,e,"write to private field"),a?a.call(i,t):e.set(i,t),t),ve,Zd=h.createElement("template");Zd.innerHTML=`
+"use strict";
+var __defProp = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropNames = Object.getOwnPropertyNames;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __typeError = (msg) => {
+  throw TypeError(msg);
+};
+var __export = (target, all) => {
+  for (var name in all)
+    __defProp(target, name, { get: all[name], enumerable: true });
+};
+var __copyProps = (to, from, except, desc) => {
+  if (from && typeof from === "object" || typeof from === "function") {
+    for (let key of __getOwnPropNames(from))
+      if (!__hasOwnProp.call(to, key) && key !== except)
+        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+  }
+  return to;
+};
+var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
+var __accessCheck = (obj, member, msg) => member.has(obj) || __typeError("Cannot " + msg);
+var __privateGet = (obj, member, getter) => (__accessCheck(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
+var __privateAdd = (obj, member, value) => member.has(obj) ? __typeError("Cannot add the same private member more than once") : member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+var __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
+var __privateMethod = (obj, member, method) => (__accessCheck(obj, member, "access private method"), method);
+
+// src/index.ts
+var index_exports = {};
+__export(index_exports, {
+  MediaError: () => import_mux_video2.MediaError,
+  default: () => index_default,
+  generatePlayerInitTime: () => import_playback_core5.generatePlayerInitTime,
+  getVideoAttribute: () => getVideoAttribute2,
+  playerSoftwareName: () => playerSoftwareName,
+  playerSoftwareVersion: () => playerSoftwareVersion
+});
+module.exports = __toCommonJS(index_exports);
+
+// src/polyfills/index.ts
+var EventTarget = class {
+  addEventListener() {
+  }
+  removeEventListener() {
+  }
+  dispatchEvent(_event) {
+    return true;
+  }
+};
+if (typeof DocumentFragment === "undefined") {
+  class DocumentFragment3 extends EventTarget {
+  }
+  globalThis.DocumentFragment = DocumentFragment3;
+}
+var HTMLElement = class extends EventTarget {
+};
+var HTMLVideoElement = class extends EventTarget {
+};
+var customElements2 = {
+  get(_name) {
+    return void 0;
+  },
+  define(_name, _constructor, _options) {
+  },
+  getName(_constructor) {
+    return null;
+  },
+  upgrade(_root) {
+  },
+  whenDefined(_name) {
+    return Promise.resolve(HTMLElement);
+  }
+};
+var _detail;
+var CustomEvent2 = class {
+  constructor(_typeArg, eventInitDict = {}) {
+    __privateAdd(this, _detail);
+    __privateSet(this, _detail, eventInitDict == null ? void 0 : eventInitDict.detail);
+  }
+  get detail() {
+    return __privateGet(this, _detail);
+  }
+  initCustomEvent() {
+  }
+};
+_detail = new WeakMap();
+function createElement(_tagName, _options) {
+  return new HTMLElement();
+}
+var globalThisShim = {
+  document: {
+    createElement
+  },
+  DocumentFragment,
+  customElements: customElements2,
+  CustomEvent: CustomEvent2,
+  EventTarget,
+  HTMLElement,
+  HTMLVideoElement
+};
+var isServer = typeof window === "undefined" || typeof globalThis.customElements === "undefined";
+var internalGlobalThis = isServer ? globalThisShim : globalThis;
+var internalDocument = isServer ? globalThisShim.document : globalThis.document;
+
+// ../../node_modules/media-chrome/dist/constants.js
+var MediaUIEvents = {
+  MEDIA_PLAY_REQUEST: "mediaplayrequest",
+  MEDIA_PAUSE_REQUEST: "mediapauserequest",
+  MEDIA_MUTE_REQUEST: "mediamuterequest",
+  MEDIA_UNMUTE_REQUEST: "mediaunmuterequest",
+  MEDIA_VOLUME_REQUEST: "mediavolumerequest",
+  MEDIA_SEEK_REQUEST: "mediaseekrequest",
+  MEDIA_AIRPLAY_REQUEST: "mediaairplayrequest",
+  MEDIA_ENTER_FULLSCREEN_REQUEST: "mediaenterfullscreenrequest",
+  MEDIA_EXIT_FULLSCREEN_REQUEST: "mediaexitfullscreenrequest",
+  MEDIA_PREVIEW_REQUEST: "mediapreviewrequest",
+  MEDIA_ENTER_PIP_REQUEST: "mediaenterpiprequest",
+  MEDIA_EXIT_PIP_REQUEST: "mediaexitpiprequest",
+  MEDIA_ENTER_CAST_REQUEST: "mediaentercastrequest",
+  MEDIA_EXIT_CAST_REQUEST: "mediaexitcastrequest",
+  MEDIA_SHOW_TEXT_TRACKS_REQUEST: "mediashowtexttracksrequest",
+  MEDIA_HIDE_TEXT_TRACKS_REQUEST: "mediahidetexttracksrequest",
+  MEDIA_SHOW_SUBTITLES_REQUEST: "mediashowsubtitlesrequest",
+  MEDIA_DISABLE_SUBTITLES_REQUEST: "mediadisablesubtitlesrequest",
+  MEDIA_TOGGLE_SUBTITLES_REQUEST: "mediatogglesubtitlesrequest",
+  MEDIA_PLAYBACK_RATE_REQUEST: "mediaplaybackraterequest",
+  MEDIA_RENDITION_REQUEST: "mediarenditionrequest",
+  MEDIA_AUDIO_TRACK_REQUEST: "mediaaudiotrackrequest",
+  MEDIA_SEEK_TO_LIVE_REQUEST: "mediaseektoliverequest",
+  REGISTER_MEDIA_STATE_RECEIVER: "registermediastatereceiver",
+  UNREGISTER_MEDIA_STATE_RECEIVER: "unregistermediastatereceiver"
+};
+var MediaStateReceiverAttributes = {
+  MEDIA_CHROME_ATTRIBUTES: "mediachromeattributes",
+  MEDIA_CONTROLLER: "mediacontroller"
+};
+var MediaUIProps = {
+  MEDIA_AIRPLAY_UNAVAILABLE: "mediaAirplayUnavailable",
+  MEDIA_AUDIO_TRACK_ENABLED: "mediaAudioTrackEnabled",
+  MEDIA_AUDIO_TRACK_LIST: "mediaAudioTrackList",
+  MEDIA_AUDIO_TRACK_UNAVAILABLE: "mediaAudioTrackUnavailable",
+  MEDIA_BUFFERED: "mediaBuffered",
+  MEDIA_CAST_UNAVAILABLE: "mediaCastUnavailable",
+  MEDIA_CHAPTERS_CUES: "mediaChaptersCues",
+  MEDIA_CURRENT_TIME: "mediaCurrentTime",
+  MEDIA_DURATION: "mediaDuration",
+  MEDIA_ENDED: "mediaEnded",
+  MEDIA_ERROR: "mediaError",
+  MEDIA_ERROR_CODE: "mediaErrorCode",
+  MEDIA_ERROR_MESSAGE: "mediaErrorMessage",
+  MEDIA_FULLSCREEN_UNAVAILABLE: "mediaFullscreenUnavailable",
+  MEDIA_HAS_PLAYED: "mediaHasPlayed",
+  MEDIA_HEIGHT: "mediaHeight",
+  MEDIA_IS_AIRPLAYING: "mediaIsAirplaying",
+  MEDIA_IS_CASTING: "mediaIsCasting",
+  MEDIA_IS_FULLSCREEN: "mediaIsFullscreen",
+  MEDIA_IS_PIP: "mediaIsPip",
+  MEDIA_LOADING: "mediaLoading",
+  MEDIA_MUTED: "mediaMuted",
+  MEDIA_PAUSED: "mediaPaused",
+  MEDIA_PIP_UNAVAILABLE: "mediaPipUnavailable",
+  MEDIA_PLAYBACK_RATE: "mediaPlaybackRate",
+  MEDIA_PREVIEW_CHAPTER: "mediaPreviewChapter",
+  MEDIA_PREVIEW_COORDS: "mediaPreviewCoords",
+  MEDIA_PREVIEW_IMAGE: "mediaPreviewImage",
+  MEDIA_PREVIEW_TIME: "mediaPreviewTime",
+  MEDIA_RENDITION_LIST: "mediaRenditionList",
+  MEDIA_RENDITION_SELECTED: "mediaRenditionSelected",
+  MEDIA_RENDITION_UNAVAILABLE: "mediaRenditionUnavailable",
+  MEDIA_SEEKABLE: "mediaSeekable",
+  MEDIA_STREAM_TYPE: "mediaStreamType",
+  MEDIA_SUBTITLES_LIST: "mediaSubtitlesList",
+  MEDIA_SUBTITLES_SHOWING: "mediaSubtitlesShowing",
+  MEDIA_TARGET_LIVE_WINDOW: "mediaTargetLiveWindow",
+  MEDIA_TIME_IS_LIVE: "mediaTimeIsLive",
+  MEDIA_VOLUME: "mediaVolume",
+  MEDIA_VOLUME_LEVEL: "mediaVolumeLevel",
+  MEDIA_VOLUME_UNAVAILABLE: "mediaVolumeUnavailable",
+  MEDIA_WIDTH: "mediaWidth"
+};
+var MediaUIPropsEntries = Object.entries(
+  MediaUIProps
+);
+var MediaUIAttributes = MediaUIPropsEntries.reduce(
+  (dictObj, [key, propName]) => {
+    dictObj[key] = propName.toLowerCase();
+    return dictObj;
+  },
+  {}
+);
+var AdditionalStateChangeEvents = {
+  USER_INACTIVE: "userinactivechange",
+  BREAKPOINTS_CHANGE: "breakpointchange",
+  BREAKPOINTS_COMPUTED: "breakpointscomputed"
+};
+var MediaStateChangeEvents = MediaUIPropsEntries.reduce(
+  (dictObj, [key, propName]) => {
+    dictObj[key] = propName.toLowerCase();
+    return dictObj;
+  },
+  { ...AdditionalStateChangeEvents }
+);
+var StateChangeEventToAttributeMap = Object.entries(
+  MediaStateChangeEvents
+).reduce(
+  (mapObj, [key, eventType]) => {
+    const attrName = MediaUIAttributes[key];
+    if (attrName) {
+      mapObj[eventType] = attrName;
+    }
+    return mapObj;
+  },
+  { userinactivechange: "userinactive" }
+);
+var AttributeToStateChangeEventMap = Object.entries(
+  MediaUIAttributes
+).reduce(
+  (mapObj, [key, attrName]) => {
+    const evtType = MediaStateChangeEvents[key];
+    if (evtType) {
+      mapObj[attrName] = evtType;
+    }
+    return mapObj;
+  },
+  { userinactive: "userinactivechange" }
+);
+var TextTrackKinds = {
+  SUBTITLES: "subtitles",
+  CAPTIONS: "captions",
+  DESCRIPTIONS: "descriptions",
+  CHAPTERS: "chapters",
+  METADATA: "metadata"
+};
+var TextTrackModes = {
+  DISABLED: "disabled",
+  HIDDEN: "hidden",
+  SHOWING: "showing"
+};
+var PointerTypes = {
+  MOUSE: "mouse",
+  PEN: "pen",
+  TOUCH: "touch"
+};
+var AvailabilityStates = {
+  UNAVAILABLE: "unavailable",
+  UNSUPPORTED: "unsupported"
+};
+var StreamTypes = {
+  LIVE: "live",
+  ON_DEMAND: "on-demand",
+  UNKNOWN: "unknown"
+};
+var WebkitPresentationModes = {
+  INLINE: "inline",
+  FULLSCREEN: "fullscreen",
+  PICTURE_IN_PICTURE: "picture-in-picture"
+};
+
+// ../../node_modules/media-chrome/dist/utils/utils.js
+function stringifyRenditionList(renditions) {
+  return renditions == null ? void 0 : renditions.map(stringifyRendition).join(" ");
+}
+function parseRenditionList(renditions) {
+  return renditions == null ? void 0 : renditions.split(/\s+/).map(parseRendition);
+}
+function stringifyRendition(rendition) {
+  if (rendition) {
+    const { id, width, height } = rendition;
+    return [id, width, height].filter((a) => a != null).join(":");
+  }
+}
+function parseRendition(rendition) {
+  if (rendition) {
+    const [id, width, height] = rendition.split(":");
+    return { id, width: +width, height: +height };
+  }
+}
+function stringifyAudioTrackList(audioTracks) {
+  return audioTracks == null ? void 0 : audioTracks.map(stringifyAudioTrack).join(" ");
+}
+function parseAudioTrackList(audioTracks) {
+  return audioTracks == null ? void 0 : audioTracks.split(/\s+/).map(parseAudioTrack);
+}
+function stringifyAudioTrack(audioTrack) {
+  if (audioTrack) {
+    const { id, kind, language, label } = audioTrack;
+    return [id, kind, language, label].filter((a) => a != null).join(":");
+  }
+}
+function parseAudioTrack(audioTrack) {
+  if (audioTrack) {
+    const [id, kind, language, label] = audioTrack.split(":");
+    return {
+      id,
+      kind,
+      language,
+      label
+    };
+  }
+}
+function camelCase(name) {
+  return name.replace(/[-_]([a-z])/g, ($0, $1) => $1.toUpperCase());
+}
+function isValidNumber(x) {
+  return typeof x === "number" && !Number.isNaN(x) && Number.isFinite(x);
+}
+function isNumericString(str) {
+  if (typeof str != "string")
+    return false;
+  return !isNaN(str) && !isNaN(parseFloat(str));
+}
+var delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+// ../../node_modules/media-chrome/dist/utils/time.js
+var UnitLabels = [
+  {
+    singular: "hour",
+    plural: "hours"
+  },
+  {
+    singular: "minute",
+    plural: "minutes"
+  },
+  {
+    singular: "second",
+    plural: "seconds"
+  }
+];
+var toTimeUnitPhrase = (timeUnitValue, unitIndex) => {
+  const unitLabel = timeUnitValue === 1 ? UnitLabels[unitIndex].singular : UnitLabels[unitIndex].plural;
+  return `${timeUnitValue} ${unitLabel}`;
+};
+var formatAsTimePhrase = (seconds) => {
+  if (!isValidNumber(seconds))
+    return "";
+  const positiveSeconds = Math.abs(seconds);
+  const negative = positiveSeconds !== seconds;
+  const secondsDateTime = new Date(0, 0, 0, 0, 0, positiveSeconds, 0);
+  const timeParts = [
+    secondsDateTime.getHours(),
+    secondsDateTime.getMinutes(),
+    secondsDateTime.getSeconds()
+  ];
+  const timeString = timeParts.map(
+    (timeUnitValue, index) => timeUnitValue && toTimeUnitPhrase(timeUnitValue, index)
+  ).filter((x) => x).join(", ");
+  const negativeSuffix = negative ? " remaining" : "";
+  return `${timeString}${negativeSuffix}`;
+};
+function formatTime(seconds, guide) {
+  let negative = false;
+  if (seconds < 0) {
+    negative = true;
+    seconds = 0 - seconds;
+  }
+  seconds = seconds < 0 ? 0 : seconds;
+  let s = Math.floor(seconds % 60);
+  let m = Math.floor(seconds / 60 % 60);
+  let h = Math.floor(seconds / 3600);
+  const gm = Math.floor(guide / 60 % 60);
+  const gh = Math.floor(guide / 3600);
+  if (isNaN(seconds) || seconds === Infinity) {
+    h = m = s = "0";
+  }
+  h = h > 0 || gh > 0 ? h + ":" : "";
+  m = ((h || gm >= 10) && m < 10 ? "0" + m : m) + ":";
+  s = s < 10 ? "0" + s : s;
+  return (negative ? "-" : "") + h + m + s;
+}
+var emptyTimeRanges = Object.freeze({
+  length: 0,
+  start(index) {
+    const unsignedIdx = index >>> 0;
+    if (unsignedIdx >= this.length) {
+      throw new DOMException(
+        `Failed to execute 'start' on 'TimeRanges': The index provided (${unsignedIdx}) is greater than or equal to the maximum bound (${this.length}).`
+      );
+    }
+    return 0;
+  },
+  end(index) {
+    const unsignedIdx = index >>> 0;
+    if (unsignedIdx >= this.length) {
+      throw new DOMException(
+        `Failed to execute 'end' on 'TimeRanges': The index provided (${unsignedIdx}) is greater than or equal to the maximum bound (${this.length}).`
+      );
+    }
+    return 0;
+  }
+});
+
+// ../../node_modules/media-chrome/dist/lang/en.js
+var En = {
+  "Start airplay": "Start airplay",
+  "Stop airplay": "Stop airplay",
+  Audio: "Audio",
+  Captions: "Captions",
+  "Enable captions": "Enable captions",
+  "Disable captions": "Disable captions",
+  "Start casting": "Start casting",
+  "Stop casting": "Stop casting",
+  "Enter fullscreen mode": "Enter fullscreen mode",
+  "Exit fullscreen mode": "Exit fullscreen mode",
+  Mute: "Mute",
+  Unmute: "Unmute",
+  "Enter picture in picture mode": "Enter picture in picture mode",
+  "Exit picture in picture mode": "Exit picture in picture mode",
+  Play: "Play",
+  Pause: "Pause",
+  "Playback rate": "Playback rate",
+  "Playback rate {playbackRate}": "Playback rate {playbackRate}",
+  Quality: "Quality",
+  "Seek backward": "Seek backward",
+  "Seek forward": "Seek forward",
+  Settings: "Settings",
+  "audio player": "audio player",
+  "video player": "video player",
+  volume: "volume",
+  seek: "seek",
+  "closed captions": "closed captions",
+  "current playback rate": "current playback rate",
+  "playback time": "playback time",
+  "media loading": "media loading",
+  settings: "settings",
+  "audio tracks": "audio tracks",
+  quality: "quality",
+  play: "play",
+  pause: "pause",
+  mute: "mute",
+  unmute: "unmute",
+  live: "live",
+  "start airplay": "start airplay",
+  "stop airplay": "stop airplay",
+  "start casting": "start casting",
+  "stop casting": "stop casting",
+  "enter fullscreen mode": "enter fullscreen mode",
+  "exit fullscreen mode": "exit fullscreen mode",
+  "enter picture in picture mode": "enter picture in picture mode",
+  "exit picture in picture mode": "exit picture in picture mode",
+  "seek to live": "seek to live",
+  "playing live": "playing live",
+  "seek back {seekOffset} seconds": "seek back {seekOffset} seconds",
+  "seek forward {seekOffset} seconds": "seek forward {seekOffset} seconds",
+  "Network Error": "Network Error",
+  "Decode Error": "Decode Error",
+  "Source Not Supported": "Source Not Supported",
+  "Encryption Error": "Encryption Error",
+  "A network error caused the media download to fail.": "A network error caused the media download to fail.",
+  "A media error caused playback to be aborted. The media could be corrupt or your browser does not support this format.": "A media error caused playback to be aborted. The media could be corrupt or your browser does not support this format.",
+  "An unsupported error occurred. The server or network failed, or your browser does not support this format.": "An unsupported error occurred. The server or network failed, or your browser does not support this format.",
+  "The media is encrypted and there are no keys to decrypt it.": "The media is encrypted and there are no keys to decrypt it."
+};
+
+// ../../node_modules/media-chrome/dist/utils/i18n.js
+var translationsLanguages = {
+  en: En
+};
+var getBrowserLanguage = () => {
+  var _a3;
+  return ((_a3 = globalThis.navigator) == null ? void 0 : _a3.language.split("-")[0]) || "en";
+};
+var t = (key, variables = {}) => {
+  var _a3;
+  const result = ((_a3 = translationsLanguages[getBrowserLanguage()]) == null ? void 0 : _a3[key]) || En[key];
+  return result.replace(
+    /\{(\w+)\}/g,
+    (_, varName) => variables[varName] !== void 0 ? String(variables[varName]) : `{${varName}}`
+  );
+};
+
+// ../../node_modules/media-chrome/dist/utils/server-safe-globals.js
+var EventTarget2 = class {
+  addEventListener() {
+  }
+  removeEventListener() {
+  }
+  dispatchEvent() {
+    return true;
+  }
+};
+var Node = class extends EventTarget2 {
+};
+var Element2 = class extends Node {
+  constructor() {
+    super(...arguments);
+    this.role = null;
+  }
+};
+var ResizeObserver = class {
+  observe() {
+  }
+  unobserve() {
+  }
+  disconnect() {
+  }
+};
+var documentShim = {
+  createElement: function() {
+    return new globalThisShim2.HTMLElement();
+  },
+  createElementNS: function() {
+    return new globalThisShim2.HTMLElement();
+  },
+  addEventListener() {
+  },
+  removeEventListener() {
+  },
+  dispatchEvent(_event) {
+    return false;
+  }
+};
+var globalThisShim2 = {
+  ResizeObserver,
+  document: documentShim,
+  Node,
+  Element: Element2,
+  HTMLElement: class HTMLElement2 extends Element2 {
+    constructor() {
+      super(...arguments);
+      this.innerHTML = "";
+    }
+    get content() {
+      return new globalThisShim2.DocumentFragment();
+    }
+  },
+  DocumentFragment: class DocumentFragment2 extends EventTarget2 {
+  },
+  customElements: {
+    get: function() {
+    },
+    define: function() {
+    },
+    whenDefined: function() {
+    }
+  },
+  localStorage: {
+    getItem(_key) {
+      return null;
+    },
+    setItem(_key, _value2) {
+    },
+    removeItem(_key) {
+    }
+  },
+  CustomEvent: function CustomEvent3() {
+  },
+  getComputedStyle: function() {
+  },
+  navigator: {
+    languages: [],
+    get userAgent() {
+      return "";
+    }
+  },
+  matchMedia(media) {
+    return {
+      matches: false,
+      media
+    };
+  }
+};
+var isServer2 = typeof window === "undefined" || typeof window.customElements === "undefined";
+var isShimmed = Object.keys(globalThisShim2).every((key) => key in globalThis);
+var GlobalThis = isServer2 && !isShimmed ? globalThisShim2 : globalThis;
+var Document2 = isServer2 && !isShimmed ? documentShim : globalThis.document;
+
+// ../../node_modules/media-chrome/dist/utils/resize-observer.js
+var callbacksMap = /* @__PURE__ */ new WeakMap();
+var getCallbacks = (element) => {
+  let callbacks = callbacksMap.get(element);
+  if (!callbacks)
+    callbacksMap.set(element, callbacks = /* @__PURE__ */ new Set());
+  return callbacks;
+};
+var observer = new GlobalThis.ResizeObserver(
+  (entries) => {
+    for (const entry of entries) {
+      for (const callback of getCallbacks(entry.target)) {
+        callback(entry);
+      }
+    }
+  }
+);
+function observeResize(element, callback) {
+  getCallbacks(element).add(callback);
+  observer.observe(element);
+}
+function unobserveResize(element, callback) {
+  const callbacks = getCallbacks(element);
+  callbacks.delete(callback);
+  if (!callbacks.size) {
+    observer.unobserve(element);
+  }
+}
+
+// ../../node_modules/media-chrome/dist/utils/element-utils.js
+function namedNodeMapToObject(namedNodeMap) {
+  const obj = {};
+  for (const attr of namedNodeMap) {
+    obj[attr.name] = attr.value;
+  }
+  return obj;
+}
+function getMediaController(host) {
+  var _a3;
+  return (_a3 = getAttributeMediaController(host)) != null ? _a3 : closestComposedNode(host, "media-controller");
+}
+function getAttributeMediaController(host) {
+  var _a3;
+  const { MEDIA_CONTROLLER } = MediaStateReceiverAttributes;
+  const mediaControllerId = host.getAttribute(MEDIA_CONTROLLER);
+  if (mediaControllerId) {
+    return (_a3 = getDocumentOrShadowRoot(host)) == null ? void 0 : _a3.getElementById(
+      mediaControllerId
+    );
+  }
+}
+var updateIconText = (svg, value, selector = ".value") => {
+  const node = svg.querySelector(selector);
+  if (!node)
+    return;
+  node.textContent = value;
+};
+var getAllSlotted = (el, name) => {
+  const slotSelector = `slot[name="${name}"]`;
+  const slot = el.shadowRoot.querySelector(slotSelector);
+  if (!slot)
+    return [];
+  return slot.children;
+};
+var getSlotted = (el, name) => getAllSlotted(el, name)[0];
+var containsComposedNode = (rootNode, childNode) => {
+  if (!rootNode || !childNode)
+    return false;
+  if (rootNode == null ? void 0 : rootNode.contains(childNode))
+    return true;
+  return containsComposedNode(
+    rootNode,
+    childNode.getRootNode().host
+  );
+};
+var closestComposedNode = (childNode, selector) => {
+  if (!childNode)
+    return null;
+  const closest = childNode.closest(selector);
+  if (closest)
+    return closest;
+  return closestComposedNode(
+    childNode.getRootNode().host,
+    selector
+  );
+};
+function getActiveElement(root = document) {
+  var _a3;
+  const activeEl = root == null ? void 0 : root.activeElement;
+  if (!activeEl)
+    return null;
+  return (_a3 = getActiveElement(activeEl.shadowRoot)) != null ? _a3 : activeEl;
+}
+function getDocumentOrShadowRoot(node) {
+  var _a3;
+  const rootNode = (_a3 = node == null ? void 0 : node.getRootNode) == null ? void 0 : _a3.call(node);
+  if (rootNode instanceof ShadowRoot || rootNode instanceof Document) {
+    return rootNode;
+  }
+  return null;
+}
+function isElementVisible(element, { depth = 3, checkOpacity = true, checkVisibilityCSS = true } = {}) {
+  if (element.checkVisibility) {
+    return element.checkVisibility({
+      checkOpacity,
+      checkVisibilityCSS
+    });
+  }
+  let el = element;
+  while (el && depth > 0) {
+    const style = getComputedStyle(el);
+    if (checkOpacity && style.opacity === "0" || checkVisibilityCSS && style.visibility === "hidden" || style.display === "none") {
+      return false;
+    }
+    el = el.parentElement;
+    depth--;
+  }
+  return true;
+}
+function getPointProgressOnLine(x, y, p1, p2) {
+  const segment = distance(p1, p2);
+  const toStart = distance(p1, { x, y });
+  const toEnd = distance(p2, { x, y });
+  if (toStart > segment || toEnd > segment) {
+    return toStart > toEnd ? 1 : 0;
+  }
+  return toStart / segment;
+}
+function distance(p1, p2) {
+  return Math.sqrt(Math.pow(p2.x - p1.x, 2) + Math.pow(p2.y - p1.y, 2));
+}
+function getOrInsertCSSRule(styleParent, selectorText) {
+  const cssRule = getCSSRule(styleParent, (st) => st === selectorText);
+  if (cssRule)
+    return cssRule;
+  return insertCSSRule(styleParent, selectorText);
+}
+function getCSSRule(styleParent, predicate) {
+  var _a3, _b2;
+  let style;
+  for (style of (_a3 = styleParent.querySelectorAll("style:not([media])")) != null ? _a3 : []) {
+    let cssRules;
+    try {
+      cssRules = (_b2 = style.sheet) == null ? void 0 : _b2.cssRules;
+    } catch {
+      continue;
+    }
+    for (const rule of cssRules != null ? cssRules : []) {
+      if (predicate(rule.selectorText))
+        return rule;
+    }
+  }
+}
+function insertCSSRule(styleParent, selectorText) {
+  var _a3, _b2;
+  const styles = (_a3 = styleParent.querySelectorAll("style:not([media])")) != null ? _a3 : [];
+  const style = styles == null ? void 0 : styles[styles.length - 1];
+  if (!(style == null ? void 0 : style.sheet)) {
+    console.warn(
+      "Media Chrome: No style sheet found on style tag of",
+      styleParent
+    );
+    return {
+      // @ts-ignore
+      style: {
+        setProperty: () => {
+        },
+        removeProperty: () => "",
+        getPropertyValue: () => ""
+      }
+    };
+  }
+  style == null ? void 0 : style.sheet.insertRule(`${selectorText}{}`, style.sheet.cssRules.length);
+  return (
+    /** @type {CSSStyleRule} */
+    (_b2 = style.sheet.cssRules) == null ? void 0 : _b2[style.sheet.cssRules.length - 1]
+  );
+}
+function getNumericAttr(el, attrName, defaultValue = Number.NaN) {
+  const attrVal = el.getAttribute(attrName);
+  return attrVal != null ? +attrVal : defaultValue;
+}
+function setNumericAttr(el, attrName, value) {
+  const nextNumericValue = +value;
+  if (value == null || Number.isNaN(nextNumericValue)) {
+    if (el.hasAttribute(attrName)) {
+      el.removeAttribute(attrName);
+    }
+    return;
+  }
+  if (getNumericAttr(el, attrName, void 0) === nextNumericValue)
+    return;
+  el.setAttribute(attrName, `${nextNumericValue}`);
+}
+function getBooleanAttr(el, attrName) {
+  return el.hasAttribute(attrName);
+}
+function setBooleanAttr(el, attrName, value) {
+  if (value == null) {
+    if (el.hasAttribute(attrName)) {
+      el.removeAttribute(attrName);
+    }
+    return;
+  }
+  if (getBooleanAttr(el, attrName) == value)
+    return;
+  el.toggleAttribute(attrName, value);
+}
+function getStringAttr(el, attrName, defaultValue = null) {
+  var _a3;
+  return (_a3 = el.getAttribute(attrName)) != null ? _a3 : defaultValue;
+}
+function setStringAttr(el, attrName, value) {
+  if (value == null) {
+    if (el.hasAttribute(attrName)) {
+      el.removeAttribute(attrName);
+    }
+    return;
+  }
+  const nextValue = `${value}`;
+  if (getStringAttr(el, attrName, void 0) === nextValue)
+    return;
+  el.setAttribute(attrName, nextValue);
+}
+
+// ../../node_modules/media-chrome/dist/media-gesture-receiver.js
+var __accessCheck2 = (obj, member, msg) => {
+  if (!member.has(obj))
+    throw TypeError("Cannot " + msg);
+};
+var __privateGet2 = (obj, member, getter) => {
+  __accessCheck2(obj, member, "read from private field");
+  return getter ? getter.call(obj) : member.get(obj);
+};
+var __privateAdd2 = (obj, member, value) => {
+  if (member.has(obj))
+    throw TypeError("Cannot add the same private member more than once");
+  member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+};
+var __privateSet2 = (obj, member, value, setter) => {
+  __accessCheck2(obj, member, "write to private field");
+  setter ? setter.call(obj, value) : member.set(obj, value);
+  return value;
+};
+var _mediaController;
+var template = Document2.createElement("template");
+template.innerHTML = /*html*/
+`
 <style>
   :host {
     display: var(--media-control-display, var(--media-gesture-receiver-display, inline-block));
     box-sizing: border-box;
   }
 </style>
-`;var Lo=class extends d.HTMLElement{constructor(e={}){if(super(),Rh(this,ve,void 0),!this.shadowRoot){let t=this.attachShadow({mode:"open"}),a=Zd.content.cloneNode(!0);this.nativeEl=a;let r=e.slotTemplate;r||(r=h.createElement("template"),r.innerHTML=`<slot>${e.defaultContent||""}</slot>`),this.nativeEl.appendChild(r.content.cloneNode(!0)),t.appendChild(a)}}static get observedAttributes(){return[R.MEDIA_CONTROLLER,o.MEDIA_PAUSED]}attributeChangedCallback(e,t,a){var r,n,s,l,u;e===R.MEDIA_CONTROLLER&&(t&&((n=(r=gt(this,ve))==null?void 0:r.unassociateElement)==null||n.call(r,this),br(this,ve,null)),a&&this.isConnected&&(br(this,ve,(s=this.getRootNode())==null?void 0:s.getElementById(a)),(u=(l=gt(this,ve))==null?void 0:l.associateElement)==null||u.call(l,this)))}connectedCallback(){var e,t,a,r;this.tabIndex=-1,this.setAttribute("aria-hidden","true"),br(this,ve,Lh(this)),this.getAttribute(R.MEDIA_CONTROLLER)&&((t=(e=gt(this,ve))==null?void 0:e.associateElement)==null||t.call(e,this)),(a=gt(this,ve))==null||a.addEventListener("pointerdown",this),(r=gt(this,ve))==null||r.addEventListener("click",this)}disconnectedCallback(){var e,t,a,r;this.getAttribute(R.MEDIA_CONTROLLER)&&((t=(e=gt(this,ve))==null?void 0:e.unassociateElement)==null||t.call(e,this)),(a=gt(this,ve))==null||a.removeEventListener("pointerdown",this),(r=gt(this,ve))==null||r.removeEventListener("click",this),br(this,ve,null)}handleEvent(e){var t;let a=(t=e.composedPath())==null?void 0:t[0];if(["video","media-controller"].includes(a==null?void 0:a.localName)){if(e.type==="pointerdown")this._pointerType=e.pointerType;else if(e.type==="click"){let{clientX:n,clientY:s}=e,{left:l,top:u,width:c,height:A}=this.getBoundingClientRect(),g=n-l,p=s-u;if(g<0||p<0||g>c||p>A||c===0&&A===0)return;let{pointerType:E=this._pointerType}=e;if(this._pointerType=void 0,E===So.TOUCH){this.handleTap(e);return}else if(E===So.MOUSE){this.handleMouseClick(e);return}}}}get mediaPaused(){return k(this,o.MEDIA_PAUSED)}set mediaPaused(e){S(this,o.MEDIA_PAUSED,e)}handleTap(e){}handleMouseClick(e){let t=this.mediaPaused?f.MEDIA_PLAY_REQUEST:f.MEDIA_PAUSE_REQUEST;this.dispatchEvent(new d.CustomEvent(t,{composed:!0,bubbles:!0}))}};ve=new WeakMap;function Lh(i){var e;let t=i.getAttribute(R.MEDIA_CONTROLLER);return t?(e=i.getRootNode())==null?void 0:e.getElementById(t):He(i,"media-controller")}d.customElements.get("media-gesture-receiver")||d.customElements.define("media-gesture-receiver",Lo);var No=(i,e,t)=>{if(!e.has(i))throw TypeError("Cannot "+t)},ke=(i,e,t)=>(No(i,e,"read from private field"),t?t.call(i):e.get(i)),Te=(i,e,t)=>{if(e.has(i))throw TypeError("Cannot add the same private member more than once");e instanceof WeakSet?e.add(i):e.set(i,t)},$t=(i,e,t,a)=>(No(i,e,"write to private field"),a?a.call(i,t):e.set(i,t),t),Ce=(i,e,t)=>(No(i,e,"access private method"),t),Ar,Ai,ua,yi,gr,xo,zd,da,_r,Do,Qd,Oo,Xd,ca,yr,Tr,Po,Ti,ma,C={AUDIO:"audio",AUTOHIDE:"autohide",BREAKPOINTS:"breakpoints",GESTURES_DISABLED:"gesturesdisabled",KEYBOARD_CONTROL:"keyboardcontrol",NO_AUTOHIDE:"noautohide",USER_INACTIVE:"userinactive"},Jd=h.createElement("template");Jd.innerHTML=`
+`;
+var MediaGestureReceiver = class extends GlobalThis.HTMLElement {
+  constructor(options = {}) {
+    super();
+    __privateAdd2(this, _mediaController, void 0);
+    if (!this.shadowRoot) {
+      const shadow = this.attachShadow({ mode: "open" });
+      const buttonHTML = template.content.cloneNode(true);
+      this.nativeEl = buttonHTML;
+      let slotTemplate17 = options.slotTemplate;
+      if (!slotTemplate17) {
+        slotTemplate17 = Document2.createElement("template");
+        slotTemplate17.innerHTML = `<slot>${options.defaultContent || ""}</slot>`;
+      }
+      this.nativeEl.appendChild(slotTemplate17.content.cloneNode(true));
+      shadow.appendChild(buttonHTML);
+    }
+  }
+  // NOTE: Currently "baking in" actions + attrs until we come up with
+  // a more robust architecture (CJP)
+  static get observedAttributes() {
+    return [
+      MediaStateReceiverAttributes.MEDIA_CONTROLLER,
+      MediaUIAttributes.MEDIA_PAUSED
+    ];
+  }
+  attributeChangedCallback(attrName, oldValue, newValue) {
+    var _a3, _b2, _c, _d, _e;
+    if (attrName === MediaStateReceiverAttributes.MEDIA_CONTROLLER) {
+      if (oldValue) {
+        (_b2 = (_a3 = __privateGet2(this, _mediaController)) == null ? void 0 : _a3.unassociateElement) == null ? void 0 : _b2.call(_a3, this);
+        __privateSet2(this, _mediaController, null);
+      }
+      if (newValue && this.isConnected) {
+        __privateSet2(this, _mediaController, (_c = this.getRootNode()) == null ? void 0 : _c.getElementById(newValue));
+        (_e = (_d = __privateGet2(this, _mediaController)) == null ? void 0 : _d.associateElement) == null ? void 0 : _e.call(_d, this);
+      }
+    }
+  }
+  connectedCallback() {
+    var _a3, _b2, _c, _d;
+    this.tabIndex = -1;
+    this.setAttribute("aria-hidden", "true");
+    __privateSet2(this, _mediaController, getMediaControllerEl(this));
+    if (this.getAttribute(MediaStateReceiverAttributes.MEDIA_CONTROLLER)) {
+      (_b2 = (_a3 = __privateGet2(this, _mediaController)) == null ? void 0 : _a3.associateElement) == null ? void 0 : _b2.call(_a3, this);
+    }
+    (_c = __privateGet2(this, _mediaController)) == null ? void 0 : _c.addEventListener("pointerdown", this);
+    (_d = __privateGet2(this, _mediaController)) == null ? void 0 : _d.addEventListener("click", this);
+  }
+  disconnectedCallback() {
+    var _a3, _b2, _c, _d;
+    if (this.getAttribute(MediaStateReceiverAttributes.MEDIA_CONTROLLER)) {
+      (_b2 = (_a3 = __privateGet2(this, _mediaController)) == null ? void 0 : _a3.unassociateElement) == null ? void 0 : _b2.call(_a3, this);
+    }
+    (_c = __privateGet2(this, _mediaController)) == null ? void 0 : _c.removeEventListener("pointerdown", this);
+    (_d = __privateGet2(this, _mediaController)) == null ? void 0 : _d.removeEventListener("click", this);
+    __privateSet2(this, _mediaController, null);
+  }
+  handleEvent(event) {
+    var _a3;
+    const composedTarget = (_a3 = event.composedPath()) == null ? void 0 : _a3[0];
+    const allowList = ["video", "media-controller"];
+    if (!allowList.includes(composedTarget == null ? void 0 : composedTarget.localName))
+      return;
+    if (event.type === "pointerdown") {
+      this._pointerType = event.pointerType;
+    } else if (event.type === "click") {
+      const { clientX, clientY } = event;
+      const { left, top, width, height } = this.getBoundingClientRect();
+      const x = clientX - left;
+      const y = clientY - top;
+      if (x < 0 || y < 0 || x > width || y > height || // In case this element has no dimensions (or display: none) return.
+      width === 0 && height === 0) {
+        return;
+      }
+      const { pointerType = this._pointerType } = event;
+      this._pointerType = void 0;
+      if (pointerType === PointerTypes.TOUCH) {
+        this.handleTap(event);
+        return;
+      } else if (pointerType === PointerTypes.MOUSE) {
+        this.handleMouseClick(event);
+        return;
+      }
+    }
+  }
+  /**
+   * @type {boolean} Is the media paused
+   */
+  get mediaPaused() {
+    return getBooleanAttr(this, MediaUIAttributes.MEDIA_PAUSED);
+  }
+  set mediaPaused(value) {
+    setBooleanAttr(this, MediaUIAttributes.MEDIA_PAUSED, value);
+  }
+  // NOTE: Currently "baking in" actions + attrs until we come up with
+  // a more robust architecture (CJP)
+  /**
+   * @abstract
+   * @argument {Event} e
+   */
+  handleTap(e) {
+  }
+  // eslint-disable-line
+  // eslint-disable-next-line
+  handleMouseClick(e) {
+    const eventName = this.mediaPaused ? MediaUIEvents.MEDIA_PLAY_REQUEST : MediaUIEvents.MEDIA_PAUSE_REQUEST;
+    this.dispatchEvent(
+      new GlobalThis.CustomEvent(eventName, { composed: true, bubbles: true })
+    );
+  }
+};
+_mediaController = /* @__PURE__ */ new WeakMap();
+function getMediaControllerEl(controlEl) {
+  var _a3;
+  const mediaControllerId = controlEl.getAttribute(
+    MediaStateReceiverAttributes.MEDIA_CONTROLLER
+  );
+  if (mediaControllerId) {
+    return (_a3 = controlEl.getRootNode()) == null ? void 0 : _a3.getElementById(mediaControllerId);
+  }
+  return closestComposedNode(controlEl, "media-controller");
+}
+if (!GlobalThis.customElements.get("media-gesture-receiver")) {
+  GlobalThis.customElements.define(
+    "media-gesture-receiver",
+    MediaGestureReceiver
+  );
+}
+
+// ../../node_modules/media-chrome/dist/media-container.js
+var __accessCheck3 = (obj, member, msg) => {
+  if (!member.has(obj))
+    throw TypeError("Cannot " + msg);
+};
+var __privateGet3 = (obj, member, getter) => {
+  __accessCheck3(obj, member, "read from private field");
+  return getter ? getter.call(obj) : member.get(obj);
+};
+var __privateAdd3 = (obj, member, value) => {
+  if (member.has(obj))
+    throw TypeError("Cannot add the same private member more than once");
+  member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+};
+var __privateSet3 = (obj, member, value, setter) => {
+  __accessCheck3(obj, member, "write to private field");
+  setter ? setter.call(obj, value) : member.set(obj, value);
+  return value;
+};
+var __privateMethod2 = (obj, member, method) => {
+  __accessCheck3(obj, member, "access private method");
+  return method;
+};
+var _pointerDownTimeStamp;
+var _currentMedia;
+var _inactiveTimeout;
+var _autohide;
+var _mutationObserver;
+var _handleMutation;
+var handleMutation_fn;
+var _isResizePending;
+var _handleResize;
+var _handlePointerMove;
+var handlePointerMove_fn;
+var _handlePointerUp;
+var handlePointerUp_fn;
+var _setInactive;
+var setInactive_fn;
+var _setActive;
+var setActive_fn;
+var _scheduleInactive;
+var scheduleInactive_fn;
+var Attributes = {
+  AUDIO: "audio",
+  AUTOHIDE: "autohide",
+  BREAKPOINTS: "breakpoints",
+  GESTURES_DISABLED: "gesturesdisabled",
+  KEYBOARD_CONTROL: "keyboardcontrol",
+  NO_AUTOHIDE: "noautohide",
+  USER_INACTIVE: "userinactive"
+};
+var template2 = Document2.createElement("template");
+template2.innerHTML = /*html*/
+`
   <style>
-    
-    :host([${o.MEDIA_IS_FULLSCREEN}]) ::slotted([slot=media]) {
+    ${/*
+* outline on media is turned off because it is allowed to get focus to faciliate hotkeys.
+* However, on keyboard interactions, the focus outline is shown,
+* which is particularly noticeable when going fullscreen via hotkeys.
+*/
+""}
+    :host([${MediaUIAttributes.MEDIA_IS_FULLSCREEN}]) ::slotted([slot=media]) {
       outline: none;
     }
 
@@ -20,7 +1022,7 @@
       background-color: var(--media-background-color, #000);
     }
 
-    :host(:not([${C.AUDIO}])) [part~=layer]:not([part~=media-layer]) {
+    :host(:not([${Attributes.AUDIO}])) [part~=layer]:not([part~=media-layer]) {
       position: absolute;
       top: 0;
       left: 0;
@@ -37,35 +1039,48 @@
       display: var(--media-slot-display, contents);
     }
 
-    
-    :host([${C.AUDIO}]) slot[name=media] {
+    ${/*
+* when in audio mode, hide the slotted media element by default
+*/
+""}
+    :host([${Attributes.AUDIO}]) slot[name=media] {
       display: var(--media-slot-display, none);
     }
 
-    
-    :host([${C.AUDIO}]) [part~=layer][part~=gesture-layer] {
+    ${/*
+* when in audio mode, hide the gesture-layer which causes media-controller to be taller than the control bar
+*/
+""}
+    :host([${Attributes.AUDIO}]) [part~=layer][part~=gesture-layer] {
       height: 0;
       display: block;
     }
 
-    
-    :host(:not([${C.AUDIO}])[${C.GESTURES_DISABLED}]) ::slotted([slot=gestures-chrome]),
-    :host(:not([${C.AUDIO}])[${C.GESTURES_DISABLED}]) media-gesture-receiver[slot=gestures-chrome] {
+    ${/*
+* if gestures are disabled, don't accept pointer-events
+*/
+""}
+    :host(:not([${Attributes.AUDIO}])[${Attributes.GESTURES_DISABLED}]) ::slotted([slot=gestures-chrome]),
+    :host(:not([${Attributes.AUDIO}])[${Attributes.GESTURES_DISABLED}]) media-gesture-receiver[slot=gestures-chrome] {
       display: none;
     }
 
-    
+    ${/*
+* any slotted element that isn't a poster or media slot should be pointer-events auto
+* we'll want to add here any slotted elements that shouldn't get pointer-events by default when slotted
+*/
+""}
     ::slotted(:not([slot=media]):not([slot=poster]):not(media-loading-indicator):not([role=dialog]):not([hidden])) {
       pointer-events: auto;
     }
 
-    :host(:not([${C.AUDIO}])) *[part~=layer][part~=centered-layer] {
+    :host(:not([${Attributes.AUDIO}])) *[part~=layer][part~=centered-layer] {
       align-items: center;
       justify-content: center;
     }
 
-    :host(:not([${C.AUDIO}])) ::slotted(media-gesture-receiver[slot=gestures-chrome]),
-    :host(:not([${C.AUDIO}])) media-gesture-receiver[slot=gestures-chrome] {
+    :host(:not([${Attributes.AUDIO}])) ::slotted(media-gesture-receiver[slot=gestures-chrome]),
+    :host(:not([${Attributes.AUDIO}])) media-gesture-receiver[slot=gestures-chrome] {
       align-self: stretch;
       flex-grow: 1;
     }
@@ -77,38 +1092,44 @@
       background: none;
     }
 
-    
+    ${/* Position the media and poster elements to fill the container */
+""}
     ::slotted([slot=media]),
     ::slotted([slot=poster]) {
       width: 100%;
       height: 100%;
     }
 
-    
-    :host(:not([${C.AUDIO}])) .spacer {
+    ${/* Video specific styles */
+""}
+    :host(:not([${Attributes.AUDIO}])) .spacer {
       flex-grow: 1;
     }
 
-    
+    ${/* Safari needs this to actually make the element fill the window */
+""}
     :host(:-webkit-full-screen) {
-      
+      ${/* Needs to use !important otherwise easy to break */
+""}
       width: 100% !important;
       height: 100% !important;
     }
 
-    
-    ::slotted(:not([slot=media]):not([slot=poster]):not([${C.NO_AUTOHIDE}]):not([hidden]):not([role=dialog])) {
+    ${/* Only add these if auto hide is not disabled */
+""}
+    ::slotted(:not([slot=media]):not([slot=poster]):not([${Attributes.NO_AUTOHIDE}]):not([hidden]):not([role=dialog])) {
       opacity: 1;
       transition: var(--media-control-transition-in, opacity 0.25s);
     }
 
-    
-    :host([${C.USER_INACTIVE}]:not([${o.MEDIA_PAUSED}]):not([${o.MEDIA_IS_AIRPLAYING}]):not([${o.MEDIA_IS_CASTING}]):not([${C.AUDIO}])) ::slotted(:not([slot=media]):not([slot=poster]):not([${C.NO_AUTOHIDE}]):not([role=dialog])) {
+    ${/* Hide controls when inactive, not paused, not audio and auto hide not disabled */
+""}
+    :host([${Attributes.USER_INACTIVE}]:not([${MediaUIAttributes.MEDIA_PAUSED}]):not([${MediaUIAttributes.MEDIA_IS_AIRPLAYING}]):not([${MediaUIAttributes.MEDIA_IS_CASTING}]):not([${Attributes.AUDIO}])) ::slotted(:not([slot=media]):not([slot=poster]):not([${Attributes.NO_AUTOHIDE}]):not([role=dialog])) {
       opacity: 0;
       transition: var(--media-control-transition-out, opacity 1s);
     }
 
-    :host([${C.USER_INACTIVE}]:not([${o.MEDIA_PAUSED}]):not([${o.MEDIA_IS_CASTING}]):not([${C.AUDIO}])) ::slotted([slot=media]) {
+    :host([${Attributes.USER_INACTIVE}]:not([${MediaUIAttributes.MEDIA_PAUSED}]):not([${MediaUIAttributes.MEDIA_IS_CASTING}]):not([${Attributes.AUDIO}])) ::slotted([slot=media]) {
       cursor: none;
     }
 
@@ -116,8 +1137,9 @@
       align-self: stretch;
     }
 
-    
-    :host(:not([${C.AUDIO}])[${o.MEDIA_HAS_PLAYED}]) slot[name=poster] {
+    ${/* ::slotted([slot=poster]) doesn't work for slot fallback content so hide parent slot instead */
+""}
+    :host(:not([${Attributes.AUDIO}])[${MediaUIAttributes.MEDIA_HAS_PLAYED}]) slot[name=poster] {
       display: none;
     }
 
@@ -141,11 +1163,2806 @@
     <slot name="top-chrome" part="top chrome"></slot>
     <slot name="middle-chrome" part="middle chrome"></slot>
     <slot name="centered-chrome" part="layer centered-layer center centered chrome"></slot>
-    
+    ${/* default, effectively "bottom-chrome" */
+""}
     <slot part="bottom chrome"></slot>
   </span>
   <slot name="dialog" part="layer dialog-layer"></slot>
-`;var xh=Object.values(o),Dh="sm:384 md:576 lg:768 xl:960";function Oh(i){jd(i.target,i.contentRect.width)}function jd(i,e){var t;if(!i.isConnected)return;let a=(t=i.getAttribute(C.BREAKPOINTS))!=null?t:Dh,r=Nh(a),n=Ph(r,e),s=!1;if(Object.keys(r).forEach(l=>{if(n.includes(l)){i.hasAttribute(`breakpoint${l}`)||(i.setAttribute(`breakpoint${l}`,""),s=!0);return}i.hasAttribute(`breakpoint${l}`)&&(i.removeAttribute(`breakpoint${l}`),s=!0)}),s){let l=new CustomEvent(nt.BREAKPOINTS_CHANGE,{detail:n});i.dispatchEvent(l)}i.breakpointsComputed||(i.breakpointsComputed=!0,i.dispatchEvent(new CustomEvent(nt.BREAKPOINTS_COMPUTED,{bubbles:!0,composed:!0})))}function Nh(i){let e=i.split(/\s+/);return Object.fromEntries(e.map(t=>t.split(":")))}function Ph(i,e){return Object.keys(i).filter(t=>e>=parseInt(i[t]))}var ha=class extends d.HTMLElement{constructor(){super(),Te(this,xo),Te(this,Do),Te(this,Oo),Te(this,ca),Te(this,Tr),Te(this,Ti),Te(this,Ar,0),Te(this,Ai,null),Te(this,ua,null),Te(this,yi,void 0),this.breakpointsComputed=!1,Te(this,gr,new MutationObserver(Ce(this,xo,zd).bind(this))),Te(this,da,!1),Te(this,_r,t=>{ke(this,da)||(setTimeout(()=>{Oh(t),$t(this,da,!1)},0),$t(this,da,!0))}),this.shadowRoot||(this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(Jd.content.cloneNode(!0)));let e=this.querySelector(":scope > slot[slot=media]");e&&e.addEventListener("slotchange",()=>{if(!e.assignedElements({flatten:!0}).length){ke(this,Ai)&&this.mediaUnsetCallback(ke(this,Ai));return}this.handleMediaUpdated(this.media)})}static get observedAttributes(){return[C.AUTOHIDE,C.GESTURES_DISABLED].concat(xh).filter(e=>![o.MEDIA_RENDITION_LIST,o.MEDIA_AUDIO_TRACK_LIST,o.MEDIA_CHAPTERS_CUES,o.MEDIA_WIDTH,o.MEDIA_HEIGHT,o.MEDIA_ERROR,o.MEDIA_ERROR_MESSAGE].includes(e))}attributeChangedCallback(e,t,a){e.toLowerCase()==C.AUTOHIDE&&(this.autohide=a)}get media(){let e=this.querySelector(":scope > [slot=media]");return(e==null?void 0:e.nodeName)=="SLOT"&&(e=e.assignedElements({flatten:!0})[0]),e}async handleMediaUpdated(e){e&&($t(this,Ai,e),e.localName.includes("-")&&await d.customElements.whenDefined(e.localName),this.mediaSetCallback(e))}connectedCallback(){var e;ke(this,gr).observe(this,{childList:!0,subtree:!0}),ot(this,ke(this,_r));let a=this.getAttribute(C.AUDIO)!=null?v("audio player"):v("video player");this.setAttribute("role","region"),this.setAttribute("aria-label",a),this.handleMediaUpdated(this.media),this.setAttribute(C.USER_INACTIVE,""),jd(this,this.getBoundingClientRect().width),this.addEventListener("pointerdown",this),this.addEventListener("pointermove",this),this.addEventListener("pointerup",this),this.addEventListener("mouseleave",this),this.addEventListener("keyup",this),(e=d.window)==null||e.addEventListener("mouseup",this)}disconnectedCallback(){var e;ke(this,gr).disconnect(),st(this,ke(this,_r)),this.media&&this.mediaUnsetCallback(this.media),(e=d.window)==null||e.removeEventListener("mouseup",this)}mediaSetCallback(e){}mediaUnsetCallback(e){$t(this,Ai,null)}handleEvent(e){switch(e.type){case"pointerdown":$t(this,Ar,e.timeStamp);break;case"pointermove":Ce(this,Do,Qd).call(this,e);break;case"pointerup":Ce(this,Oo,Xd).call(this,e);break;case"mouseleave":Ce(this,ca,yr).call(this);break;case"mouseup":this.removeAttribute(C.KEYBOARD_CONTROL);break;case"keyup":Ce(this,Ti,ma).call(this),this.setAttribute(C.KEYBOARD_CONTROL,"");break}}set autohide(e){let t=Number(e);$t(this,yi,isNaN(t)?0:t)}get autohide(){return(ke(this,yi)===void 0?2:ke(this,yi)).toString()}get breakpoints(){return M(this,C.BREAKPOINTS)}set breakpoints(e){w(this,C.BREAKPOINTS,e)}get audio(){return k(this,C.AUDIO)}set audio(e){S(this,C.AUDIO,e)}get gesturesDisabled(){return k(this,C.GESTURES_DISABLED)}set gesturesDisabled(e){S(this,C.GESTURES_DISABLED,e)}get keyboardControl(){return k(this,C.KEYBOARD_CONTROL)}set keyboardControl(e){S(this,C.KEYBOARD_CONTROL,e)}get noAutohide(){return k(this,C.NO_AUTOHIDE)}set noAutohide(e){S(this,C.NO_AUTOHIDE,e)}get userInteractive(){return k(this,C.USER_INACTIVE)}set userInteractive(e){S(this,C.USER_INACTIVE,e)}};Ar=new WeakMap;Ai=new WeakMap;ua=new WeakMap;yi=new WeakMap;gr=new WeakMap;xo=new WeakSet;zd=function(i){let e=this.media;for(let t of i){if(t.type!=="childList")continue;let a=t.removedNodes;for(let r of a){if(r.slot!="media"||t.target!=this)continue;let n=t.previousSibling&&t.previousSibling.previousElementSibling;if(!n||!e)this.mediaUnsetCallback(r);else{let s=n.slot!=="media";for(;(n=n.previousSibling)!==null;)n.slot=="media"&&(s=!1);s&&this.mediaUnsetCallback(r)}}if(e)for(let r of t.addedNodes)r===e&&this.handleMediaUpdated(e)}};da=new WeakMap;_r=new WeakMap;Do=new WeakSet;Qd=function(i){i.pointerType!=="mouse"&&i.timeStamp-ke(this,Ar)<250||(Ce(this,Tr,Po).call(this),clearTimeout(ke(this,ua)),[this,this.media].includes(i.target)&&Ce(this,Ti,ma).call(this))};Oo=new WeakSet;Xd=function(i){if(i.pointerType==="touch"){let e=!this.hasAttribute(C.USER_INACTIVE);[this,this.media].includes(i.target)&&e?Ce(this,ca,yr).call(this):Ce(this,Ti,ma).call(this)}else i.composedPath().some(e=>["media-play-button","media-fullscreen-button"].includes(e==null?void 0:e.localName))&&Ce(this,Ti,ma).call(this)};ca=new WeakSet;yr=function(){if(ke(this,yi)<0||this.hasAttribute(C.USER_INACTIVE))return;this.setAttribute(C.USER_INACTIVE,"");let i=new d.CustomEvent(nt.USER_INACTIVE,{composed:!0,bubbles:!0,detail:!0});this.dispatchEvent(i)};Tr=new WeakSet;Po=function(){if(!this.hasAttribute(C.USER_INACTIVE))return;this.removeAttribute(C.USER_INACTIVE);let i=new d.CustomEvent(nt.USER_INACTIVE,{composed:!0,bubbles:!0,detail:!1});this.dispatchEvent(i)};Ti=new WeakSet;ma=function(){Ce(this,Tr,Po).call(this),clearTimeout(ke(this,ua));let i=parseInt(this.autohide);i<0||$t(this,ua,setTimeout(()=>{Ce(this,ca,yr).call(this)},i*1e3))};d.customElements.get("media-container")||d.customElements.define("media-container",ha);var eu=(i,e,t)=>{if(!e.has(i))throw TypeError("Cannot "+t)},te=(i,e,t)=>(eu(i,e,"read from private field"),t?t.call(i):e.get(i)),pa=(i,e,t)=>{if(e.has(i))throw TypeError("Cannot add the same private member more than once");e instanceof WeakSet?e.add(i):e.set(i,t)},kr=(i,e,t,a)=>(eu(i,e,"write to private field"),a?a.call(i,t):e.set(i,t),t),ki,Si,Sr,Ft,lt,_t,We=class{constructor(e,t,{defaultValue:a}={defaultValue:void 0}){pa(this,lt),pa(this,ki,void 0),pa(this,Si,void 0),pa(this,Sr,void 0),pa(this,Ft,new Set),kr(this,ki,e),kr(this,Si,t),kr(this,Sr,new Set(a))}[Symbol.iterator](){return te(this,lt,_t).values()}get length(){return te(this,lt,_t).size}get value(){var e;return(e=[...te(this,lt,_t)].join(" "))!=null?e:""}set value(e){var t;e!==this.value&&(kr(this,Ft,new Set),this.add(...(t=e==null?void 0:e.split(" "))!=null?t:[]))}toString(){return this.value}item(e){return[...te(this,lt,_t)][e]}values(){return te(this,lt,_t).values()}forEach(e,t){te(this,lt,_t).forEach(e,t)}add(...e){var t,a;e.forEach(r=>te(this,Ft).add(r)),!(this.value===""&&!((t=te(this,ki))!=null&&t.hasAttribute(`${te(this,Si)}`)))&&((a=te(this,ki))==null||a.setAttribute(`${te(this,Si)}`,`${this.value}`))}remove(...e){var t;e.forEach(a=>te(this,Ft).delete(a)),(t=te(this,ki))==null||t.setAttribute(`${te(this,Si)}`,`${this.value}`)}contains(e){return te(this,lt,_t).has(e)}toggle(e,t){return typeof t!="undefined"?t?(this.add(e),!0):(this.remove(e),!1):this.contains(e)?(this.remove(e),!1):(this.add(e),!0)}replace(e,t){return this.remove(e),this.add(t),e===t}};ki=new WeakMap;Si=new WeakMap;Sr=new WeakMap;Ft=new WeakMap;lt=new WeakSet;_t=function(){return te(this,Ft).size?te(this,Ft):te(this,Sr)};var Uh=(i="")=>i.split(/\s+/),tu=(i="")=>{let[e,t,a]=i.split(":"),r=a?decodeURIComponent(a):void 0;return{kind:e==="cc"?fe.CAPTIONS:fe.SUBTITLES,language:t,label:r}},Vt=(i="",e={})=>Uh(i).map(t=>{let a=tu(t);return{...e,...a}}),Uo=i=>i?Array.isArray(i)?i.map(e=>typeof e=="string"?tu(e):e):typeof i=="string"?Vt(i):[i]:[],Ir=({kind:i,label:e,language:t}={kind:"subtitles"})=>e?`${i==="captions"?"cc":"sb"}:${t}:${encodeURIComponent(e)}`:t,dt=(i=[])=>Array.prototype.map.call(i,Ir).join(" "),Bh=(i,e)=>t=>t[i]===e,iu=i=>{let e=Object.entries(i).map(([t,a])=>Bh(t,a));return t=>e.every(a=>a(t))},Kt=(i,e=[],t=[])=>{let a=Uo(t).map(iu),r=n=>a.some(s=>s(n));Array.from(e).filter(r).forEach(n=>{n.mode=i})},Gt=(i,e=()=>!0)=>{if(!(i!=null&&i.textTracks))return[];let t=typeof e=="function"?e:iu(e);return Array.from(i.textTracks).filter(t)},Cr=i=>{var e;return!!((e=i.mediaSubtitlesShowing)!=null&&e.length)||i.hasAttribute(o.MEDIA_SUBTITLES_SHOWING)};var ru=i=>{var e;let{media:t,fullscreenElement:a}=i,r=a&&"requestFullscreen"in a?"requestFullscreen":a&&"webkitRequestFullScreen"in a?"webkitRequestFullScreen":void 0;if(r){let n=(e=a[r])==null?void 0:e.call(a);if(n instanceof Promise)return n.catch(()=>{})}else t!=null&&t.webkitEnterFullscreen?t.webkitEnterFullscreen():t!=null&&t.requestFullscreen&&t.requestFullscreen()},au="exitFullscreen"in h?"exitFullscreen":"webkitExitFullscreen"in h?"webkitExitFullscreen":"webkitCancelFullScreen"in h?"webkitCancelFullScreen":void 0,nu=i=>{var e;let{documentElement:t}=i;if(au){let a=(e=t==null?void 0:t[au])==null?void 0:e.call(t);if(a instanceof Promise)return a.catch(()=>{})}},fa="fullscreenElement"in h?"fullscreenElement":"webkitFullscreenElement"in h?"webkitFullscreenElement":void 0,Hh=i=>{let{documentElement:e,media:t}=i,a=e==null?void 0:e[fa];return!a&&"webkitDisplayingFullscreen"in t&&"webkitPresentationMode"in t&&t.webkitDisplayingFullscreen&&t.webkitPresentationMode===Dd.FULLSCREEN?t:a},ou=i=>{var e;let{media:t,documentElement:a,fullscreenElement:r=t}=i;if(!t||!a)return!1;let n=Hh(i);if(!n)return!1;if(n===r||n===t)return!0;if(n.localName.includes("-")){let s=n.shadowRoot;if(!(fa in s))return de(n,r);for(;s!=null&&s[fa];){if(s[fa]===r)return!0;s=(e=s[fa])==null?void 0:e.shadowRoot}}return!1},Wh="fullscreenEnabled"in h?"fullscreenEnabled":"webkitFullscreenEnabled"in h?"webkitFullscreenEnabled":void 0,su=i=>{let{documentElement:e,media:t}=i;return!!(e!=null&&e[Wh])||t&&"webkitSupportsFullscreen"in t};var Mr,Bo=()=>{var i,e;return Mr||(Mr=(e=(i=h)==null?void 0:i.createElement)==null?void 0:e.call(i,"video"),Mr)},lu=async(i=Bo())=>{if(!i)return!1;let e=i.volume;i.volume=e/2+.1;let t=new AbortController,a=await Promise.race([$h(i,t.signal),Fh(i,e)]);return t.abort(),a},$h=(i,e)=>new Promise(t=>{i.addEventListener("volumechange",()=>t(!0),{signal:e})}),Fh=async(i,e)=>{for(let t=0;t<10;t++){if(i.volume===e)return!1;await ur(10)}return i.volume!==e},Vh=/.*Version\/.*Safari\/.*/.test(d.navigator.userAgent),Ho=(i=Bo())=>d.matchMedia("(display-mode: standalone)").matches&&Vh?!1:typeof(i==null?void 0:i.requestPictureInPicture)=="function",Wo=(i=Bo())=>su({documentElement:h,media:i}),du=Wo(),uu=Ho(),cu=!!d.WebKitPlaybackTargetAvailabilityEvent,mu=!!d.chrome;var Ii=i=>Gt(i.media,e=>[fe.SUBTITLES,fe.CAPTIONS].includes(e.kind)).sort((e,t)=>e.kind>=t.kind?1:-1),$o=i=>Gt(i.media,e=>e.mode===bt.SHOWING&&[fe.SUBTITLES,fe.CAPTIONS].includes(e.kind)),wr=(i,e)=>{let t=Ii(i),a=$o(i),r=!!a.length;if(t.length){if(e===!1||r&&e!==!0)Kt(bt.DISABLED,t,a);else if(e===!0||!r&&e!==!1){let n=t[0],{options:s}=i;if(!(s!=null&&s.noSubtitlesLangPref)){let A=globalThis.localStorage.getItem("media-chrome-pref-subtitles-lang"),g=A?[A,...globalThis.navigator.languages]:globalThis.navigator.languages,p=t.filter(E=>g.some(O=>E.language.toLowerCase().startsWith(O.split("-")[0]))).sort((E,O)=>{let y=g.findIndex(U=>E.language.toLowerCase().startsWith(U.split("-")[0])),I=g.findIndex(U=>O.language.toLowerCase().startsWith(U.split("-")[0]));return y-I});p[0]&&(n=p[0])}let{language:l,label:u,kind:c}=n;Kt(bt.DISABLED,t,a),Kt(bt.SHOWING,t,[{language:l,label:u,kind:c}])}}},Rr=(i,e)=>i===e?!0:i==null||e==null||typeof i!=typeof e?!1:typeof i=="number"&&Number.isNaN(i)&&Number.isNaN(e)?!0:typeof i!="object"?!1:Array.isArray(i)?Kh(i,e):Object.entries(i).every(([t,a])=>t in e&&Rr(a,e[t])),Kh=(i,e)=>{let t=Array.isArray(i),a=Array.isArray(e);return t!==a?!1:t||a?i.length!==e.length?!1:i.every((r,n)=>Rr(r,e[n])):!0};var Gh=Object.values(Le),Lr,Yh=lu().then(i=>(Lr=i,Lr)),hu=async(...i)=>{await Promise.all(i.filter(e=>e).map(async e=>{if(!("localName"in e&&e instanceof d.HTMLElement))return;let t=e.localName;if(!t.includes("-"))return;let a=d.customElements.get(t);a&&e instanceof a||(await d.customElements.whenDefined(t),d.customElements.upgrade(e))}))},Ci={mediaError:{get(i,e){let{media:t}=i;if((e==null?void 0:e.type)!=="playing")return t==null?void 0:t.error},mediaEvents:["emptied","error","playing"]},mediaErrorCode:{get(i,e){var t;let{media:a}=i;if((e==null?void 0:e.type)!=="playing")return(t=a==null?void 0:a.error)==null?void 0:t.code},mediaEvents:["emptied","error","playing"]},mediaErrorMessage:{get(i,e){var t,a;let{media:r}=i;if((e==null?void 0:e.type)!=="playing")return(a=(t=r==null?void 0:r.error)==null?void 0:t.message)!=null?a:""},mediaEvents:["emptied","error","playing"]},mediaWidth:{get(i){var e;let{media:t}=i;return(e=t==null?void 0:t.videoWidth)!=null?e:0},mediaEvents:["resize"]},mediaHeight:{get(i){var e;let{media:t}=i;return(e=t==null?void 0:t.videoHeight)!=null?e:0},mediaEvents:["resize"]},mediaPaused:{get(i){var e;let{media:t}=i;return(e=t==null?void 0:t.paused)!=null?e:!0},set(i,e){var t;let{media:a}=e;a&&(i?a.pause():(t=a.play())==null||t.catch(()=>{}))},mediaEvents:["play","playing","pause","emptied"]},mediaHasPlayed:{get(i,e){let{media:t}=i;return t?e?e.type==="playing":!t.paused:!1},mediaEvents:["playing","emptied"]},mediaEnded:{get(i){var e;let{media:t}=i;return(e=t==null?void 0:t.ended)!=null?e:!1},mediaEvents:["seeked","ended","emptied"]},mediaPlaybackRate:{get(i){var e;let{media:t}=i;return(e=t==null?void 0:t.playbackRate)!=null?e:1},set(i,e){let{media:t}=e;t&&Number.isFinite(+i)&&(t.playbackRate=+i)},mediaEvents:["ratechange","loadstart"]},mediaMuted:{get(i){var e;let{media:t}=i;return(e=t==null?void 0:t.muted)!=null?e:!1},set(i,e){let{media:t}=e;if(t){try{d.localStorage.setItem("media-chrome-pref-muted",i?"true":"false")}catch(a){console.debug("Error setting muted pref",a)}t.muted=i}},mediaEvents:["volumechange"],stateOwnersUpdateHandlers:[(i,e)=>{let{options:{noMutedPref:t}}=e,{media:a}=e;if(!(!a||a.muted||t))try{let r=d.localStorage.getItem("media-chrome-pref-muted")==="true";Ci.mediaMuted.set(r,e),i(r)}catch(r){console.debug("Error getting muted pref",r)}}]},mediaVolume:{get(i){var e;let{media:t}=i;return(e=t==null?void 0:t.volume)!=null?e:1},set(i,e){let{media:t}=e;if(t){try{i==null?d.localStorage.removeItem("media-chrome-pref-volume"):d.localStorage.setItem("media-chrome-pref-volume",i.toString())}catch(a){console.debug("Error setting volume pref",a)}Number.isFinite(+i)&&(t.volume=+i)}},mediaEvents:["volumechange"],stateOwnersUpdateHandlers:[(i,e)=>{let{options:{noVolumePref:t}}=e;if(!t)try{let{media:a}=e;if(!a)return;let r=d.localStorage.getItem("media-chrome-pref-volume");if(r==null)return;Ci.mediaVolume.set(+r,e),i(+r)}catch(a){console.debug("Error getting volume pref",a)}}]},mediaVolumeLevel:{get(i){let{media:e}=i;return typeof(e==null?void 0:e.volume)=="undefined"?"high":e.muted||e.volume===0?"off":e.volume<.5?"low":e.volume<.75?"medium":"high"},mediaEvents:["volumechange"]},mediaCurrentTime:{get(i){var e;let{media:t}=i;return(e=t==null?void 0:t.currentTime)!=null?e:0},set(i,e){let{media:t}=e;!t||!_i(i)||(t.currentTime=i)},mediaEvents:["timeupdate","loadedmetadata"]},mediaDuration:{get(i){let{media:e,options:{defaultDuration:t}={}}=i;return t&&(!e||!e.duration||Number.isNaN(e.duration)||!Number.isFinite(e.duration))?t:Number.isFinite(e==null?void 0:e.duration)?e.duration:Number.NaN},mediaEvents:["durationchange","loadedmetadata","emptied"]},mediaLoading:{get(i){let{media:e}=i;return(e==null?void 0:e.readyState)<3},mediaEvents:["waiting","playing","emptied"]},mediaSeekable:{get(i){var e;let{media:t}=i;if(!((e=t==null?void 0:t.seekable)!=null&&e.length))return;let a=t.seekable.start(0),r=t.seekable.end(t.seekable.length-1);if(!(!a&&!r))return[Number(a.toFixed(3)),Number(r.toFixed(3))]},mediaEvents:["loadedmetadata","emptied","progress","seekablechange"]},mediaBuffered:{get(i){var e;let{media:t}=i,a=(e=t==null?void 0:t.buffered)!=null?e:[];return Array.from(a).map((r,n)=>[Number(a.start(n).toFixed(3)),Number(a.end(n).toFixed(3))])},mediaEvents:["progress","emptied"]},mediaStreamType:{get(i){let{media:e,options:{defaultStreamType:t}={}}=i,a=[Le.LIVE,Le.ON_DEMAND].includes(t)?t:void 0;if(!e)return a;let{streamType:r}=e;if(Gh.includes(r))return r===Le.UNKNOWN?a:r;let n=e.duration;return n===1/0?Le.LIVE:Number.isFinite(n)?Le.ON_DEMAND:a},mediaEvents:["emptied","durationchange","loadedmetadata","streamtypechange"]},mediaTargetLiveWindow:{get(i){let{media:e}=i;if(!e)return Number.NaN;let{targetLiveWindow:t}=e,a=Ci.mediaStreamType.get(i);return(t==null||Number.isNaN(t))&&a===Le.LIVE?0:t},mediaEvents:["emptied","durationchange","loadedmetadata","streamtypechange","targetlivewindowchange"]},mediaTimeIsLive:{get(i){let{media:e,options:{liveEdgeOffset:t=10}={}}=i;if(!e)return!1;if(typeof e.liveEdgeStart=="number")return Number.isNaN(e.liveEdgeStart)?!1:e.currentTime>=e.liveEdgeStart;if(!(Ci.mediaStreamType.get(i)===Le.LIVE))return!1;let r=e.seekable;if(!r)return!0;if(!r.length)return!1;let n=r.end(r.length-1)-t;return e.currentTime>=n},mediaEvents:["playing","timeupdate","progress","waiting","emptied"]},mediaSubtitlesList:{get(i){return Ii(i).map(({kind:e,label:t,language:a})=>({kind:e,label:t,language:a}))},mediaEvents:["loadstart"],textTracksEvents:["addtrack","removetrack"]},mediaSubtitlesShowing:{get(i){return $o(i).map(({kind:e,label:t,language:a})=>({kind:e,label:t,language:a}))},mediaEvents:["loadstart"],textTracksEvents:["addtrack","removetrack","change"],stateOwnersUpdateHandlers:[(i,e)=>{var t,a;let{media:r,options:n}=e;if(!r)return;let s=l=>{var u;!n.defaultSubtitles||l&&![fe.CAPTIONS,fe.SUBTITLES].includes((u=l==null?void 0:l.track)==null?void 0:u.kind)||wr(e,!0)};return(t=r.textTracks)==null||t.addEventListener("addtrack",s),(a=r.textTracks)==null||a.addEventListener("removetrack",s),s(),()=>{var l,u;(l=r.textTracks)==null||l.removeEventListener("addtrack",s),(u=r.textTracks)==null||u.removeEventListener("removetrack",s)}}]},mediaChaptersCues:{get(i){var e;let{media:t}=i;if(!t)return[];let[a]=Gt(t,{kind:fe.CHAPTERS});return Array.from((e=a==null?void 0:a.cues)!=null?e:[]).map(({text:r,startTime:n,endTime:s})=>({text:r,startTime:n,endTime:s}))},mediaEvents:["loadstart","loadedmetadata"],textTracksEvents:["addtrack","removetrack","change"],stateOwnersUpdateHandlers:[(i,e)=>{var t;let{media:a}=e;if(!a)return;let r=a.querySelector('track[kind="chapters"][default][src]'),n=(t=a.shadowRoot)==null?void 0:t.querySelector(':is(video,audio) > track[kind="chapters"][default][src]');return r==null||r.addEventListener("load",i),n==null||n.addEventListener("load",i),()=>{r==null||r.removeEventListener("load",i),n==null||n.removeEventListener("load",i)}}]},mediaIsPip:{get(i){var e,t;let{media:a,documentElement:r}=i;if(!a||!r||!r.pictureInPictureElement)return!1;if(r.pictureInPictureElement===a)return!0;if(r.pictureInPictureElement instanceof HTMLMediaElement)return(e=a.localName)!=null&&e.includes("-")?de(a,r.pictureInPictureElement):!1;if(r.pictureInPictureElement.localName.includes("-")){let n=r.pictureInPictureElement.shadowRoot;for(;n!=null&&n.pictureInPictureElement;){if(n.pictureInPictureElement===a)return!0;n=(t=n.pictureInPictureElement)==null?void 0:t.shadowRoot}}return!1},set(i,e){let{media:t}=e;if(t)if(i){if(!h.pictureInPictureEnabled){console.warn("MediaChrome: Picture-in-picture is not enabled");return}if(!t.requestPictureInPicture){console.warn("MediaChrome: The current media does not support picture-in-picture");return}let a=()=>{console.warn("MediaChrome: The media is not ready for picture-in-picture. It must have a readyState > 0.")};t.requestPictureInPicture().catch(r=>{if(r.code===11){if(!t.src){console.warn("MediaChrome: The media is not ready for picture-in-picture. It must have a src set.");return}if(t.readyState===0&&t.preload==="none"){let n=()=>{t.removeEventListener("loadedmetadata",s),t.preload="none"},s=()=>{t.requestPictureInPicture().catch(a),n()};t.addEventListener("loadedmetadata",s),t.preload="metadata",setTimeout(()=>{t.readyState===0&&a(),n()},1e3)}else throw r}else throw r})}else h.pictureInPictureElement&&h.exitPictureInPicture()},mediaEvents:["enterpictureinpicture","leavepictureinpicture"]},mediaRenditionList:{get(i){var e;let{media:t}=i;return[...(e=t==null?void 0:t.videoRenditions)!=null?e:[]].map(a=>({...a}))},mediaEvents:["emptied","loadstart"],videoRenditionsEvents:["addrendition","removerendition"]},mediaRenditionSelected:{get(i){var e,t,a;let{media:r}=i;return(a=(t=r==null?void 0:r.videoRenditions)==null?void 0:t[(e=r.videoRenditions)==null?void 0:e.selectedIndex])==null?void 0:a.id},set(i,e){let{media:t}=e;if(!(t!=null&&t.videoRenditions)){console.warn("MediaController: Rendition selection not supported by this media.");return}let a=i,r=Array.prototype.findIndex.call(t.videoRenditions,n=>n.id==a);t.videoRenditions.selectedIndex!=r&&(t.videoRenditions.selectedIndex=r)},mediaEvents:["emptied"],videoRenditionsEvents:["addrendition","removerendition","change"]},mediaAudioTrackList:{get(i){var e;let{media:t}=i;return[...(e=t==null?void 0:t.audioTracks)!=null?e:[]]},mediaEvents:["emptied","loadstart"],audioTracksEvents:["addtrack","removetrack"]},mediaAudioTrackEnabled:{get(i){var e,t;let{media:a}=i;return(t=[...(e=a==null?void 0:a.audioTracks)!=null?e:[]].find(r=>r.enabled))==null?void 0:t.id},set(i,e){let{media:t}=e;if(!(t!=null&&t.audioTracks)){console.warn("MediaChrome: Audio track selection not supported by this media.");return}let a=i;for(let r of t.audioTracks)r.enabled=a==r.id},mediaEvents:["emptied"],audioTracksEvents:["addtrack","removetrack","change"]},mediaIsFullscreen:{get(i){return ou(i)},set(i,e){i?ru(e):nu(e)},rootEvents:["fullscreenchange","webkitfullscreenchange"],mediaEvents:["webkitbeginfullscreen","webkitendfullscreen","webkitpresentationmodechanged"]},mediaIsCasting:{get(i){var e;let{media:t}=i;return!(t!=null&&t.remote)||((e=t.remote)==null?void 0:e.state)==="disconnected"?!1:!!t.remote.state},set(i,e){var t,a;let{media:r}=e;if(r&&!(i&&((t=r.remote)==null?void 0:t.state)!=="disconnected")&&!(!i&&((a=r.remote)==null?void 0:a.state)!=="connected")){if(typeof r.remote.prompt!="function"){console.warn("MediaChrome: Casting is not supported in this environment");return}r.remote.prompt().catch(()=>{})}},remoteEvents:["connect","connecting","disconnect"]},mediaIsAirplaying:{get(){return!1},set(i,e){let{media:t}=e;if(t){if(!(t.webkitShowPlaybackTargetPicker&&d.WebKitPlaybackTargetAvailabilityEvent)){console.warn("MediaChrome: received a request to select AirPlay but AirPlay is not supported in this environment");return}t.webkitShowPlaybackTargetPicker()}},mediaEvents:["webkitcurrentplaybacktargetiswirelesschanged"]},mediaFullscreenUnavailable:{get(i){let{media:e}=i;if(!du||!Wo(e))return ye.UNSUPPORTED}},mediaPipUnavailable:{get(i){let{media:e}=i;if(!uu||!Ho(e))return ye.UNSUPPORTED}},mediaVolumeUnavailable:{get(i){let{media:e}=i;if(Lr===!1||(e==null?void 0:e.volume)==null)return ye.UNSUPPORTED},stateOwnersUpdateHandlers:[i=>{Lr==null&&Yh.then(e=>i(e?void 0:ye.UNSUPPORTED))}]},mediaCastUnavailable:{get(i,{availability:e="not-available"}={}){var t;let{media:a}=i;if(!mu||!((t=a==null?void 0:a.remote)!=null&&t.state))return ye.UNSUPPORTED;if(!(e==null||e==="available"))return ye.UNAVAILABLE},stateOwnersUpdateHandlers:[(i,e)=>{var t;let{media:a}=e;return a?(a.disableRemotePlayback||a.hasAttribute("disableremoteplayback")||(t=a==null?void 0:a.remote)==null||t.watchAvailability(n=>{i({availability:n?"available":"not-available"})}).catch(n=>{n.name==="NotSupportedError"?i({availability:null}):i({availability:"not-available"})}),()=>{var n;(n=a==null?void 0:a.remote)==null||n.cancelWatchAvailability().catch(()=>{})}):void 0}]},mediaAirplayUnavailable:{get(i,e){if(!cu)return ye.UNSUPPORTED;if((e==null?void 0:e.availability)==="not-available")return ye.UNAVAILABLE},mediaEvents:["webkitplaybacktargetavailabilitychanged"],stateOwnersUpdateHandlers:[(i,e)=>{var t;let{media:a}=e;return a?(a.disableRemotePlayback||a.hasAttribute("disableremoteplayback")||(t=a==null?void 0:a.remote)==null||t.watchAvailability(n=>{i({availability:n?"available":"not-available"})}).catch(n=>{n.name==="NotSupportedError"?i({availability:null}):i({availability:"not-available"})}),()=>{var n;(n=a==null?void 0:a.remote)==null||n.cancelWatchAvailability().catch(()=>{})}):void 0}]},mediaRenditionUnavailable:{get(i){var e;let{media:t}=i;if(!(t!=null&&t.videoRenditions))return ye.UNSUPPORTED;if(!((e=t.videoRenditions)!=null&&e.length))return ye.UNAVAILABLE},mediaEvents:["emptied","loadstart"],videoRenditionsEvents:["addrendition","removerendition"]},mediaAudioTrackUnavailable:{get(i){var e,t;let{media:a}=i;if(!(a!=null&&a.audioTracks))return ye.UNSUPPORTED;if(((t=(e=a.audioTracks)==null?void 0:e.length)!=null?t:0)<=1)return ye.UNAVAILABLE},mediaEvents:["emptied","loadstart"],audioTracksEvents:["addtrack","removetrack"]}};var pu={[f.MEDIA_PREVIEW_REQUEST](i,e,{detail:t}){var a,r,n;let{media:s}=e,l=t!=null?t:void 0,u,c;if(s&&l!=null){let[E]=Gt(s,{kind:fe.METADATA,label:"thumbnails"}),O=Array.prototype.find.call((a=E==null?void 0:E.cues)!=null?a:[],(y,I,U)=>I===0?y.endTime>l:I===U.length-1?y.startTime<=l:y.startTime<=l&&y.endTime>l);if(O){let y=/'^(?:[a-z]+:)?\/\//i.test(O.text)||(r=s==null?void 0:s.querySelector('track[label="thumbnails"]'))==null?void 0:r.src,I=new URL(O.text,y);c=new URLSearchParams(I.hash).get("#xywh").split(",").map(z=>+z),u=I.href}}let A=i.mediaDuration.get(e),p=(n=i.mediaChaptersCues.get(e).find((E,O,y)=>O===y.length-1&&A===E.endTime?E.startTime<=l&&E.endTime>=l:E.startTime<=l&&E.endTime>l))==null?void 0:n.text;return t!=null&&p==null&&(p=""),{mediaPreviewTime:l,mediaPreviewImage:u,mediaPreviewCoords:c,mediaPreviewChapter:p}},[f.MEDIA_PAUSE_REQUEST](i,e){i["mediaPaused"].set(!0,e)},[f.MEDIA_PLAY_REQUEST](i,e){var t;let a="mediaPaused";if(i.mediaStreamType.get(e)===Le.LIVE){let s=!(i.mediaTargetLiveWindow.get(e)>0),l=(t=i.mediaSeekable.get(e))==null?void 0:t[1];s&&l&&i.mediaCurrentTime.set(l,e)}i[a].set(!1,e)},[f.MEDIA_PLAYBACK_RATE_REQUEST](i,e,{detail:t}){let a="mediaPlaybackRate",r=t;i[a].set(r,e)},[f.MEDIA_MUTE_REQUEST](i,e){i["mediaMuted"].set(!0,e)},[f.MEDIA_UNMUTE_REQUEST](i,e){let t="mediaMuted";i.mediaVolume.get(e)||i.mediaVolume.set(.25,e),i[t].set(!1,e)},[f.MEDIA_VOLUME_REQUEST](i,e,{detail:t}){let a="mediaVolume",r=t;r&&i.mediaMuted.get(e)&&i.mediaMuted.set(!1,e),i[a].set(r,e)},[f.MEDIA_SEEK_REQUEST](i,e,{detail:t}){let a="mediaCurrentTime",r=t;i[a].set(r,e)},[f.MEDIA_SEEK_TO_LIVE_REQUEST](i,e){var t;let a="mediaCurrentTime",r=(t=i.mediaSeekable.get(e))==null?void 0:t[1];Number.isNaN(Number(r))||i[a].set(r,e)},[f.MEDIA_SHOW_SUBTITLES_REQUEST](i,e,{detail:t}){var a;let{options:r}=e,n=Ii(e),s=Uo(t),l=(a=s[0])==null?void 0:a.language;l&&!r.noSubtitlesLangPref&&d.localStorage.setItem("media-chrome-pref-subtitles-lang",l),Kt(bt.SHOWING,n,s)},[f.MEDIA_DISABLE_SUBTITLES_REQUEST](i,e,{detail:t}){let a=Ii(e),r=t!=null?t:[];Kt(bt.DISABLED,a,r)},[f.MEDIA_TOGGLE_SUBTITLES_REQUEST](i,e,{detail:t}){wr(e,t)},[f.MEDIA_RENDITION_REQUEST](i,e,{detail:t}){let a="mediaRenditionSelected",r=t;i[a].set(r,e)},[f.MEDIA_AUDIO_TRACK_REQUEST](i,e,{detail:t}){let a="mediaAudioTrackEnabled",r=t;i[a].set(r,e)},[f.MEDIA_ENTER_PIP_REQUEST](i,e){let t="mediaIsPip";i.mediaIsFullscreen.get(e)&&i.mediaIsFullscreen.set(!1,e),i[t].set(!0,e)},[f.MEDIA_EXIT_PIP_REQUEST](i,e){i["mediaIsPip"].set(!1,e)},[f.MEDIA_ENTER_FULLSCREEN_REQUEST](i,e){let t="mediaIsFullscreen";i.mediaIsPip.get(e)&&i.mediaIsPip.set(!1,e),i[t].set(!0,e)},[f.MEDIA_EXIT_FULLSCREEN_REQUEST](i,e){i["mediaIsFullscreen"].set(!1,e)},[f.MEDIA_ENTER_CAST_REQUEST](i,e){let t="mediaIsCasting";i.mediaIsFullscreen.get(e)&&i.mediaIsFullscreen.set(!1,e),i[t].set(!0,e)},[f.MEDIA_EXIT_CAST_REQUEST](i,e){i["mediaIsCasting"].set(!1,e)},[f.MEDIA_AIRPLAY_REQUEST](i,e){i["mediaIsAirplaying"].set(!0,e)}};var fu=({media:i,fullscreenElement:e,documentElement:t,stateMediator:a=Ci,requestMap:r=pu,options:n={},monitorStateOwnersOnlyWithSubscriptions:s=!0})=>{let l=[],u={options:{...n}},c=Object.freeze({mediaPreviewTime:void 0,mediaPreviewImage:void 0,mediaPreviewCoords:void 0,mediaPreviewChapter:void 0}),A=y=>{y!=null&&(Rr(y,c)||(c=Object.freeze({...c,...y}),l.forEach(I=>I(c))))},g=()=>{let y=Object.entries(a).reduce((I,[U,{get:z}])=>(I[U]=z(u),I),{});A(y)},p={},E,O=async(y,I)=>{var U,z,se,we,Ie,Et,Ut,Bt,jl,ed,td,id,ad,rd,nd,od;let ih=!!E;if(E={...u,...E!=null?E:{},...y},ih)return;await hu(...Object.values(y));let vi=l.length>0&&I===0&&s,sd=u.media!==E.media,ld=((U=u.media)==null?void 0:U.textTracks)!==((z=E.media)==null?void 0:z.textTracks),dd=((se=u.media)==null?void 0:se.videoRenditions)!==((we=E.media)==null?void 0:we.videoRenditions),ud=((Ie=u.media)==null?void 0:Ie.audioTracks)!==((Et=E.media)==null?void 0:Et.audioTracks),cd=((Ut=u.media)==null?void 0:Ut.remote)!==((Bt=E.media)==null?void 0:Bt.remote),md=u.documentElement!==E.documentElement,hd=!!u.media&&(sd||vi),pd=!!((jl=u.media)!=null&&jl.textTracks)&&(ld||vi),fd=!!((ed=u.media)!=null&&ed.videoRenditions)&&(dd||vi),vd=!!((td=u.media)!=null&&td.audioTracks)&&(ud||vi),Ed=!!((id=u.media)!=null&&id.remote)&&(cd||vi),bd=!!u.documentElement&&(md||vi),gd=hd||pd||fd||vd||Ed||bd,Ei=l.length===0&&I===1&&s,_d=!!E.media&&(sd||Ei),Ad=!!((ad=E.media)!=null&&ad.textTracks)&&(ld||Ei),yd=!!((rd=E.media)!=null&&rd.videoRenditions)&&(dd||Ei),Td=!!((nd=E.media)!=null&&nd.audioTracks)&&(ud||Ei),kd=!!((od=E.media)!=null&&od.remote)&&(cd||Ei),Sd=!!E.documentElement&&(md||Ei),Id=_d||Ad||yd||Td||kd||Sd;if(!(gd||Id)){Object.entries(E).forEach(([F,ra])=>{u[F]=ra}),g(),E=void 0;return}Object.entries(a).forEach(([F,{get:ra,mediaEvents:ah=[],textTracksEvents:rh=[],videoRenditionsEvents:nh=[],audioTracksEvents:oh=[],remoteEvents:sh=[],rootEvents:lh=[],stateOwnersUpdateHandlers:dh=[]}])=>{p[F]||(p[F]={});let ge=X=>{let _e=ra(u,X);A({[F]:_e})},ee;ee=p[F].mediaEvents,ah.forEach(X=>{ee&&hd&&(u.media.removeEventListener(X,ee),p[F].mediaEvents=void 0),_d&&(E.media.addEventListener(X,ge),p[F].mediaEvents=ge)}),ee=p[F].textTracksEvents,rh.forEach(X=>{var _e,Re;ee&&pd&&((_e=u.media.textTracks)==null||_e.removeEventListener(X,ee),p[F].textTracksEvents=void 0),Ad&&((Re=E.media.textTracks)==null||Re.addEventListener(X,ge),p[F].textTracksEvents=ge)}),ee=p[F].videoRenditionsEvents,nh.forEach(X=>{var _e,Re;ee&&fd&&((_e=u.media.videoRenditions)==null||_e.removeEventListener(X,ee),p[F].videoRenditionsEvents=void 0),yd&&((Re=E.media.videoRenditions)==null||Re.addEventListener(X,ge),p[F].videoRenditionsEvents=ge)}),ee=p[F].audioTracksEvents,oh.forEach(X=>{var _e,Re;ee&&vd&&((_e=u.media.audioTracks)==null||_e.removeEventListener(X,ee),p[F].audioTracksEvents=void 0),Td&&((Re=E.media.audioTracks)==null||Re.addEventListener(X,ge),p[F].audioTracksEvents=ge)}),ee=p[F].remoteEvents,sh.forEach(X=>{var _e,Re;ee&&Ed&&((_e=u.media.remote)==null||_e.removeEventListener(X,ee),p[F].remoteEvents=void 0),kd&&((Re=E.media.remote)==null||Re.addEventListener(X,ge),p[F].remoteEvents=ge)}),ee=p[F].rootEvents,lh.forEach(X=>{ee&&bd&&(u.documentElement.removeEventListener(X,ee),p[F].rootEvents=void 0),Sd&&(E.documentElement.addEventListener(X,ge),p[F].rootEvents=ge)});let Cd=p[F].stateOwnersUpdateHandlers;dh.forEach(X=>{Cd&&gd&&Cd(),Id&&(p[F].stateOwnersUpdateHandlers=X(ge,E))})}),Object.entries(E).forEach(([F,ra])=>{u[F]=ra}),g(),E=void 0};return O({media:i,fullscreenElement:e,documentElement:t,options:n}),{dispatch(y){let{type:I,detail:U}=y;if(r[I]&&c.mediaErrorCode==null){A(r[I](a,u,y));return}I==="mediaelementchangerequest"?O({media:U}):I==="fullscreenelementchangerequest"?O({fullscreenElement:U}):I==="documentelementchangerequest"?O({documentElement:U}):I==="optionschangerequest"&&Object.entries(U!=null?U:{}).forEach(([z,se])=>{u.options[z]=se})},getState(){return c},subscribe(y){return O({},l.length+1),l.push(y),y(c),()=>{let I=l.indexOf(y);I>=0&&(O({},l.length-1),l.splice(I,1))}}}};var Go=(i,e,t)=>{if(!e.has(i))throw TypeError("Cannot "+t)},P=(i,e,t)=>(Go(i,e,"read from private field"),t?t.call(i):e.get(i)),ut=(i,e,t)=>{if(e.has(i))throw TypeError("Cannot add the same private member more than once");e instanceof WeakSet?e.add(i):e.set(i,t)},At=(i,e,t,a)=>(Go(i,e,"write to private field"),a?a.call(i,t):e.set(i,t),t),yt=(i,e,t)=>(Go(i,e,"access private method"),t),qt,va,Y,Ea,$e,xr,Dr,Fo,Mi,ba,Or,Vo,_u=["ArrowLeft","ArrowRight","Enter"," ","f","m","k","c"],vu=10,T={DEFAULT_SUBTITLES:"defaultsubtitles",DEFAULT_STREAM_TYPE:"defaultstreamtype",DEFAULT_DURATION:"defaultduration",FULLSCREEN_ELEMENT:"fullscreenelement",HOTKEYS:"hotkeys",KEYS_USED:"keysused",LIVE_EDGE_OFFSET:"liveedgeoffset",NO_AUTO_SEEK_TO_LIVE:"noautoseektolive",NO_HOTKEYS:"nohotkeys",NO_VOLUME_PREF:"novolumepref",NO_SUBTITLES_LANG_PREF:"nosubtitleslangpref",NO_DEFAULT_STORE:"nodefaultstore",KEYBOARD_FORWARD_SEEK_OFFSET:"keyboardforwardseekoffset",KEYBOARD_BACKWARD_SEEK_OFFSET:"keyboardbackwardseekoffset"},Nr=class extends ha{constructor(){super(),ut(this,Dr),ut(this,Mi),ut(this,Or),this.mediaStateReceivers=[],this.associatedElementSubscriptions=new Map,ut(this,qt,new We(this,T.HOTKEYS)),ut(this,va,void 0),ut(this,Y,void 0),ut(this,Ea,void 0),ut(this,$e,void 0),ut(this,xr,t=>{var a;(a=P(this,Y))==null||a.dispatch(t)}),this.associateElement(this);let e={};At(this,Ea,t=>{Object.entries(t).forEach(([a,r])=>{if(a in e&&e[a]===r)return;this.propagateMediaState(a,r);let n=a.toLowerCase(),s=new d.CustomEvent(xd[n],{composed:!0,detail:r});this.dispatchEvent(s)}),e=t}),this.enableHotkeys()}static get observedAttributes(){return super.observedAttributes.concat(T.NO_HOTKEYS,T.HOTKEYS,T.DEFAULT_STREAM_TYPE,T.DEFAULT_SUBTITLES,T.DEFAULT_DURATION)}get mediaStore(){return P(this,Y)}set mediaStore(e){var t,a;if(P(this,Y)&&((t=P(this,$e))==null||t.call(this),At(this,$e,void 0)),At(this,Y,e),!P(this,Y)&&!this.hasAttribute(T.NO_DEFAULT_STORE)){yt(this,Dr,Fo).call(this);return}At(this,$e,(a=P(this,Y))==null?void 0:a.subscribe(P(this,Ea)))}get fullscreenElement(){var e;return(e=P(this,va))!=null?e:this}set fullscreenElement(e){var t;this.hasAttribute(T.FULLSCREEN_ELEMENT)&&this.removeAttribute(T.FULLSCREEN_ELEMENT),At(this,va,e),(t=P(this,Y))==null||t.dispatch({type:"fullscreenelementchangerequest",detail:this.fullscreenElement})}get defaultSubtitles(){return k(this,T.DEFAULT_SUBTITLES)}set defaultSubtitles(e){S(this,T.DEFAULT_SUBTITLES,e)}get defaultStreamType(){return M(this,T.DEFAULT_STREAM_TYPE)}set defaultStreamType(e){w(this,T.DEFAULT_STREAM_TYPE,e)}get defaultDuration(){return x(this,T.DEFAULT_DURATION)}set defaultDuration(e){N(this,T.DEFAULT_DURATION,e)}get noHotkeys(){return k(this,T.NO_HOTKEYS)}set noHotkeys(e){S(this,T.NO_HOTKEYS,e)}get keysUsed(){return M(this,T.KEYS_USED)}set keysUsed(e){w(this,T.KEYS_USED,e)}get liveEdgeOffset(){return x(this,T.LIVE_EDGE_OFFSET)}set liveEdgeOffset(e){N(this,T.LIVE_EDGE_OFFSET,e)}get noAutoSeekToLive(){return k(this,T.NO_AUTO_SEEK_TO_LIVE)}set noAutoSeekToLive(e){S(this,T.NO_AUTO_SEEK_TO_LIVE,e)}get noVolumePref(){return k(this,T.NO_VOLUME_PREF)}set noVolumePref(e){S(this,T.NO_VOLUME_PREF,e)}get noSubtitlesLangPref(){return k(this,T.NO_SUBTITLES_LANG_PREF)}set noSubtitlesLangPref(e){S(this,T.NO_SUBTITLES_LANG_PREF,e)}get noDefaultStore(){return k(this,T.NO_DEFAULT_STORE)}set noDefaultStore(e){S(this,T.NO_DEFAULT_STORE,e)}attributeChangedCallback(e,t,a){var r,n,s,l,u,c;if(super.attributeChangedCallback(e,t,a),e===T.NO_HOTKEYS)a!==t&&a===""?(this.hasAttribute(T.HOTKEYS)&&console.warn("Media Chrome: Both `hotkeys` and `nohotkeys` have been set. All hotkeys will be disabled."),this.disableHotkeys()):a!==t&&a===null&&this.enableHotkeys();else if(e===T.HOTKEYS)P(this,qt).value=a;else if(e===T.DEFAULT_SUBTITLES&&a!==t)(r=P(this,Y))==null||r.dispatch({type:"optionschangerequest",detail:{defaultSubtitles:this.hasAttribute(T.DEFAULT_SUBTITLES)}});else if(e===T.DEFAULT_STREAM_TYPE)(s=P(this,Y))==null||s.dispatch({type:"optionschangerequest",detail:{defaultStreamType:(n=this.getAttribute(T.DEFAULT_STREAM_TYPE))!=null?n:void 0}});else if(e===T.LIVE_EDGE_OFFSET)(l=P(this,Y))==null||l.dispatch({type:"optionschangerequest",detail:{liveEdgeOffset:this.hasAttribute(T.LIVE_EDGE_OFFSET)?+this.getAttribute(T.LIVE_EDGE_OFFSET):void 0}});else if(e===T.FULLSCREEN_ELEMENT){let A=a?(u=this.getRootNode())==null?void 0:u.getElementById(a):void 0;At(this,va,A),(c=P(this,Y))==null||c.dispatch({type:"fullscreenelementchangerequest",detail:this.fullscreenElement})}}connectedCallback(){var e,t;!P(this,Y)&&!this.hasAttribute(T.NO_DEFAULT_STORE)&&yt(this,Dr,Fo).call(this),(e=P(this,Y))==null||e.dispatch({type:"documentelementchangerequest",detail:h}),super.connectedCallback(),P(this,Y)&&!P(this,$e)&&At(this,$e,(t=P(this,Y))==null?void 0:t.subscribe(P(this,Ea))),this.enableHotkeys()}disconnectedCallback(){var e,t,a,r;(e=super.disconnectedCallback)==null||e.call(this),P(this,Y)&&((t=P(this,Y))==null||t.dispatch({type:"documentelementchangerequest",detail:void 0}),(a=P(this,Y))==null||a.dispatch({type:f.MEDIA_TOGGLE_SUBTITLES_REQUEST,detail:!1})),P(this,$e)&&((r=P(this,$e))==null||r.call(this),At(this,$e,void 0))}mediaSetCallback(e){var t;super.mediaSetCallback(e),(t=P(this,Y))==null||t.dispatch({type:"mediaelementchangerequest",detail:e}),e.hasAttribute("tabindex")||(e.tabIndex=-1)}mediaUnsetCallback(e){var t;super.mediaUnsetCallback(e),(t=P(this,Y))==null||t.dispatch({type:"mediaelementchangerequest",detail:void 0})}propagateMediaState(e,t){gu(this.mediaStateReceivers,e,t)}associateElement(e){if(!e)return;let{associatedElementSubscriptions:t}=this;if(t.has(e))return;let a=this.registerMediaStateReceiver.bind(this),r=this.unregisterMediaStateReceiver.bind(this),n=Jh(e,a,r);Object.values(f).forEach(s=>{e.addEventListener(s,P(this,xr))}),t.set(e,n)}unassociateElement(e){if(!e)return;let{associatedElementSubscriptions:t}=this;if(!t.has(e))return;t.get(e)(),t.delete(e),Object.values(f).forEach(r=>{e.removeEventListener(r,P(this,xr))})}registerMediaStateReceiver(e){if(!e)return;let t=this.mediaStateReceivers;t.indexOf(e)>-1||(t.push(e),P(this,Y)&&Object.entries(P(this,Y).getState()).forEach(([r,n])=>{gu([e],r,n)}))}unregisterMediaStateReceiver(e){let t=this.mediaStateReceivers,a=t.indexOf(e);a<0||t.splice(a,1)}enableHotkeys(){this.addEventListener("keydown",yt(this,Or,Vo))}disableHotkeys(){this.removeEventListener("keydown",yt(this,Or,Vo)),this.removeEventListener("keyup",yt(this,Mi,ba))}get hotkeys(){return M(this,T.HOTKEYS)}set hotkeys(e){w(this,T.HOTKEYS,e)}keyboardShortcutHandler(e){var t,a,r,n,s;let l=e.target;if(((r=(a=(t=l.getAttribute(T.KEYS_USED))==null?void 0:t.split(" "))!=null?a:l==null?void 0:l.keysUsed)!=null?r:[]).map(p=>p==="Space"?" ":p).filter(Boolean).includes(e.key))return;let c,A,g;if(!P(this,qt).contains(`no${e.key.toLowerCase()}`)&&!(e.key===" "&&P(this,qt).contains("nospace")))switch(e.key){case" ":case"k":c=P(this,Y).getState().mediaPaused?f.MEDIA_PLAY_REQUEST:f.MEDIA_PAUSE_REQUEST,this.dispatchEvent(new d.CustomEvent(c,{composed:!0,bubbles:!0}));break;case"m":c=this.mediaStore.getState().mediaVolumeLevel==="off"?f.MEDIA_UNMUTE_REQUEST:f.MEDIA_MUTE_REQUEST,this.dispatchEvent(new d.CustomEvent(c,{composed:!0,bubbles:!0}));break;case"f":c=this.mediaStore.getState().mediaIsFullscreen?f.MEDIA_EXIT_FULLSCREEN_REQUEST:f.MEDIA_ENTER_FULLSCREEN_REQUEST,this.dispatchEvent(new d.CustomEvent(c,{composed:!0,bubbles:!0}));break;case"c":this.dispatchEvent(new d.CustomEvent(f.MEDIA_TOGGLE_SUBTITLES_REQUEST,{composed:!0,bubbles:!0}));break;case"ArrowLeft":{let p=this.hasAttribute(T.KEYBOARD_BACKWARD_SEEK_OFFSET)?+this.getAttribute(T.KEYBOARD_BACKWARD_SEEK_OFFSET):vu;A=Math.max(((n=this.mediaStore.getState().mediaCurrentTime)!=null?n:0)-p,0),g=new d.CustomEvent(f.MEDIA_SEEK_REQUEST,{composed:!0,bubbles:!0,detail:A}),this.dispatchEvent(g);break}case"ArrowRight":{let p=this.hasAttribute(T.KEYBOARD_FORWARD_SEEK_OFFSET)?+this.getAttribute(T.KEYBOARD_FORWARD_SEEK_OFFSET):vu;A=Math.max(((s=this.mediaStore.getState().mediaCurrentTime)!=null?s:0)+p,0),g=new d.CustomEvent(f.MEDIA_SEEK_REQUEST,{composed:!0,bubbles:!0,detail:A}),this.dispatchEvent(g);break}default:break}}};qt=new WeakMap;va=new WeakMap;Y=new WeakMap;Ea=new WeakMap;$e=new WeakMap;xr=new WeakMap;Dr=new WeakSet;Fo=function(){var i;this.mediaStore=fu({media:this.media,fullscreenElement:this.fullscreenElement,options:{defaultSubtitles:this.hasAttribute(T.DEFAULT_SUBTITLES),defaultDuration:this.hasAttribute(T.DEFAULT_DURATION)?+this.getAttribute(T.DEFAULT_DURATION):void 0,defaultStreamType:(i=this.getAttribute(T.DEFAULT_STREAM_TYPE))!=null?i:void 0,liveEdgeOffset:this.hasAttribute(T.LIVE_EDGE_OFFSET)?+this.getAttribute(T.LIVE_EDGE_OFFSET):void 0,noVolumePref:this.hasAttribute(T.NO_VOLUME_PREF),noSubtitlesLangPref:this.hasAttribute(T.NO_SUBTITLES_LANG_PREF)}})};Mi=new WeakSet;ba=function(i){let{key:e}=i;if(!_u.includes(e)){this.removeEventListener("keyup",yt(this,Mi,ba));return}this.keyboardShortcutHandler(i)};Or=new WeakSet;Vo=function(i){let{metaKey:e,altKey:t,key:a}=i;if(e||t||!_u.includes(a)){this.removeEventListener("keyup",yt(this,Mi,ba));return}[" ","ArrowLeft","ArrowRight"].includes(a)&&!(P(this,qt).contains(`no${a.toLowerCase()}`)||a===" "&&P(this,qt).contains("nospace"))&&i.preventDefault(),this.addEventListener("keyup",yt(this,Mi,ba),{once:!0})};var qh=Object.values(o),Zh=Object.values(ko),Au=i=>{var e,t,a,r;let{observedAttributes:n}=i.constructor;!n&&((e=i.nodeName)!=null&&e.includes("-"))&&(d.customElements.upgrade(i),{observedAttributes:n}=i.constructor);let s=(r=(a=(t=i==null?void 0:i.getAttribute)==null?void 0:t.call(i,R.MEDIA_CHROME_ATTRIBUTES))==null?void 0:a.split)==null?void 0:r.call(a,/\s+/);return Array.isArray(n||s)?(n||s).filter(l=>qh.includes(l)):[]},zh=i=>{var e,t;return(e=i.nodeName)!=null&&e.includes("-")&&d.customElements.get((t=i.nodeName)==null?void 0:t.toLowerCase())&&!(i instanceof d.customElements.get(i.nodeName.toLowerCase()))&&d.customElements.upgrade(i),Zh.some(a=>a in i)},Ko=i=>zh(i)||!!Au(i).length,Eu=i=>{var e;return(e=i==null?void 0:i.join)==null?void 0:e.call(i,":")},bu={[o.MEDIA_SUBTITLES_LIST]:dt,[o.MEDIA_SUBTITLES_SHOWING]:dt,[o.MEDIA_SEEKABLE]:Eu,[o.MEDIA_BUFFERED]:i=>i==null?void 0:i.map(Eu).join(" "),[o.MEDIA_PREVIEW_COORDS]:i=>i==null?void 0:i.join(" "),[o.MEDIA_RENDITION_LIST]:Od,[o.MEDIA_AUDIO_TRACK_LIST]:Pd},Qh=async(i,e,t)=>{var a,r;if(i.isConnected||await ur(0),typeof t=="boolean"||t==null)return S(i,e,t);if(typeof t=="number")return N(i,e,t);if(typeof t=="string")return w(i,e,t);if(Array.isArray(t)&&!t.length)return i.removeAttribute(e);let n=(r=(a=bu[e])==null?void 0:a.call(bu,t))!=null?r:t;return i.setAttribute(e,n)},Xh=i=>{var e;return!!((e=i.closest)!=null&&e.call(i,'*[slot="media"]'))},Yt=(i,e)=>{if(Xh(i))return;let t=(r,n)=>{var s,l;Ko(r)&&n(r);let{children:u=[]}=r!=null?r:{},c=(l=(s=r==null?void 0:r.shadowRoot)==null?void 0:s.children)!=null?l:[];[...u,...c].forEach(g=>Yt(g,n))},a=i==null?void 0:i.nodeName.toLowerCase();if(a.includes("-")&&!Ko(i)){d.customElements.whenDefined(a).then(()=>{t(i,e)});return}t(i,e)},gu=(i,e,t)=>{i.forEach(a=>{if(e in a){a[e]=t;return}let r=Au(a),n=e.toLowerCase();r.includes(n)&&Qh(a,n,t)})},Jh=(i,e,t)=>{Yt(i,e);let a=A=>{var g;let p=(g=A==null?void 0:A.composedPath()[0])!=null?g:A.target;e(p)},r=A=>{var g;let p=(g=A==null?void 0:A.composedPath()[0])!=null?g:A.target;t(p)};i.addEventListener(f.REGISTER_MEDIA_STATE_RECEIVER,a),i.addEventListener(f.UNREGISTER_MEDIA_STATE_RECEIVER,r);let n=A=>{A.forEach(g=>{let{addedNodes:p=[],removedNodes:E=[],type:O,target:y,attributeName:I}=g;O==="childList"?(Array.prototype.forEach.call(p,U=>Yt(U,e)),Array.prototype.forEach.call(E,U=>Yt(U,t))):O==="attributes"&&I===R.MEDIA_CHROME_ATTRIBUTES&&(Ko(y)?e(y):t(y))})},s=[],l=A=>{let g=A.target;g.name!=="media"&&(s.forEach(p=>Yt(p,t)),s=[...g.assignedElements({flatten:!0})],s.forEach(p=>Yt(p,e)))};i.addEventListener("slotchange",l);let u=new MutationObserver(n);return u.observe(i,{childList:!0,attributes:!0,subtree:!0}),()=>{Yt(i,t),i.removeEventListener("slotchange",l),u.disconnect(),i.removeEventListener(f.REGISTER_MEDIA_STATE_RECEIVER,a),i.removeEventListener(f.UNREGISTER_MEDIA_STATE_RECEIVER,r)}};d.customElements.get("media-controller")||d.customElements.define("media-controller",Nr);var Yo=Nr;var Zo=(i,e,t)=>{if(!e.has(i))throw TypeError("Cannot "+t)},J=(i,e,t)=>(Zo(i,e,"read from private field"),t?t.call(i):e.get(i)),wi=(i,e,t)=>{if(e.has(i))throw TypeError("Cannot add the same private member more than once");e instanceof WeakSet?e.add(i):e.set(i,t)},Pr=(i,e,t,a)=>(Zo(i,e,"write to private field"),a?a.call(i,t):e.set(i,t),t),jh=(i,e,t)=>(Zo(i,e,"access private method"),t),Fe,Li,kt,Ri,Ur,qo,yu,Tt={TOOLTIP_PLACEMENT:"tooltipplacement",DISABLED:"disabled",NO_TOOLTIP:"notooltip"},Tu=h.createElement("template");Tu.innerHTML=`
+`;
+var MEDIA_UI_ATTRIBUTE_NAMES = Object.values(MediaUIAttributes);
+var defaultBreakpoints = "sm:384 md:576 lg:768 xl:960";
+function resizeCallback(entry) {
+  setBreakpoints(entry.target, entry.contentRect.width);
+}
+function setBreakpoints(container, width) {
+  var _a3;
+  if (!container.isConnected)
+    return;
+  const breakpoints = (_a3 = container.getAttribute(Attributes.BREAKPOINTS)) != null ? _a3 : defaultBreakpoints;
+  const ranges = createBreakpointMap(breakpoints);
+  const activeBreakpoints = getBreakpoints(ranges, width);
+  let changed = false;
+  Object.keys(ranges).forEach((name) => {
+    if (activeBreakpoints.includes(name)) {
+      if (!container.hasAttribute(`breakpoint${name}`)) {
+        container.setAttribute(`breakpoint${name}`, "");
+        changed = true;
+      }
+      return;
+    }
+    if (container.hasAttribute(`breakpoint${name}`)) {
+      container.removeAttribute(`breakpoint${name}`);
+      changed = true;
+    }
+  });
+  if (changed) {
+    const evt = new CustomEvent(MediaStateChangeEvents.BREAKPOINTS_CHANGE, {
+      detail: activeBreakpoints
+    });
+    container.dispatchEvent(evt);
+  }
+  if (!container.breakpointsComputed) {
+    container.breakpointsComputed = true;
+    container.dispatchEvent(
+      new CustomEvent(MediaStateChangeEvents.BREAKPOINTS_COMPUTED, {
+        bubbles: true,
+        composed: true
+      })
+    );
+  }
+}
+function createBreakpointMap(breakpoints) {
+  const pairs = breakpoints.split(/\s+/);
+  return Object.fromEntries(pairs.map((pair) => pair.split(":")));
+}
+function getBreakpoints(breakpoints, width) {
+  return Object.keys(breakpoints).filter((name) => {
+    return width >= parseInt(breakpoints[name]);
+  });
+}
+var MediaContainer = class extends GlobalThis.HTMLElement {
+  constructor() {
+    super();
+    __privateAdd3(this, _handleMutation);
+    __privateAdd3(this, _handlePointerMove);
+    __privateAdd3(this, _handlePointerUp);
+    __privateAdd3(this, _setInactive);
+    __privateAdd3(this, _setActive);
+    __privateAdd3(this, _scheduleInactive);
+    __privateAdd3(this, _pointerDownTimeStamp, 0);
+    __privateAdd3(this, _currentMedia, null);
+    __privateAdd3(this, _inactiveTimeout, null);
+    __privateAdd3(this, _autohide, void 0);
+    this.breakpointsComputed = false;
+    __privateAdd3(this, _mutationObserver, new MutationObserver(__privateMethod2(this, _handleMutation, handleMutation_fn).bind(this)));
+    __privateAdd3(this, _isResizePending, false);
+    __privateAdd3(this, _handleResize, (entry) => {
+      if (__privateGet3(this, _isResizePending))
+        return;
+      setTimeout(() => {
+        resizeCallback(entry);
+        __privateSet3(this, _isResizePending, false);
+      }, 0);
+      __privateSet3(this, _isResizePending, true);
+    });
+    if (!this.shadowRoot) {
+      this.attachShadow({ mode: "open" });
+      this.shadowRoot.appendChild(template2.content.cloneNode(true));
+    }
+    const chainedSlot = this.querySelector(
+      ":scope > slot[slot=media]"
+    );
+    if (chainedSlot) {
+      chainedSlot.addEventListener("slotchange", () => {
+        const slotEls = chainedSlot.assignedElements({ flatten: true });
+        if (!slotEls.length) {
+          if (__privateGet3(this, _currentMedia)) {
+            this.mediaUnsetCallback(__privateGet3(this, _currentMedia));
+          }
+          return;
+        }
+        this.handleMediaUpdated(this.media);
+      });
+    }
+  }
+  static get observedAttributes() {
+    return [Attributes.AUTOHIDE, Attributes.GESTURES_DISABLED].concat(MEDIA_UI_ATTRIBUTE_NAMES).filter(
+      (name) => ![
+        MediaUIAttributes.MEDIA_RENDITION_LIST,
+        MediaUIAttributes.MEDIA_AUDIO_TRACK_LIST,
+        MediaUIAttributes.MEDIA_CHAPTERS_CUES,
+        MediaUIAttributes.MEDIA_WIDTH,
+        MediaUIAttributes.MEDIA_HEIGHT,
+        MediaUIAttributes.MEDIA_ERROR,
+        MediaUIAttributes.MEDIA_ERROR_MESSAGE
+      ].includes(name)
+    );
+  }
+  // Could share this code with media-chrome-html-element instead
+  attributeChangedCallback(attrName, _oldValue, newValue) {
+    if (attrName.toLowerCase() == Attributes.AUTOHIDE) {
+      this.autohide = newValue;
+    }
+  }
+  // First direct child with slot=media, or null
+  get media() {
+    let media = this.querySelector(":scope > [slot=media]");
+    if ((media == null ? void 0 : media.nodeName) == "SLOT")
+      media = media.assignedElements({ flatten: true })[0];
+    return media;
+  }
+  async handleMediaUpdated(media) {
+    if (!media)
+      return;
+    __privateSet3(this, _currentMedia, media);
+    if (media.localName.includes("-")) {
+      await GlobalThis.customElements.whenDefined(media.localName);
+    }
+    this.mediaSetCallback(media);
+  }
+  connectedCallback() {
+    var _a3;
+    __privateGet3(this, _mutationObserver).observe(this, { childList: true, subtree: true });
+    observeResize(this, __privateGet3(this, _handleResize));
+    const isAudioChrome = this.getAttribute(Attributes.AUDIO) != null;
+    const label = isAudioChrome ? t("audio player") : t("video player");
+    this.setAttribute("role", "region");
+    this.setAttribute("aria-label", label);
+    this.handleMediaUpdated(this.media);
+    this.setAttribute(Attributes.USER_INACTIVE, "");
+    setBreakpoints(this, this.getBoundingClientRect().width);
+    this.addEventListener("pointerdown", this);
+    this.addEventListener("pointermove", this);
+    this.addEventListener("pointerup", this);
+    this.addEventListener("mouseleave", this);
+    this.addEventListener("keyup", this);
+    (_a3 = GlobalThis.window) == null ? void 0 : _a3.addEventListener("mouseup", this);
+  }
+  disconnectedCallback() {
+    var _a3;
+    __privateGet3(this, _mutationObserver).disconnect();
+    unobserveResize(this, __privateGet3(this, _handleResize));
+    if (this.media) {
+      this.mediaUnsetCallback(this.media);
+    }
+    (_a3 = GlobalThis.window) == null ? void 0 : _a3.removeEventListener("mouseup", this);
+  }
+  /**
+   * @abstract
+   */
+  mediaSetCallback(_media) {
+  }
+  mediaUnsetCallback(_media) {
+    __privateSet3(this, _currentMedia, null);
+  }
+  handleEvent(event) {
+    switch (event.type) {
+      case "pointerdown":
+        __privateSet3(this, _pointerDownTimeStamp, event.timeStamp);
+        break;
+      case "pointermove":
+        __privateMethod2(this, _handlePointerMove, handlePointerMove_fn).call(this, event);
+        break;
+      case "pointerup":
+        __privateMethod2(this, _handlePointerUp, handlePointerUp_fn).call(this, event);
+        break;
+      case "mouseleave":
+        __privateMethod2(this, _setInactive, setInactive_fn).call(this);
+        break;
+      case "mouseup":
+        this.removeAttribute(Attributes.KEYBOARD_CONTROL);
+        break;
+      case "keyup":
+        __privateMethod2(this, _scheduleInactive, scheduleInactive_fn).call(this);
+        this.setAttribute(Attributes.KEYBOARD_CONTROL, "");
+        break;
+    }
+  }
+  set autohide(seconds) {
+    const parsedSeconds = Number(seconds);
+    __privateSet3(this, _autohide, isNaN(parsedSeconds) ? 0 : parsedSeconds);
+  }
+  get autohide() {
+    return (__privateGet3(this, _autohide) === void 0 ? 2 : __privateGet3(this, _autohide)).toString();
+  }
+  get breakpoints() {
+    return getStringAttr(this, Attributes.BREAKPOINTS);
+  }
+  set breakpoints(value) {
+    setStringAttr(this, Attributes.BREAKPOINTS, value);
+  }
+  get audio() {
+    return getBooleanAttr(this, Attributes.AUDIO);
+  }
+  set audio(value) {
+    setBooleanAttr(this, Attributes.AUDIO, value);
+  }
+  get gesturesDisabled() {
+    return getBooleanAttr(this, Attributes.GESTURES_DISABLED);
+  }
+  set gesturesDisabled(value) {
+    setBooleanAttr(this, Attributes.GESTURES_DISABLED, value);
+  }
+  get keyboardControl() {
+    return getBooleanAttr(this, Attributes.KEYBOARD_CONTROL);
+  }
+  set keyboardControl(value) {
+    setBooleanAttr(this, Attributes.KEYBOARD_CONTROL, value);
+  }
+  get noAutohide() {
+    return getBooleanAttr(this, Attributes.NO_AUTOHIDE);
+  }
+  set noAutohide(value) {
+    setBooleanAttr(this, Attributes.NO_AUTOHIDE, value);
+  }
+  get userInteractive() {
+    return getBooleanAttr(this, Attributes.USER_INACTIVE);
+  }
+  set userInteractive(value) {
+    setBooleanAttr(this, Attributes.USER_INACTIVE, value);
+  }
+};
+_pointerDownTimeStamp = /* @__PURE__ */ new WeakMap();
+_currentMedia = /* @__PURE__ */ new WeakMap();
+_inactiveTimeout = /* @__PURE__ */ new WeakMap();
+_autohide = /* @__PURE__ */ new WeakMap();
+_mutationObserver = /* @__PURE__ */ new WeakMap();
+_handleMutation = /* @__PURE__ */ new WeakSet();
+handleMutation_fn = function(mutationsList) {
+  const media = this.media;
+  for (const mutation of mutationsList) {
+    if (mutation.type !== "childList")
+      continue;
+    const removedNodes = mutation.removedNodes;
+    for (const node of removedNodes) {
+      if (node.slot != "media" || mutation.target != this)
+        continue;
+      let previousSibling = mutation.previousSibling && mutation.previousSibling.previousElementSibling;
+      if (!previousSibling || !media) {
+        this.mediaUnsetCallback(node);
+      } else {
+        let wasFirst = previousSibling.slot !== "media";
+        while ((previousSibling = previousSibling.previousSibling) !== null) {
+          if (previousSibling.slot == "media")
+            wasFirst = false;
+        }
+        if (wasFirst)
+          this.mediaUnsetCallback(node);
+      }
+    }
+    if (media) {
+      for (const node of mutation.addedNodes) {
+        if (node === media)
+          this.handleMediaUpdated(media);
+      }
+    }
+  }
+};
+_isResizePending = /* @__PURE__ */ new WeakMap();
+_handleResize = /* @__PURE__ */ new WeakMap();
+_handlePointerMove = /* @__PURE__ */ new WeakSet();
+handlePointerMove_fn = function(event) {
+  if (event.pointerType !== "mouse") {
+    const MAX_TAP_DURATION = 250;
+    if (event.timeStamp - __privateGet3(this, _pointerDownTimeStamp) < MAX_TAP_DURATION)
+      return;
+  }
+  __privateMethod2(this, _setActive, setActive_fn).call(this);
+  clearTimeout(__privateGet3(this, _inactiveTimeout));
+  if ([this, this.media].includes(event.target)) {
+    __privateMethod2(this, _scheduleInactive, scheduleInactive_fn).call(this);
+  }
+};
+_handlePointerUp = /* @__PURE__ */ new WeakSet();
+handlePointerUp_fn = function(event) {
+  if (event.pointerType === "touch") {
+    const controlsVisible = !this.hasAttribute(Attributes.USER_INACTIVE);
+    if ([this, this.media].includes(event.target) && controlsVisible) {
+      __privateMethod2(this, _setInactive, setInactive_fn).call(this);
+    } else {
+      __privateMethod2(this, _scheduleInactive, scheduleInactive_fn).call(this);
+    }
+  } else if (event.composedPath().some(
+    (el) => ["media-play-button", "media-fullscreen-button"].includes(
+      el == null ? void 0 : el.localName
+    )
+  )) {
+    __privateMethod2(this, _scheduleInactive, scheduleInactive_fn).call(this);
+  }
+};
+_setInactive = /* @__PURE__ */ new WeakSet();
+setInactive_fn = function() {
+  if (__privateGet3(this, _autohide) < 0)
+    return;
+  if (this.hasAttribute(Attributes.USER_INACTIVE))
+    return;
+  this.setAttribute(Attributes.USER_INACTIVE, "");
+  const evt = new GlobalThis.CustomEvent(
+    MediaStateChangeEvents.USER_INACTIVE,
+    { composed: true, bubbles: true, detail: true }
+  );
+  this.dispatchEvent(evt);
+};
+_setActive = /* @__PURE__ */ new WeakSet();
+setActive_fn = function() {
+  if (!this.hasAttribute(Attributes.USER_INACTIVE))
+    return;
+  this.removeAttribute(Attributes.USER_INACTIVE);
+  const evt = new GlobalThis.CustomEvent(
+    MediaStateChangeEvents.USER_INACTIVE,
+    { composed: true, bubbles: true, detail: false }
+  );
+  this.dispatchEvent(evt);
+};
+_scheduleInactive = /* @__PURE__ */ new WeakSet();
+scheduleInactive_fn = function() {
+  __privateMethod2(this, _setActive, setActive_fn).call(this);
+  clearTimeout(__privateGet3(this, _inactiveTimeout));
+  const autohide = parseInt(this.autohide);
+  if (autohide < 0)
+    return;
+  __privateSet3(this, _inactiveTimeout, setTimeout(() => {
+    __privateMethod2(this, _setInactive, setInactive_fn).call(this);
+  }, autohide * 1e3));
+};
+if (!GlobalThis.customElements.get("media-container")) {
+  GlobalThis.customElements.define("media-container", MediaContainer);
+}
+
+// ../../node_modules/media-chrome/dist/utils/attribute-token-list.js
+var __accessCheck4 = (obj, member, msg) => {
+  if (!member.has(obj))
+    throw TypeError("Cannot " + msg);
+};
+var __privateGet4 = (obj, member, getter) => {
+  __accessCheck4(obj, member, "read from private field");
+  return getter ? getter.call(obj) : member.get(obj);
+};
+var __privateAdd4 = (obj, member, value) => {
+  if (member.has(obj))
+    throw TypeError("Cannot add the same private member more than once");
+  member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+};
+var __privateSet4 = (obj, member, value, setter) => {
+  __accessCheck4(obj, member, "write to private field");
+  setter ? setter.call(obj, value) : member.set(obj, value);
+  return value;
+};
+var _el;
+var _attr;
+var _defaultSet;
+var _tokenSet;
+var _tokens;
+var tokens_get;
+var AttributeTokenList = class {
+  constructor(el, attr, { defaultValue } = { defaultValue: void 0 }) {
+    __privateAdd4(this, _tokens);
+    __privateAdd4(this, _el, void 0);
+    __privateAdd4(this, _attr, void 0);
+    __privateAdd4(this, _defaultSet, void 0);
+    __privateAdd4(this, _tokenSet, /* @__PURE__ */ new Set());
+    __privateSet4(this, _el, el);
+    __privateSet4(this, _attr, attr);
+    __privateSet4(this, _defaultSet, new Set(defaultValue));
+  }
+  [Symbol.iterator]() {
+    return __privateGet4(this, _tokens, tokens_get).values();
+  }
+  get length() {
+    return __privateGet4(this, _tokens, tokens_get).size;
+  }
+  get value() {
+    var _a3;
+    return (_a3 = [...__privateGet4(this, _tokens, tokens_get)].join(" ")) != null ? _a3 : "";
+  }
+  set value(val) {
+    var _a3;
+    if (val === this.value)
+      return;
+    __privateSet4(this, _tokenSet, /* @__PURE__ */ new Set());
+    this.add(...(_a3 = val == null ? void 0 : val.split(" ")) != null ? _a3 : []);
+  }
+  toString() {
+    return this.value;
+  }
+  item(index) {
+    return [...__privateGet4(this, _tokens, tokens_get)][index];
+  }
+  values() {
+    return __privateGet4(this, _tokens, tokens_get).values();
+  }
+  forEach(callback, thisArg) {
+    __privateGet4(this, _tokens, tokens_get).forEach(callback, thisArg);
+  }
+  add(...tokens) {
+    var _a3, _b2;
+    tokens.forEach((t2) => __privateGet4(this, _tokenSet).add(t2));
+    if (this.value === "" && !((_a3 = __privateGet4(this, _el)) == null ? void 0 : _a3.hasAttribute(`${__privateGet4(this, _attr)}`))) {
+      return;
+    }
+    (_b2 = __privateGet4(this, _el)) == null ? void 0 : _b2.setAttribute(`${__privateGet4(this, _attr)}`, `${this.value}`);
+  }
+  remove(...tokens) {
+    var _a3;
+    tokens.forEach((t2) => __privateGet4(this, _tokenSet).delete(t2));
+    (_a3 = __privateGet4(this, _el)) == null ? void 0 : _a3.setAttribute(`${__privateGet4(this, _attr)}`, `${this.value}`);
+  }
+  contains(token) {
+    return __privateGet4(this, _tokens, tokens_get).has(token);
+  }
+  toggle(token, force) {
+    if (typeof force !== "undefined") {
+      if (force) {
+        this.add(token);
+        return true;
+      } else {
+        this.remove(token);
+        return false;
+      }
+    }
+    if (this.contains(token)) {
+      this.remove(token);
+      return false;
+    }
+    this.add(token);
+    return true;
+  }
+  replace(oldToken, newToken) {
+    this.remove(oldToken);
+    this.add(newToken);
+    return oldToken === newToken;
+  }
+};
+_el = /* @__PURE__ */ new WeakMap();
+_attr = /* @__PURE__ */ new WeakMap();
+_defaultSet = /* @__PURE__ */ new WeakMap();
+_tokenSet = /* @__PURE__ */ new WeakMap();
+_tokens = /* @__PURE__ */ new WeakSet();
+tokens_get = function() {
+  return __privateGet4(this, _tokenSet).size ? __privateGet4(this, _tokenSet) : __privateGet4(this, _defaultSet);
+};
+
+// ../../node_modules/media-chrome/dist/utils/captions.js
+var splitTextTracksStr = (textTracksStr = "") => textTracksStr.split(/\s+/);
+var parseTextTrackStr = (textTrackStr = "") => {
+  const [kind, language, encodedLabel] = textTrackStr.split(":");
+  const label = encodedLabel ? decodeURIComponent(encodedLabel) : void 0;
+  return {
+    kind: kind === "cc" ? TextTrackKinds.CAPTIONS : TextTrackKinds.SUBTITLES,
+    language,
+    label
+  };
+};
+var parseTextTracksStr = (textTracksStr = "", textTrackLikeObj = {}) => {
+  return splitTextTracksStr(textTracksStr).map((textTrackStr) => {
+    const textTrackObj = parseTextTrackStr(textTrackStr);
+    return {
+      ...textTrackLikeObj,
+      ...textTrackObj
+    };
+  });
+};
+var parseTracks = (trackOrTracks) => {
+  if (!trackOrTracks)
+    return [];
+  if (Array.isArray(trackOrTracks)) {
+    return trackOrTracks.map((trackObjOrStr) => {
+      if (typeof trackObjOrStr === "string") {
+        return parseTextTrackStr(trackObjOrStr);
+      }
+      return trackObjOrStr;
+    });
+  }
+  if (typeof trackOrTracks === "string") {
+    return parseTextTracksStr(trackOrTracks);
+  }
+  return [trackOrTracks];
+};
+var formatTextTrackObj = ({ kind, label, language } = { kind: "subtitles" }) => {
+  if (!label)
+    return language;
+  return `${kind === "captions" ? "cc" : "sb"}:${language}:${encodeURIComponent(
+    label
+  )}`;
+};
+var stringifyTextTrackList = (textTracks = []) => {
+  return Array.prototype.map.call(textTracks, formatTextTrackObj).join(" ");
+};
+var isMatchingPropOf = (key, value) => (obj) => obj[key] === value;
+var textTrackObjAsPred = (filterObj) => {
+  const preds = Object.entries(filterObj).map(([key, value]) => {
+    return isMatchingPropOf(key, value);
+  });
+  return (textTrack) => preds.every((pred) => pred(textTrack));
+};
+var updateTracksModeTo = (mode, tracks = [], tracksToUpdate = []) => {
+  const preds = parseTracks(tracksToUpdate).map(textTrackObjAsPred);
+  const isTrackToUpdate = (textTrack) => {
+    return preds.some((pred) => pred(textTrack));
+  };
+  Array.from(tracks).filter(isTrackToUpdate).forEach((textTrack) => {
+    textTrack.mode = mode;
+  });
+};
+var getTextTracksList = (media, filterPredOrObj = () => true) => {
+  if (!(media == null ? void 0 : media.textTracks))
+    return [];
+  const filterPred = typeof filterPredOrObj === "function" ? filterPredOrObj : textTrackObjAsPred(filterPredOrObj);
+  return Array.from(media.textTracks).filter(filterPred);
+};
+var areSubsOn = (el) => {
+  var _a3;
+  const showingSubtitles = !!((_a3 = el.mediaSubtitlesShowing) == null ? void 0 : _a3.length) || el.hasAttribute(MediaUIAttributes.MEDIA_SUBTITLES_SHOWING);
+  return showingSubtitles;
+};
+
+// ../../node_modules/media-chrome/dist/utils/fullscreen-api.js
+var enterFullscreen = (stateOwners) => {
+  var _a3;
+  const { media, fullscreenElement } = stateOwners;
+  const enterFullscreenKey = fullscreenElement && "requestFullscreen" in fullscreenElement ? "requestFullscreen" : fullscreenElement && "webkitRequestFullScreen" in fullscreenElement ? "webkitRequestFullScreen" : void 0;
+  if (enterFullscreenKey) {
+    const maybePromise = (_a3 = fullscreenElement[enterFullscreenKey]) == null ? void 0 : _a3.call(fullscreenElement);
+    if (maybePromise instanceof Promise) {
+      return maybePromise.catch(() => {
+      });
+    }
+  } else if (media == null ? void 0 : media.webkitEnterFullscreen) {
+    media.webkitEnterFullscreen();
+  } else if (media == null ? void 0 : media.requestFullscreen) {
+    media.requestFullscreen();
+  }
+};
+var exitFullscreenKey = "exitFullscreen" in Document2 ? "exitFullscreen" : "webkitExitFullscreen" in Document2 ? "webkitExitFullscreen" : "webkitCancelFullScreen" in Document2 ? "webkitCancelFullScreen" : void 0;
+var exitFullscreen = (stateOwners) => {
+  var _a3;
+  const { documentElement } = stateOwners;
+  if (exitFullscreenKey) {
+    const maybePromise = (_a3 = documentElement == null ? void 0 : documentElement[exitFullscreenKey]) == null ? void 0 : _a3.call(documentElement);
+    if (maybePromise instanceof Promise) {
+      return maybePromise.catch(() => {
+      });
+    }
+  }
+};
+var fullscreenElementKey = "fullscreenElement" in Document2 ? "fullscreenElement" : "webkitFullscreenElement" in Document2 ? "webkitFullscreenElement" : void 0;
+var getFullscreenElement = (stateOwners) => {
+  const { documentElement, media } = stateOwners;
+  const docFullscreenElement = documentElement == null ? void 0 : documentElement[fullscreenElementKey];
+  if (!docFullscreenElement && "webkitDisplayingFullscreen" in media && "webkitPresentationMode" in media && media.webkitDisplayingFullscreen && media.webkitPresentationMode === WebkitPresentationModes.FULLSCREEN) {
+    return media;
+  }
+  return docFullscreenElement;
+};
+var isFullscreen = (stateOwners) => {
+  var _a3;
+  const { media, documentElement, fullscreenElement = media } = stateOwners;
+  if (!media || !documentElement)
+    return false;
+  const currentFullscreenElement = getFullscreenElement(stateOwners);
+  if (!currentFullscreenElement)
+    return false;
+  if (currentFullscreenElement === fullscreenElement || currentFullscreenElement === media) {
+    return true;
+  }
+  if (currentFullscreenElement.localName.includes("-")) {
+    let currentRoot = currentFullscreenElement.shadowRoot;
+    if (!(fullscreenElementKey in currentRoot)) {
+      return containsComposedNode(
+        currentFullscreenElement,
+        /** @TODO clean up type assumptions (e.g. Node) (CJP) */
+        // @ts-ignore
+        fullscreenElement
+      );
+    }
+    while (currentRoot == null ? void 0 : currentRoot[fullscreenElementKey]) {
+      if (currentRoot[fullscreenElementKey] === fullscreenElement)
+        return true;
+      currentRoot = (_a3 = currentRoot[fullscreenElementKey]) == null ? void 0 : _a3.shadowRoot;
+    }
+  }
+  return false;
+};
+var fullscreenEnabledKey = "fullscreenEnabled" in Document2 ? "fullscreenEnabled" : "webkitFullscreenEnabled" in Document2 ? "webkitFullscreenEnabled" : void 0;
+var isFullscreenEnabled = (stateOwners) => {
+  const { documentElement, media } = stateOwners;
+  return !!(documentElement == null ? void 0 : documentElement[fullscreenEnabledKey]) || media && "webkitSupportsFullscreen" in media;
+};
+
+// ../../node_modules/media-chrome/dist/utils/platform-tests.js
+var testMediaEl;
+var getTestMediaEl = () => {
+  var _a3, _b2;
+  if (testMediaEl)
+    return testMediaEl;
+  testMediaEl = (_b2 = (_a3 = Document2) == null ? void 0 : _a3.createElement) == null ? void 0 : _b2.call(_a3, "video");
+  return testMediaEl;
+};
+var hasVolumeSupportAsync = async (mediaEl = getTestMediaEl()) => {
+  if (!mediaEl)
+    return false;
+  const prevVolume = mediaEl.volume;
+  mediaEl.volume = prevVolume / 2 + 0.1;
+  const abortController = new AbortController();
+  const volumeSupported2 = await Promise.race([
+    dispatchedVolumeChange(mediaEl, abortController.signal),
+    volumeChanged(mediaEl, prevVolume)
+  ]);
+  abortController.abort();
+  return volumeSupported2;
+};
+var dispatchedVolumeChange = (mediaEl, signal) => {
+  return new Promise((resolve) => {
+    mediaEl.addEventListener("volumechange", () => resolve(true), { signal });
+  });
+};
+var volumeChanged = async (mediaEl, prevVolume) => {
+  for (let i = 0; i < 10; i++) {
+    if (mediaEl.volume === prevVolume)
+      return false;
+    await delay(10);
+  }
+  return mediaEl.volume !== prevVolume;
+};
+var isSafari = /.*Version\/.*Safari\/.*/.test(
+  GlobalThis.navigator.userAgent
+);
+var hasPipSupport = (mediaEl = getTestMediaEl()) => {
+  if (GlobalThis.matchMedia("(display-mode: standalone)").matches && isSafari)
+    return false;
+  return typeof (mediaEl == null ? void 0 : mediaEl.requestPictureInPicture) === "function";
+};
+var hasFullscreenSupport = (mediaEl = getTestMediaEl()) => {
+  return isFullscreenEnabled({ documentElement: Document2, media: mediaEl });
+};
+var fullscreenSupported = hasFullscreenSupport();
+var pipSupported = hasPipSupport();
+var airplaySupported = !!GlobalThis.WebKitPlaybackTargetAvailabilityEvent;
+var castSupported = !!GlobalThis.chrome;
+
+// ../../node_modules/media-chrome/dist/media-store/util.js
+var getSubtitleTracks = (stateOwners) => {
+  return getTextTracksList(stateOwners.media, (textTrack) => {
+    return [TextTrackKinds.SUBTITLES, TextTrackKinds.CAPTIONS].includes(
+      textTrack.kind
+    );
+  }).sort((a, b) => a.kind >= b.kind ? 1 : -1);
+};
+var getShowingSubtitleTracks = (stateOwners) => {
+  return getTextTracksList(stateOwners.media, (textTrack) => {
+    return textTrack.mode === TextTrackModes.SHOWING && [TextTrackKinds.SUBTITLES, TextTrackKinds.CAPTIONS].includes(
+      textTrack.kind
+    );
+  });
+};
+var toggleSubtitleTracks = (stateOwners, force) => {
+  const tracks = getSubtitleTracks(stateOwners);
+  const showingSubitleTracks = getShowingSubtitleTracks(stateOwners);
+  const subtitlesShowing = !!showingSubitleTracks.length;
+  if (!tracks.length)
+    return;
+  if (force === false || subtitlesShowing && force !== true) {
+    updateTracksModeTo(TextTrackModes.DISABLED, tracks, showingSubitleTracks);
+  } else if (force === true || !subtitlesShowing && force !== false) {
+    let subTrack = tracks[0];
+    const { options } = stateOwners;
+    if (!(options == null ? void 0 : options.noSubtitlesLangPref)) {
+      const subtitlesPref = globalThis.localStorage.getItem(
+        "media-chrome-pref-subtitles-lang"
+      );
+      const userLangPrefs = subtitlesPref ? [subtitlesPref, ...globalThis.navigator.languages] : globalThis.navigator.languages;
+      const preferredAvailableSubs = tracks.filter((textTrack) => {
+        return userLangPrefs.some(
+          (lang) => textTrack.language.toLowerCase().startsWith(lang.split("-")[0])
+        );
+      }).sort((textTrackA, textTrackB) => {
+        const idxA = userLangPrefs.findIndex(
+          (lang) => textTrackA.language.toLowerCase().startsWith(lang.split("-")[0])
+        );
+        const idxB = userLangPrefs.findIndex(
+          (lang) => textTrackB.language.toLowerCase().startsWith(lang.split("-")[0])
+        );
+        return idxA - idxB;
+      });
+      if (preferredAvailableSubs[0]) {
+        subTrack = preferredAvailableSubs[0];
+      }
+    }
+    const { language, label, kind } = subTrack;
+    updateTracksModeTo(TextTrackModes.DISABLED, tracks, showingSubitleTracks);
+    updateTracksModeTo(TextTrackModes.SHOWING, tracks, [
+      { language, label, kind }
+    ]);
+  }
+};
+var areValuesEq = (x, y) => {
+  if (x === y)
+    return true;
+  if (x == null || y == null)
+    return false;
+  if (typeof x !== typeof y)
+    return false;
+  if (typeof x === "number" && Number.isNaN(x) && Number.isNaN(y))
+    return true;
+  if (typeof x !== "object")
+    return false;
+  if (Array.isArray(x))
+    return areArraysEq(x, y);
+  return Object.entries(x).every(
+    // NOTE: Checking key in y to disambiguate between between missing keys and keys whose value are undefined (CJP)
+    ([key, value]) => key in y && areValuesEq(value, y[key])
+  );
+};
+var areArraysEq = (xs, ys) => {
+  const xIsArray = Array.isArray(xs);
+  const yIsArray = Array.isArray(ys);
+  if (xIsArray !== yIsArray)
+    return false;
+  if (!(xIsArray || yIsArray))
+    return true;
+  if (xs.length !== ys.length)
+    return false;
+  return xs.every((x, i) => areValuesEq(x, ys[i]));
+};
+
+// ../../node_modules/media-chrome/dist/media-store/state-mediator.js
+var StreamTypeValues = Object.values(StreamTypes);
+var volumeSupported;
+var volumeSupportPromise = hasVolumeSupportAsync().then((supported) => {
+  volumeSupported = supported;
+  return volumeSupported;
+});
+var prepareStateOwners = async (...stateOwners) => {
+  await Promise.all(
+    stateOwners.filter((x) => x).map(async (stateOwner) => {
+      if (!("localName" in stateOwner && stateOwner instanceof GlobalThis.HTMLElement)) {
+        return;
+      }
+      const name = stateOwner.localName;
+      if (!name.includes("-"))
+        return;
+      const classDef = GlobalThis.customElements.get(name);
+      if (classDef && stateOwner instanceof classDef)
+        return;
+      await GlobalThis.customElements.whenDefined(name);
+      GlobalThis.customElements.upgrade(stateOwner);
+    })
+  );
+};
+var stateMediator = {
+  mediaError: {
+    get(stateOwners, event) {
+      const { media } = stateOwners;
+      if ((event == null ? void 0 : event.type) === "playing")
+        return;
+      return media == null ? void 0 : media.error;
+    },
+    mediaEvents: ["emptied", "error", "playing"]
+  },
+  mediaErrorCode: {
+    get(stateOwners, event) {
+      var _a3;
+      const { media } = stateOwners;
+      if ((event == null ? void 0 : event.type) === "playing")
+        return;
+      return (_a3 = media == null ? void 0 : media.error) == null ? void 0 : _a3.code;
+    },
+    mediaEvents: ["emptied", "error", "playing"]
+  },
+  mediaErrorMessage: {
+    get(stateOwners, event) {
+      var _a3, _b2;
+      const { media } = stateOwners;
+      if ((event == null ? void 0 : event.type) === "playing")
+        return;
+      return (_b2 = (_a3 = media == null ? void 0 : media.error) == null ? void 0 : _a3.message) != null ? _b2 : "";
+    },
+    mediaEvents: ["emptied", "error", "playing"]
+  },
+  mediaWidth: {
+    get(stateOwners) {
+      var _a3;
+      const { media } = stateOwners;
+      return (_a3 = media == null ? void 0 : media.videoWidth) != null ? _a3 : 0;
+    },
+    mediaEvents: ["resize"]
+  },
+  mediaHeight: {
+    get(stateOwners) {
+      var _a3;
+      const { media } = stateOwners;
+      return (_a3 = media == null ? void 0 : media.videoHeight) != null ? _a3 : 0;
+    },
+    mediaEvents: ["resize"]
+  },
+  mediaPaused: {
+    get(stateOwners) {
+      var _a3;
+      const { media } = stateOwners;
+      return (_a3 = media == null ? void 0 : media.paused) != null ? _a3 : true;
+    },
+    set(value, stateOwners) {
+      var _a3;
+      const { media } = stateOwners;
+      if (!media)
+        return;
+      if (value) {
+        media.pause();
+      } else {
+        (_a3 = media.play()) == null ? void 0 : _a3.catch(() => {
+        });
+      }
+    },
+    mediaEvents: ["play", "playing", "pause", "emptied"]
+  },
+  mediaHasPlayed: {
+    // We want to let the user know that the media started playing at any point (`media-has-played`).
+    // Since these propagators are all called when boostrapping state, let's verify this is
+    // a real playing event by checking that 1) there's media and 2) it isn't currently paused.
+    get(stateOwners, event) {
+      const { media } = stateOwners;
+      if (!media)
+        return false;
+      if (!event)
+        return !media.paused;
+      return event.type === "playing";
+    },
+    mediaEvents: ["playing", "emptied"]
+  },
+  mediaEnded: {
+    get(stateOwners) {
+      var _a3;
+      const { media } = stateOwners;
+      return (_a3 = media == null ? void 0 : media.ended) != null ? _a3 : false;
+    },
+    mediaEvents: ["seeked", "ended", "emptied"]
+  },
+  mediaPlaybackRate: {
+    get(stateOwners) {
+      var _a3;
+      const { media } = stateOwners;
+      return (_a3 = media == null ? void 0 : media.playbackRate) != null ? _a3 : 1;
+    },
+    set(value, stateOwners) {
+      const { media } = stateOwners;
+      if (!media)
+        return;
+      if (!Number.isFinite(+value))
+        return;
+      media.playbackRate = +value;
+    },
+    mediaEvents: ["ratechange", "loadstart"]
+  },
+  mediaMuted: {
+    get(stateOwners) {
+      var _a3;
+      const { media } = stateOwners;
+      return (_a3 = media == null ? void 0 : media.muted) != null ? _a3 : false;
+    },
+    set(value, stateOwners) {
+      const { media } = stateOwners;
+      if (!media)
+        return;
+      try {
+        GlobalThis.localStorage.setItem(
+          "media-chrome-pref-muted",
+          value ? "true" : "false"
+        );
+      } catch (e) {
+        console.debug("Error setting muted pref", e);
+      }
+      media.muted = value;
+    },
+    mediaEvents: ["volumechange"],
+    stateOwnersUpdateHandlers: [
+      (handler, stateOwners) => {
+        const {
+          options: { noMutedPref }
+        } = stateOwners;
+        const { media } = stateOwners;
+        if (!media || media.muted || noMutedPref)
+          return;
+        try {
+          const mutedPref = GlobalThis.localStorage.getItem("media-chrome-pref-muted") === "true";
+          stateMediator.mediaMuted.set(mutedPref, stateOwners);
+          handler(mutedPref);
+        } catch (e) {
+          console.debug("Error getting muted pref", e);
+        }
+      }
+    ]
+  },
+  mediaVolume: {
+    get(stateOwners) {
+      var _a3;
+      const { media } = stateOwners;
+      return (_a3 = media == null ? void 0 : media.volume) != null ? _a3 : 1;
+    },
+    set(value, stateOwners) {
+      const { media } = stateOwners;
+      if (!media)
+        return;
+      try {
+        if (value == null) {
+          GlobalThis.localStorage.removeItem("media-chrome-pref-volume");
+        } else {
+          GlobalThis.localStorage.setItem(
+            "media-chrome-pref-volume",
+            value.toString()
+          );
+        }
+      } catch (e) {
+        console.debug("Error setting volume pref", e);
+      }
+      if (!Number.isFinite(+value))
+        return;
+      media.volume = +value;
+    },
+    mediaEvents: ["volumechange"],
+    stateOwnersUpdateHandlers: [
+      (handler, stateOwners) => {
+        const {
+          options: { noVolumePref }
+        } = stateOwners;
+        if (noVolumePref)
+          return;
+        try {
+          const { media } = stateOwners;
+          if (!media)
+            return;
+          const volumePref = GlobalThis.localStorage.getItem(
+            "media-chrome-pref-volume"
+          );
+          if (volumePref == null)
+            return;
+          stateMediator.mediaVolume.set(+volumePref, stateOwners);
+          handler(+volumePref);
+        } catch (e) {
+          console.debug("Error getting volume pref", e);
+        }
+      }
+    ]
+  },
+  // NOTE: Keeping this roughly equivalent to prior impl to reduce number of changes,
+  // however we may want to model "derived" state differently from "primary" state
+  // (in this case, derived === mediaVolumeLevel, primary === mediaMuted, mediaVolume) (CJP)
+  mediaVolumeLevel: {
+    get(stateOwners) {
+      const { media } = stateOwners;
+      if (typeof (media == null ? void 0 : media.volume) == "undefined")
+        return "high";
+      if (media.muted || media.volume === 0)
+        return "off";
+      if (media.volume < 0.5)
+        return "low";
+      if (media.volume < 0.75)
+        return "medium";
+      return "high";
+    },
+    mediaEvents: ["volumechange"]
+  },
+  mediaCurrentTime: {
+    get(stateOwners) {
+      var _a3;
+      const { media } = stateOwners;
+      return (_a3 = media == null ? void 0 : media.currentTime) != null ? _a3 : 0;
+    },
+    set(value, stateOwners) {
+      const { media } = stateOwners;
+      if (!media || !isValidNumber(value))
+        return;
+      media.currentTime = value;
+    },
+    mediaEvents: ["timeupdate", "loadedmetadata"]
+  },
+  mediaDuration: {
+    get(stateOwners) {
+      const { media, options: { defaultDuration } = {} } = stateOwners;
+      if (defaultDuration && (!media || !media.duration || Number.isNaN(media.duration) || !Number.isFinite(media.duration))) {
+        return defaultDuration;
+      }
+      return Number.isFinite(media == null ? void 0 : media.duration) ? media.duration : Number.NaN;
+    },
+    mediaEvents: ["durationchange", "loadedmetadata", "emptied"]
+  },
+  mediaLoading: {
+    get(stateOwners) {
+      const { media } = stateOwners;
+      return (media == null ? void 0 : media.readyState) < 3;
+    },
+    mediaEvents: ["waiting", "playing", "emptied"]
+  },
+  mediaSeekable: {
+    get(stateOwners) {
+      var _a3;
+      const { media } = stateOwners;
+      if (!((_a3 = media == null ? void 0 : media.seekable) == null ? void 0 : _a3.length))
+        return void 0;
+      const start = media.seekable.start(0);
+      const end = media.seekable.end(media.seekable.length - 1);
+      if (!start && !end)
+        return void 0;
+      return [Number(start.toFixed(3)), Number(end.toFixed(3))];
+    },
+    mediaEvents: ["loadedmetadata", "emptied", "progress", "seekablechange"]
+  },
+  mediaBuffered: {
+    get(stateOwners) {
+      var _a3;
+      const { media } = stateOwners;
+      const timeRanges = (_a3 = media == null ? void 0 : media.buffered) != null ? _a3 : [];
+      return Array.from(timeRanges).map((_, i) => [
+        Number(timeRanges.start(i).toFixed(3)),
+        Number(timeRanges.end(i).toFixed(3))
+      ]);
+    },
+    mediaEvents: ["progress", "emptied"]
+  },
+  mediaStreamType: {
+    get(stateOwners) {
+      const { media, options: { defaultStreamType } = {} } = stateOwners;
+      const usedDefaultStreamType = [
+        StreamTypes.LIVE,
+        StreamTypes.ON_DEMAND
+      ].includes(defaultStreamType) ? defaultStreamType : void 0;
+      if (!media)
+        return usedDefaultStreamType;
+      const { streamType } = media;
+      if (StreamTypeValues.includes(streamType)) {
+        if (streamType === StreamTypes.UNKNOWN) {
+          return usedDefaultStreamType;
+        }
+        return streamType;
+      }
+      const duration = media.duration;
+      if (duration === Infinity) {
+        return StreamTypes.LIVE;
+      } else if (Number.isFinite(duration)) {
+        return StreamTypes.ON_DEMAND;
+      }
+      return usedDefaultStreamType;
+    },
+    mediaEvents: [
+      "emptied",
+      "durationchange",
+      "loadedmetadata",
+      "streamtypechange"
+    ]
+  },
+  mediaTargetLiveWindow: {
+    get(stateOwners) {
+      const { media } = stateOwners;
+      if (!media)
+        return Number.NaN;
+      const { targetLiveWindow } = media;
+      const streamType = stateMediator.mediaStreamType.get(stateOwners);
+      if ((targetLiveWindow == null || Number.isNaN(targetLiveWindow)) && streamType === StreamTypes.LIVE) {
+        return 0;
+      }
+      return targetLiveWindow;
+    },
+    mediaEvents: [
+      "emptied",
+      "durationchange",
+      "loadedmetadata",
+      "streamtypechange",
+      "targetlivewindowchange"
+    ]
+  },
+  mediaTimeIsLive: {
+    get(stateOwners) {
+      const {
+        media,
+        // Default to 10 seconds
+        options: { liveEdgeOffset = 10 } = {}
+      } = stateOwners;
+      if (!media)
+        return false;
+      if (typeof media.liveEdgeStart === "number") {
+        if (Number.isNaN(media.liveEdgeStart))
+          return false;
+        return media.currentTime >= media.liveEdgeStart;
+      }
+      const live = stateMediator.mediaStreamType.get(stateOwners) === StreamTypes.LIVE;
+      if (!live)
+        return false;
+      const seekable = media.seekable;
+      if (!seekable)
+        return true;
+      if (!seekable.length)
+        return false;
+      const liveEdgeStart = seekable.end(seekable.length - 1) - liveEdgeOffset;
+      return media.currentTime >= liveEdgeStart;
+    },
+    mediaEvents: ["playing", "timeupdate", "progress", "waiting", "emptied"]
+  },
+  // Text Tracks modeling
+  mediaSubtitlesList: {
+    get(stateOwners) {
+      return getSubtitleTracks(stateOwners).map(
+        ({ kind, label, language }) => ({ kind, label, language })
+      );
+    },
+    mediaEvents: ["loadstart"],
+    textTracksEvents: ["addtrack", "removetrack"]
+  },
+  mediaSubtitlesShowing: {
+    get(stateOwners) {
+      return getShowingSubtitleTracks(stateOwners).map(
+        ({ kind, label, language }) => ({ kind, label, language })
+      );
+    },
+    mediaEvents: ["loadstart"],
+    textTracksEvents: ["addtrack", "removetrack", "change"],
+    stateOwnersUpdateHandlers: [
+      (_handler, stateOwners) => {
+        var _a3, _b2;
+        const { media, options } = stateOwners;
+        if (!media)
+          return;
+        const updateDefaultSubtitlesCallback = (event) => {
+          var _a22;
+          if (!options.defaultSubtitles)
+            return;
+          const nonSubsEvent = event && ![TextTrackKinds.CAPTIONS, TextTrackKinds.SUBTITLES].includes(
+            // @ts-ignore
+            (_a22 = event == null ? void 0 : event.track) == null ? void 0 : _a22.kind
+          );
+          if (nonSubsEvent)
+            return;
+          toggleSubtitleTracks(stateOwners, true);
+        };
+        (_a3 = media.textTracks) == null ? void 0 : _a3.addEventListener(
+          "addtrack",
+          updateDefaultSubtitlesCallback
+        );
+        (_b2 = media.textTracks) == null ? void 0 : _b2.addEventListener(
+          "removetrack",
+          updateDefaultSubtitlesCallback
+        );
+        updateDefaultSubtitlesCallback();
+        return () => {
+          var _a22, _b22;
+          (_a22 = media.textTracks) == null ? void 0 : _a22.removeEventListener(
+            "addtrack",
+            updateDefaultSubtitlesCallback
+          );
+          (_b22 = media.textTracks) == null ? void 0 : _b22.removeEventListener(
+            "removetrack",
+            updateDefaultSubtitlesCallback
+          );
+        };
+      }
+    ]
+  },
+  mediaChaptersCues: {
+    get(stateOwners) {
+      var _a3;
+      const { media } = stateOwners;
+      if (!media)
+        return [];
+      const [chaptersTrack] = getTextTracksList(media, {
+        kind: TextTrackKinds.CHAPTERS
+      });
+      return Array.from((_a3 = chaptersTrack == null ? void 0 : chaptersTrack.cues) != null ? _a3 : []).map(
+        ({ text, startTime, endTime }) => ({
+          text,
+          startTime,
+          endTime
+        })
+      );
+    },
+    mediaEvents: ["loadstart", "loadedmetadata"],
+    textTracksEvents: ["addtrack", "removetrack", "change"],
+    stateOwnersUpdateHandlers: [
+      (handler, stateOwners) => {
+        var _a3;
+        const { media } = stateOwners;
+        if (!media)
+          return;
+        const chaptersTrack = media.querySelector(
+          'track[kind="chapters"][default][src]'
+        );
+        const shadowChaptersTrack = (_a3 = media.shadowRoot) == null ? void 0 : _a3.querySelector(
+          ':is(video,audio) > track[kind="chapters"][default][src]'
+        );
+        chaptersTrack == null ? void 0 : chaptersTrack.addEventListener("load", handler);
+        shadowChaptersTrack == null ? void 0 : shadowChaptersTrack.addEventListener("load", handler);
+        return () => {
+          chaptersTrack == null ? void 0 : chaptersTrack.removeEventListener("load", handler);
+          shadowChaptersTrack == null ? void 0 : shadowChaptersTrack.removeEventListener("load", handler);
+        };
+      }
+    ]
+  },
+  // Modeling state tied to root node
+  mediaIsPip: {
+    get(stateOwners) {
+      var _a3, _b2;
+      const { media, documentElement } = stateOwners;
+      if (!media || !documentElement)
+        return false;
+      if (!documentElement.pictureInPictureElement)
+        return false;
+      if (documentElement.pictureInPictureElement === media)
+        return true;
+      if (documentElement.pictureInPictureElement instanceof HTMLMediaElement) {
+        if (!((_a3 = media.localName) == null ? void 0 : _a3.includes("-")))
+          return false;
+        return containsComposedNode(
+          media,
+          documentElement.pictureInPictureElement
+        );
+      }
+      if (documentElement.pictureInPictureElement.localName.includes("-")) {
+        let currentRoot = documentElement.pictureInPictureElement.shadowRoot;
+        while (currentRoot == null ? void 0 : currentRoot.pictureInPictureElement) {
+          if (currentRoot.pictureInPictureElement === media)
+            return true;
+          currentRoot = (_b2 = currentRoot.pictureInPictureElement) == null ? void 0 : _b2.shadowRoot;
+        }
+      }
+      return false;
+    },
+    set(value, stateOwners) {
+      const { media } = stateOwners;
+      if (!media)
+        return;
+      if (value) {
+        if (!Document2.pictureInPictureEnabled) {
+          console.warn("MediaChrome: Picture-in-picture is not enabled");
+          return;
+        }
+        if (!media.requestPictureInPicture) {
+          console.warn(
+            "MediaChrome: The current media does not support picture-in-picture"
+          );
+          return;
+        }
+        const warnNotReady = () => {
+          console.warn(
+            "MediaChrome: The media is not ready for picture-in-picture. It must have a readyState > 0."
+          );
+        };
+        media.requestPictureInPicture().catch((err) => {
+          if (err.code === 11) {
+            if (!media.src) {
+              console.warn(
+                "MediaChrome: The media is not ready for picture-in-picture. It must have a src set."
+              );
+              return;
+            }
+            if (media.readyState === 0 && media.preload === "none") {
+              const cleanup = () => {
+                media.removeEventListener("loadedmetadata", tryPip);
+                media.preload = "none";
+              };
+              const tryPip = () => {
+                media.requestPictureInPicture().catch(warnNotReady);
+                cleanup();
+              };
+              media.addEventListener("loadedmetadata", tryPip);
+              media.preload = "metadata";
+              setTimeout(() => {
+                if (media.readyState === 0)
+                  warnNotReady();
+                cleanup();
+              }, 1e3);
+            } else {
+              throw err;
+            }
+          } else {
+            throw err;
+          }
+        });
+      } else if (Document2.pictureInPictureElement) {
+        Document2.exitPictureInPicture();
+      }
+    },
+    mediaEvents: ["enterpictureinpicture", "leavepictureinpicture"]
+  },
+  mediaRenditionList: {
+    get(stateOwners) {
+      var _a3;
+      const { media } = stateOwners;
+      return [...(_a3 = media == null ? void 0 : media.videoRenditions) != null ? _a3 : []].map((videoRendition) => ({
+        ...videoRendition
+      }));
+    },
+    mediaEvents: ["emptied", "loadstart"],
+    videoRenditionsEvents: ["addrendition", "removerendition"]
+  },
+  /** @TODO Model this as a derived value? (CJP) */
+  mediaRenditionSelected: {
+    get(stateOwners) {
+      var _a3, _b2, _c;
+      const { media } = stateOwners;
+      return (_c = (_b2 = media == null ? void 0 : media.videoRenditions) == null ? void 0 : _b2[(_a3 = media.videoRenditions) == null ? void 0 : _a3.selectedIndex]) == null ? void 0 : _c.id;
+    },
+    set(value, stateOwners) {
+      const { media } = stateOwners;
+      if (!(media == null ? void 0 : media.videoRenditions)) {
+        console.warn(
+          "MediaController: Rendition selection not supported by this media."
+        );
+        return;
+      }
+      const renditionId = value;
+      const index = Array.prototype.findIndex.call(
+        media.videoRenditions,
+        (r) => r.id == renditionId
+      );
+      if (media.videoRenditions.selectedIndex != index) {
+        media.videoRenditions.selectedIndex = index;
+      }
+    },
+    mediaEvents: ["emptied"],
+    videoRenditionsEvents: ["addrendition", "removerendition", "change"]
+  },
+  mediaAudioTrackList: {
+    get(stateOwners) {
+      var _a3;
+      const { media } = stateOwners;
+      return [...(_a3 = media == null ? void 0 : media.audioTracks) != null ? _a3 : []];
+    },
+    mediaEvents: ["emptied", "loadstart"],
+    audioTracksEvents: ["addtrack", "removetrack"]
+  },
+  mediaAudioTrackEnabled: {
+    get(stateOwners) {
+      var _a3, _b2;
+      const { media } = stateOwners;
+      return (_b2 = [...(_a3 = media == null ? void 0 : media.audioTracks) != null ? _a3 : []].find(
+        (audioTrack) => audioTrack.enabled
+      )) == null ? void 0 : _b2.id;
+    },
+    set(value, stateOwners) {
+      const { media } = stateOwners;
+      if (!(media == null ? void 0 : media.audioTracks)) {
+        console.warn(
+          "MediaChrome: Audio track selection not supported by this media."
+        );
+        return;
+      }
+      const audioTrackId = value;
+      for (const track of media.audioTracks) {
+        track.enabled = audioTrackId == track.id;
+      }
+    },
+    mediaEvents: ["emptied"],
+    audioTracksEvents: ["addtrack", "removetrack", "change"]
+  },
+  mediaIsFullscreen: {
+    get(stateOwners) {
+      return isFullscreen(stateOwners);
+    },
+    set(value, stateOwners) {
+      if (!value) {
+        exitFullscreen(stateOwners);
+      } else {
+        enterFullscreen(stateOwners);
+      }
+    },
+    // older Safari version may require webkit-specific events
+    rootEvents: ["fullscreenchange", "webkitfullscreenchange"],
+    // iOS requires webkit-specific events on the video.
+    mediaEvents: ["webkitbeginfullscreen", "webkitendfullscreen", "webkitpresentationmodechanged"]
+  },
+  mediaIsCasting: {
+    // Note this relies on a customized castable-video element.
+    get(stateOwners) {
+      var _a3;
+      const { media } = stateOwners;
+      if (!(media == null ? void 0 : media.remote) || ((_a3 = media.remote) == null ? void 0 : _a3.state) === "disconnected")
+        return false;
+      return !!media.remote.state;
+    },
+    set(value, stateOwners) {
+      var _a3, _b2;
+      const { media } = stateOwners;
+      if (!media)
+        return;
+      if (value && ((_a3 = media.remote) == null ? void 0 : _a3.state) !== "disconnected")
+        return;
+      if (!value && ((_b2 = media.remote) == null ? void 0 : _b2.state) !== "connected")
+        return;
+      if (typeof media.remote.prompt !== "function") {
+        console.warn(
+          "MediaChrome: Casting is not supported in this environment"
+        );
+        return;
+      }
+      media.remote.prompt().catch(() => {
+      });
+    },
+    remoteEvents: ["connect", "connecting", "disconnect"]
+  },
+  // NOTE: Newly added state for tracking airplaying
+  mediaIsAirplaying: {
+    // NOTE: Cannot know if airplaying since Safari doesn't fully support HTMLMediaElement::remote yet (e.g. remote::state) (CJP)
+    get() {
+      return false;
+    },
+    set(_value2, stateOwners) {
+      const { media } = stateOwners;
+      if (!media)
+        return;
+      if (!(media.webkitShowPlaybackTargetPicker && GlobalThis.WebKitPlaybackTargetAvailabilityEvent)) {
+        console.warn(
+          "MediaChrome: received a request to select AirPlay but AirPlay is not supported in this environment"
+        );
+        return;
+      }
+      media.webkitShowPlaybackTargetPicker();
+    },
+    mediaEvents: ["webkitcurrentplaybacktargetiswirelesschanged"]
+  },
+  mediaFullscreenUnavailable: {
+    get(stateOwners) {
+      const { media } = stateOwners;
+      if (!fullscreenSupported || !hasFullscreenSupport(media))
+        return AvailabilityStates.UNSUPPORTED;
+      return void 0;
+    }
+  },
+  mediaPipUnavailable: {
+    get(stateOwners) {
+      const { media } = stateOwners;
+      if (!pipSupported || !hasPipSupport(media))
+        return AvailabilityStates.UNSUPPORTED;
+    }
+  },
+  mediaVolumeUnavailable: {
+    get(stateOwners) {
+      const { media } = stateOwners;
+      if (volumeSupported === false || (media == null ? void 0 : media.volume) == void 0) {
+        return AvailabilityStates.UNSUPPORTED;
+      }
+      return void 0;
+    },
+    // NOTE: Slightly different impl here. Added generic support for
+    // "stateOwnersUpdateHandlers" since the original impl had to hack around
+    // race conditions. (CJP)
+    stateOwnersUpdateHandlers: [
+      (handler) => {
+        if (volumeSupported == null) {
+          volumeSupportPromise.then(
+            (supported) => handler(supported ? void 0 : AvailabilityStates.UNSUPPORTED)
+          );
+        }
+      }
+    ]
+  },
+  mediaCastUnavailable: {
+    // @ts-ignore
+    get(stateOwners, { availability = "not-available" } = {}) {
+      var _a3;
+      const { media } = stateOwners;
+      if (!castSupported || !((_a3 = media == null ? void 0 : media.remote) == null ? void 0 : _a3.state)) {
+        return AvailabilityStates.UNSUPPORTED;
+      }
+      if (availability == null || availability === "available")
+        return void 0;
+      return AvailabilityStates.UNAVAILABLE;
+    },
+    stateOwnersUpdateHandlers: [
+      (handler, stateOwners) => {
+        var _a3;
+        const { media } = stateOwners;
+        if (!media)
+          return;
+        const remotePlaybackDisabled = media.disableRemotePlayback || media.hasAttribute("disableremoteplayback");
+        if (!remotePlaybackDisabled) {
+          (_a3 = media == null ? void 0 : media.remote) == null ? void 0 : _a3.watchAvailability((availabilityBool) => {
+            const availability = availabilityBool ? "available" : "not-available";
+            handler({ availability });
+          }).catch((error2) => {
+            if (error2.name === "NotSupportedError") {
+              handler({ availability: null });
+            } else {
+              handler({ availability: "not-available" });
+            }
+          });
+        }
+        return () => {
+          var _a22;
+          (_a22 = media == null ? void 0 : media.remote) == null ? void 0 : _a22.cancelWatchAvailability().catch(() => {
+          });
+        };
+      }
+    ]
+  },
+  mediaAirplayUnavailable: {
+    get(_stateOwners, event) {
+      if (!airplaySupported)
+        return AvailabilityStates.UNSUPPORTED;
+      if ((event == null ? void 0 : event.availability) === "not-available") {
+        return AvailabilityStates.UNAVAILABLE;
+      }
+      return void 0;
+    },
+    // NOTE: Keeping this event, as it's still the documented way of monitoring
+    // for AirPlay availability from Apple.
+    // See: https://developer.apple.com/documentation/webkitjs/adding_an_airplay_button_to_your_safari_media_controls#2940021 (CJP)
+    mediaEvents: ["webkitplaybacktargetavailabilitychanged"],
+    stateOwnersUpdateHandlers: [
+      (handler, stateOwners) => {
+        var _a3;
+        const { media } = stateOwners;
+        if (!media)
+          return;
+        const remotePlaybackDisabled = media.disableRemotePlayback || media.hasAttribute("disableremoteplayback");
+        if (!remotePlaybackDisabled) {
+          (_a3 = media == null ? void 0 : media.remote) == null ? void 0 : _a3.watchAvailability((availabilityBool) => {
+            const availability = availabilityBool ? "available" : "not-available";
+            handler({ availability });
+          }).catch((error2) => {
+            if (error2.name === "NotSupportedError") {
+              handler({ availability: null });
+            } else {
+              handler({ availability: "not-available" });
+            }
+          });
+        }
+        return () => {
+          var _a22;
+          (_a22 = media == null ? void 0 : media.remote) == null ? void 0 : _a22.cancelWatchAvailability().catch(() => {
+          });
+        };
+      }
+    ]
+  },
+  mediaRenditionUnavailable: {
+    get(stateOwners) {
+      var _a3;
+      const { media } = stateOwners;
+      if (!(media == null ? void 0 : media.videoRenditions)) {
+        return AvailabilityStates.UNSUPPORTED;
+      }
+      if (!((_a3 = media.videoRenditions) == null ? void 0 : _a3.length)) {
+        return AvailabilityStates.UNAVAILABLE;
+      }
+      return void 0;
+    },
+    mediaEvents: ["emptied", "loadstart"],
+    videoRenditionsEvents: ["addrendition", "removerendition"]
+  },
+  mediaAudioTrackUnavailable: {
+    get(stateOwners) {
+      var _a3, _b2;
+      const { media } = stateOwners;
+      if (!(media == null ? void 0 : media.audioTracks)) {
+        return AvailabilityStates.UNSUPPORTED;
+      }
+      if (((_b2 = (_a3 = media.audioTracks) == null ? void 0 : _a3.length) != null ? _b2 : 0) <= 1) {
+        return AvailabilityStates.UNAVAILABLE;
+      }
+      return void 0;
+    },
+    mediaEvents: ["emptied", "loadstart"],
+    audioTracksEvents: ["addtrack", "removetrack"]
+  }
+};
+
+// ../../node_modules/media-chrome/dist/media-store/request-map.js
+var requestMap = {
+  /**
+   * @TODO Consider adding state to `StateMediator` for e.g. `mediaThumbnailCues` and use that for derived state here (CJP)
+   */
+  [MediaUIEvents.MEDIA_PREVIEW_REQUEST](stateMediator2, stateOwners, { detail }) {
+    var _a3, _b2, _c;
+    const { media } = stateOwners;
+    const mediaPreviewTime = detail != null ? detail : void 0;
+    let mediaPreviewImage = void 0;
+    let mediaPreviewCoords = void 0;
+    if (media && mediaPreviewTime != null) {
+      const [track] = getTextTracksList(media, {
+        kind: TextTrackKinds.METADATA,
+        label: "thumbnails"
+      });
+      const cue = Array.prototype.find.call((_a3 = track == null ? void 0 : track.cues) != null ? _a3 : [], (c, i, cs) => {
+        if (i === 0)
+          return c.endTime > mediaPreviewTime;
+        if (i === cs.length - 1)
+          return c.startTime <= mediaPreviewTime;
+        return c.startTime <= mediaPreviewTime && c.endTime > mediaPreviewTime;
+      });
+      if (cue) {
+        const base = !/'^(?:[a-z]+:)?\/\//i.test(cue.text) ? (_b2 = media == null ? void 0 : media.querySelector(
+          'track[label="thumbnails"]'
+        )) == null ? void 0 : _b2.src : void 0;
+        const url = new URL(cue.text, base);
+        const previewCoordsStr = new URLSearchParams(url.hash).get("#xywh");
+        mediaPreviewCoords = previewCoordsStr.split(",").map((numStr) => +numStr);
+        mediaPreviewImage = url.href;
+      }
+    }
+    const mediaDuration = stateMediator2.mediaDuration.get(stateOwners);
+    const mediaChaptersCues = stateMediator2.mediaChaptersCues.get(stateOwners);
+    let mediaPreviewChapter = (_c = mediaChaptersCues.find((c, i, cs) => {
+      if (i === cs.length - 1 && mediaDuration === c.endTime) {
+        return c.startTime <= mediaPreviewTime && c.endTime >= mediaPreviewTime;
+      }
+      return c.startTime <= mediaPreviewTime && c.endTime > mediaPreviewTime;
+    })) == null ? void 0 : _c.text;
+    if (detail != null && mediaPreviewChapter == null) {
+      mediaPreviewChapter = "";
+    }
+    return {
+      mediaPreviewTime,
+      mediaPreviewImage,
+      mediaPreviewCoords,
+      mediaPreviewChapter
+    };
+  },
+  [MediaUIEvents.MEDIA_PAUSE_REQUEST](stateMediator2, stateOwners) {
+    const key = "mediaPaused";
+    const value = true;
+    stateMediator2[key].set(value, stateOwners);
+  },
+  [MediaUIEvents.MEDIA_PLAY_REQUEST](stateMediator2, stateOwners) {
+    var _a3;
+    const key = "mediaPaused";
+    const value = false;
+    const live = stateMediator2.mediaStreamType.get(stateOwners) === StreamTypes.LIVE;
+    if (live) {
+      const notDvr = !(stateMediator2.mediaTargetLiveWindow.get(stateOwners) > 0);
+      const liveEdgeTime = (_a3 = stateMediator2.mediaSeekable.get(stateOwners)) == null ? void 0 : _a3[1];
+      if (notDvr && liveEdgeTime) {
+        stateMediator2.mediaCurrentTime.set(liveEdgeTime, stateOwners);
+      }
+    }
+    stateMediator2[key].set(value, stateOwners);
+  },
+  [MediaUIEvents.MEDIA_PLAYBACK_RATE_REQUEST](stateMediator2, stateOwners, { detail }) {
+    const key = "mediaPlaybackRate";
+    const value = detail;
+    stateMediator2[key].set(value, stateOwners);
+  },
+  [MediaUIEvents.MEDIA_MUTE_REQUEST](stateMediator2, stateOwners) {
+    const key = "mediaMuted";
+    const value = true;
+    stateMediator2[key].set(value, stateOwners);
+  },
+  [MediaUIEvents.MEDIA_UNMUTE_REQUEST](stateMediator2, stateOwners) {
+    const key = "mediaMuted";
+    const value = false;
+    if (!stateMediator2.mediaVolume.get(stateOwners)) {
+      stateMediator2.mediaVolume.set(0.25, stateOwners);
+    }
+    stateMediator2[key].set(value, stateOwners);
+  },
+  [MediaUIEvents.MEDIA_VOLUME_REQUEST](stateMediator2, stateOwners, { detail }) {
+    const key = "mediaVolume";
+    const value = detail;
+    if (value && stateMediator2.mediaMuted.get(stateOwners)) {
+      stateMediator2.mediaMuted.set(false, stateOwners);
+    }
+    stateMediator2[key].set(value, stateOwners);
+  },
+  [MediaUIEvents.MEDIA_SEEK_REQUEST](stateMediator2, stateOwners, { detail }) {
+    const key = "mediaCurrentTime";
+    const value = detail;
+    stateMediator2[key].set(value, stateOwners);
+  },
+  [MediaUIEvents.MEDIA_SEEK_TO_LIVE_REQUEST](stateMediator2, stateOwners) {
+    var _a3;
+    const key = "mediaCurrentTime";
+    const value = (_a3 = stateMediator2.mediaSeekable.get(stateOwners)) == null ? void 0 : _a3[1];
+    if (Number.isNaN(Number(value)))
+      return;
+    stateMediator2[key].set(value, stateOwners);
+  },
+  // Text Tracks state change requests
+  [MediaUIEvents.MEDIA_SHOW_SUBTITLES_REQUEST](_stateMediator, stateOwners, { detail }) {
+    var _a3;
+    const { options } = stateOwners;
+    const tracks = getSubtitleTracks(stateOwners);
+    const tracksToUpdate = parseTracks(detail);
+    const preferredLanguage = (_a3 = tracksToUpdate[0]) == null ? void 0 : _a3.language;
+    if (preferredLanguage && !options.noSubtitlesLangPref) {
+      GlobalThis.localStorage.setItem(
+        "media-chrome-pref-subtitles-lang",
+        preferredLanguage
+      );
+    }
+    updateTracksModeTo(TextTrackModes.SHOWING, tracks, tracksToUpdate);
+  },
+  [MediaUIEvents.MEDIA_DISABLE_SUBTITLES_REQUEST](_stateMediator, stateOwners, { detail }) {
+    const tracks = getSubtitleTracks(stateOwners);
+    const tracksToUpdate = detail != null ? detail : [];
+    updateTracksModeTo(TextTrackModes.DISABLED, tracks, tracksToUpdate);
+  },
+  [MediaUIEvents.MEDIA_TOGGLE_SUBTITLES_REQUEST](_stateMediator, stateOwners, { detail }) {
+    toggleSubtitleTracks(stateOwners, detail);
+  },
+  // Renditions/Tracks state change requests
+  [MediaUIEvents.MEDIA_RENDITION_REQUEST](stateMediator2, stateOwners, { detail }) {
+    const key = "mediaRenditionSelected";
+    const value = detail;
+    stateMediator2[key].set(value, stateOwners);
+  },
+  [MediaUIEvents.MEDIA_AUDIO_TRACK_REQUEST](stateMediator2, stateOwners, { detail }) {
+    const key = "mediaAudioTrackEnabled";
+    const value = detail;
+    stateMediator2[key].set(value, stateOwners);
+  },
+  // State change requests dependent on root node
+  [MediaUIEvents.MEDIA_ENTER_PIP_REQUEST](stateMediator2, stateOwners) {
+    const key = "mediaIsPip";
+    const value = true;
+    if (stateMediator2.mediaIsFullscreen.get(stateOwners)) {
+      stateMediator2.mediaIsFullscreen.set(false, stateOwners);
+    }
+    stateMediator2[key].set(value, stateOwners);
+  },
+  [MediaUIEvents.MEDIA_EXIT_PIP_REQUEST](stateMediator2, stateOwners) {
+    const key = "mediaIsPip";
+    const value = false;
+    stateMediator2[key].set(value, stateOwners);
+  },
+  [MediaUIEvents.MEDIA_ENTER_FULLSCREEN_REQUEST](stateMediator2, stateOwners) {
+    const key = "mediaIsFullscreen";
+    const value = true;
+    if (stateMediator2.mediaIsPip.get(stateOwners)) {
+      stateMediator2.mediaIsPip.set(false, stateOwners);
+    }
+    stateMediator2[key].set(value, stateOwners);
+  },
+  [MediaUIEvents.MEDIA_EXIT_FULLSCREEN_REQUEST](stateMediator2, stateOwners) {
+    const key = "mediaIsFullscreen";
+    const value = false;
+    stateMediator2[key].set(value, stateOwners);
+  },
+  [MediaUIEvents.MEDIA_ENTER_CAST_REQUEST](stateMediator2, stateOwners) {
+    const key = "mediaIsCasting";
+    const value = true;
+    if (stateMediator2.mediaIsFullscreen.get(stateOwners)) {
+      stateMediator2.mediaIsFullscreen.set(false, stateOwners);
+    }
+    stateMediator2[key].set(value, stateOwners);
+  },
+  [MediaUIEvents.MEDIA_EXIT_CAST_REQUEST](stateMediator2, stateOwners) {
+    const key = "mediaIsCasting";
+    const value = false;
+    stateMediator2[key].set(value, stateOwners);
+  },
+  [MediaUIEvents.MEDIA_AIRPLAY_REQUEST](stateMediator2, stateOwners) {
+    const key = "mediaIsAirplaying";
+    const value = true;
+    stateMediator2[key].set(value, stateOwners);
+  }
+};
+
+// ../../node_modules/media-chrome/dist/media-store/media-store.js
+var createMediaStore = ({
+  media,
+  fullscreenElement,
+  documentElement,
+  stateMediator: stateMediator2 = stateMediator,
+  requestMap: requestMap2 = requestMap,
+  options = {},
+  monitorStateOwnersOnlyWithSubscriptions = true
+}) => {
+  const callbacks = [];
+  const stateOwners = {
+    // Spreading options here since folks should not rely on holding onto references
+    // for any app-level logic wrt options.
+    options: { ...options }
+  };
+  let state = Object.freeze({
+    mediaPreviewTime: void 0,
+    mediaPreviewImage: void 0,
+    mediaPreviewCoords: void 0,
+    mediaPreviewChapter: void 0
+  });
+  const updateState = (nextStateDelta) => {
+    if (nextStateDelta == void 0)
+      return;
+    if (areValuesEq(nextStateDelta, state)) {
+      return;
+    }
+    state = Object.freeze({
+      ...state,
+      ...nextStateDelta
+    });
+    callbacks.forEach((cb) => cb(state));
+  };
+  const updateStateFromFacade = () => {
+    const nextState = Object.entries(stateMediator2).reduce(
+      (nextState2, [stateName, { get }]) => {
+        nextState2[stateName] = get(stateOwners);
+        return nextState2;
+      },
+      {}
+    );
+    updateState(nextState);
+  };
+  const stateUpdateHandlers = {};
+  let nextStateOwners = void 0;
+  const updateStateOwners = async (nextStateOwnersDelta, nextSubscriberCount) => {
+    var _a3, _b2, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p;
+    const pendingUpdate = !!nextStateOwners;
+    nextStateOwners = {
+      ...stateOwners,
+      ...nextStateOwners != null ? nextStateOwners : {},
+      ...nextStateOwnersDelta
+    };
+    if (pendingUpdate)
+      return;
+    await prepareStateOwners(...Object.values(nextStateOwnersDelta));
+    const shouldTeardownFromSubscriberCount = callbacks.length > 0 && nextSubscriberCount === 0 && monitorStateOwnersOnlyWithSubscriptions;
+    const mediaChanged = stateOwners.media !== nextStateOwners.media;
+    const textTracksChanged = ((_a3 = stateOwners.media) == null ? void 0 : _a3.textTracks) !== ((_b2 = nextStateOwners.media) == null ? void 0 : _b2.textTracks);
+    const videoRenditionsChanged = ((_c = stateOwners.media) == null ? void 0 : _c.videoRenditions) !== ((_d = nextStateOwners.media) == null ? void 0 : _d.videoRenditions);
+    const audioTracksChanged = ((_e = stateOwners.media) == null ? void 0 : _e.audioTracks) !== ((_f = nextStateOwners.media) == null ? void 0 : _f.audioTracks);
+    const remoteChanged = ((_g = stateOwners.media) == null ? void 0 : _g.remote) !== ((_h = nextStateOwners.media) == null ? void 0 : _h.remote);
+    const rootNodeChanged = stateOwners.documentElement !== nextStateOwners.documentElement;
+    const teardownMedia = !!stateOwners.media && (mediaChanged || shouldTeardownFromSubscriberCount);
+    const teardownTextTracks = !!((_i = stateOwners.media) == null ? void 0 : _i.textTracks) && (textTracksChanged || shouldTeardownFromSubscriberCount);
+    const teardownVideoRenditions = !!((_j = stateOwners.media) == null ? void 0 : _j.videoRenditions) && (videoRenditionsChanged || shouldTeardownFromSubscriberCount);
+    const teardownAudioTracks = !!((_k = stateOwners.media) == null ? void 0 : _k.audioTracks) && (audioTracksChanged || shouldTeardownFromSubscriberCount);
+    const teardownRemote = !!((_l = stateOwners.media) == null ? void 0 : _l.remote) && (remoteChanged || shouldTeardownFromSubscriberCount);
+    const teardownRootNode = !!stateOwners.documentElement && (rootNodeChanged || shouldTeardownFromSubscriberCount);
+    const teardownSomething = teardownMedia || teardownTextTracks || teardownVideoRenditions || teardownAudioTracks || teardownRemote || teardownRootNode;
+    const shouldSetupFromSubscriberCount = callbacks.length === 0 && nextSubscriberCount === 1 && monitorStateOwnersOnlyWithSubscriptions;
+    const setupMedia = !!nextStateOwners.media && (mediaChanged || shouldSetupFromSubscriberCount);
+    const setupTextTracks = !!((_m = nextStateOwners.media) == null ? void 0 : _m.textTracks) && (textTracksChanged || shouldSetupFromSubscriberCount);
+    const setupVideoRenditions = !!((_n = nextStateOwners.media) == null ? void 0 : _n.videoRenditions) && (videoRenditionsChanged || shouldSetupFromSubscriberCount);
+    const setupAudioTracks = !!((_o = nextStateOwners.media) == null ? void 0 : _o.audioTracks) && (audioTracksChanged || shouldSetupFromSubscriberCount);
+    const setupRemote = !!((_p = nextStateOwners.media) == null ? void 0 : _p.remote) && (remoteChanged || shouldSetupFromSubscriberCount);
+    const setupRootNode = !!nextStateOwners.documentElement && (rootNodeChanged || shouldSetupFromSubscriberCount);
+    const setupSomething = setupMedia || setupTextTracks || setupVideoRenditions || setupAudioTracks || setupRemote || setupRootNode;
+    const somethingToDo = teardownSomething || setupSomething;
+    if (!somethingToDo) {
+      Object.entries(nextStateOwners).forEach(
+        ([stateOwnerName, stateOwner]) => {
+          stateOwners[stateOwnerName] = stateOwner;
+        }
+      );
+      updateStateFromFacade();
+      nextStateOwners = void 0;
+      return;
+    }
+    Object.entries(stateMediator2).forEach(
+      ([
+        stateName,
+        {
+          get,
+          mediaEvents = [],
+          textTracksEvents = [],
+          videoRenditionsEvents = [],
+          audioTracksEvents = [],
+          remoteEvents = [],
+          rootEvents = [],
+          stateOwnersUpdateHandlers = []
+        }
+      ]) => {
+        if (!stateUpdateHandlers[stateName]) {
+          stateUpdateHandlers[stateName] = {};
+        }
+        const handler = (event) => {
+          const nextValue = get(stateOwners, event);
+          updateState({ [stateName]: nextValue });
+        };
+        let prevHandler;
+        prevHandler = stateUpdateHandlers[stateName].mediaEvents;
+        mediaEvents.forEach((eventType) => {
+          if (prevHandler && teardownMedia) {
+            stateOwners.media.removeEventListener(eventType, prevHandler);
+            stateUpdateHandlers[stateName].mediaEvents = void 0;
+          }
+          if (setupMedia) {
+            nextStateOwners.media.addEventListener(eventType, handler);
+            stateUpdateHandlers[stateName].mediaEvents = handler;
+          }
+        });
+        prevHandler = stateUpdateHandlers[stateName].textTracksEvents;
+        textTracksEvents.forEach((eventType) => {
+          var _a22, _b22;
+          if (prevHandler && teardownTextTracks) {
+            (_a22 = stateOwners.media.textTracks) == null ? void 0 : _a22.removeEventListener(
+              eventType,
+              prevHandler
+            );
+            stateUpdateHandlers[stateName].textTracksEvents = void 0;
+          }
+          if (setupTextTracks) {
+            (_b22 = nextStateOwners.media.textTracks) == null ? void 0 : _b22.addEventListener(
+              eventType,
+              handler
+            );
+            stateUpdateHandlers[stateName].textTracksEvents = handler;
+          }
+        });
+        prevHandler = stateUpdateHandlers[stateName].videoRenditionsEvents;
+        videoRenditionsEvents.forEach((eventType) => {
+          var _a22, _b22;
+          if (prevHandler && teardownVideoRenditions) {
+            (_a22 = stateOwners.media.videoRenditions) == null ? void 0 : _a22.removeEventListener(
+              eventType,
+              prevHandler
+            );
+            stateUpdateHandlers[stateName].videoRenditionsEvents = void 0;
+          }
+          if (setupVideoRenditions) {
+            (_b22 = nextStateOwners.media.videoRenditions) == null ? void 0 : _b22.addEventListener(
+              eventType,
+              handler
+            );
+            stateUpdateHandlers[stateName].videoRenditionsEvents = handler;
+          }
+        });
+        prevHandler = stateUpdateHandlers[stateName].audioTracksEvents;
+        audioTracksEvents.forEach((eventType) => {
+          var _a22, _b22;
+          if (prevHandler && teardownAudioTracks) {
+            (_a22 = stateOwners.media.audioTracks) == null ? void 0 : _a22.removeEventListener(
+              eventType,
+              prevHandler
+            );
+            stateUpdateHandlers[stateName].audioTracksEvents = void 0;
+          }
+          if (setupAudioTracks) {
+            (_b22 = nextStateOwners.media.audioTracks) == null ? void 0 : _b22.addEventListener(
+              eventType,
+              handler
+            );
+            stateUpdateHandlers[stateName].audioTracksEvents = handler;
+          }
+        });
+        prevHandler = stateUpdateHandlers[stateName].remoteEvents;
+        remoteEvents.forEach((eventType) => {
+          var _a22, _b22;
+          if (prevHandler && teardownRemote) {
+            (_a22 = stateOwners.media.remote) == null ? void 0 : _a22.removeEventListener(
+              eventType,
+              prevHandler
+            );
+            stateUpdateHandlers[stateName].remoteEvents = void 0;
+          }
+          if (setupRemote) {
+            (_b22 = nextStateOwners.media.remote) == null ? void 0 : _b22.addEventListener(eventType, handler);
+            stateUpdateHandlers[stateName].remoteEvents = handler;
+          }
+        });
+        prevHandler = stateUpdateHandlers[stateName].rootEvents;
+        rootEvents.forEach((eventType) => {
+          if (prevHandler && teardownRootNode) {
+            stateOwners.documentElement.removeEventListener(
+              eventType,
+              prevHandler
+            );
+            stateUpdateHandlers[stateName].rootEvents = void 0;
+          }
+          if (setupRootNode) {
+            nextStateOwners.documentElement.addEventListener(
+              eventType,
+              handler
+            );
+            stateUpdateHandlers[stateName].rootEvents = handler;
+          }
+        });
+        const prevHandlerTeardown = stateUpdateHandlers[stateName].stateOwnersUpdateHandlers;
+        stateOwnersUpdateHandlers.forEach((fn) => {
+          if (prevHandlerTeardown && teardownSomething) {
+            prevHandlerTeardown();
+          }
+          if (setupSomething) {
+            stateUpdateHandlers[stateName].stateOwnersUpdateHandlers = fn(
+              handler,
+              nextStateOwners
+            );
+          }
+        });
+      }
+    );
+    Object.entries(nextStateOwners).forEach(([stateOwnerName, stateOwner]) => {
+      stateOwners[stateOwnerName] = stateOwner;
+    });
+    updateStateFromFacade();
+    nextStateOwners = void 0;
+  };
+  updateStateOwners({ media, fullscreenElement, documentElement, options });
+  return {
+    // note that none of these cases directly interact with the media element, root node, full screen element, etc.
+    // note these "actions" could just be the events if we wanted, especially if we normalize on "detail" for
+    // any payload-relevant values
+    // This is roughly equivalent to our used to be in our state requests dictionary object, though much of the
+    // "heavy lifting" is now moved into the facade `set()`
+    dispatch(action) {
+      const { type, detail } = action;
+      if (requestMap2[type] && state.mediaErrorCode == null) {
+        updateState(requestMap2[type](stateMediator2, stateOwners, action));
+        return;
+      }
+      if (type === "mediaelementchangerequest") {
+        updateStateOwners({ media: detail });
+      } else if (type === "fullscreenelementchangerequest") {
+        updateStateOwners({ fullscreenElement: detail });
+      } else if (type === "documentelementchangerequest") {
+        updateStateOwners({ documentElement: detail });
+      } else if (type === "optionschangerequest") {
+        Object.entries(detail != null ? detail : {}).forEach(([optionName, optionValue]) => {
+          stateOwners.options[optionName] = optionValue;
+        });
+      }
+    },
+    getState() {
+      return state;
+    },
+    subscribe(callback) {
+      updateStateOwners({}, callbacks.length + 1);
+      callbacks.push(callback);
+      callback(state);
+      return () => {
+        const idx = callbacks.indexOf(callback);
+        if (idx >= 0) {
+          updateStateOwners({}, callbacks.length - 1);
+          callbacks.splice(idx, 1);
+        }
+      };
+    }
+  };
+};
+
+// ../../node_modules/media-chrome/dist/media-controller.js
+var __accessCheck5 = (obj, member, msg) => {
+  if (!member.has(obj))
+    throw TypeError("Cannot " + msg);
+};
+var __privateGet5 = (obj, member, getter) => {
+  __accessCheck5(obj, member, "read from private field");
+  return getter ? getter.call(obj) : member.get(obj);
+};
+var __privateAdd5 = (obj, member, value) => {
+  if (member.has(obj))
+    throw TypeError("Cannot add the same private member more than once");
+  member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+};
+var __privateSet5 = (obj, member, value, setter) => {
+  __accessCheck5(obj, member, "write to private field");
+  setter ? setter.call(obj, value) : member.set(obj, value);
+  return value;
+};
+var __privateMethod3 = (obj, member, method) => {
+  __accessCheck5(obj, member, "access private method");
+  return method;
+};
+var _hotKeys;
+var _fullscreenElement;
+var _mediaStore;
+var _mediaStateCallback;
+var _mediaStoreUnsubscribe;
+var _mediaStateEventHandler;
+var _setupDefaultStore;
+var setupDefaultStore_fn;
+var _keyUpHandler;
+var keyUpHandler_fn;
+var _keyDownHandler;
+var keyDownHandler_fn;
+var ButtonPressedKeys = [
+  "ArrowLeft",
+  "ArrowRight",
+  "Enter",
+  " ",
+  "f",
+  "m",
+  "k",
+  "c"
+];
+var DEFAULT_SEEK_OFFSET = 10;
+var Attributes2 = {
+  DEFAULT_SUBTITLES: "defaultsubtitles",
+  DEFAULT_STREAM_TYPE: "defaultstreamtype",
+  DEFAULT_DURATION: "defaultduration",
+  FULLSCREEN_ELEMENT: "fullscreenelement",
+  HOTKEYS: "hotkeys",
+  KEYS_USED: "keysused",
+  LIVE_EDGE_OFFSET: "liveedgeoffset",
+  NO_AUTO_SEEK_TO_LIVE: "noautoseektolive",
+  NO_HOTKEYS: "nohotkeys",
+  NO_VOLUME_PREF: "novolumepref",
+  NO_SUBTITLES_LANG_PREF: "nosubtitleslangpref",
+  NO_DEFAULT_STORE: "nodefaultstore",
+  KEYBOARD_FORWARD_SEEK_OFFSET: "keyboardforwardseekoffset",
+  KEYBOARD_BACKWARD_SEEK_OFFSET: "keyboardbackwardseekoffset"
+};
+var MediaController = class extends MediaContainer {
+  constructor() {
+    super();
+    __privateAdd5(this, _setupDefaultStore);
+    __privateAdd5(this, _keyUpHandler);
+    __privateAdd5(this, _keyDownHandler);
+    this.mediaStateReceivers = [];
+    this.associatedElementSubscriptions = /* @__PURE__ */ new Map();
+    __privateAdd5(this, _hotKeys, new AttributeTokenList(this, Attributes2.HOTKEYS));
+    __privateAdd5(this, _fullscreenElement, void 0);
+    __privateAdd5(this, _mediaStore, void 0);
+    __privateAdd5(this, _mediaStateCallback, void 0);
+    __privateAdd5(this, _mediaStoreUnsubscribe, void 0);
+    __privateAdd5(this, _mediaStateEventHandler, (event) => {
+      var _a3;
+      (_a3 = __privateGet5(this, _mediaStore)) == null ? void 0 : _a3.dispatch(event);
+    });
+    this.associateElement(this);
+    let prevState = {};
+    __privateSet5(this, _mediaStateCallback, (nextState) => {
+      Object.entries(nextState).forEach(([stateName, stateValue]) => {
+        if (stateName in prevState && prevState[stateName] === stateValue)
+          return;
+        this.propagateMediaState(stateName, stateValue);
+        const attrName = stateName.toLowerCase();
+        const evt = new GlobalThis.CustomEvent(
+          AttributeToStateChangeEventMap[attrName],
+          { composed: true, detail: stateValue }
+        );
+        this.dispatchEvent(evt);
+      });
+      prevState = nextState;
+    });
+    this.enableHotkeys();
+  }
+  static get observedAttributes() {
+    return super.observedAttributes.concat(
+      Attributes2.NO_HOTKEYS,
+      Attributes2.HOTKEYS,
+      Attributes2.DEFAULT_STREAM_TYPE,
+      Attributes2.DEFAULT_SUBTITLES,
+      Attributes2.DEFAULT_DURATION
+    );
+  }
+  get mediaStore() {
+    return __privateGet5(this, _mediaStore);
+  }
+  set mediaStore(value) {
+    var _a3, _b2;
+    if (__privateGet5(this, _mediaStore)) {
+      (_a3 = __privateGet5(this, _mediaStoreUnsubscribe)) == null ? void 0 : _a3.call(this);
+      __privateSet5(this, _mediaStoreUnsubscribe, void 0);
+    }
+    __privateSet5(this, _mediaStore, value);
+    if (!__privateGet5(this, _mediaStore) && !this.hasAttribute(Attributes2.NO_DEFAULT_STORE)) {
+      __privateMethod3(this, _setupDefaultStore, setupDefaultStore_fn).call(this);
+      return;
+    }
+    __privateSet5(this, _mediaStoreUnsubscribe, (_b2 = __privateGet5(this, _mediaStore)) == null ? void 0 : _b2.subscribe(
+      __privateGet5(this, _mediaStateCallback)
+    ));
+  }
+  get fullscreenElement() {
+    var _a3;
+    return (_a3 = __privateGet5(this, _fullscreenElement)) != null ? _a3 : this;
+  }
+  set fullscreenElement(element) {
+    var _a3;
+    if (this.hasAttribute(Attributes2.FULLSCREEN_ELEMENT)) {
+      this.removeAttribute(Attributes2.FULLSCREEN_ELEMENT);
+    }
+    __privateSet5(this, _fullscreenElement, element);
+    (_a3 = __privateGet5(this, _mediaStore)) == null ? void 0 : _a3.dispatch({
+      type: "fullscreenelementchangerequest",
+      detail: this.fullscreenElement
+    });
+  }
+  get defaultSubtitles() {
+    return getBooleanAttr(this, Attributes2.DEFAULT_SUBTITLES);
+  }
+  set defaultSubtitles(value) {
+    setBooleanAttr(this, Attributes2.DEFAULT_SUBTITLES, value);
+  }
+  get defaultStreamType() {
+    return getStringAttr(this, Attributes2.DEFAULT_STREAM_TYPE);
+  }
+  set defaultStreamType(value) {
+    setStringAttr(this, Attributes2.DEFAULT_STREAM_TYPE, value);
+  }
+  get defaultDuration() {
+    return getNumericAttr(this, Attributes2.DEFAULT_DURATION);
+  }
+  set defaultDuration(value) {
+    setNumericAttr(this, Attributes2.DEFAULT_DURATION, value);
+  }
+  get noHotkeys() {
+    return getBooleanAttr(this, Attributes2.NO_HOTKEYS);
+  }
+  set noHotkeys(value) {
+    setBooleanAttr(this, Attributes2.NO_HOTKEYS, value);
+  }
+  get keysUsed() {
+    return getStringAttr(this, Attributes2.KEYS_USED);
+  }
+  set keysUsed(value) {
+    setStringAttr(this, Attributes2.KEYS_USED, value);
+  }
+  get liveEdgeOffset() {
+    return getNumericAttr(this, Attributes2.LIVE_EDGE_OFFSET);
+  }
+  set liveEdgeOffset(value) {
+    setNumericAttr(this, Attributes2.LIVE_EDGE_OFFSET, value);
+  }
+  get noAutoSeekToLive() {
+    return getBooleanAttr(this, Attributes2.NO_AUTO_SEEK_TO_LIVE);
+  }
+  set noAutoSeekToLive(value) {
+    setBooleanAttr(this, Attributes2.NO_AUTO_SEEK_TO_LIVE, value);
+  }
+  get noVolumePref() {
+    return getBooleanAttr(this, Attributes2.NO_VOLUME_PREF);
+  }
+  set noVolumePref(value) {
+    setBooleanAttr(this, Attributes2.NO_VOLUME_PREF, value);
+  }
+  get noSubtitlesLangPref() {
+    return getBooleanAttr(this, Attributes2.NO_SUBTITLES_LANG_PREF);
+  }
+  set noSubtitlesLangPref(value) {
+    setBooleanAttr(this, Attributes2.NO_SUBTITLES_LANG_PREF, value);
+  }
+  get noDefaultStore() {
+    return getBooleanAttr(this, Attributes2.NO_DEFAULT_STORE);
+  }
+  set noDefaultStore(value) {
+    setBooleanAttr(this, Attributes2.NO_DEFAULT_STORE, value);
+  }
+  attributeChangedCallback(attrName, oldValue, newValue) {
+    var _a3, _b2, _c, _d, _e, _f;
+    super.attributeChangedCallback(attrName, oldValue, newValue);
+    if (attrName === Attributes2.NO_HOTKEYS) {
+      if (newValue !== oldValue && newValue === "") {
+        if (this.hasAttribute(Attributes2.HOTKEYS)) {
+          console.warn(
+            "Media Chrome: Both `hotkeys` and `nohotkeys` have been set. All hotkeys will be disabled."
+          );
+        }
+        this.disableHotkeys();
+      } else if (newValue !== oldValue && newValue === null) {
+        this.enableHotkeys();
+      }
+    } else if (attrName === Attributes2.HOTKEYS) {
+      __privateGet5(this, _hotKeys).value = newValue;
+    } else if (attrName === Attributes2.DEFAULT_SUBTITLES && newValue !== oldValue) {
+      (_a3 = __privateGet5(this, _mediaStore)) == null ? void 0 : _a3.dispatch({
+        type: "optionschangerequest",
+        detail: {
+          defaultSubtitles: this.hasAttribute(Attributes2.DEFAULT_SUBTITLES)
+        }
+      });
+    } else if (attrName === Attributes2.DEFAULT_STREAM_TYPE) {
+      (_c = __privateGet5(this, _mediaStore)) == null ? void 0 : _c.dispatch({
+        type: "optionschangerequest",
+        detail: {
+          defaultStreamType: (_b2 = this.getAttribute(Attributes2.DEFAULT_STREAM_TYPE)) != null ? _b2 : void 0
+        }
+      });
+    } else if (attrName === Attributes2.LIVE_EDGE_OFFSET) {
+      (_d = __privateGet5(this, _mediaStore)) == null ? void 0 : _d.dispatch({
+        type: "optionschangerequest",
+        detail: {
+          liveEdgeOffset: this.hasAttribute(Attributes2.LIVE_EDGE_OFFSET) ? +this.getAttribute(Attributes2.LIVE_EDGE_OFFSET) : void 0
+        }
+      });
+    } else if (attrName === Attributes2.FULLSCREEN_ELEMENT) {
+      const el = newValue ? (_e = this.getRootNode()) == null ? void 0 : _e.getElementById(newValue) : void 0;
+      __privateSet5(this, _fullscreenElement, el);
+      (_f = __privateGet5(this, _mediaStore)) == null ? void 0 : _f.dispatch({
+        type: "fullscreenelementchangerequest",
+        detail: this.fullscreenElement
+      });
+    }
+  }
+  connectedCallback() {
+    var _a3, _b2;
+    if (!__privateGet5(this, _mediaStore) && !this.hasAttribute(Attributes2.NO_DEFAULT_STORE)) {
+      __privateMethod3(this, _setupDefaultStore, setupDefaultStore_fn).call(this);
+    }
+    (_a3 = __privateGet5(this, _mediaStore)) == null ? void 0 : _a3.dispatch({
+      type: "documentelementchangerequest",
+      detail: Document2
+    });
+    super.connectedCallback();
+    if (__privateGet5(this, _mediaStore) && !__privateGet5(this, _mediaStoreUnsubscribe)) {
+      __privateSet5(this, _mediaStoreUnsubscribe, (_b2 = __privateGet5(this, _mediaStore)) == null ? void 0 : _b2.subscribe(
+        __privateGet5(this, _mediaStateCallback)
+      ));
+    }
+    this.enableHotkeys();
+  }
+  disconnectedCallback() {
+    var _a3, _b2, _c, _d;
+    (_a3 = super.disconnectedCallback) == null ? void 0 : _a3.call(this);
+    if (__privateGet5(this, _mediaStore)) {
+      (_b2 = __privateGet5(this, _mediaStore)) == null ? void 0 : _b2.dispatch({
+        type: "documentelementchangerequest",
+        detail: void 0
+      });
+      (_c = __privateGet5(this, _mediaStore)) == null ? void 0 : _c.dispatch({
+        type: MediaUIEvents.MEDIA_TOGGLE_SUBTITLES_REQUEST,
+        detail: false
+      });
+    }
+    if (__privateGet5(this, _mediaStoreUnsubscribe)) {
+      (_d = __privateGet5(this, _mediaStoreUnsubscribe)) == null ? void 0 : _d.call(this);
+      __privateSet5(this, _mediaStoreUnsubscribe, void 0);
+    }
+  }
+  /**
+   * @override
+   * @param {HTMLMediaElement} media
+   */
+  mediaSetCallback(media) {
+    var _a3;
+    super.mediaSetCallback(media);
+    (_a3 = __privateGet5(this, _mediaStore)) == null ? void 0 : _a3.dispatch({
+      type: "mediaelementchangerequest",
+      detail: media
+    });
+    if (!media.hasAttribute("tabindex")) {
+      media.tabIndex = -1;
+    }
+  }
+  /**
+   * @override
+   * @param {HTMLMediaElement} media
+   */
+  mediaUnsetCallback(media) {
+    var _a3;
+    super.mediaUnsetCallback(media);
+    (_a3 = __privateGet5(this, _mediaStore)) == null ? void 0 : _a3.dispatch({
+      type: "mediaelementchangerequest",
+      detail: void 0
+    });
+  }
+  propagateMediaState(stateName, state) {
+    propagateMediaState(this.mediaStateReceivers, stateName, state);
+  }
+  associateElement(element) {
+    if (!element)
+      return;
+    const { associatedElementSubscriptions } = this;
+    if (associatedElementSubscriptions.has(element))
+      return;
+    const registerMediaStateReceiver = this.registerMediaStateReceiver.bind(this);
+    const unregisterMediaStateReceiver = this.unregisterMediaStateReceiver.bind(this);
+    const unsubscribe = monitorForMediaStateReceivers(
+      element,
+      registerMediaStateReceiver,
+      unregisterMediaStateReceiver
+    );
+    Object.values(MediaUIEvents).forEach((eventName) => {
+      element.addEventListener(eventName, __privateGet5(this, _mediaStateEventHandler));
+    });
+    associatedElementSubscriptions.set(element, unsubscribe);
+  }
+  unassociateElement(element) {
+    if (!element)
+      return;
+    const { associatedElementSubscriptions } = this;
+    if (!associatedElementSubscriptions.has(element))
+      return;
+    const unsubscribe = associatedElementSubscriptions.get(element);
+    unsubscribe();
+    associatedElementSubscriptions.delete(element);
+    Object.values(MediaUIEvents).forEach((eventName) => {
+      element.removeEventListener(eventName, __privateGet5(this, _mediaStateEventHandler));
+    });
+  }
+  registerMediaStateReceiver(el) {
+    if (!el)
+      return;
+    const els = this.mediaStateReceivers;
+    const index = els.indexOf(el);
+    if (index > -1)
+      return;
+    els.push(el);
+    if (__privateGet5(this, _mediaStore)) {
+      Object.entries(__privateGet5(this, _mediaStore).getState()).forEach(
+        ([stateName, stateValue]) => {
+          propagateMediaState([el], stateName, stateValue);
+        }
+      );
+    }
+  }
+  unregisterMediaStateReceiver(el) {
+    const els = this.mediaStateReceivers;
+    const index = els.indexOf(el);
+    if (index < 0)
+      return;
+    els.splice(index, 1);
+  }
+  enableHotkeys() {
+    this.addEventListener("keydown", __privateMethod3(this, _keyDownHandler, keyDownHandler_fn));
+  }
+  disableHotkeys() {
+    this.removeEventListener("keydown", __privateMethod3(this, _keyDownHandler, keyDownHandler_fn));
+    this.removeEventListener("keyup", __privateMethod3(this, _keyUpHandler, keyUpHandler_fn));
+  }
+  get hotkeys() {
+    return getStringAttr(this, Attributes2.HOTKEYS);
+  }
+  set hotkeys(value) {
+    setStringAttr(this, Attributes2.HOTKEYS, value);
+  }
+  keyboardShortcutHandler(e) {
+    var _a3, _b2, _c, _d, _e;
+    const target = e.target;
+    const keysUsed = ((_c = (_b2 = (_a3 = target.getAttribute(Attributes2.KEYS_USED)) == null ? void 0 : _a3.split(" ")) != null ? _b2 : target == null ? void 0 : target.keysUsed) != null ? _c : []).map((key) => key === "Space" ? " " : key).filter(Boolean);
+    if (keysUsed.includes(e.key)) {
+      return;
+    }
+    let eventName, detail, evt;
+    if (__privateGet5(this, _hotKeys).contains(`no${e.key.toLowerCase()}`))
+      return;
+    if (e.key === " " && __privateGet5(this, _hotKeys).contains(`nospace`))
+      return;
+    switch (e.key) {
+      case " ":
+      case "k":
+        eventName = __privateGet5(this, _mediaStore).getState().mediaPaused ? MediaUIEvents.MEDIA_PLAY_REQUEST : MediaUIEvents.MEDIA_PAUSE_REQUEST;
+        this.dispatchEvent(
+          new GlobalThis.CustomEvent(eventName, {
+            composed: true,
+            bubbles: true
+          })
+        );
+        break;
+      case "m":
+        eventName = this.mediaStore.getState().mediaVolumeLevel === "off" ? MediaUIEvents.MEDIA_UNMUTE_REQUEST : MediaUIEvents.MEDIA_MUTE_REQUEST;
+        this.dispatchEvent(
+          new GlobalThis.CustomEvent(eventName, {
+            composed: true,
+            bubbles: true
+          })
+        );
+        break;
+      case "f":
+        eventName = this.mediaStore.getState().mediaIsFullscreen ? MediaUIEvents.MEDIA_EXIT_FULLSCREEN_REQUEST : MediaUIEvents.MEDIA_ENTER_FULLSCREEN_REQUEST;
+        this.dispatchEvent(
+          new GlobalThis.CustomEvent(eventName, {
+            composed: true,
+            bubbles: true
+          })
+        );
+        break;
+      case "c":
+        this.dispatchEvent(
+          new GlobalThis.CustomEvent(
+            MediaUIEvents.MEDIA_TOGGLE_SUBTITLES_REQUEST,
+            { composed: true, bubbles: true }
+          )
+        );
+        break;
+      case "ArrowLeft": {
+        const offsetValue = this.hasAttribute(
+          Attributes2.KEYBOARD_BACKWARD_SEEK_OFFSET
+        ) ? +this.getAttribute(Attributes2.KEYBOARD_BACKWARD_SEEK_OFFSET) : DEFAULT_SEEK_OFFSET;
+        detail = Math.max(
+          ((_d = this.mediaStore.getState().mediaCurrentTime) != null ? _d : 0) - offsetValue,
+          0
+        );
+        evt = new GlobalThis.CustomEvent(MediaUIEvents.MEDIA_SEEK_REQUEST, {
+          composed: true,
+          bubbles: true,
+          detail
+        });
+        this.dispatchEvent(evt);
+        break;
+      }
+      case "ArrowRight": {
+        const offsetValue = this.hasAttribute(
+          Attributes2.KEYBOARD_FORWARD_SEEK_OFFSET
+        ) ? +this.getAttribute(Attributes2.KEYBOARD_FORWARD_SEEK_OFFSET) : DEFAULT_SEEK_OFFSET;
+        detail = Math.max(
+          ((_e = this.mediaStore.getState().mediaCurrentTime) != null ? _e : 0) + offsetValue,
+          0
+        );
+        evt = new GlobalThis.CustomEvent(MediaUIEvents.MEDIA_SEEK_REQUEST, {
+          composed: true,
+          bubbles: true,
+          detail
+        });
+        this.dispatchEvent(evt);
+        break;
+      }
+      default:
+        break;
+    }
+  }
+};
+_hotKeys = /* @__PURE__ */ new WeakMap();
+_fullscreenElement = /* @__PURE__ */ new WeakMap();
+_mediaStore = /* @__PURE__ */ new WeakMap();
+_mediaStateCallback = /* @__PURE__ */ new WeakMap();
+_mediaStoreUnsubscribe = /* @__PURE__ */ new WeakMap();
+_mediaStateEventHandler = /* @__PURE__ */ new WeakMap();
+_setupDefaultStore = /* @__PURE__ */ new WeakSet();
+setupDefaultStore_fn = function() {
+  var _a3;
+  this.mediaStore = createMediaStore({
+    media: this.media,
+    fullscreenElement: this.fullscreenElement,
+    options: {
+      defaultSubtitles: this.hasAttribute(Attributes2.DEFAULT_SUBTITLES),
+      defaultDuration: this.hasAttribute(Attributes2.DEFAULT_DURATION) ? +this.getAttribute(Attributes2.DEFAULT_DURATION) : void 0,
+      defaultStreamType: (
+        /** @type {import('./media-store/state-mediator.js').StreamTypeValue} */
+        (_a3 = this.getAttribute(
+          Attributes2.DEFAULT_STREAM_TYPE
+        )) != null ? _a3 : void 0
+      ),
+      liveEdgeOffset: this.hasAttribute(Attributes2.LIVE_EDGE_OFFSET) ? +this.getAttribute(Attributes2.LIVE_EDGE_OFFSET) : void 0,
+      // NOTE: This wasn't updated if it was changed later. Should it be? (CJP)
+      noVolumePref: this.hasAttribute(Attributes2.NO_VOLUME_PREF),
+      noSubtitlesLangPref: this.hasAttribute(
+        Attributes2.NO_SUBTITLES_LANG_PREF
+      )
+    }
+  });
+};
+_keyUpHandler = /* @__PURE__ */ new WeakSet();
+keyUpHandler_fn = function(e) {
+  const { key } = e;
+  if (!ButtonPressedKeys.includes(key)) {
+    this.removeEventListener("keyup", __privateMethod3(this, _keyUpHandler, keyUpHandler_fn));
+    return;
+  }
+  this.keyboardShortcutHandler(e);
+};
+_keyDownHandler = /* @__PURE__ */ new WeakSet();
+keyDownHandler_fn = function(e) {
+  const { metaKey, altKey, key } = e;
+  if (metaKey || altKey || !ButtonPressedKeys.includes(key)) {
+    this.removeEventListener("keyup", __privateMethod3(this, _keyUpHandler, keyUpHandler_fn));
+    return;
+  }
+  if ([" ", "ArrowLeft", "ArrowRight"].includes(key) && !(__privateGet5(this, _hotKeys).contains(`no${key.toLowerCase()}`) || key === " " && __privateGet5(this, _hotKeys).contains("nospace"))) {
+    e.preventDefault();
+  }
+  this.addEventListener("keyup", __privateMethod3(this, _keyUpHandler, keyUpHandler_fn), { once: true });
+};
+var MEDIA_UI_ATTRIBUTE_NAMES2 = Object.values(MediaUIAttributes);
+var MEDIA_UI_PROP_NAMES = Object.values(MediaUIProps);
+var getMediaUIAttributesFrom = (child) => {
+  var _a3, _b2, _c, _d;
+  let { observedAttributes: observedAttributes2 } = child.constructor;
+  if (!observedAttributes2 && ((_a3 = child.nodeName) == null ? void 0 : _a3.includes("-"))) {
+    GlobalThis.customElements.upgrade(child);
+    ({ observedAttributes: observedAttributes2 } = child.constructor);
+  }
+  const mediaChromeAttributesList = (_d = (_c = (_b2 = child == null ? void 0 : child.getAttribute) == null ? void 0 : _b2.call(child, MediaStateReceiverAttributes.MEDIA_CHROME_ATTRIBUTES)) == null ? void 0 : _c.split) == null ? void 0 : _d.call(_c, /\s+/);
+  if (!Array.isArray(observedAttributes2 || mediaChromeAttributesList))
+    return [];
+  return (observedAttributes2 || mediaChromeAttributesList).filter(
+    (attrName) => MEDIA_UI_ATTRIBUTE_NAMES2.includes(attrName)
+  );
+};
+var hasMediaUIProps = (mediaStateReceiverCandidate) => {
+  var _a3, _b2;
+  if (((_a3 = mediaStateReceiverCandidate.nodeName) == null ? void 0 : _a3.includes("-")) && !!GlobalThis.customElements.get(
+    (_b2 = mediaStateReceiverCandidate.nodeName) == null ? void 0 : _b2.toLowerCase()
+  ) && !(mediaStateReceiverCandidate instanceof GlobalThis.customElements.get(
+    mediaStateReceiverCandidate.nodeName.toLowerCase()
+  ))) {
+    GlobalThis.customElements.upgrade(mediaStateReceiverCandidate);
+  }
+  return MEDIA_UI_PROP_NAMES.some(
+    (propName) => propName in mediaStateReceiverCandidate
+  );
+};
+var isMediaStateReceiver = (child) => {
+  return hasMediaUIProps(child) || !!getMediaUIAttributesFrom(child).length;
+};
+var serializeTuple = (tuple) => {
+  var _a3;
+  return (_a3 = tuple == null ? void 0 : tuple.join) == null ? void 0 : _a3.call(tuple, ":");
+};
+var CustomAttrSerializer = {
+  [MediaUIAttributes.MEDIA_SUBTITLES_LIST]: stringifyTextTrackList,
+  [MediaUIAttributes.MEDIA_SUBTITLES_SHOWING]: stringifyTextTrackList,
+  [MediaUIAttributes.MEDIA_SEEKABLE]: serializeTuple,
+  [MediaUIAttributes.MEDIA_BUFFERED]: (tuples) => tuples == null ? void 0 : tuples.map(serializeTuple).join(" "),
+  [MediaUIAttributes.MEDIA_PREVIEW_COORDS]: (coords) => coords == null ? void 0 : coords.join(" "),
+  [MediaUIAttributes.MEDIA_RENDITION_LIST]: stringifyRenditionList,
+  [MediaUIAttributes.MEDIA_AUDIO_TRACK_LIST]: stringifyAudioTrackList
+};
+var setAttr = async (child, attrName, attrValue) => {
+  var _a3, _b2;
+  if (!child.isConnected) {
+    await delay(0);
+  }
+  if (typeof attrValue === "boolean" || attrValue == null) {
+    return setBooleanAttr(child, attrName, attrValue);
+  }
+  if (typeof attrValue === "number") {
+    return setNumericAttr(child, attrName, attrValue);
+  }
+  if (typeof attrValue === "string") {
+    return setStringAttr(child, attrName, attrValue);
+  }
+  if (Array.isArray(attrValue) && !attrValue.length) {
+    return child.removeAttribute(attrName);
+  }
+  const val = (_b2 = (_a3 = CustomAttrSerializer[attrName]) == null ? void 0 : _a3.call(CustomAttrSerializer, attrValue)) != null ? _b2 : attrValue;
+  return child.setAttribute(attrName, val);
+};
+var isMediaSlotElementDescendant = (el) => {
+  var _a3;
+  return !!((_a3 = el.closest) == null ? void 0 : _a3.call(el, '*[slot="media"]'));
+};
+var traverseForMediaStateReceivers = (rootNode, mediaStateReceiverCallback) => {
+  if (isMediaSlotElementDescendant(rootNode)) {
+    return;
+  }
+  const traverseForMediaStateReceiversSync = (rootNode2, mediaStateReceiverCallback2) => {
+    var _a3, _b2;
+    if (isMediaStateReceiver(rootNode2)) {
+      mediaStateReceiverCallback2(rootNode2);
+    }
+    const { children = [] } = rootNode2 != null ? rootNode2 : {};
+    const shadowChildren = (_b2 = (_a3 = rootNode2 == null ? void 0 : rootNode2.shadowRoot) == null ? void 0 : _a3.children) != null ? _b2 : [];
+    const allChildren = [...children, ...shadowChildren];
+    allChildren.forEach(
+      (child) => traverseForMediaStateReceivers(
+        child,
+        mediaStateReceiverCallback2
+      )
+    );
+  };
+  const name = rootNode == null ? void 0 : rootNode.nodeName.toLowerCase();
+  if (name.includes("-") && !isMediaStateReceiver(rootNode)) {
+    GlobalThis.customElements.whenDefined(name).then(() => {
+      traverseForMediaStateReceiversSync(rootNode, mediaStateReceiverCallback);
+    });
+    return;
+  }
+  traverseForMediaStateReceiversSync(rootNode, mediaStateReceiverCallback);
+};
+var propagateMediaState = (els, stateName, val) => {
+  els.forEach((el) => {
+    if (stateName in el) {
+      el[stateName] = val;
+      return;
+    }
+    const relevantAttrs = getMediaUIAttributesFrom(el);
+    const attrName = stateName.toLowerCase();
+    if (!relevantAttrs.includes(attrName))
+      return;
+    setAttr(el, attrName, val);
+  });
+};
+var monitorForMediaStateReceivers = (rootNode, registerMediaStateReceiver, unregisterMediaStateReceiver) => {
+  traverseForMediaStateReceivers(rootNode, registerMediaStateReceiver);
+  const registerMediaStateReceiverHandler = (evt) => {
+    var _a3;
+    const el = (_a3 = evt == null ? void 0 : evt.composedPath()[0]) != null ? _a3 : evt.target;
+    registerMediaStateReceiver(el);
+  };
+  const unregisterMediaStateReceiverHandler = (evt) => {
+    var _a3;
+    const el = (_a3 = evt == null ? void 0 : evt.composedPath()[0]) != null ? _a3 : evt.target;
+    unregisterMediaStateReceiver(el);
+  };
+  rootNode.addEventListener(
+    MediaUIEvents.REGISTER_MEDIA_STATE_RECEIVER,
+    registerMediaStateReceiverHandler
+  );
+  rootNode.addEventListener(
+    MediaUIEvents.UNREGISTER_MEDIA_STATE_RECEIVER,
+    unregisterMediaStateReceiverHandler
+  );
+  const mutationCallback = (mutationsList) => {
+    mutationsList.forEach((mutationRecord) => {
+      const {
+        addedNodes = [],
+        removedNodes = [],
+        type,
+        target,
+        attributeName
+      } = mutationRecord;
+      if (type === "childList") {
+        Array.prototype.forEach.call(
+          addedNodes,
+          (node) => traverseForMediaStateReceivers(
+            node,
+            registerMediaStateReceiver
+          )
+        );
+        Array.prototype.forEach.call(
+          removedNodes,
+          (node) => traverseForMediaStateReceivers(
+            node,
+            unregisterMediaStateReceiver
+          )
+        );
+      } else if (type === "attributes" && attributeName === MediaStateReceiverAttributes.MEDIA_CHROME_ATTRIBUTES) {
+        if (isMediaStateReceiver(target)) {
+          registerMediaStateReceiver(target);
+        } else {
+          unregisterMediaStateReceiver(target);
+        }
+      }
+    });
+  };
+  let prevSlotted = [];
+  const slotChangeHandler = (event) => {
+    const slotEl = event.target;
+    if (slotEl.name === "media")
+      return;
+    prevSlotted.forEach(
+      (node) => traverseForMediaStateReceivers(node, unregisterMediaStateReceiver)
+    );
+    prevSlotted = [
+      ...slotEl.assignedElements({ flatten: true })
+    ];
+    prevSlotted.forEach(
+      (node) => traverseForMediaStateReceivers(node, registerMediaStateReceiver)
+    );
+  };
+  rootNode.addEventListener("slotchange", slotChangeHandler);
+  const observer2 = new MutationObserver(mutationCallback);
+  observer2.observe(rootNode, {
+    childList: true,
+    attributes: true,
+    subtree: true
+  });
+  const unsubscribe = () => {
+    traverseForMediaStateReceivers(rootNode, unregisterMediaStateReceiver);
+    rootNode.removeEventListener("slotchange", slotChangeHandler);
+    observer2.disconnect();
+    rootNode.removeEventListener(
+      MediaUIEvents.REGISTER_MEDIA_STATE_RECEIVER,
+      registerMediaStateReceiverHandler
+    );
+    rootNode.removeEventListener(
+      MediaUIEvents.UNREGISTER_MEDIA_STATE_RECEIVER,
+      unregisterMediaStateReceiverHandler
+    );
+  };
+  return unsubscribe;
+};
+if (!GlobalThis.customElements.get("media-controller")) {
+  GlobalThis.customElements.define("media-controller", MediaController);
+}
+var media_controller_default = MediaController;
+
+// ../../node_modules/media-chrome/dist/media-chrome-button.js
+var __accessCheck6 = (obj, member, msg) => {
+  if (!member.has(obj))
+    throw TypeError("Cannot " + msg);
+};
+var __privateGet6 = (obj, member, getter) => {
+  __accessCheck6(obj, member, "read from private field");
+  return getter ? getter.call(obj) : member.get(obj);
+};
+var __privateAdd6 = (obj, member, value) => {
+  if (member.has(obj))
+    throw TypeError("Cannot add the same private member more than once");
+  member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+};
+var __privateSet6 = (obj, member, value, setter) => {
+  __accessCheck6(obj, member, "write to private field");
+  setter ? setter.call(obj, value) : member.set(obj, value);
+  return value;
+};
+var __privateMethod4 = (obj, member, method) => {
+  __accessCheck6(obj, member, "access private method");
+  return method;
+};
+var _mediaController2;
+var _clickListener;
+var _positionTooltip;
+var _keyupListener;
+var _keydownListener;
+var _setupTooltip;
+var setupTooltip_fn;
+var Attributes3 = {
+  TOOLTIP_PLACEMENT: "tooltipplacement",
+  DISABLED: "disabled",
+  NO_TOOLTIP: "notooltip"
+};
+var template3 = Document2.createElement("template");
+template3.innerHTML = /*html*/
+`
 <style>
   :host {
     position: relative;
@@ -168,12 +3985,19 @@
     -webkit-tap-highlight-color: transparent;
   }
 
-  
+  ${/*
+  Only show outline when keyboard focusing.
+  https://drafts.csswg.org/selectors-4/#the-focus-visible-pseudo
+*/
+""}
   :host(:focus-visible) {
     box-shadow: inset 0 0 0 2px rgb(27 127 204 / .9);
     outline: 0;
   }
-  
+  ${/*
+* hide default focus ring, particularly when using mouse
+*/
+""}
   :host(:where(:focus)) {
     box-shadow: none;
     outline: 0;
@@ -196,7 +4020,8 @@
   }
 
   media-tooltip {
-    
+    ${/** Make sure unpositioned tooltip doesn't cause page overflow (scroll). */
+""}
     max-width: 0;
     overflow-x: clip;
     opacity: 0;
@@ -220,44 +4045,307 @@
     <slot name="tooltip-content"></slot>
   </media-tooltip>
 </slot>
-`;var V=class extends d.HTMLElement{constructor(e={}){var t;if(super(),wi(this,qo),wi(this,Fe,void 0),this.preventClick=!1,this.tooltipEl=null,this.tooltipContent="",wi(this,Li,a=>{this.preventClick||this.handleClick(a),setTimeout(J(this,kt),0)}),wi(this,kt,()=>{var a,r;(r=(a=this.tooltipEl)==null?void 0:a.updateXOffset)==null||r.call(a)}),wi(this,Ri,a=>{let{key:r}=a;if(!this.keysUsed.includes(r)){this.removeEventListener("keyup",J(this,Ri));return}this.preventClick||this.handleClick(a)}),wi(this,Ur,a=>{let{metaKey:r,altKey:n,key:s}=a;if(r||n||!this.keysUsed.includes(s)){this.removeEventListener("keyup",J(this,Ri));return}this.addEventListener("keyup",J(this,Ri),{once:!0})}),!this.shadowRoot){this.attachShadow({mode:"open"});let a=Tu.content.cloneNode(!0);this.nativeEl=a;let r=e.slotTemplate;r||(r=h.createElement("template"),r.innerHTML=`<slot>${e.defaultContent||""}</slot>`),e.tooltipContent&&(a.querySelector('slot[name="tooltip-content"]').innerHTML=(t=e.tooltipContent)!=null?t:"",this.tooltipContent=e.tooltipContent),this.nativeEl.appendChild(r.content.cloneNode(!0)),this.shadowRoot.appendChild(a)}this.tooltipEl=this.shadowRoot.querySelector("media-tooltip")}static get observedAttributes(){return["disabled",Tt.TOOLTIP_PLACEMENT,R.MEDIA_CONTROLLER]}enable(){this.addEventListener("click",J(this,Li)),this.addEventListener("keydown",J(this,Ur)),this.tabIndex=0}disable(){this.removeEventListener("click",J(this,Li)),this.removeEventListener("keydown",J(this,Ur)),this.removeEventListener("keyup",J(this,Ri)),this.tabIndex=-1}attributeChangedCallback(e,t,a){var r,n,s,l,u;e===R.MEDIA_CONTROLLER?(t&&((n=(r=J(this,Fe))==null?void 0:r.unassociateElement)==null||n.call(r,this),Pr(this,Fe,null)),a&&this.isConnected&&(Pr(this,Fe,(s=this.getRootNode())==null?void 0:s.getElementById(a)),(u=(l=J(this,Fe))==null?void 0:l.associateElement)==null||u.call(l,this))):e==="disabled"&&a!==t?a==null?this.enable():this.disable():e===Tt.TOOLTIP_PLACEMENT&&this.tooltipEl&&a!==t&&(this.tooltipEl.placement=a),J(this,kt).call(this)}connectedCallback(){var e,t,a;let{style:r}=$(this.shadowRoot,":host");r.setProperty("display",`var(--media-control-display, var(--${this.localName}-display, inline-flex))`),this.hasAttribute("disabled")?this.disable():this.enable(),this.setAttribute("role","button");let n=this.getAttribute(R.MEDIA_CONTROLLER);n&&(Pr(this,Fe,(e=this.getRootNode())==null?void 0:e.getElementById(n)),(a=(t=J(this,Fe))==null?void 0:t.associateElement)==null||a.call(t,this)),d.customElements.whenDefined("media-tooltip").then(()=>jh(this,qo,yu).call(this))}disconnectedCallback(){var e,t;this.disable(),(t=(e=J(this,Fe))==null?void 0:e.unassociateElement)==null||t.call(e,this),Pr(this,Fe,null),this.removeEventListener("mouseenter",J(this,kt)),this.removeEventListener("focus",J(this,kt)),this.removeEventListener("click",J(this,Li))}get keysUsed(){return["Enter"," "]}get tooltipPlacement(){return M(this,Tt.TOOLTIP_PLACEMENT)}set tooltipPlacement(e){w(this,Tt.TOOLTIP_PLACEMENT,e)}get mediaController(){return M(this,R.MEDIA_CONTROLLER)}set mediaController(e){w(this,R.MEDIA_CONTROLLER,e)}get disabled(){return k(this,Tt.DISABLED)}set disabled(e){S(this,Tt.DISABLED,e)}get noTooltip(){return k(this,Tt.NO_TOOLTIP)}set noTooltip(e){S(this,Tt.NO_TOOLTIP,e)}handleClick(e){}};Fe=new WeakMap;Li=new WeakMap;kt=new WeakMap;Ri=new WeakMap;Ur=new WeakMap;qo=new WeakSet;yu=function(){this.addEventListener("mouseenter",J(this,kt)),this.addEventListener("focus",J(this,kt)),this.addEventListener("click",J(this,Li));let i=this.tooltipPlacement;i&&this.tooltipEl&&(this.tooltipEl.placement=i)};d.customElements.get("media-chrome-button")||d.customElements.define("media-chrome-button",V);var ku=`<svg aria-hidden="true" viewBox="0 0 26 24">
+`;
+var MediaChromeButton = class extends GlobalThis.HTMLElement {
+  constructor(options = {}) {
+    var _a3;
+    super();
+    __privateAdd6(this, _setupTooltip);
+    __privateAdd6(this, _mediaController2, void 0);
+    this.preventClick = false;
+    this.tooltipEl = null;
+    this.tooltipContent = "";
+    __privateAdd6(this, _clickListener, (e) => {
+      if (!this.preventClick) {
+        this.handleClick(e);
+      }
+      setTimeout(__privateGet6(this, _positionTooltip), 0);
+    });
+    __privateAdd6(this, _positionTooltip, () => {
+      var _a4, _b2;
+      (_b2 = (_a4 = this.tooltipEl) == null ? void 0 : _a4.updateXOffset) == null ? void 0 : _b2.call(_a4);
+    });
+    __privateAdd6(this, _keyupListener, (e) => {
+      const { key } = e;
+      if (!this.keysUsed.includes(key)) {
+        this.removeEventListener("keyup", __privateGet6(this, _keyupListener));
+        return;
+      }
+      if (!this.preventClick) {
+        this.handleClick(e);
+      }
+    });
+    __privateAdd6(this, _keydownListener, (e) => {
+      const { metaKey, altKey, key } = e;
+      if (metaKey || altKey || !this.keysUsed.includes(key)) {
+        this.removeEventListener("keyup", __privateGet6(this, _keyupListener));
+        return;
+      }
+      this.addEventListener("keyup", __privateGet6(this, _keyupListener), { once: true });
+    });
+    if (!this.shadowRoot) {
+      this.attachShadow({ mode: "open" });
+      const buttonHTML = template3.content.cloneNode(true);
+      this.nativeEl = buttonHTML;
+      let slotTemplate17 = options.slotTemplate;
+      if (!slotTemplate17) {
+        slotTemplate17 = Document2.createElement("template");
+        slotTemplate17.innerHTML = `<slot>${options.defaultContent || ""}</slot>`;
+      }
+      if (options.tooltipContent) {
+        buttonHTML.querySelector('slot[name="tooltip-content"]').innerHTML = (_a3 = options.tooltipContent) != null ? _a3 : "";
+        this.tooltipContent = options.tooltipContent;
+      }
+      this.nativeEl.appendChild(slotTemplate17.content.cloneNode(true));
+      this.shadowRoot.appendChild(buttonHTML);
+    }
+    this.tooltipEl = this.shadowRoot.querySelector("media-tooltip");
+  }
+  static get observedAttributes() {
+    return [
+      "disabled",
+      Attributes3.TOOLTIP_PLACEMENT,
+      MediaStateReceiverAttributes.MEDIA_CONTROLLER
+    ];
+  }
+  enable() {
+    this.addEventListener("click", __privateGet6(this, _clickListener));
+    this.addEventListener("keydown", __privateGet6(this, _keydownListener));
+    this.tabIndex = 0;
+  }
+  disable() {
+    this.removeEventListener("click", __privateGet6(this, _clickListener));
+    this.removeEventListener("keydown", __privateGet6(this, _keydownListener));
+    this.removeEventListener("keyup", __privateGet6(this, _keyupListener));
+    this.tabIndex = -1;
+  }
+  attributeChangedCallback(attrName, oldValue, newValue) {
+    var _a3, _b2, _c, _d, _e;
+    if (attrName === MediaStateReceiverAttributes.MEDIA_CONTROLLER) {
+      if (oldValue) {
+        (_b2 = (_a3 = __privateGet6(this, _mediaController2)) == null ? void 0 : _a3.unassociateElement) == null ? void 0 : _b2.call(_a3, this);
+        __privateSet6(this, _mediaController2, null);
+      }
+      if (newValue && this.isConnected) {
+        __privateSet6(this, _mediaController2, (_c = this.getRootNode()) == null ? void 0 : _c.getElementById(newValue));
+        (_e = (_d = __privateGet6(this, _mediaController2)) == null ? void 0 : _d.associateElement) == null ? void 0 : _e.call(_d, this);
+      }
+    } else if (attrName === "disabled" && newValue !== oldValue) {
+      if (newValue == null) {
+        this.enable();
+      } else {
+        this.disable();
+      }
+    } else if (attrName === Attributes3.TOOLTIP_PLACEMENT && this.tooltipEl && newValue !== oldValue) {
+      this.tooltipEl.placement = newValue;
+    }
+    __privateGet6(this, _positionTooltip).call(this);
+  }
+  connectedCallback() {
+    var _a3, _b2, _c;
+    const { style } = getOrInsertCSSRule(this.shadowRoot, ":host");
+    style.setProperty(
+      "display",
+      `var(--media-control-display, var(--${this.localName}-display, inline-flex))`
+    );
+    if (!this.hasAttribute("disabled")) {
+      this.enable();
+    } else {
+      this.disable();
+    }
+    this.setAttribute("role", "button");
+    const mediaControllerId = this.getAttribute(
+      MediaStateReceiverAttributes.MEDIA_CONTROLLER
+    );
+    if (mediaControllerId) {
+      __privateSet6(
+        this,
+        _mediaController2,
+        // @ts-ignore
+        (_a3 = this.getRootNode()) == null ? void 0 : _a3.getElementById(mediaControllerId)
+      );
+      (_c = (_b2 = __privateGet6(this, _mediaController2)) == null ? void 0 : _b2.associateElement) == null ? void 0 : _c.call(_b2, this);
+    }
+    GlobalThis.customElements.whenDefined("media-tooltip").then(() => __privateMethod4(this, _setupTooltip, setupTooltip_fn).call(this));
+  }
+  disconnectedCallback() {
+    var _a3, _b2;
+    this.disable();
+    (_b2 = (_a3 = __privateGet6(this, _mediaController2)) == null ? void 0 : _a3.unassociateElement) == null ? void 0 : _b2.call(_a3, this);
+    __privateSet6(this, _mediaController2, null);
+    this.removeEventListener("mouseenter", __privateGet6(this, _positionTooltip));
+    this.removeEventListener("focus", __privateGet6(this, _positionTooltip));
+    this.removeEventListener("click", __privateGet6(this, _clickListener));
+  }
+  get keysUsed() {
+    return ["Enter", " "];
+  }
+  /**
+   * Get or set tooltip placement
+   */
+  get tooltipPlacement() {
+    return getStringAttr(this, Attributes3.TOOLTIP_PLACEMENT);
+  }
+  set tooltipPlacement(value) {
+    setStringAttr(this, Attributes3.TOOLTIP_PLACEMENT, value);
+  }
+  get mediaController() {
+    return getStringAttr(this, MediaStateReceiverAttributes.MEDIA_CONTROLLER);
+  }
+  set mediaController(value) {
+    setStringAttr(this, MediaStateReceiverAttributes.MEDIA_CONTROLLER, value);
+  }
+  get disabled() {
+    return getBooleanAttr(this, Attributes3.DISABLED);
+  }
+  set disabled(value) {
+    setBooleanAttr(this, Attributes3.DISABLED, value);
+  }
+  get noTooltip() {
+    return getBooleanAttr(this, Attributes3.NO_TOOLTIP);
+  }
+  set noTooltip(value) {
+    setBooleanAttr(this, Attributes3.NO_TOOLTIP, value);
+  }
+  /**
+   * @abstract
+   * @argument {Event} e
+   */
+  handleClick(e) {
+  }
+  // eslint-disable-line
+};
+_mediaController2 = /* @__PURE__ */ new WeakMap();
+_clickListener = /* @__PURE__ */ new WeakMap();
+_positionTooltip = /* @__PURE__ */ new WeakMap();
+_keyupListener = /* @__PURE__ */ new WeakMap();
+_keydownListener = /* @__PURE__ */ new WeakMap();
+_setupTooltip = /* @__PURE__ */ new WeakSet();
+setupTooltip_fn = function() {
+  this.addEventListener("mouseenter", __privateGet6(this, _positionTooltip));
+  this.addEventListener("focus", __privateGet6(this, _positionTooltip));
+  this.addEventListener("click", __privateGet6(this, _clickListener));
+  const initialPlacement = this.tooltipPlacement;
+  if (initialPlacement && this.tooltipEl) {
+    this.tooltipEl.placement = initialPlacement;
+  }
+};
+if (!GlobalThis.customElements.get("media-chrome-button")) {
+  GlobalThis.customElements.define("media-chrome-button", MediaChromeButton);
+}
+
+// ../../node_modules/media-chrome/dist/media-airplay-button.js
+var airplayIcon = `<svg aria-hidden="true" viewBox="0 0 26 24">
   <path d="M22.13 3H3.87a.87.87 0 0 0-.87.87v13.26a.87.87 0 0 0 .87.87h3.4L9 16H5V5h16v11h-4l1.72 2h3.4a.87.87 0 0 0 .87-.87V3.87a.87.87 0 0 0-.86-.87Zm-8.75 11.44a.5.5 0 0 0-.76 0l-4.91 5.73a.5.5 0 0 0 .38.83h9.82a.501.501 0 0 0 .38-.83l-4.91-5.73Z"/>
 </svg>
-`,Iu=h.createElement("template");Iu.innerHTML=`
+`;
+var slotTemplate = Document2.createElement("template");
+slotTemplate.innerHTML = /*html*/
+`
   <style>
-    :host([${o.MEDIA_IS_AIRPLAYING}]) slot[name=icon] slot:not([name=exit]) {
+    :host([${MediaUIAttributes.MEDIA_IS_AIRPLAYING}]) slot[name=icon] slot:not([name=exit]) {
       display: none !important;
     }
 
-    
-    :host(:not([${o.MEDIA_IS_AIRPLAYING}])) slot[name=icon] slot:not([name=enter]) {
+    ${/* Double negative, but safer if display doesn't equal 'block' */
+""}
+    :host(:not([${MediaUIAttributes.MEDIA_IS_AIRPLAYING}])) slot[name=icon] slot:not([name=enter]) {
       display: none !important;
     }
 
-    :host([${o.MEDIA_IS_AIRPLAYING}]) slot[name=tooltip-enter],
-    :host(:not([${o.MEDIA_IS_AIRPLAYING}])) slot[name=tooltip-exit] {
+    :host([${MediaUIAttributes.MEDIA_IS_AIRPLAYING}]) slot[name=tooltip-enter],
+    :host(:not([${MediaUIAttributes.MEDIA_IS_AIRPLAYING}])) slot[name=tooltip-exit] {
       display: none;
     }
   </style>
 
   <slot name="icon">
-    <slot name="enter">${ku}</slot>
-    <slot name="exit">${ku}</slot>
+    <slot name="enter">${airplayIcon}</slot>
+    <slot name="exit">${airplayIcon}</slot>
   </slot>
-`;var ep=`
-  <slot name="tooltip-enter">${v("start airplay")}</slot>
-  <slot name="tooltip-exit">${v("stop airplay")}</slot>
-`,Su=i=>{let e=i.mediaIsAirplaying?v("stop airplay"):v("start airplay");i.setAttribute("aria-label",e)},zo=class extends V{static get observedAttributes(){return[...super.observedAttributes,o.MEDIA_IS_AIRPLAYING,o.MEDIA_AIRPLAY_UNAVAILABLE]}constructor(e={}){super({slotTemplate:Iu,tooltipContent:ep,...e})}connectedCallback(){super.connectedCallback(),Su(this)}attributeChangedCallback(e,t,a){super.attributeChangedCallback(e,t,a),e===o.MEDIA_IS_AIRPLAYING&&Su(this)}get mediaIsAirplaying(){return k(this,o.MEDIA_IS_AIRPLAYING)}set mediaIsAirplaying(e){S(this,o.MEDIA_IS_AIRPLAYING,e)}get mediaAirplayUnavailable(){return M(this,o.MEDIA_AIRPLAY_UNAVAILABLE)}set mediaAirplayUnavailable(e){w(this,o.MEDIA_AIRPLAY_UNAVAILABLE,e)}handleClick(){let e=new d.CustomEvent(f.MEDIA_AIRPLAY_REQUEST,{composed:!0,bubbles:!0});this.dispatchEvent(e)}};d.customElements.get("media-airplay-button")||d.customElements.define("media-airplay-button",zo);var tp=`<svg aria-hidden="true" viewBox="0 0 26 24">
+`;
+var tooltipContent = (
+  /*html*/
+  `
+  <slot name="tooltip-enter">${t("start airplay")}</slot>
+  <slot name="tooltip-exit">${t("stop airplay")}</slot>
+`
+);
+var updateAriaLabel = (el) => {
+  const label = el.mediaIsAirplaying ? t("stop airplay") : t("start airplay");
+  el.setAttribute("aria-label", label);
+};
+var MediaAirplayButton = class extends MediaChromeButton {
+  static get observedAttributes() {
+    return [
+      ...super.observedAttributes,
+      MediaUIAttributes.MEDIA_IS_AIRPLAYING,
+      MediaUIAttributes.MEDIA_AIRPLAY_UNAVAILABLE
+    ];
+  }
+  constructor(options = {}) {
+    super({ slotTemplate, tooltipContent, ...options });
+  }
+  connectedCallback() {
+    super.connectedCallback();
+    updateAriaLabel(this);
+  }
+  attributeChangedCallback(attrName, oldValue, newValue) {
+    super.attributeChangedCallback(attrName, oldValue, newValue);
+    if (attrName === MediaUIAttributes.MEDIA_IS_AIRPLAYING) {
+      updateAriaLabel(this);
+    }
+  }
+  /**
+   * Are we currently airplaying
+   */
+  get mediaIsAirplaying() {
+    return getBooleanAttr(this, MediaUIAttributes.MEDIA_IS_AIRPLAYING);
+  }
+  set mediaIsAirplaying(value) {
+    setBooleanAttr(this, MediaUIAttributes.MEDIA_IS_AIRPLAYING, value);
+  }
+  /**
+   * Airplay unavailability state
+   */
+  get mediaAirplayUnavailable() {
+    return getStringAttr(this, MediaUIAttributes.MEDIA_AIRPLAY_UNAVAILABLE);
+  }
+  set mediaAirplayUnavailable(value) {
+    setStringAttr(this, MediaUIAttributes.MEDIA_AIRPLAY_UNAVAILABLE, value);
+  }
+  handleClick() {
+    const evt = new GlobalThis.CustomEvent(
+      MediaUIEvents.MEDIA_AIRPLAY_REQUEST,
+      {
+        composed: true,
+        bubbles: true
+      }
+    );
+    this.dispatchEvent(evt);
+  }
+};
+if (!GlobalThis.customElements.get("media-airplay-button")) {
+  GlobalThis.customElements.define("media-airplay-button", MediaAirplayButton);
+}
+
+// ../../node_modules/media-chrome/dist/media-captions-button.js
+var ccIconOn = `<svg aria-hidden="true" viewBox="0 0 26 24">
   <path d="M22.83 5.68a2.58 2.58 0 0 0-2.3-2.5c-3.62-.24-11.44-.24-15.06 0a2.58 2.58 0 0 0-2.3 2.5c-.23 4.21-.23 8.43 0 12.64a2.58 2.58 0 0 0 2.3 2.5c3.62.24 11.44.24 15.06 0a2.58 2.58 0 0 0 2.3-2.5c.23-4.21.23-8.43 0-12.64Zm-11.39 9.45a3.07 3.07 0 0 1-1.91.57 3.06 3.06 0 0 1-2.34-1 3.75 3.75 0 0 1-.92-2.67 3.92 3.92 0 0 1 .92-2.77 3.18 3.18 0 0 1 2.43-1 2.94 2.94 0 0 1 2.13.78c.364.359.62.813.74 1.31l-1.43.35a1.49 1.49 0 0 0-1.51-1.17 1.61 1.61 0 0 0-1.29.58 2.79 2.79 0 0 0-.5 1.89 3 3 0 0 0 .49 1.93 1.61 1.61 0 0 0 1.27.58 1.48 1.48 0 0 0 1-.37 2.1 2.1 0 0 0 .59-1.14l1.4.44a3.23 3.23 0 0 1-1.07 1.69Zm7.22 0a3.07 3.07 0 0 1-1.91.57 3.06 3.06 0 0 1-2.34-1 3.75 3.75 0 0 1-.92-2.67 3.88 3.88 0 0 1 .93-2.77 3.14 3.14 0 0 1 2.42-1 3 3 0 0 1 2.16.82 2.8 2.8 0 0 1 .73 1.31l-1.43.35a1.49 1.49 0 0 0-1.51-1.21 1.61 1.61 0 0 0-1.29.58A2.79 2.79 0 0 0 15 12a3 3 0 0 0 .49 1.93 1.61 1.61 0 0 0 1.27.58 1.44 1.44 0 0 0 1-.37 2.1 2.1 0 0 0 .6-1.15l1.4.44a3.17 3.17 0 0 1-1.1 1.7Z"/>
-</svg>`,ip=`<svg aria-hidden="true" viewBox="0 0 26 24">
+</svg>`;
+var ccIconOff = `<svg aria-hidden="true" viewBox="0 0 26 24">
   <path d="M17.73 14.09a1.4 1.4 0 0 1-1 .37 1.579 1.579 0 0 1-1.27-.58A3 3 0 0 1 15 12a2.8 2.8 0 0 1 .5-1.85 1.63 1.63 0 0 1 1.29-.57 1.47 1.47 0 0 1 1.51 1.2l1.43-.34A2.89 2.89 0 0 0 19 9.07a3 3 0 0 0-2.14-.78 3.14 3.14 0 0 0-2.42 1 3.91 3.91 0 0 0-.93 2.78 3.74 3.74 0 0 0 .92 2.66 3.07 3.07 0 0 0 2.34 1 3.07 3.07 0 0 0 1.91-.57 3.17 3.17 0 0 0 1.07-1.74l-1.4-.45c-.083.43-.3.822-.62 1.12Zm-7.22 0a1.43 1.43 0 0 1-1 .37 1.58 1.58 0 0 1-1.27-.58A3 3 0 0 1 7.76 12a2.8 2.8 0 0 1 .5-1.85 1.63 1.63 0 0 1 1.29-.57 1.47 1.47 0 0 1 1.51 1.2l1.43-.34a2.81 2.81 0 0 0-.74-1.32 2.94 2.94 0 0 0-2.13-.78 3.18 3.18 0 0 0-2.43 1 4 4 0 0 0-.92 2.78 3.74 3.74 0 0 0 .92 2.66 3.07 3.07 0 0 0 2.34 1 3.07 3.07 0 0 0 1.91-.57 3.23 3.23 0 0 0 1.07-1.74l-1.4-.45a2.06 2.06 0 0 1-.6 1.07Zm12.32-8.41a2.59 2.59 0 0 0-2.3-2.51C18.72 3.05 15.86 3 13 3c-2.86 0-5.72.05-7.53.17a2.59 2.59 0 0 0-2.3 2.51c-.23 4.207-.23 8.423 0 12.63a2.57 2.57 0 0 0 2.3 2.5c1.81.13 4.67.19 7.53.19 2.86 0 5.72-.06 7.53-.19a2.57 2.57 0 0 0 2.3-2.5c.23-4.207.23-8.423 0-12.63Zm-1.49 12.53a1.11 1.11 0 0 1-.91 1.11c-1.67.11-4.45.18-7.43.18-2.98 0-5.76-.07-7.43-.18a1.11 1.11 0 0 1-.91-1.11c-.21-4.14-.21-8.29 0-12.43a1.11 1.11 0 0 1 .91-1.11C7.24 4.56 10 4.49 13 4.49s5.76.07 7.43.18a1.11 1.11 0 0 1 .91 1.11c.21 4.14.21 8.29 0 12.43Z"/>
-</svg>`,Ru=h.createElement("template");Ru.innerHTML=`
+</svg>`;
+var slotTemplate2 = Document2.createElement("template");
+slotTemplate2.innerHTML = /*html*/
+`
   <style>
     :host([aria-checked="true"]) slot[name=off] {
       display: none !important;
     }
 
-    
+    ${/* Double negative, but safer if display doesn't equal 'block' */
+""}
     :host(:not([aria-checked="true"])) slot[name=on] {
       display: none !important;
     }
@@ -269,37 +4357,229 @@
   </style>
 
   <slot name="icon">
-    <slot name="on">${tp}</slot>
-    <slot name="off">${ip}</slot>
+    <slot name="on">${ccIconOn}</slot>
+    <slot name="off">${ccIconOff}</slot>
   </slot>
-`;var ap=`
-  <slot name="tooltip-enable">${v("Enable captions")}</slot>
-  <slot name="tooltip-disable">${v("Disable captions")}</slot>
-`,Cu=i=>{i.setAttribute("aria-checked",Cr(i).toString())},Qo=class extends V{static get observedAttributes(){return[...super.observedAttributes,o.MEDIA_SUBTITLES_LIST,o.MEDIA_SUBTITLES_SHOWING]}constructor(e={}){super({slotTemplate:Ru,tooltipContent:ap,...e}),this._captionsReady=!1}connectedCallback(){super.connectedCallback(),this.setAttribute("role","switch"),this.setAttribute("aria-label",v("closed captions")),Cu(this)}attributeChangedCallback(e,t,a){super.attributeChangedCallback(e,t,a),e===o.MEDIA_SUBTITLES_SHOWING&&Cu(this)}get mediaSubtitlesList(){return Mu(this,o.MEDIA_SUBTITLES_LIST)}set mediaSubtitlesList(e){wu(this,o.MEDIA_SUBTITLES_LIST,e)}get mediaSubtitlesShowing(){return Mu(this,o.MEDIA_SUBTITLES_SHOWING)}set mediaSubtitlesShowing(e){wu(this,o.MEDIA_SUBTITLES_SHOWING,e)}handleClick(){this.dispatchEvent(new d.CustomEvent(f.MEDIA_TOGGLE_SUBTITLES_REQUEST,{composed:!0,bubbles:!0}))}},Mu=(i,e)=>{let t=i.getAttribute(e);return t?Vt(t):[]},wu=(i,e,t)=>{if(!(t!=null&&t.length)){i.removeAttribute(e);return}let a=dt(t);i.getAttribute(e)!==a&&i.setAttribute(e,a)};d.customElements.get("media-captions-button")||d.customElements.define("media-captions-button",Qo);var rp='<svg aria-hidden="true" viewBox="0 0 24 24"><g><path class="cast_caf_icon_arch0" d="M1,18 L1,21 L4,21 C4,19.3 2.66,18 1,18 L1,18 Z"/><path class="cast_caf_icon_arch1" d="M1,14 L1,16 C3.76,16 6,18.2 6,21 L8,21 C8,17.13 4.87,14 1,14 L1,14 Z"/><path class="cast_caf_icon_arch2" d="M1,10 L1,12 C5.97,12 10,16.0 10,21 L12,21 C12,14.92 7.07,10 1,10 L1,10 Z"/><path class="cast_caf_icon_box" d="M21,3 L3,3 C1.9,3 1,3.9 1,5 L1,8 L3,8 L3,5 L21,5 L21,19 L14,19 L14,21 L21,21 C22.1,21 23,20.1 23,19 L23,5 C23,3.9 22.1,3 21,3 L21,3 Z"/></g></svg>',np='<svg aria-hidden="true" viewBox="0 0 24 24"><g><path class="cast_caf_icon_arch0" d="M1,18 L1,21 L4,21 C4,19.3 2.66,18 1,18 L1,18 Z"/><path class="cast_caf_icon_arch1" d="M1,14 L1,16 C3.76,16 6,18.2 6,21 L8,21 C8,17.13 4.87,14 1,14 L1,14 Z"/><path class="cast_caf_icon_arch2" d="M1,10 L1,12 C5.97,12 10,16.0 10,21 L12,21 C12,14.92 7.07,10 1,10 L1,10 Z"/><path class="cast_caf_icon_box" d="M21,3 L3,3 C1.9,3 1,3.9 1,5 L1,8 L3,8 L3,5 L21,5 L21,19 L14,19 L14,21 L21,21 C22.1,21 23,20.1 23,19 L23,5 C23,3.9 22.1,3 21,3 L21,3 Z"/><path class="cast_caf_icon_boxfill" d="M5,7 L5,8.63 C8,8.6 13.37,14 13.37,17 L19,17 L19,7 Z"/></g></svg>',xu=h.createElement("template");xu.innerHTML=`
+`;
+var tooltipContent2 = (
+  /*html*/
+  `
+  <slot name="tooltip-enable">${t("Enable captions")}</slot>
+  <slot name="tooltip-disable">${t("Disable captions")}</slot>
+`
+);
+var updateAriaChecked = (el) => {
+  el.setAttribute("aria-checked", areSubsOn(el).toString());
+};
+var MediaCaptionsButton = class extends MediaChromeButton {
+  static get observedAttributes() {
+    return [
+      ...super.observedAttributes,
+      MediaUIAttributes.MEDIA_SUBTITLES_LIST,
+      MediaUIAttributes.MEDIA_SUBTITLES_SHOWING
+    ];
+  }
+  constructor(options = {}) {
+    super({ slotTemplate: slotTemplate2, tooltipContent: tooltipContent2, ...options });
+    this._captionsReady = false;
+  }
+  connectedCallback() {
+    super.connectedCallback();
+    this.setAttribute("role", "switch");
+    this.setAttribute("aria-label", t("closed captions"));
+    updateAriaChecked(this);
+  }
+  attributeChangedCallback(attrName, oldValue, newValue) {
+    super.attributeChangedCallback(attrName, oldValue, newValue);
+    if (attrName === MediaUIAttributes.MEDIA_SUBTITLES_SHOWING) {
+      updateAriaChecked(this);
+    }
+  }
+  /**
+   * An array of TextTrack-like objects.
+   * Objects must have the properties: kind, language, and label.
+   */
+  get mediaSubtitlesList() {
+    return getSubtitlesListAttr(this, MediaUIAttributes.MEDIA_SUBTITLES_LIST);
+  }
+  set mediaSubtitlesList(list) {
+    setSubtitlesListAttr(this, MediaUIAttributes.MEDIA_SUBTITLES_LIST, list);
+  }
+  /**
+   * An array of TextTrack-like objects.
+   * Objects must have the properties: kind, language, and label.
+   */
+  get mediaSubtitlesShowing() {
+    return getSubtitlesListAttr(
+      this,
+      MediaUIAttributes.MEDIA_SUBTITLES_SHOWING
+    );
+  }
+  set mediaSubtitlesShowing(list) {
+    setSubtitlesListAttr(this, MediaUIAttributes.MEDIA_SUBTITLES_SHOWING, list);
+  }
+  handleClick() {
+    this.dispatchEvent(
+      new GlobalThis.CustomEvent(MediaUIEvents.MEDIA_TOGGLE_SUBTITLES_REQUEST, {
+        composed: true,
+        bubbles: true
+      })
+    );
+  }
+};
+var getSubtitlesListAttr = (el, attrName) => {
+  const attrVal = el.getAttribute(attrName);
+  return attrVal ? parseTextTracksStr(attrVal) : [];
+};
+var setSubtitlesListAttr = (el, attrName, list) => {
+  if (!(list == null ? void 0 : list.length)) {
+    el.removeAttribute(attrName);
+    return;
+  }
+  const newValStr = stringifyTextTrackList(list);
+  const oldVal = el.getAttribute(attrName);
+  if (oldVal === newValStr)
+    return;
+  el.setAttribute(attrName, newValStr);
+};
+if (!GlobalThis.customElements.get("media-captions-button")) {
+  GlobalThis.customElements.define(
+    "media-captions-button",
+    MediaCaptionsButton
+  );
+}
+
+// ../../node_modules/media-chrome/dist/media-cast-button.js
+var enterIcon = `<svg aria-hidden="true" viewBox="0 0 24 24"><g><path class="cast_caf_icon_arch0" d="M1,18 L1,21 L4,21 C4,19.3 2.66,18 1,18 L1,18 Z"/><path class="cast_caf_icon_arch1" d="M1,14 L1,16 C3.76,16 6,18.2 6,21 L8,21 C8,17.13 4.87,14 1,14 L1,14 Z"/><path class="cast_caf_icon_arch2" d="M1,10 L1,12 C5.97,12 10,16.0 10,21 L12,21 C12,14.92 7.07,10 1,10 L1,10 Z"/><path class="cast_caf_icon_box" d="M21,3 L3,3 C1.9,3 1,3.9 1,5 L1,8 L3,8 L3,5 L21,5 L21,19 L14,19 L14,21 L21,21 C22.1,21 23,20.1 23,19 L23,5 C23,3.9 22.1,3 21,3 L21,3 Z"/></g></svg>`;
+var exitIcon = `<svg aria-hidden="true" viewBox="0 0 24 24"><g><path class="cast_caf_icon_arch0" d="M1,18 L1,21 L4,21 C4,19.3 2.66,18 1,18 L1,18 Z"/><path class="cast_caf_icon_arch1" d="M1,14 L1,16 C3.76,16 6,18.2 6,21 L8,21 C8,17.13 4.87,14 1,14 L1,14 Z"/><path class="cast_caf_icon_arch2" d="M1,10 L1,12 C5.97,12 10,16.0 10,21 L12,21 C12,14.92 7.07,10 1,10 L1,10 Z"/><path class="cast_caf_icon_box" d="M21,3 L3,3 C1.9,3 1,3.9 1,5 L1,8 L3,8 L3,5 L21,5 L21,19 L14,19 L14,21 L21,21 C22.1,21 23,20.1 23,19 L23,5 C23,3.9 22.1,3 21,3 L21,3 Z"/><path class="cast_caf_icon_boxfill" d="M5,7 L5,8.63 C8,8.6 13.37,14 13.37,17 L19,17 L19,7 Z"/></g></svg>`;
+var slotTemplate3 = Document2.createElement("template");
+slotTemplate3.innerHTML = /*html*/
+`
   <style>
-  :host([${o.MEDIA_IS_CASTING}]) slot[name=icon] slot:not([name=exit]) {
+  :host([${MediaUIAttributes.MEDIA_IS_CASTING}]) slot[name=icon] slot:not([name=exit]) {
     display: none !important;
   }
 
-  
-  :host(:not([${o.MEDIA_IS_CASTING}])) slot[name=icon] slot:not([name=enter]) {
+  ${/* Double negative, but safer if display doesn't equal 'block' */
+""}
+  :host(:not([${MediaUIAttributes.MEDIA_IS_CASTING}])) slot[name=icon] slot:not([name=enter]) {
     display: none !important;
   }
 
-  :host([${o.MEDIA_IS_CASTING}]) slot[name=tooltip-enter],
-    :host(:not([${o.MEDIA_IS_CASTING}])) slot[name=tooltip-exit] {
+  :host([${MediaUIAttributes.MEDIA_IS_CASTING}]) slot[name=tooltip-enter],
+    :host(:not([${MediaUIAttributes.MEDIA_IS_CASTING}])) slot[name=tooltip-exit] {
       display: none;
     }
   </style>
 
   <slot name="icon">
-    <slot name="enter">${rp}</slot>
-    <slot name="exit">${np}</slot>
+    <slot name="enter">${enterIcon}</slot>
+    <slot name="exit">${exitIcon}</slot>
   </slot>
-`;var op=`
-  <slot name="tooltip-enter">${v("Start casting")}</slot>
-  <slot name="tooltip-exit">${v("Stop casting")}</slot>
-`,Lu=i=>{let e=i.mediaIsCasting?v("stop casting"):v("start casting");i.setAttribute("aria-label",e)},Xo=class extends V{static get observedAttributes(){return[...super.observedAttributes,o.MEDIA_IS_CASTING,o.MEDIA_CAST_UNAVAILABLE]}constructor(e={}){super({slotTemplate:xu,tooltipContent:op,...e})}connectedCallback(){super.connectedCallback(),Lu(this)}attributeChangedCallback(e,t,a){super.attributeChangedCallback(e,t,a),e===o.MEDIA_IS_CASTING&&Lu(this)}get mediaIsCasting(){return k(this,o.MEDIA_IS_CASTING)}set mediaIsCasting(e){S(this,o.MEDIA_IS_CASTING,e)}get mediaCastUnavailable(){return M(this,o.MEDIA_CAST_UNAVAILABLE)}set mediaCastUnavailable(e){w(this,o.MEDIA_CAST_UNAVAILABLE,e)}handleClick(){let e=this.mediaIsCasting?f.MEDIA_EXIT_CAST_REQUEST:f.MEDIA_ENTER_CAST_REQUEST;this.dispatchEvent(new d.CustomEvent(e,{composed:!0,bubbles:!0}))}};d.customElements.get("media-cast-button")||d.customElements.define("media-cast-button",Xo);var rs=(i,e,t)=>{if(!e.has(i))throw TypeError("Cannot "+t)},zt=(i,e,t)=>(rs(i,e,"read from private field"),t?t.call(i):e.get(i)),ct=(i,e,t)=>{if(e.has(i))throw TypeError("Cannot add the same private member more than once");e instanceof WeakSet?e.add(i):e.set(i,t)},ns=(i,e,t,a)=>(rs(i,e,"write to private field"),a?a.call(i,t):e.set(i,t),t),Zt=(i,e,t)=>(rs(i,e,"access private method"),t),Hr,_a,Qt,Br,Jo,jo,Du,es,Ou,ts,Nu,is,Pu,as,Uu;function sp(i){return`
+`;
+var tooltipContent3 = (
+  /*html*/
+  `
+  <slot name="tooltip-enter">${t("Start casting")}</slot>
+  <slot name="tooltip-exit">${t("Stop casting")}</slot>
+`
+);
+var updateAriaLabel2 = (el) => {
+  const label = el.mediaIsCasting ? t("stop casting") : t("start casting");
+  el.setAttribute("aria-label", label);
+};
+var MediaCastButton = class extends MediaChromeButton {
+  static get observedAttributes() {
+    return [
+      ...super.observedAttributes,
+      MediaUIAttributes.MEDIA_IS_CASTING,
+      MediaUIAttributes.MEDIA_CAST_UNAVAILABLE
+    ];
+  }
+  constructor(options = {}) {
+    super({ slotTemplate: slotTemplate3, tooltipContent: tooltipContent3, ...options });
+  }
+  connectedCallback() {
+    super.connectedCallback();
+    updateAriaLabel2(this);
+  }
+  attributeChangedCallback(attrName, oldValue, newValue) {
+    super.attributeChangedCallback(attrName, oldValue, newValue);
+    if (attrName === MediaUIAttributes.MEDIA_IS_CASTING) {
+      updateAriaLabel2(this);
+    }
+  }
+  /**
+   * @type {boolean} Are we currently casting
+   */
+  get mediaIsCasting() {
+    return getBooleanAttr(this, MediaUIAttributes.MEDIA_IS_CASTING);
+  }
+  set mediaIsCasting(value) {
+    setBooleanAttr(this, MediaUIAttributes.MEDIA_IS_CASTING, value);
+  }
+  /**
+   * @type {string | undefined} Cast unavailability state
+   */
+  get mediaCastUnavailable() {
+    return getStringAttr(this, MediaUIAttributes.MEDIA_CAST_UNAVAILABLE);
+  }
+  set mediaCastUnavailable(value) {
+    setStringAttr(this, MediaUIAttributes.MEDIA_CAST_UNAVAILABLE, value);
+  }
+  handleClick() {
+    const eventName = this.mediaIsCasting ? MediaUIEvents.MEDIA_EXIT_CAST_REQUEST : MediaUIEvents.MEDIA_ENTER_CAST_REQUEST;
+    this.dispatchEvent(
+      new GlobalThis.CustomEvent(eventName, { composed: true, bubbles: true })
+    );
+  }
+};
+if (!GlobalThis.customElements.get("media-cast-button")) {
+  GlobalThis.customElements.define("media-cast-button", MediaCastButton);
+}
+
+// ../../node_modules/media-chrome/dist/media-chrome-dialog.js
+var __accessCheck7 = (obj, member, msg) => {
+  if (!member.has(obj))
+    throw TypeError("Cannot " + msg);
+};
+var __privateGet7 = (obj, member, getter) => {
+  __accessCheck7(obj, member, "read from private field");
+  return getter ? getter.call(obj) : member.get(obj);
+};
+var __privateAdd7 = (obj, member, value) => {
+  if (member.has(obj))
+    throw TypeError("Cannot add the same private member more than once");
+  member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+};
+var __privateSet7 = (obj, member, value, setter) => {
+  __accessCheck7(obj, member, "write to private field");
+  setter ? setter.call(obj, value) : member.set(obj, value);
+  return value;
+};
+var __privateMethod5 = (obj, member, method) => {
+  __accessCheck7(obj, member, "access private method");
+  return method;
+};
+var _isInit;
+var _previouslyFocused;
+var _invokerElement;
+var _init;
+var init_fn;
+var _handleOpen;
+var handleOpen_fn;
+var _handleClosed;
+var handleClosed_fn;
+var _handleInvoke;
+var handleInvoke_fn;
+var _handleFocusOut;
+var handleFocusOut_fn;
+var _handleKeyDown;
+var handleKeyDown_fn;
+function getTemplateHTML(_attrs) {
+  return (
+    /*html*/
+    `
     <style>
       :host {
         font: var(--media-font,
@@ -311,7 +4591,8 @@
         display: var(--media-dialog-display, inline-flex);
         justify-content: center;
         align-items: center;
-        
+        ${/** The hide transition is defined below after a short delay. */
+    ""}
         transition-behavior: allow-discrete;
         visibility: hidden;
         opacity: 0;
@@ -339,12 +4620,226 @@
         line-height: 1.4;
       }
     </style>
-    ${this.getSlotTemplateHTML(i)}
-  `}function lp(i){return`
+    ${this.getSlotTemplateHTML(_attrs)}
+  `
+  );
+}
+function getSlotTemplateHTML(_attrs) {
+  return (
+    /*html*/
+    `
     <slot id="content"></slot>
-  `}var ga={OPEN:"open",ANCHOR:"anchor"},Xt=class extends d.HTMLElement{constructor(){super(),ct(this,Br),ct(this,jo),ct(this,es),ct(this,ts),ct(this,is),ct(this,as),ct(this,Hr,!1),ct(this,_a,null),ct(this,Qt,null),this.addEventListener("invoke",this),this.addEventListener("focusout",this),this.addEventListener("keydown",this)}static get observedAttributes(){return[ga.OPEN,ga.ANCHOR]}get open(){return k(this,ga.OPEN)}set open(e){S(this,ga.OPEN,e)}handleEvent(e){switch(e.type){case"invoke":Zt(this,ts,Nu).call(this,e);break;case"focusout":Zt(this,is,Pu).call(this,e);break;case"keydown":Zt(this,as,Uu).call(this,e);break}}connectedCallback(){Zt(this,Br,Jo).call(this),this.role||(this.role="dialog")}attributeChangedCallback(e,t,a){Zt(this,Br,Jo).call(this),e===ga.OPEN&&a!==t&&(this.open?Zt(this,jo,Du).call(this):Zt(this,es,Ou).call(this))}focus(){ns(this,_a,la());let e=!this.dispatchEvent(new Event("focus",{composed:!0,cancelable:!0})),t=!this.dispatchEvent(new Event("focusin",{composed:!0,bubbles:!0,cancelable:!0}));if(e||t)return;let a=this.querySelector('[autofocus], [tabindex]:not([tabindex="-1"]), [role="menu"]');a==null||a.focus()}get keysUsed(){return["Escape","Tab"]}};Hr=new WeakMap;_a=new WeakMap;Qt=new WeakMap;Br=new WeakSet;Jo=function(){if(!zt(this,Hr)&&(ns(this,Hr,!0),!this.shadowRoot)){this.attachShadow({mode:"open"});let i=Gd(this.attributes);this.shadowRoot.innerHTML=`
-        ${this.constructor.getTemplateHTML(i)}
-      `,queueMicrotask(()=>{let{style:e}=$(this.shadowRoot,":host");e.setProperty("transition","display .15s, visibility .15s, opacity .15s ease-in, transform .15s ease-in")})}};jo=new WeakSet;Du=function(){var i;(i=zt(this,Qt))==null||i.setAttribute("aria-expanded","true"),this.dispatchEvent(new Event("open",{composed:!0,bubbles:!0})),this.addEventListener("transitionend",()=>this.focus(),{once:!0})};es=new WeakSet;Ou=function(){var i;(i=zt(this,Qt))==null||i.setAttribute("aria-expanded","false"),this.dispatchEvent(new Event("close",{composed:!0,bubbles:!0}))};ts=new WeakSet;Nu=function(i){ns(this,Qt,i.relatedTarget),de(this,i.relatedTarget)||(this.open=!this.open)};is=new WeakSet;Pu=function(i){var e;de(this,i.relatedTarget)||((e=zt(this,_a))==null||e.focus(),zt(this,Qt)&&zt(this,Qt)!==i.relatedTarget&&this.open&&(this.open=!1))};as=new WeakSet;Uu=function(i){var e,t,a,r,n;let{key:s,ctrlKey:l,altKey:u,metaKey:c}=i;l||u||c||this.keysUsed.includes(s)&&(i.preventDefault(),i.stopPropagation(),s==="Tab"?(i.shiftKey?(t=(e=this.previousElementSibling)==null?void 0:e.focus)==null||t.call(e):(r=(a=this.nextElementSibling)==null?void 0:a.focus)==null||r.call(a),this.blur()):s==="Escape"&&((n=zt(this,_a))==null||n.focus(),this.open=!1))};Xt.getTemplateHTML=sp;Xt.getSlotTemplateHTML=lp;d.customElements.get("media-chrome-dialog")||d.customElements.define("media-chrome-dialog",Xt);var ms=(i,e,t)=>{if(!e.has(i))throw TypeError("Cannot "+t)},Z=(i,e,t)=>(ms(i,e,"read from private field"),t?t.call(i):e.get(i)),re=(i,e,t)=>{if(e.has(i))throw TypeError("Cannot add the same private member more than once");e instanceof WeakSet?e.add(i):e.set(i,t)},St=(i,e,t,a)=>(ms(i,e,"write to private field"),a?a.call(i,t):e.set(i,t),t),xe=(i,e,t)=>(ms(i,e,"access private method"),t),Ve,zr,Wr,$r,De,qr,Fr,Vr,Kr,hs,Bu,Gr,os,Yr,ss,Zr,ps,ls,Hu,ds,Wu,us,$u,cs,Fu,Vu=h.createElement("template");Vu.innerHTML=`
+  `
+  );
+}
+var Attributes4 = {
+  OPEN: "open",
+  ANCHOR: "anchor"
+};
+var MediaChromeDialog = class extends GlobalThis.HTMLElement {
+  constructor() {
+    super();
+    __privateAdd7(this, _init);
+    __privateAdd7(this, _handleOpen);
+    __privateAdd7(this, _handleClosed);
+    __privateAdd7(this, _handleInvoke);
+    __privateAdd7(this, _handleFocusOut);
+    __privateAdd7(this, _handleKeyDown);
+    __privateAdd7(this, _isInit, false);
+    __privateAdd7(this, _previouslyFocused, null);
+    __privateAdd7(this, _invokerElement, null);
+    this.addEventListener("invoke", this);
+    this.addEventListener("focusout", this);
+    this.addEventListener("keydown", this);
+  }
+  static get observedAttributes() {
+    return [Attributes4.OPEN, Attributes4.ANCHOR];
+  }
+  get open() {
+    return getBooleanAttr(this, Attributes4.OPEN);
+  }
+  set open(value) {
+    setBooleanAttr(this, Attributes4.OPEN, value);
+  }
+  handleEvent(event) {
+    switch (event.type) {
+      case "invoke":
+        __privateMethod5(this, _handleInvoke, handleInvoke_fn).call(this, event);
+        break;
+      case "focusout":
+        __privateMethod5(this, _handleFocusOut, handleFocusOut_fn).call(this, event);
+        break;
+      case "keydown":
+        __privateMethod5(this, _handleKeyDown, handleKeyDown_fn).call(this, event);
+        break;
+    }
+  }
+  connectedCallback() {
+    __privateMethod5(this, _init, init_fn).call(this);
+    if (!this.role) {
+      this.role = "dialog";
+    }
+  }
+  attributeChangedCallback(attrName, oldValue, newValue) {
+    __privateMethod5(this, _init, init_fn).call(this);
+    if (attrName === Attributes4.OPEN && newValue !== oldValue) {
+      if (this.open) {
+        __privateMethod5(this, _handleOpen, handleOpen_fn).call(this);
+      } else {
+        __privateMethod5(this, _handleClosed, handleClosed_fn).call(this);
+      }
+    }
+  }
+  focus() {
+    __privateSet7(this, _previouslyFocused, getActiveElement());
+    const focusCancelled = !this.dispatchEvent(new Event("focus", { composed: true, cancelable: true }));
+    const focusInCancelled = !this.dispatchEvent(new Event("focusin", { composed: true, bubbles: true, cancelable: true }));
+    if (focusCancelled || focusInCancelled)
+      return;
+    const focusable = this.querySelector(
+      '[autofocus], [tabindex]:not([tabindex="-1"]), [role="menu"]'
+    );
+    focusable == null ? void 0 : focusable.focus();
+  }
+  get keysUsed() {
+    return ["Escape", "Tab"];
+  }
+};
+_isInit = /* @__PURE__ */ new WeakMap();
+_previouslyFocused = /* @__PURE__ */ new WeakMap();
+_invokerElement = /* @__PURE__ */ new WeakMap();
+_init = /* @__PURE__ */ new WeakSet();
+init_fn = function() {
+  if (__privateGet7(this, _isInit))
+    return;
+  __privateSet7(this, _isInit, true);
+  if (!this.shadowRoot) {
+    this.attachShadow({ mode: "open" });
+    const attrs = namedNodeMapToObject(this.attributes);
+    this.shadowRoot.innerHTML = /*html*/
+    `
+        ${this.constructor.getTemplateHTML(attrs)}
+      `;
+    queueMicrotask(() => {
+      const { style } = getOrInsertCSSRule(this.shadowRoot, ":host");
+      style.setProperty(
+        "transition",
+        `display .15s, visibility .15s, opacity .15s ease-in, transform .15s ease-in`
+      );
+    });
+  }
+};
+_handleOpen = /* @__PURE__ */ new WeakSet();
+handleOpen_fn = function() {
+  var _a3;
+  (_a3 = __privateGet7(this, _invokerElement)) == null ? void 0 : _a3.setAttribute("aria-expanded", "true");
+  this.dispatchEvent(new Event("open", { composed: true, bubbles: true }));
+  this.addEventListener("transitionend", () => this.focus(), { once: true });
+};
+_handleClosed = /* @__PURE__ */ new WeakSet();
+handleClosed_fn = function() {
+  var _a3;
+  (_a3 = __privateGet7(this, _invokerElement)) == null ? void 0 : _a3.setAttribute("aria-expanded", "false");
+  this.dispatchEvent(new Event("close", { composed: true, bubbles: true }));
+};
+_handleInvoke = /* @__PURE__ */ new WeakSet();
+handleInvoke_fn = function(event) {
+  __privateSet7(this, _invokerElement, event.relatedTarget);
+  if (!containsComposedNode(this, event.relatedTarget)) {
+    this.open = !this.open;
+  }
+};
+_handleFocusOut = /* @__PURE__ */ new WeakSet();
+handleFocusOut_fn = function(event) {
+  var _a3;
+  if (!containsComposedNode(this, event.relatedTarget)) {
+    (_a3 = __privateGet7(this, _previouslyFocused)) == null ? void 0 : _a3.focus();
+    if (__privateGet7(this, _invokerElement) && __privateGet7(this, _invokerElement) !== event.relatedTarget && this.open) {
+      this.open = false;
+    }
+  }
+};
+_handleKeyDown = /* @__PURE__ */ new WeakSet();
+handleKeyDown_fn = function(event) {
+  var _a3, _b2, _c, _d, _e;
+  const { key, ctrlKey, altKey, metaKey } = event;
+  if (ctrlKey || altKey || metaKey) {
+    return;
+  }
+  if (!this.keysUsed.includes(key)) {
+    return;
+  }
+  event.preventDefault();
+  event.stopPropagation();
+  if (key === "Tab") {
+    if (event.shiftKey) {
+      (_b2 = (_a3 = this.previousElementSibling) == null ? void 0 : _a3.focus) == null ? void 0 : _b2.call(_a3);
+    } else {
+      (_d = (_c = this.nextElementSibling) == null ? void 0 : _c.focus) == null ? void 0 : _d.call(_c);
+    }
+    this.blur();
+  } else if (key === "Escape") {
+    (_e = __privateGet7(this, _previouslyFocused)) == null ? void 0 : _e.focus();
+    this.open = false;
+  }
+};
+MediaChromeDialog.getTemplateHTML = getTemplateHTML;
+MediaChromeDialog.getSlotTemplateHTML = getSlotTemplateHTML;
+if (!GlobalThis.customElements.get("media-chrome-dialog")) {
+  GlobalThis.customElements.define("media-chrome-dialog", MediaChromeDialog);
+}
+
+// ../../node_modules/media-chrome/dist/media-chrome-range.js
+var __accessCheck8 = (obj, member, msg) => {
+  if (!member.has(obj))
+    throw TypeError("Cannot " + msg);
+};
+var __privateGet8 = (obj, member, getter) => {
+  __accessCheck8(obj, member, "read from private field");
+  return getter ? getter.call(obj) : member.get(obj);
+};
+var __privateAdd8 = (obj, member, value) => {
+  if (member.has(obj))
+    throw TypeError("Cannot add the same private member more than once");
+  member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+};
+var __privateSet8 = (obj, member, value, setter) => {
+  __accessCheck8(obj, member, "write to private field");
+  setter ? setter.call(obj, value) : member.set(obj, value);
+  return value;
+};
+var __privateMethod6 = (obj, member, method) => {
+  __accessCheck8(obj, member, "access private method");
+  return method;
+};
+var _mediaController3;
+var _isInputTarget;
+var _startpoint;
+var _endpoint;
+var _cssRules;
+var _segments;
+var _onFocusIn;
+var _onFocusOut;
+var _updateComputedStyles;
+var _updateActiveSegment;
+var updateActiveSegment_fn;
+var _enableUserEvents;
+var enableUserEvents_fn;
+var _disableUserEvents;
+var disableUserEvents_fn;
+var _handlePointerDown;
+var handlePointerDown_fn;
+var _handlePointerEnter;
+var handlePointerEnter_fn;
+var _handlePointerUp2;
+var handlePointerUp_fn2;
+var _handlePointerLeave;
+var handlePointerLeave_fn;
+var _handlePointerMove2;
+var handlePointerMove_fn2;
+var template4 = Document2.createElement("template");
+template4.innerHTML = /*html*/
+`
   <style>
     :host {
       --_focus-box-shadow: var(--media-focus-box-shadow, inset 0 0 0 2px rgb(27 127 204 / .9));
@@ -355,7 +4850,8 @@
       height: calc(var(--media-control-height, 24px) + 2 * var(--_media-range-padding));
       display: inline-flex;
       align-items: center;
-      
+      ${/* Don't horizontal align w/ justify-content! #container can go negative on the x-axis w/ small width. */
+""}
       vertical-align: middle;
       box-sizing: border-box;
       position: relative;
@@ -363,10 +4859,12 @@
       transition: background .15s linear;
       cursor: pointer;
       pointer-events: auto;
-      touch-action: none; 
+      touch-action: none; ${/* Prevent scrolling when dragging on mobile. */
+""}
     }
 
-    
+    ${/* Reset before `outline` on track could be set by a CSS var */
+""}
     input[type=range]:focus {
       outline: 0;
     }
@@ -396,7 +4894,8 @@
     }
 
     #container {
-      
+      ${/* Not using the CSS `padding` prop makes it easier for slide open volume ranges so the width can be zero. */
+""}
       width: var(--media-range-track-width, 100%);
       transform: translate(var(--media-range-track-translate-x, 0px), var(--media-range-track-translate-y, 0px));
       position: relative;
@@ -407,7 +4906,8 @@
     }
 
     #range {
-      
+      ${/* The input range acts as a hover and hit zone for input events. */
+""}
       display: var(--media-time-range-hover-display, block);
       bottom: var(--media-time-range-hover-bottom, -7px);
       height: var(--media-time-range-hover-height, max(100% + 7px, 25px));
@@ -415,9 +4915,11 @@
       position: absolute;
       cursor: pointer;
 
-      -webkit-appearance: none; 
+      -webkit-appearance: none; ${/* Hides the slider so that custom slider can be made */
+""}
       -webkit-tap-highlight-color: transparent;
-      background: transparent; 
+      background: transparent; ${/* Otherwise white in Chrome */
+""}
       margin: 0;
       z-index: 1;
     }
@@ -429,8 +4931,10 @@
       }
     }
 
-    
-    
+    ${/* Special styling for WebKit/Blink */
+""}
+    ${/* Make thumb width/height small so it has no effect on range click position. */
+""}
     #range::-webkit-slider-thumb {
       -webkit-appearance: none;
       background: transparent;
@@ -438,7 +4942,8 @@
       height: .1px;
     }
 
-    
+    ${/* The thumb is not positioned relative to the track in Firefox */
+""}
     #range::-moz-range-thumb {
       background: transparent;
       border: transparent;
@@ -453,7 +4958,8 @@
       justify-content: center;
       width: 100%;
       position: absolute;
-      
+      ${/* Required for Safari to stop glitching track height on hover */
+""}
       will-change: transform;
     }
 
@@ -572,10 +5078,324 @@
     <input id="range" type="range" min="0" max="1" step="any" value="0">
   </div>
   <div id="rightgap"></div>
-`;var Jt=class extends d.HTMLElement{constructor(){super(),re(this,hs),re(this,Gr),re(this,Yr),re(this,Zr),re(this,ls),re(this,ds),re(this,us),re(this,cs),re(this,Ve,void 0),re(this,zr,void 0),re(this,Wr,void 0),re(this,$r,void 0),re(this,De,{}),re(this,qr,[]),re(this,Fr,()=>{if(this.range.matches(":focus-visible")){let{style:e}=$(this.shadowRoot,":host");e.setProperty("--_focus-visible-box-shadow","var(--_focus-box-shadow)")}}),re(this,Vr,()=>{let{style:e}=$(this.shadowRoot,":host");e.removeProperty("--_focus-visible-box-shadow")}),re(this,Kr,()=>{let e=this.shadowRoot.querySelector("#segments-clipping");e&&e.parentNode.append(e)}),this.shadowRoot||(this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(Vu.content.cloneNode(!0))),this.container=this.shadowRoot.querySelector("#container"),St(this,Wr,this.shadowRoot.querySelector("#startpoint")),St(this,$r,this.shadowRoot.querySelector("#endpoint")),this.range=this.shadowRoot.querySelector("#range"),this.appearance=this.shadowRoot.querySelector("#appearance")}static get observedAttributes(){return["disabled","aria-disabled",R.MEDIA_CONTROLLER]}attributeChangedCallback(e,t,a){var r,n,s,l,u;e===R.MEDIA_CONTROLLER?(t&&((n=(r=Z(this,Ve))==null?void 0:r.unassociateElement)==null||n.call(r,this),St(this,Ve,null)),a&&this.isConnected&&(St(this,Ve,(s=this.getRootNode())==null?void 0:s.getElementById(a)),(u=(l=Z(this,Ve))==null?void 0:l.associateElement)==null||u.call(l,this))):(e==="disabled"||e==="aria-disabled"&&t!==a)&&(a==null?(this.range.removeAttribute(e),xe(this,Gr,os).call(this)):(this.range.setAttribute(e,a),xe(this,Yr,ss).call(this)))}connectedCallback(){var e,t,a;let{style:r}=$(this.shadowRoot,":host");r.setProperty("display",`var(--media-control-display, var(--${this.localName}-display, inline-flex))`),Z(this,De).pointer=$(this.shadowRoot,"#pointer"),Z(this,De).progress=$(this.shadowRoot,"#progress"),Z(this,De).thumb=$(this.shadowRoot,'#thumb, ::slotted([slot="thumb"])'),Z(this,De).activeSegment=$(this.shadowRoot,"#segments-clipping rect:nth-child(0)");let n=this.getAttribute(R.MEDIA_CONTROLLER);n&&(St(this,Ve,(e=this.getRootNode())==null?void 0:e.getElementById(n)),(a=(t=Z(this,Ve))==null?void 0:t.associateElement)==null||a.call(t,this)),this.updateBar(),this.shadowRoot.addEventListener("focusin",Z(this,Fr)),this.shadowRoot.addEventListener("focusout",Z(this,Vr)),xe(this,Gr,os).call(this),ot(this.container,Z(this,Kr))}disconnectedCallback(){var e,t;xe(this,Yr,ss).call(this),(t=(e=Z(this,Ve))==null?void 0:e.unassociateElement)==null||t.call(e,this),St(this,Ve,null),this.shadowRoot.removeEventListener("focusin",Z(this,Fr)),this.shadowRoot.removeEventListener("focusout",Z(this,Vr)),st(this.container,Z(this,Kr))}updatePointerBar(e){var t;(t=Z(this,De).pointer)==null||t.style.setProperty("width",`${this.getPointerRatio(e)*100}%`)}updateBar(){var e,t;let a=this.range.valueAsNumber*100;(e=Z(this,De).progress)==null||e.style.setProperty("width",`${a}%`),(t=Z(this,De).thumb)==null||t.style.setProperty("left",`${a}%`)}updateSegments(e){let t=this.shadowRoot.querySelector("#segments-clipping");if(t.textContent="",this.container.classList.toggle("segments",!!(e!=null&&e.length)),!(e!=null&&e.length))return;let a=[...new Set([+this.range.min,...e.flatMap(n=>[n.start,n.end]),+this.range.max])];St(this,qr,[...a]);let r=a.pop();for(let[n,s]of a.entries()){let[l,u]=[n===0,n===a.length-1],c=l?"calc(var(--segments-gap) / -1)":`${s*100}%`,g=`calc(${((u?r:a[n+1])-s)*100}%${l||u?"":" - var(--segments-gap)"})`,p=h.createElementNS("http://www.w3.org/2000/svg","rect"),E=$(this.shadowRoot,`#segments-clipping rect:nth-child(${n+1})`);E.style.setProperty("x",c),E.style.setProperty("width",g),t.append(p)}}getPointerRatio(e){let t=Yd(e.clientX,e.clientY,Z(this,Wr).getBoundingClientRect(),Z(this,$r).getBoundingClientRect());return Math.max(0,Math.min(1,t))}get dragging(){return this.hasAttribute("dragging")}handleEvent(e){switch(e.type){case"pointermove":xe(this,cs,Fu).call(this,e);break;case"input":this.updateBar();break;case"pointerenter":xe(this,ls,Hu).call(this,e);break;case"pointerdown":xe(this,Zr,ps).call(this,e);break;case"pointerup":xe(this,ds,Wu).call(this);break;case"pointerleave":xe(this,us,$u).call(this);break}}get keysUsed(){return["ArrowUp","ArrowRight","ArrowDown","ArrowLeft"]}};Ve=new WeakMap;zr=new WeakMap;Wr=new WeakMap;$r=new WeakMap;De=new WeakMap;qr=new WeakMap;Fr=new WeakMap;Vr=new WeakMap;Kr=new WeakMap;hs=new WeakSet;Bu=function(i){let e=Z(this,De).activeSegment;if(!e)return;let t=this.getPointerRatio(i),r=`#segments-clipping rect:nth-child(${Z(this,qr).findIndex((n,s,l)=>{let u=l[s+1];return u!=null&&t>=n&&t<=u})+1})`;(e.selectorText!=r||!e.style.transform)&&(e.selectorText=r,e.style.setProperty("transform","var(--media-range-segment-hover-transform, scaleY(2))"))};Gr=new WeakSet;os=function(){this.hasAttribute("disabled")||(this.addEventListener("input",this),this.addEventListener("pointerdown",this),this.addEventListener("pointerenter",this))};Yr=new WeakSet;ss=function(){var i,e;this.removeEventListener("input",this),this.removeEventListener("pointerdown",this),this.removeEventListener("pointerenter",this),(i=d.window)==null||i.removeEventListener("pointerup",this),(e=d.window)==null||e.removeEventListener("pointermove",this)};Zr=new WeakSet;ps=function(i){var e;St(this,zr,i.composedPath().includes(this.range)),(e=d.window)==null||e.addEventListener("pointerup",this)};ls=new WeakSet;Hu=function(i){var e;i.pointerType!=="mouse"&&xe(this,Zr,ps).call(this,i),this.addEventListener("pointerleave",this),(e=d.window)==null||e.addEventListener("pointermove",this)};ds=new WeakSet;Wu=function(){var i;(i=d.window)==null||i.removeEventListener("pointerup",this),this.toggleAttribute("dragging",!1),this.range.disabled=this.hasAttribute("disabled")};us=new WeakSet;$u=function(){var i,e;this.removeEventListener("pointerleave",this),(i=d.window)==null||i.removeEventListener("pointermove",this),this.toggleAttribute("dragging",!1),this.range.disabled=this.hasAttribute("disabled"),(e=Z(this,De).activeSegment)==null||e.style.removeProperty("transform")};cs=new WeakSet;Fu=function(i){this.toggleAttribute("dragging",i.buttons===1||i.pointerType!=="mouse"),this.updatePointerBar(i),xe(this,hs,Bu).call(this,i),this.dragging&&(i.pointerType!=="mouse"||!Z(this,zr))&&(this.range.disabled=!0,this.range.valueAsNumber=this.getPointerRatio(i),this.range.dispatchEvent(new Event("input",{bubbles:!0,composed:!0})))};d.customElements.get("media-chrome-range")||d.customElements.define("media-chrome-range",Jt);var Ku=(i,e,t)=>{if(!e.has(i))throw TypeError("Cannot "+t)},Qr=(i,e,t)=>(Ku(i,e,"read from private field"),t?t.call(i):e.get(i)),dp=(i,e,t)=>{if(e.has(i))throw TypeError("Cannot add the same private member more than once");e instanceof WeakSet?e.add(i):e.set(i,t)},Xr=(i,e,t,a)=>(Ku(i,e,"write to private field"),a?a.call(i,t):e.set(i,t),t),Ke,Gu=h.createElement("template");Gu.innerHTML=`
+`;
+var MediaChromeRange = class extends GlobalThis.HTMLElement {
+  constructor() {
+    super();
+    __privateAdd8(this, _updateActiveSegment);
+    __privateAdd8(this, _enableUserEvents);
+    __privateAdd8(this, _disableUserEvents);
+    __privateAdd8(this, _handlePointerDown);
+    __privateAdd8(this, _handlePointerEnter);
+    __privateAdd8(this, _handlePointerUp2);
+    __privateAdd8(this, _handlePointerLeave);
+    __privateAdd8(this, _handlePointerMove2);
+    __privateAdd8(this, _mediaController3, void 0);
+    __privateAdd8(this, _isInputTarget, void 0);
+    __privateAdd8(this, _startpoint, void 0);
+    __privateAdd8(this, _endpoint, void 0);
+    __privateAdd8(this, _cssRules, {});
+    __privateAdd8(this, _segments, []);
+    __privateAdd8(this, _onFocusIn, () => {
+      if (this.range.matches(":focus-visible")) {
+        const { style } = getOrInsertCSSRule(this.shadowRoot, ":host");
+        style.setProperty(
+          "--_focus-visible-box-shadow",
+          "var(--_focus-box-shadow)"
+        );
+      }
+    });
+    __privateAdd8(this, _onFocusOut, () => {
+      const { style } = getOrInsertCSSRule(this.shadowRoot, ":host");
+      style.removeProperty("--_focus-visible-box-shadow");
+    });
+    __privateAdd8(this, _updateComputedStyles, () => {
+      const clipping = this.shadowRoot.querySelector("#segments-clipping");
+      if (clipping)
+        clipping.parentNode.append(clipping);
+    });
+    if (!this.shadowRoot) {
+      this.attachShadow({ mode: "open" });
+      this.shadowRoot.appendChild(template4.content.cloneNode(true));
+    }
+    this.container = this.shadowRoot.querySelector("#container");
+    __privateSet8(this, _startpoint, this.shadowRoot.querySelector("#startpoint"));
+    __privateSet8(this, _endpoint, this.shadowRoot.querySelector("#endpoint"));
+    this.range = this.shadowRoot.querySelector("#range");
+    this.appearance = this.shadowRoot.querySelector("#appearance");
+  }
+  static get observedAttributes() {
+    return [
+      "disabled",
+      "aria-disabled",
+      MediaStateReceiverAttributes.MEDIA_CONTROLLER
+    ];
+  }
+  attributeChangedCallback(attrName, oldValue, newValue) {
+    var _a3, _b2, _c, _d, _e;
+    if (attrName === MediaStateReceiverAttributes.MEDIA_CONTROLLER) {
+      if (oldValue) {
+        (_b2 = (_a3 = __privateGet8(this, _mediaController3)) == null ? void 0 : _a3.unassociateElement) == null ? void 0 : _b2.call(_a3, this);
+        __privateSet8(this, _mediaController3, null);
+      }
+      if (newValue && this.isConnected) {
+        __privateSet8(this, _mediaController3, (_c = this.getRootNode()) == null ? void 0 : _c.getElementById(newValue));
+        (_e = (_d = __privateGet8(this, _mediaController3)) == null ? void 0 : _d.associateElement) == null ? void 0 : _e.call(_d, this);
+      }
+    } else if (attrName === "disabled" || attrName === "aria-disabled" && oldValue !== newValue) {
+      if (newValue == null) {
+        this.range.removeAttribute(attrName);
+        __privateMethod6(this, _enableUserEvents, enableUserEvents_fn).call(this);
+      } else {
+        this.range.setAttribute(attrName, newValue);
+        __privateMethod6(this, _disableUserEvents, disableUserEvents_fn).call(this);
+      }
+    }
+  }
+  connectedCallback() {
+    var _a3, _b2, _c;
+    const { style } = getOrInsertCSSRule(this.shadowRoot, ":host");
+    style.setProperty(
+      "display",
+      `var(--media-control-display, var(--${this.localName}-display, inline-flex))`
+    );
+    __privateGet8(this, _cssRules).pointer = getOrInsertCSSRule(this.shadowRoot, "#pointer");
+    __privateGet8(this, _cssRules).progress = getOrInsertCSSRule(this.shadowRoot, "#progress");
+    __privateGet8(this, _cssRules).thumb = getOrInsertCSSRule(this.shadowRoot, '#thumb, ::slotted([slot="thumb"])');
+    __privateGet8(this, _cssRules).activeSegment = getOrInsertCSSRule(
+      this.shadowRoot,
+      "#segments-clipping rect:nth-child(0)"
+    );
+    const mediaControllerId = this.getAttribute(
+      MediaStateReceiverAttributes.MEDIA_CONTROLLER
+    );
+    if (mediaControllerId) {
+      __privateSet8(this, _mediaController3, (_a3 = this.getRootNode()) == null ? void 0 : _a3.getElementById(
+        mediaControllerId
+      ));
+      (_c = (_b2 = __privateGet8(this, _mediaController3)) == null ? void 0 : _b2.associateElement) == null ? void 0 : _c.call(_b2, this);
+    }
+    this.updateBar();
+    this.shadowRoot.addEventListener("focusin", __privateGet8(this, _onFocusIn));
+    this.shadowRoot.addEventListener("focusout", __privateGet8(this, _onFocusOut));
+    __privateMethod6(this, _enableUserEvents, enableUserEvents_fn).call(this);
+    observeResize(this.container, __privateGet8(this, _updateComputedStyles));
+  }
+  disconnectedCallback() {
+    var _a3, _b2;
+    __privateMethod6(this, _disableUserEvents, disableUserEvents_fn).call(this);
+    (_b2 = (_a3 = __privateGet8(this, _mediaController3)) == null ? void 0 : _a3.unassociateElement) == null ? void 0 : _b2.call(_a3, this);
+    __privateSet8(this, _mediaController3, null);
+    this.shadowRoot.removeEventListener("focusin", __privateGet8(this, _onFocusIn));
+    this.shadowRoot.removeEventListener("focusout", __privateGet8(this, _onFocusOut));
+    unobserveResize(this.container, __privateGet8(this, _updateComputedStyles));
+  }
+  updatePointerBar(evt) {
+    var _a3;
+    (_a3 = __privateGet8(this, _cssRules).pointer) == null ? void 0 : _a3.style.setProperty(
+      "width",
+      `${this.getPointerRatio(evt) * 100}%`
+    );
+  }
+  updateBar() {
+    var _a3, _b2;
+    const rangePercent = this.range.valueAsNumber * 100;
+    (_a3 = __privateGet8(this, _cssRules).progress) == null ? void 0 : _a3.style.setProperty("width", `${rangePercent}%`);
+    (_b2 = __privateGet8(this, _cssRules).thumb) == null ? void 0 : _b2.style.setProperty("left", `${rangePercent}%`);
+  }
+  updateSegments(segments) {
+    const clipping = this.shadowRoot.querySelector("#segments-clipping");
+    clipping.textContent = "";
+    this.container.classList.toggle("segments", !!(segments == null ? void 0 : segments.length));
+    if (!(segments == null ? void 0 : segments.length))
+      return;
+    const normalized = [
+      .../* @__PURE__ */ new Set([
+        +this.range.min,
+        ...segments.flatMap((s) => [s.start, s.end]),
+        +this.range.max
+      ])
+    ];
+    __privateSet8(this, _segments, [...normalized]);
+    const lastMarker = normalized.pop();
+    for (const [i, marker] of normalized.entries()) {
+      const [isFirst, isLast] = [i === 0, i === normalized.length - 1];
+      const x = isFirst ? "calc(var(--segments-gap) / -1)" : `${marker * 100}%`;
+      const x2 = isLast ? lastMarker : normalized[i + 1];
+      const width = `calc(${(x2 - marker) * 100}%${isFirst || isLast ? "" : ` - var(--segments-gap)`})`;
+      const segmentEl = Document2.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "rect"
+      );
+      const cssRule = getOrInsertCSSRule(
+        this.shadowRoot,
+        `#segments-clipping rect:nth-child(${i + 1})`
+      );
+      cssRule.style.setProperty("x", x);
+      cssRule.style.setProperty("width", width);
+      clipping.append(segmentEl);
+    }
+  }
+  getPointerRatio(evt) {
+    const pointerRatio = getPointProgressOnLine(
+      evt.clientX,
+      evt.clientY,
+      __privateGet8(this, _startpoint).getBoundingClientRect(),
+      __privateGet8(this, _endpoint).getBoundingClientRect()
+    );
+    return Math.max(0, Math.min(1, pointerRatio));
+  }
+  get dragging() {
+    return this.hasAttribute("dragging");
+  }
+  handleEvent(evt) {
+    switch (evt.type) {
+      case "pointermove":
+        __privateMethod6(this, _handlePointerMove2, handlePointerMove_fn2).call(this, evt);
+        break;
+      case "input":
+        this.updateBar();
+        break;
+      case "pointerenter":
+        __privateMethod6(this, _handlePointerEnter, handlePointerEnter_fn).call(this, evt);
+        break;
+      case "pointerdown":
+        __privateMethod6(this, _handlePointerDown, handlePointerDown_fn).call(this, evt);
+        break;
+      case "pointerup":
+        __privateMethod6(this, _handlePointerUp2, handlePointerUp_fn2).call(this);
+        break;
+      case "pointerleave":
+        __privateMethod6(this, _handlePointerLeave, handlePointerLeave_fn).call(this);
+        break;
+    }
+  }
+  get keysUsed() {
+    return ["ArrowUp", "ArrowRight", "ArrowDown", "ArrowLeft"];
+  }
+};
+_mediaController3 = /* @__PURE__ */ new WeakMap();
+_isInputTarget = /* @__PURE__ */ new WeakMap();
+_startpoint = /* @__PURE__ */ new WeakMap();
+_endpoint = /* @__PURE__ */ new WeakMap();
+_cssRules = /* @__PURE__ */ new WeakMap();
+_segments = /* @__PURE__ */ new WeakMap();
+_onFocusIn = /* @__PURE__ */ new WeakMap();
+_onFocusOut = /* @__PURE__ */ new WeakMap();
+_updateComputedStyles = /* @__PURE__ */ new WeakMap();
+_updateActiveSegment = /* @__PURE__ */ new WeakSet();
+updateActiveSegment_fn = function(evt) {
+  const rule = __privateGet8(this, _cssRules).activeSegment;
+  if (!rule)
+    return;
+  const pointerRatio = this.getPointerRatio(evt);
+  const segmentIndex = __privateGet8(this, _segments).findIndex((start, i, arr) => {
+    const end = arr[i + 1];
+    return end != null && pointerRatio >= start && pointerRatio <= end;
+  });
+  const selectorText = `#segments-clipping rect:nth-child(${segmentIndex + 1})`;
+  if (rule.selectorText != selectorText || !rule.style.transform) {
+    rule.selectorText = selectorText;
+    rule.style.setProperty(
+      "transform",
+      "var(--media-range-segment-hover-transform, scaleY(2))"
+    );
+  }
+};
+_enableUserEvents = /* @__PURE__ */ new WeakSet();
+enableUserEvents_fn = function() {
+  if (this.hasAttribute("disabled"))
+    return;
+  this.addEventListener("input", this);
+  this.addEventListener("pointerdown", this);
+  this.addEventListener("pointerenter", this);
+};
+_disableUserEvents = /* @__PURE__ */ new WeakSet();
+disableUserEvents_fn = function() {
+  var _a3, _b2;
+  this.removeEventListener("input", this);
+  this.removeEventListener("pointerdown", this);
+  this.removeEventListener("pointerenter", this);
+  (_a3 = GlobalThis.window) == null ? void 0 : _a3.removeEventListener("pointerup", this);
+  (_b2 = GlobalThis.window) == null ? void 0 : _b2.removeEventListener("pointermove", this);
+};
+_handlePointerDown = /* @__PURE__ */ new WeakSet();
+handlePointerDown_fn = function(evt) {
+  var _a3;
+  __privateSet8(this, _isInputTarget, evt.composedPath().includes(this.range));
+  (_a3 = GlobalThis.window) == null ? void 0 : _a3.addEventListener("pointerup", this);
+};
+_handlePointerEnter = /* @__PURE__ */ new WeakSet();
+handlePointerEnter_fn = function(evt) {
+  var _a3;
+  if (evt.pointerType !== "mouse")
+    __privateMethod6(this, _handlePointerDown, handlePointerDown_fn).call(this, evt);
+  this.addEventListener("pointerleave", this);
+  (_a3 = GlobalThis.window) == null ? void 0 : _a3.addEventListener("pointermove", this);
+};
+_handlePointerUp2 = /* @__PURE__ */ new WeakSet();
+handlePointerUp_fn2 = function() {
+  var _a3;
+  (_a3 = GlobalThis.window) == null ? void 0 : _a3.removeEventListener("pointerup", this);
+  this.toggleAttribute("dragging", false);
+  this.range.disabled = this.hasAttribute("disabled");
+};
+_handlePointerLeave = /* @__PURE__ */ new WeakSet();
+handlePointerLeave_fn = function() {
+  var _a3, _b2;
+  this.removeEventListener("pointerleave", this);
+  (_a3 = GlobalThis.window) == null ? void 0 : _a3.removeEventListener("pointermove", this);
+  this.toggleAttribute("dragging", false);
+  this.range.disabled = this.hasAttribute("disabled");
+  (_b2 = __privateGet8(this, _cssRules).activeSegment) == null ? void 0 : _b2.style.removeProperty("transform");
+};
+_handlePointerMove2 = /* @__PURE__ */ new WeakSet();
+handlePointerMove_fn2 = function(evt) {
+  this.toggleAttribute(
+    "dragging",
+    evt.buttons === 1 || evt.pointerType !== "mouse"
+  );
+  this.updatePointerBar(evt);
+  __privateMethod6(this, _updateActiveSegment, updateActiveSegment_fn).call(this, evt);
+  if (this.dragging && (evt.pointerType !== "mouse" || !__privateGet8(this, _isInputTarget))) {
+    this.range.disabled = true;
+    this.range.valueAsNumber = this.getPointerRatio(evt);
+    this.range.dispatchEvent(
+      new Event("input", { bubbles: true, composed: true })
+    );
+  }
+};
+if (!GlobalThis.customElements.get("media-chrome-range")) {
+  GlobalThis.customElements.define("media-chrome-range", MediaChromeRange);
+}
+
+// ../../node_modules/media-chrome/dist/media-control-bar.js
+var __accessCheck9 = (obj, member, msg) => {
+  if (!member.has(obj))
+    throw TypeError("Cannot " + msg);
+};
+var __privateGet9 = (obj, member, getter) => {
+  __accessCheck9(obj, member, "read from private field");
+  return getter ? getter.call(obj) : member.get(obj);
+};
+var __privateAdd9 = (obj, member, value) => {
+  if (member.has(obj))
+    throw TypeError("Cannot add the same private member more than once");
+  member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+};
+var __privateSet9 = (obj, member, value, setter) => {
+  __accessCheck9(obj, member, "write to private field");
+  setter ? setter.call(obj, value) : member.set(obj, value);
+  return value;
+};
+var _mediaController4;
+var template5 = Document2.createElement("template");
+template5.innerHTML = /*html*/
+`
   <style>
     :host {
-      
+      ${/* Need position to display above video for some reason */
+""}
       box-sizing: border-box;
       display: var(--media-control-display, var(--media-control-bar-display, inline-flex));
       color: var(--media-text-color, var(--media-primary-color, rgb(238 238 238)));
@@ -598,7 +5418,78 @@
   </style>
 
   <slot></slot>
-`;var fs=class extends d.HTMLElement{constructor(){super(),dp(this,Ke,void 0),this.shadowRoot||(this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(Gu.content.cloneNode(!0)))}static get observedAttributes(){return[R.MEDIA_CONTROLLER]}attributeChangedCallback(e,t,a){var r,n,s,l,u;e===R.MEDIA_CONTROLLER&&(t&&((n=(r=Qr(this,Ke))==null?void 0:r.unassociateElement)==null||n.call(r,this),Xr(this,Ke,null)),a&&this.isConnected&&(Xr(this,Ke,(s=this.getRootNode())==null?void 0:s.getElementById(a)),(u=(l=Qr(this,Ke))==null?void 0:l.associateElement)==null||u.call(l,this)))}connectedCallback(){var e,t,a;let r=this.getAttribute(R.MEDIA_CONTROLLER);r&&(Xr(this,Ke,(e=this.getRootNode())==null?void 0:e.getElementById(r)),(a=(t=Qr(this,Ke))==null?void 0:t.associateElement)==null||a.call(t,this))}disconnectedCallback(){var e,t;(t=(e=Qr(this,Ke))==null?void 0:e.unassociateElement)==null||t.call(e,this),Xr(this,Ke,null)}};Ke=new WeakMap;d.customElements.get("media-control-bar")||d.customElements.define("media-control-bar",fs);var Yu=(i,e,t)=>{if(!e.has(i))throw TypeError("Cannot "+t)},Jr=(i,e,t)=>(Yu(i,e,"read from private field"),t?t.call(i):e.get(i)),up=(i,e,t)=>{if(e.has(i))throw TypeError("Cannot add the same private member more than once");e instanceof WeakSet?e.add(i):e.set(i,t)},jr=(i,e,t,a)=>(Yu(i,e,"write to private field"),a?a.call(i,t):e.set(i,t),t),Ge,qu=h.createElement("template");qu.innerHTML=`
+`;
+var MediaControlBar = class extends GlobalThis.HTMLElement {
+  constructor() {
+    super();
+    __privateAdd9(this, _mediaController4, void 0);
+    if (!this.shadowRoot) {
+      this.attachShadow({ mode: "open" });
+      this.shadowRoot.appendChild(template5.content.cloneNode(true));
+    }
+  }
+  static get observedAttributes() {
+    return [MediaStateReceiverAttributes.MEDIA_CONTROLLER];
+  }
+  attributeChangedCallback(attrName, oldValue, newValue) {
+    var _a3, _b2, _c, _d, _e;
+    if (attrName === MediaStateReceiverAttributes.MEDIA_CONTROLLER) {
+      if (oldValue) {
+        (_b2 = (_a3 = __privateGet9(this, _mediaController4)) == null ? void 0 : _a3.unassociateElement) == null ? void 0 : _b2.call(_a3, this);
+        __privateSet9(this, _mediaController4, null);
+      }
+      if (newValue && this.isConnected) {
+        __privateSet9(this, _mediaController4, (_c = this.getRootNode()) == null ? void 0 : _c.getElementById(newValue));
+        (_e = (_d = __privateGet9(this, _mediaController4)) == null ? void 0 : _d.associateElement) == null ? void 0 : _e.call(_d, this);
+      }
+    }
+  }
+  connectedCallback() {
+    var _a3, _b2, _c;
+    const mediaControllerId = this.getAttribute(
+      MediaStateReceiverAttributes.MEDIA_CONTROLLER
+    );
+    if (mediaControllerId) {
+      __privateSet9(this, _mediaController4, (_a3 = this.getRootNode()) == null ? void 0 : _a3.getElementById(
+        mediaControllerId
+      ));
+      (_c = (_b2 = __privateGet9(this, _mediaController4)) == null ? void 0 : _b2.associateElement) == null ? void 0 : _c.call(_b2, this);
+    }
+  }
+  disconnectedCallback() {
+    var _a3, _b2;
+    (_b2 = (_a3 = __privateGet9(this, _mediaController4)) == null ? void 0 : _a3.unassociateElement) == null ? void 0 : _b2.call(_a3, this);
+    __privateSet9(this, _mediaController4, null);
+  }
+};
+_mediaController4 = /* @__PURE__ */ new WeakMap();
+if (!GlobalThis.customElements.get("media-control-bar")) {
+  GlobalThis.customElements.define("media-control-bar", MediaControlBar);
+}
+
+// ../../node_modules/media-chrome/dist/media-text-display.js
+var __accessCheck10 = (obj, member, msg) => {
+  if (!member.has(obj))
+    throw TypeError("Cannot " + msg);
+};
+var __privateGet10 = (obj, member, getter) => {
+  __accessCheck10(obj, member, "read from private field");
+  return getter ? getter.call(obj) : member.get(obj);
+};
+var __privateAdd10 = (obj, member, value) => {
+  if (member.has(obj))
+    throw TypeError("Cannot add the same private member more than once");
+  member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+};
+var __privateSet10 = (obj, member, value, setter) => {
+  __accessCheck10(obj, member, "write to private field");
+  setter ? setter.call(obj, value) : member.set(obj, value);
+  return value;
+};
+var _mediaController5;
+var template6 = Document2.createElement("template");
+template6.innerHTML = /*html*/
+`
   <style>
     :host {
       font: var(--media-font,
@@ -618,20 +5509,185 @@
       pointer-events: auto;
     }
 
-    
+    ${/*
+  Only show outline when keyboard focusing.
+  https://drafts.csswg.org/selectors-4/#the-focus-visible-pseudo
+*/
+""}
     :host(:focus-visible) {
       box-shadow: inset 0 0 0 2px rgb(27 127 204 / .9);
       outline: 0;
     }
 
-    
+    ${/*
+* hide default focus ring, particularly when using mouse
+*/
+""}
     :host(:where(:focus)) {
       box-shadow: none;
       outline: 0;
     }
   </style>
   <slot></slot>
-`;var Oe=class extends d.HTMLElement{constructor(){super(),up(this,Ge,void 0),this.shadowRoot||(this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(qu.content.cloneNode(!0)))}static get observedAttributes(){return[R.MEDIA_CONTROLLER]}attributeChangedCallback(e,t,a){var r,n,s,l,u;e===R.MEDIA_CONTROLLER&&(t&&((n=(r=Jr(this,Ge))==null?void 0:r.unassociateElement)==null||n.call(r,this),jr(this,Ge,null)),a&&this.isConnected&&(jr(this,Ge,(s=this.getRootNode())==null?void 0:s.getElementById(a)),(u=(l=Jr(this,Ge))==null?void 0:l.associateElement)==null||u.call(l,this)))}connectedCallback(){var e,t,a;let{style:r}=$(this.shadowRoot,":host");r.setProperty("display",`var(--media-control-display, var(--${this.localName}-display, inline-flex))`);let n=this.getAttribute(R.MEDIA_CONTROLLER);n&&(jr(this,Ge,(e=this.getRootNode())==null?void 0:e.getElementById(n)),(a=(t=Jr(this,Ge))==null?void 0:t.associateElement)==null||a.call(t,this))}disconnectedCallback(){var e,t;(t=(e=Jr(this,Ge))==null?void 0:e.unassociateElement)==null||t.call(e,this),jr(this,Ge,null)}};Ge=new WeakMap;d.customElements.get("media-text-display")||d.customElements.define("media-text-display",Oe);var zu=(i,e,t)=>{if(!e.has(i))throw TypeError("Cannot "+t)},Zu=(i,e,t)=>(zu(i,e,"read from private field"),t?t.call(i):e.get(i)),cp=(i,e,t)=>{if(e.has(i))throw TypeError("Cannot add the same private member more than once");e instanceof WeakSet?e.add(i):e.set(i,t)},mp=(i,e,t,a)=>(zu(i,e,"write to private field"),a?a.call(i,t):e.set(i,t),t),Aa,vs=class extends Oe{constructor(){super(),cp(this,Aa,void 0),mp(this,Aa,this.shadowRoot.querySelector("slot")),Zu(this,Aa).textContent=Be(0)}static get observedAttributes(){return[...super.observedAttributes,o.MEDIA_DURATION]}attributeChangedCallback(e,t,a){e===o.MEDIA_DURATION&&(Zu(this,Aa).textContent=Be(+a)),super.attributeChangedCallback(e,t,a)}get mediaDuration(){return x(this,o.MEDIA_DURATION)}set mediaDuration(e){N(this,o.MEDIA_DURATION,e)}};Aa=new WeakMap;d.customElements.get("media-duration-display")||d.customElements.define("media-duration-display",vs);var hp={2:v("Network Error"),3:v("Decode Error"),4:v("Source Not Supported"),5:v("Encryption Error")},pp={2:v("A network error caused the media download to fail."),3:v("A media error caused playback to be aborted. The media could be corrupt or your browser does not support this format."),4:v("An unsupported error occurred. The server or network failed, or your browser does not support this format."),5:v("The media is encrypted and there are no keys to decrypt it.")},Es=i=>{var e,t;return i.code===1?null:{title:(e=hp[i.code])!=null?e:`Error ${i.code}`,message:(t=pp[i.code])!=null?t:i.message}};var Xu=(i,e,t)=>{if(!e.has(i))throw TypeError("Cannot "+t)},fp=(i,e,t)=>(Xu(i,e,"read from private field"),t?t.call(i):e.get(i)),vp=(i,e,t)=>{if(e.has(i))throw TypeError("Cannot add the same private member more than once");e instanceof WeakSet?e.add(i):e.set(i,t)},Ep=(i,e,t,a)=>(Xu(i,e,"write to private field"),a?a.call(i,t):e.set(i,t),t),en;function bp(i){return`
+`;
+var MediaTextDisplay = class extends GlobalThis.HTMLElement {
+  constructor() {
+    super();
+    __privateAdd10(this, _mediaController5, void 0);
+    if (!this.shadowRoot) {
+      this.attachShadow({ mode: "open" });
+      this.shadowRoot.appendChild(template6.content.cloneNode(true));
+    }
+  }
+  static get observedAttributes() {
+    return [MediaStateReceiverAttributes.MEDIA_CONTROLLER];
+  }
+  attributeChangedCallback(attrName, oldValue, newValue) {
+    var _a3, _b2, _c, _d, _e;
+    if (attrName === MediaStateReceiverAttributes.MEDIA_CONTROLLER) {
+      if (oldValue) {
+        (_b2 = (_a3 = __privateGet10(this, _mediaController5)) == null ? void 0 : _a3.unassociateElement) == null ? void 0 : _b2.call(_a3, this);
+        __privateSet10(this, _mediaController5, null);
+      }
+      if (newValue && this.isConnected) {
+        __privateSet10(this, _mediaController5, (_c = this.getRootNode()) == null ? void 0 : _c.getElementById(newValue));
+        (_e = (_d = __privateGet10(this, _mediaController5)) == null ? void 0 : _d.associateElement) == null ? void 0 : _e.call(_d, this);
+      }
+    }
+  }
+  connectedCallback() {
+    var _a3, _b2, _c;
+    const { style } = getOrInsertCSSRule(this.shadowRoot, ":host");
+    style.setProperty(
+      "display",
+      `var(--media-control-display, var(--${this.localName}-display, inline-flex))`
+    );
+    const mediaControllerId = this.getAttribute(
+      MediaStateReceiverAttributes.MEDIA_CONTROLLER
+    );
+    if (mediaControllerId) {
+      __privateSet10(this, _mediaController5, (_a3 = this.getRootNode()) == null ? void 0 : _a3.getElementById(
+        mediaControllerId
+      ));
+      (_c = (_b2 = __privateGet10(this, _mediaController5)) == null ? void 0 : _b2.associateElement) == null ? void 0 : _c.call(_b2, this);
+    }
+  }
+  disconnectedCallback() {
+    var _a3, _b2;
+    (_b2 = (_a3 = __privateGet10(this, _mediaController5)) == null ? void 0 : _a3.unassociateElement) == null ? void 0 : _b2.call(_a3, this);
+    __privateSet10(this, _mediaController5, null);
+  }
+};
+_mediaController5 = /* @__PURE__ */ new WeakMap();
+if (!GlobalThis.customElements.get("media-text-display")) {
+  GlobalThis.customElements.define("media-text-display", MediaTextDisplay);
+}
+
+// ../../node_modules/media-chrome/dist/media-duration-display.js
+var __accessCheck11 = (obj, member, msg) => {
+  if (!member.has(obj))
+    throw TypeError("Cannot " + msg);
+};
+var __privateGet11 = (obj, member, getter) => {
+  __accessCheck11(obj, member, "read from private field");
+  return getter ? getter.call(obj) : member.get(obj);
+};
+var __privateAdd11 = (obj, member, value) => {
+  if (member.has(obj))
+    throw TypeError("Cannot add the same private member more than once");
+  member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+};
+var __privateSet11 = (obj, member, value, setter) => {
+  __accessCheck11(obj, member, "write to private field");
+  setter ? setter.call(obj, value) : member.set(obj, value);
+  return value;
+};
+var _slot;
+var MediaDurationDisplay = class extends MediaTextDisplay {
+  constructor() {
+    super();
+    __privateAdd11(this, _slot, void 0);
+    __privateSet11(this, _slot, this.shadowRoot.querySelector("slot"));
+    __privateGet11(this, _slot).textContent = formatTime(0);
+  }
+  static get observedAttributes() {
+    return [...super.observedAttributes, MediaUIAttributes.MEDIA_DURATION];
+  }
+  attributeChangedCallback(attrName, oldValue, newValue) {
+    if (attrName === MediaUIAttributes.MEDIA_DURATION) {
+      __privateGet11(this, _slot).textContent = formatTime(+newValue);
+    }
+    super.attributeChangedCallback(attrName, oldValue, newValue);
+  }
+  /**
+   * @type {number | undefined} In seconds
+   */
+  get mediaDuration() {
+    return getNumericAttr(this, MediaUIAttributes.MEDIA_DURATION);
+  }
+  set mediaDuration(time) {
+    setNumericAttr(this, MediaUIAttributes.MEDIA_DURATION, time);
+  }
+};
+_slot = /* @__PURE__ */ new WeakMap();
+if (!GlobalThis.customElements.get("media-duration-display")) {
+  GlobalThis.customElements.define(
+    "media-duration-display",
+    MediaDurationDisplay
+  );
+}
+
+// ../../node_modules/media-chrome/dist/labels/labels.js
+var defaultErrorTitles = {
+  2: t("Network Error"),
+  3: t("Decode Error"),
+  4: t("Source Not Supported"),
+  5: t("Encryption Error")
+};
+var defaultErrorMessages = {
+  2: t("A network error caused the media download to fail."),
+  3: t(
+    "A media error caused playback to be aborted. The media could be corrupt or your browser does not support this format."
+  ),
+  4: t(
+    "An unsupported error occurred. The server or network failed, or your browser does not support this format."
+  ),
+  5: t("The media is encrypted and there are no keys to decrypt it.")
+};
+var formatError = (error2) => {
+  var _a3, _b2;
+  if (error2.code === 1)
+    return null;
+  return {
+    title: (_a3 = defaultErrorTitles[error2.code]) != null ? _a3 : `Error ${error2.code}`,
+    message: (_b2 = defaultErrorMessages[error2.code]) != null ? _b2 : error2.message
+  };
+};
+
+// ../../node_modules/media-chrome/dist/media-error-dialog.js
+var __accessCheck12 = (obj, member, msg) => {
+  if (!member.has(obj))
+    throw TypeError("Cannot " + msg);
+};
+var __privateGet12 = (obj, member, getter) => {
+  __accessCheck12(obj, member, "read from private field");
+  return getter ? getter.call(obj) : member.get(obj);
+};
+var __privateAdd12 = (obj, member, value) => {
+  if (member.has(obj))
+    throw TypeError("Cannot add the same private member more than once");
+  member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+};
+var __privateSet12 = (obj, member, value, setter) => {
+  __accessCheck12(obj, member, "write to private field");
+  setter ? setter.call(obj, value) : member.set(obj, value);
+  return value;
+};
+var _mediaError;
+function getSlotTemplateHTML2(attrs) {
+  return (
+    /*html*/
+    `
     <style>
       :host {
         background: rgb(20 20 30 / .8);
@@ -647,56 +5703,204 @@
         margin-block: 0 .3em;
       }
     </style>
-    <slot name="error-${i.mediaerrorcode}" id="content">
-      ${Ju({code:+i.mediaerrorcode,message:i.mediaerrormessage})}
+    <slot name="error-${attrs.mediaerrorcode}" id="content">
+      ${formatErrorMessage({ code: +attrs.mediaerrorcode, message: attrs.mediaerrormessage })}
     </slot>
-  `}function gp(i){return i.code&&Es(i)!==null}function Ju(i){var e;let{title:t,message:a}=(e=Es(i))!=null?e:{},r="";return t&&(r+=`<slot name="error-${i.code}-title"><h3>${t}</h3></slot>`),a&&(r+=`<slot name="error-${i.code}-message"><p>${a}</p></slot>`),r}var Qu=[o.MEDIA_ERROR_CODE,o.MEDIA_ERROR_MESSAGE],xi=class extends Xt{constructor(){super(...arguments),vp(this,en,null)}static get observedAttributes(){return[...super.observedAttributes,...Qu]}formatErrorMessage(e){return this.constructor.formatErrorMessage(e)}attributeChangedCallback(e,t,a){var r;if(super.attributeChangedCallback(e,t,a),!Qu.includes(e))return;let n=(r=this.mediaError)!=null?r:{code:this.mediaErrorCode,message:this.mediaErrorMessage};this.open=gp(n),this.open&&(this.shadowRoot.querySelector("slot").name=`error-${this.mediaErrorCode}`,this.shadowRoot.querySelector("#content").innerHTML=this.formatErrorMessage(n))}get mediaError(){return fp(this,en)}set mediaError(e){Ep(this,en,e)}get mediaErrorCode(){return x(this,"mediaerrorcode")}set mediaErrorCode(e){N(this,"mediaerrorcode",e)}get mediaErrorMessage(){return M(this,"mediaerrormessage")}set mediaErrorMessage(e){w(this,"mediaerrormessage",e)}};en=new WeakMap;xi.getSlotTemplateHTML=bp;xi.formatErrorMessage=Ju;d.customElements.get("media-error-dialog")||d.customElements.define("media-error-dialog",xi);var tn=xi;var _p=`<svg aria-hidden="true" viewBox="0 0 26 24">
+  `
+  );
+}
+function shouldOpenErrorDialog(error2) {
+  return error2.code && formatError(error2) !== null;
+}
+function formatErrorMessage(error2) {
+  var _a3;
+  const { title, message } = (_a3 = formatError(error2)) != null ? _a3 : {};
+  let html2 = "";
+  if (title)
+    html2 += `<slot name="error-${error2.code}-title"><h3>${title}</h3></slot>`;
+  if (message)
+    html2 += `<slot name="error-${error2.code}-message"><p>${message}</p></slot>`;
+  return html2;
+}
+var observedAttributes = [
+  MediaUIAttributes.MEDIA_ERROR_CODE,
+  MediaUIAttributes.MEDIA_ERROR_MESSAGE
+];
+var MediaErrorDialog = class extends MediaChromeDialog {
+  constructor() {
+    super(...arguments);
+    __privateAdd12(this, _mediaError, null);
+  }
+  static get observedAttributes() {
+    return [...super.observedAttributes, ...observedAttributes];
+  }
+  formatErrorMessage(error2) {
+    return this.constructor.formatErrorMessage(error2);
+  }
+  attributeChangedCallback(attrName, oldValue, newValue) {
+    var _a3;
+    super.attributeChangedCallback(attrName, oldValue, newValue);
+    if (!observedAttributes.includes(attrName))
+      return;
+    const mediaError = (_a3 = this.mediaError) != null ? _a3 : {
+      code: this.mediaErrorCode,
+      message: this.mediaErrorMessage
+    };
+    this.open = shouldOpenErrorDialog(mediaError);
+    if (this.open) {
+      this.shadowRoot.querySelector("slot").name = `error-${this.mediaErrorCode}`;
+      this.shadowRoot.querySelector("#content").innerHTML = this.formatErrorMessage(mediaError);
+    }
+  }
+  get mediaError() {
+    return __privateGet12(this, _mediaError);
+  }
+  set mediaError(value) {
+    __privateSet12(this, _mediaError, value);
+  }
+  get mediaErrorCode() {
+    return getNumericAttr(this, "mediaerrorcode");
+  }
+  set mediaErrorCode(value) {
+    setNumericAttr(this, "mediaerrorcode", value);
+  }
+  get mediaErrorMessage() {
+    return getStringAttr(this, "mediaerrormessage");
+  }
+  set mediaErrorMessage(value) {
+    setStringAttr(this, "mediaerrormessage", value);
+  }
+};
+_mediaError = /* @__PURE__ */ new WeakMap();
+MediaErrorDialog.getSlotTemplateHTML = getSlotTemplateHTML2;
+MediaErrorDialog.formatErrorMessage = formatErrorMessage;
+if (!GlobalThis.customElements.get("media-error-dialog")) {
+  GlobalThis.customElements.define("media-error-dialog", MediaErrorDialog);
+}
+var media_error_dialog_default = MediaErrorDialog;
+
+// ../../node_modules/media-chrome/dist/media-fullscreen-button.js
+var enterFullscreenIcon = `<svg aria-hidden="true" viewBox="0 0 26 24">
   <path d="M16 3v2.5h3.5V9H22V3h-6ZM4 9h2.5V5.5H10V3H4v6Zm15.5 9.5H16V21h6v-6h-2.5v3.5ZM6.5 15H4v6h6v-2.5H6.5V15Z"/>
-</svg>`,Ap=`<svg aria-hidden="true" viewBox="0 0 26 24">
+</svg>`;
+var exitFullscreenIcon = `<svg aria-hidden="true" viewBox="0 0 26 24">
   <path d="M18.5 6.5V3H16v6h6V6.5h-3.5ZM16 21h2.5v-3.5H22V15h-6v6ZM4 17.5h3.5V21H10v-6H4v2.5Zm3.5-11H4V9h6V3H7.5v3.5Z"/>
-</svg>`,ec=h.createElement("template");ec.innerHTML=`
+</svg>`;
+var slotTemplate4 = Document2.createElement("template");
+slotTemplate4.innerHTML = /*html*/
+`
   <style>
-    :host([${o.MEDIA_IS_FULLSCREEN}]) slot[name=icon] slot:not([name=exit]) {
+    :host([${MediaUIAttributes.MEDIA_IS_FULLSCREEN}]) slot[name=icon] slot:not([name=exit]) {
       display: none !important;
     }
 
-    
-    :host(:not([${o.MEDIA_IS_FULLSCREEN}])) slot[name=icon] slot:not([name=enter]) {
+    ${/* Double negative, but safer if display doesn't equal 'block' */
+""}
+    :host(:not([${MediaUIAttributes.MEDIA_IS_FULLSCREEN}])) slot[name=icon] slot:not([name=enter]) {
       display: none !important;
     }
 
-    :host([${o.MEDIA_IS_FULLSCREEN}]) slot[name=tooltip-enter],
-    :host(:not([${o.MEDIA_IS_FULLSCREEN}])) slot[name=tooltip-exit] {
+    :host([${MediaUIAttributes.MEDIA_IS_FULLSCREEN}]) slot[name=tooltip-enter],
+    :host(:not([${MediaUIAttributes.MEDIA_IS_FULLSCREEN}])) slot[name=tooltip-exit] {
       display: none;
     }
   </style>
 
   <slot name="icon">
-    <slot name="enter">${_p}</slot>
-    <slot name="exit">${Ap}</slot>
+    <slot name="enter">${enterFullscreenIcon}</slot>
+    <slot name="exit">${exitFullscreenIcon}</slot>
   </slot>
-`;var yp=`
-  <slot name="tooltip-enter">${v("Enter fullscreen mode")}</slot>
-  <slot name="tooltip-exit">${v("Exit fullscreen mode")}</slot>
-`,ju=i=>{let e=i.mediaIsFullscreen?v("exit fullscreen mode"):v("enter fullscreen mode");i.setAttribute("aria-label",e)},bs=class extends V{static get observedAttributes(){return[...super.observedAttributes,o.MEDIA_IS_FULLSCREEN,o.MEDIA_FULLSCREEN_UNAVAILABLE]}constructor(e={}){super({slotTemplate:ec,tooltipContent:yp,...e})}connectedCallback(){super.connectedCallback(),ju(this)}attributeChangedCallback(e,t,a){super.attributeChangedCallback(e,t,a),e===o.MEDIA_IS_FULLSCREEN&&ju(this)}get mediaFullscreenUnavailable(){return M(this,o.MEDIA_FULLSCREEN_UNAVAILABLE)}set mediaFullscreenUnavailable(e){w(this,o.MEDIA_FULLSCREEN_UNAVAILABLE,e)}get mediaIsFullscreen(){return k(this,o.MEDIA_IS_FULLSCREEN)}set mediaIsFullscreen(e){S(this,o.MEDIA_IS_FULLSCREEN,e)}handleClick(){let e=this.mediaIsFullscreen?f.MEDIA_EXIT_FULLSCREEN_REQUEST:f.MEDIA_ENTER_FULLSCREEN_REQUEST;this.dispatchEvent(new d.CustomEvent(e,{composed:!0,bubbles:!0}))}};d.customElements.get("media-fullscreen-button")||d.customElements.define("media-fullscreen-button",bs);var{MEDIA_TIME_IS_LIVE:an,MEDIA_PAUSED:ya}=o,{MEDIA_SEEK_TO_LIVE_REQUEST:Tp,MEDIA_PLAY_REQUEST:kp}=f,Sp='<svg viewBox="0 0 6 12"><circle cx="3" cy="6" r="2"></circle></svg>',ic=h.createElement("template");ic.innerHTML=`
+`;
+var tooltipContent4 = (
+  /*html*/
+  `
+  <slot name="tooltip-enter">${t("Enter fullscreen mode")}</slot>
+  <slot name="tooltip-exit">${t("Exit fullscreen mode")}</slot>
+`
+);
+var updateAriaLabel3 = (el) => {
+  const label = el.mediaIsFullscreen ? t("exit fullscreen mode") : t("enter fullscreen mode");
+  el.setAttribute("aria-label", label);
+};
+var MediaFullscreenButton = class extends MediaChromeButton {
+  static get observedAttributes() {
+    return [
+      ...super.observedAttributes,
+      MediaUIAttributes.MEDIA_IS_FULLSCREEN,
+      MediaUIAttributes.MEDIA_FULLSCREEN_UNAVAILABLE
+    ];
+  }
+  constructor(options = {}) {
+    super({ slotTemplate: slotTemplate4, tooltipContent: tooltipContent4, ...options });
+  }
+  connectedCallback() {
+    super.connectedCallback();
+    updateAriaLabel3(this);
+  }
+  attributeChangedCallback(attrName, oldValue, newValue) {
+    super.attributeChangedCallback(attrName, oldValue, newValue);
+    if (attrName === MediaUIAttributes.MEDIA_IS_FULLSCREEN) {
+      updateAriaLabel3(this);
+    }
+  }
+  /**
+   * @type {string | undefined} Fullscreen unavailability state
+   */
+  get mediaFullscreenUnavailable() {
+    return getStringAttr(this, MediaUIAttributes.MEDIA_FULLSCREEN_UNAVAILABLE);
+  }
+  set mediaFullscreenUnavailable(value) {
+    setStringAttr(this, MediaUIAttributes.MEDIA_FULLSCREEN_UNAVAILABLE, value);
+  }
+  /**
+   * @type {boolean} Whether fullscreen is available
+   */
+  get mediaIsFullscreen() {
+    return getBooleanAttr(this, MediaUIAttributes.MEDIA_IS_FULLSCREEN);
+  }
+  set mediaIsFullscreen(value) {
+    setBooleanAttr(this, MediaUIAttributes.MEDIA_IS_FULLSCREEN, value);
+  }
+  handleClick() {
+    const eventName = this.mediaIsFullscreen ? MediaUIEvents.MEDIA_EXIT_FULLSCREEN_REQUEST : MediaUIEvents.MEDIA_ENTER_FULLSCREEN_REQUEST;
+    this.dispatchEvent(
+      new GlobalThis.CustomEvent(eventName, { composed: true, bubbles: true })
+    );
+  }
+};
+if (!GlobalThis.customElements.get("media-fullscreen-button")) {
+  GlobalThis.customElements.define(
+    "media-fullscreen-button",
+    MediaFullscreenButton
+  );
+}
+
+// ../../node_modules/media-chrome/dist/media-live-button.js
+var { MEDIA_TIME_IS_LIVE, MEDIA_PAUSED } = MediaUIAttributes;
+var { MEDIA_SEEK_TO_LIVE_REQUEST, MEDIA_PLAY_REQUEST } = MediaUIEvents;
+var indicatorSVG = '<svg viewBox="0 0 6 12"><circle cx="3" cy="6" r="2"></circle></svg>';
+var slotTemplate5 = Document2.createElement("template");
+slotTemplate5.innerHTML = /*html*/
+`
   <style>
   :host { --media-tooltip-display: none; }
   
   slot[name=indicator] > *,
   :host ::slotted([slot=indicator]) {
-    
+    ${/* Override styles for icon-only buttons */
+""}
     min-width: auto;
     fill: var(--media-live-button-icon-color, rgb(140, 140, 140));
     color: var(--media-live-button-icon-color, rgb(140, 140, 140));
   }
 
-  :host([${an}]:not([${ya}])) slot[name=indicator] > *,
-  :host([${an}]:not([${ya}])) ::slotted([slot=indicator]) {
+  :host([${MEDIA_TIME_IS_LIVE}]:not([${MEDIA_PAUSED}])) slot[name=indicator] > *,
+  :host([${MEDIA_TIME_IS_LIVE}]:not([${MEDIA_PAUSED}])) ::slotted([slot=indicator]) {
     fill: var(--media-live-button-indicator-color, rgb(255, 0, 0));
     color: var(--media-live-button-indicator-color, rgb(255, 0, 0));
   }
 
-  :host([${an}]:not([${ya}])) {
+  :host([${MEDIA_TIME_IS_LIVE}]:not([${MEDIA_PAUSED}])) {
     cursor: not-allowed;
   }
 
@@ -706,10 +5910,104 @@
 
   </style>
 
-  <slot name="indicator">${Sp}</slot>
-  
-  <slot name="spacer">&nbsp;</slot><slot name="text">${v("live")}</slot>
-`;var tc=i=>{let e=i.mediaPaused||!i.mediaTimeIsLive,t=e?v("seek to live"):v("playing live");i.setAttribute("aria-label",t),e?i.removeAttribute("aria-disabled"):i.setAttribute("aria-disabled","true")},gs=class extends V{static get observedAttributes(){return[...super.observedAttributes,ya,an]}constructor(e={}){super({slotTemplate:ic,...e})}connectedCallback(){tc(this),super.connectedCallback()}attributeChangedCallback(e,t,a){super.attributeChangedCallback(e,t,a),tc(this)}get mediaPaused(){return k(this,o.MEDIA_PAUSED)}set mediaPaused(e){S(this,o.MEDIA_PAUSED,e)}get mediaTimeIsLive(){return k(this,o.MEDIA_TIME_IS_LIVE)}set mediaTimeIsLive(e){S(this,o.MEDIA_TIME_IS_LIVE,e)}handleClick(){!this.mediaPaused&&this.mediaTimeIsLive||(this.dispatchEvent(new d.CustomEvent(Tp,{composed:!0,bubbles:!0})),this.hasAttribute(ya)&&this.dispatchEvent(new d.CustomEvent(kp,{composed:!0,bubbles:!0})))}};d.customElements.get("media-live-button")||d.customElements.define("media-live-button",gs);var rc=(i,e,t)=>{if(!e.has(i))throw TypeError("Cannot "+t)},Ta=(i,e,t)=>(rc(i,e,"read from private field"),t?t.call(i):e.get(i)),ac=(i,e,t)=>{if(e.has(i))throw TypeError("Cannot add the same private member more than once");e instanceof WeakSet?e.add(i):e.set(i,t)},ka=(i,e,t,a)=>(rc(i,e,"write to private field"),a?a.call(i,t):e.set(i,t),t),Ye,nn,rn={LOADING_DELAY:"loadingdelay",NO_AUTOHIDE:"noautohide"},nc=500,oc=h.createElement("template"),Ip=`
+  <slot name="indicator">${indicatorSVG}</slot>
+  ${/*
+  A new line between spacer and text creates inconsistent spacing
+  between slotted items and default slots.
+*/
+""}
+  <slot name="spacer">&nbsp;</slot><slot name="text">${t("live")}</slot>
+`;
+var updateAriaAttributes = (el) => {
+  const isPausedOrNotLive = el.mediaPaused || !el.mediaTimeIsLive;
+  const label = isPausedOrNotLive ? t("seek to live") : t("playing live");
+  el.setAttribute("aria-label", label);
+  isPausedOrNotLive ? el.removeAttribute("aria-disabled") : el.setAttribute("aria-disabled", "true");
+};
+var MediaLiveButton = class extends MediaChromeButton {
+  static get observedAttributes() {
+    return [...super.observedAttributes, MEDIA_PAUSED, MEDIA_TIME_IS_LIVE];
+  }
+  constructor(options = {}) {
+    super({ slotTemplate: slotTemplate5, ...options });
+  }
+  connectedCallback() {
+    updateAriaAttributes(this);
+    super.connectedCallback();
+  }
+  attributeChangedCallback(attrName, oldValue, newValue) {
+    super.attributeChangedCallback(attrName, oldValue, newValue);
+    updateAriaAttributes(this);
+  }
+  /**
+   * @type {boolean} Is the media paused
+   */
+  get mediaPaused() {
+    return getBooleanAttr(this, MediaUIAttributes.MEDIA_PAUSED);
+  }
+  set mediaPaused(value) {
+    setBooleanAttr(this, MediaUIAttributes.MEDIA_PAUSED, value);
+  }
+  /**
+   * @type {boolean} Is the media playback currently live
+   */
+  get mediaTimeIsLive() {
+    return getBooleanAttr(this, MediaUIAttributes.MEDIA_TIME_IS_LIVE);
+  }
+  set mediaTimeIsLive(value) {
+    setBooleanAttr(this, MediaUIAttributes.MEDIA_TIME_IS_LIVE, value);
+  }
+  handleClick() {
+    if (!this.mediaPaused && this.mediaTimeIsLive)
+      return;
+    this.dispatchEvent(
+      new GlobalThis.CustomEvent(MEDIA_SEEK_TO_LIVE_REQUEST, {
+        composed: true,
+        bubbles: true
+      })
+    );
+    if (this.hasAttribute(MEDIA_PAUSED)) {
+      this.dispatchEvent(
+        new GlobalThis.CustomEvent(MEDIA_PLAY_REQUEST, {
+          composed: true,
+          bubbles: true
+        })
+      );
+    }
+  }
+};
+if (!GlobalThis.customElements.get("media-live-button")) {
+  GlobalThis.customElements.define("media-live-button", MediaLiveButton);
+}
+
+// ../../node_modules/media-chrome/dist/media-loading-indicator.js
+var __accessCheck13 = (obj, member, msg) => {
+  if (!member.has(obj))
+    throw TypeError("Cannot " + msg);
+};
+var __privateGet13 = (obj, member, getter) => {
+  __accessCheck13(obj, member, "read from private field");
+  return getter ? getter.call(obj) : member.get(obj);
+};
+var __privateAdd13 = (obj, member, value) => {
+  if (member.has(obj))
+    throw TypeError("Cannot add the same private member more than once");
+  member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+};
+var __privateSet13 = (obj, member, value, setter) => {
+  __accessCheck13(obj, member, "write to private field");
+  setter ? setter.call(obj, value) : member.set(obj, value);
+  return value;
+};
+var _mediaController6;
+var _delay;
+var Attributes5 = {
+  LOADING_DELAY: "loadingdelay",
+  NO_AUTOHIDE: "noautohide"
+};
+var DEFAULT_LOADING_DELAY = 500;
+var template7 = Document2.createElement("template");
+var loadingIndicatorIcon = `
 <svg aria-hidden="true" viewBox="0 0 100 100">
   <path d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50">
     <animateTransform
@@ -722,13 +6020,15 @@
        repeatCount="indefinite" />
   </path>
 </svg>
-`;oc.innerHTML=`
+`;
+template7.innerHTML = /*html*/
+`
 <style>
 :host {
   display: var(--media-control-display, var(--media-loading-indicator-display, inline-block));
   vertical-align: middle;
   box-sizing: border-box;
-  --_loading-indicator-delay: var(--media-loading-indicator-transition-delay, ${nc}ms);
+  --_loading-indicator-delay: var(--media-loading-indicator-transition-delay, ${DEFAULT_LOADING_DELAY}ms);
 }
 
 #status {
@@ -743,8 +6043,8 @@
   transition: opacity 0.15s;
 }
 
-:host([${o.MEDIA_LOADING}]:not([${o.MEDIA_PAUSED}])) slot[name=icon] > *,
-:host([${o.MEDIA_LOADING}]:not([${o.MEDIA_PAUSED}])) ::slotted([slot=icon]) {
+:host([${MediaUIAttributes.MEDIA_LOADING}]:not([${MediaUIAttributes.MEDIA_PAUSED}])) slot[name=icon] > *,
+:host([${MediaUIAttributes.MEDIA_LOADING}]:not([${MediaUIAttributes.MEDIA_PAUSED}])) ::slotted([slot=icon]) {
   opacity: var(--media-loading-indicator-opacity, 1);
   transition: opacity 0.15s var(--_loading-indicator-delay);
 }
@@ -754,7 +6054,7 @@
   transition: visibility 0.15s;
 }
 
-:host([${o.MEDIA_LOADING}]:not([${o.MEDIA_PAUSED}])) #status {
+:host([${MediaUIAttributes.MEDIA_LOADING}]:not([${MediaUIAttributes.MEDIA_PAUSED}])) #status {
   visibility: var(--media-loading-indicator-opacity, visible);
   transition: visibility 0.15s var(--_loading-indicator-delay);
 }
@@ -767,76 +6067,323 @@ svg, img, ::slotted(svg), ::slotted(img) {
 }
 </style>
 
-<slot name="icon">${Ip}</slot>
-<div id="status" role="status" aria-live="polite">${v("media loading")}</div>
-`;var _s=class extends d.HTMLElement{constructor(){if(super(),ac(this,Ye,void 0),ac(this,nn,nc),!this.shadowRoot){let e=this.attachShadow({mode:"open"}),t=oc.content.cloneNode(!0);e.appendChild(t)}}static get observedAttributes(){return[R.MEDIA_CONTROLLER,o.MEDIA_PAUSED,o.MEDIA_LOADING,rn.LOADING_DELAY]}attributeChangedCallback(e,t,a){var r,n,s,l,u;e===rn.LOADING_DELAY&&t!==a?this.loadingDelay=Number(a):e===R.MEDIA_CONTROLLER&&(t&&((n=(r=Ta(this,Ye))==null?void 0:r.unassociateElement)==null||n.call(r,this),ka(this,Ye,null)),a&&this.isConnected&&(ka(this,Ye,(s=this.getRootNode())==null?void 0:s.getElementById(a)),(u=(l=Ta(this,Ye))==null?void 0:l.associateElement)==null||u.call(l,this)))}connectedCallback(){var e,t,a;let r=this.getAttribute(R.MEDIA_CONTROLLER);r&&(ka(this,Ye,(e=this.getRootNode())==null?void 0:e.getElementById(r)),(a=(t=Ta(this,Ye))==null?void 0:t.associateElement)==null||a.call(t,this))}disconnectedCallback(){var e,t;(t=(e=Ta(this,Ye))==null?void 0:e.unassociateElement)==null||t.call(e,this),ka(this,Ye,null)}get loadingDelay(){return Ta(this,nn)}set loadingDelay(e){ka(this,nn,e);let{style:t}=$(this.shadowRoot,":host");t.setProperty("--_loading-indicator-delay",`var(--media-loading-indicator-transition-delay, ${e}ms)`)}get mediaPaused(){return k(this,o.MEDIA_PAUSED)}set mediaPaused(e){S(this,o.MEDIA_PAUSED,e)}get mediaLoading(){return k(this,o.MEDIA_LOADING)}set mediaLoading(e){S(this,o.MEDIA_LOADING,e)}get mediaController(){return M(this,R.MEDIA_CONTROLLER)}set mediaController(e){w(this,R.MEDIA_CONTROLLER,e)}get noAutohide(){return k(this,rn.NO_AUTOHIDE)}set noAutohide(e){S(this,rn.NO_AUTOHIDE,e)}};Ye=new WeakMap;nn=new WeakMap;d.customElements.get("media-loading-indicator")||d.customElements.define("media-loading-indicator",_s);var{MEDIA_VOLUME_LEVEL:jt}=o,Cp=`<svg aria-hidden="true" viewBox="0 0 24 24">
+<slot name="icon">${loadingIndicatorIcon}</slot>
+<div id="status" role="status" aria-live="polite">${t("media loading")}</div>
+`;
+var MediaLoadingIndicator = class extends GlobalThis.HTMLElement {
+  constructor() {
+    super();
+    __privateAdd13(this, _mediaController6, void 0);
+    __privateAdd13(this, _delay, DEFAULT_LOADING_DELAY);
+    if (!this.shadowRoot) {
+      const shadow = this.attachShadow({ mode: "open" });
+      const indicatorHTML = template7.content.cloneNode(true);
+      shadow.appendChild(indicatorHTML);
+    }
+  }
+  static get observedAttributes() {
+    return [
+      MediaStateReceiverAttributes.MEDIA_CONTROLLER,
+      MediaUIAttributes.MEDIA_PAUSED,
+      MediaUIAttributes.MEDIA_LOADING,
+      Attributes5.LOADING_DELAY
+    ];
+  }
+  attributeChangedCallback(attrName, oldValue, newValue) {
+    var _a3, _b2, _c, _d, _e;
+    if (attrName === Attributes5.LOADING_DELAY && oldValue !== newValue) {
+      this.loadingDelay = Number(newValue);
+    } else if (attrName === MediaStateReceiverAttributes.MEDIA_CONTROLLER) {
+      if (oldValue) {
+        (_b2 = (_a3 = __privateGet13(this, _mediaController6)) == null ? void 0 : _a3.unassociateElement) == null ? void 0 : _b2.call(_a3, this);
+        __privateSet13(this, _mediaController6, null);
+      }
+      if (newValue && this.isConnected) {
+        __privateSet13(this, _mediaController6, (_c = this.getRootNode()) == null ? void 0 : _c.getElementById(newValue));
+        (_e = (_d = __privateGet13(this, _mediaController6)) == null ? void 0 : _d.associateElement) == null ? void 0 : _e.call(_d, this);
+      }
+    }
+  }
+  connectedCallback() {
+    var _a3, _b2, _c;
+    const mediaControllerId = this.getAttribute(
+      MediaStateReceiverAttributes.MEDIA_CONTROLLER
+    );
+    if (mediaControllerId) {
+      __privateSet13(this, _mediaController6, (_a3 = this.getRootNode()) == null ? void 0 : _a3.getElementById(
+        mediaControllerId
+      ));
+      (_c = (_b2 = __privateGet13(this, _mediaController6)) == null ? void 0 : _b2.associateElement) == null ? void 0 : _c.call(_b2, this);
+    }
+  }
+  disconnectedCallback() {
+    var _a3, _b2;
+    (_b2 = (_a3 = __privateGet13(this, _mediaController6)) == null ? void 0 : _a3.unassociateElement) == null ? void 0 : _b2.call(_a3, this);
+    __privateSet13(this, _mediaController6, null);
+  }
+  /**
+   * Delay in ms
+   */
+  get loadingDelay() {
+    return __privateGet13(this, _delay);
+  }
+  set loadingDelay(delay2) {
+    __privateSet13(this, _delay, delay2);
+    const { style } = getOrInsertCSSRule(this.shadowRoot, ":host");
+    style.setProperty(
+      "--_loading-indicator-delay",
+      `var(--media-loading-indicator-transition-delay, ${delay2}ms)`
+    );
+  }
+  /**
+   * Is the media paused
+   */
+  get mediaPaused() {
+    return getBooleanAttr(this, MediaUIAttributes.MEDIA_PAUSED);
+  }
+  set mediaPaused(value) {
+    setBooleanAttr(this, MediaUIAttributes.MEDIA_PAUSED, value);
+  }
+  /**
+   * Is the media loading
+   */
+  get mediaLoading() {
+    return getBooleanAttr(this, MediaUIAttributes.MEDIA_LOADING);
+  }
+  set mediaLoading(value) {
+    setBooleanAttr(this, MediaUIAttributes.MEDIA_LOADING, value);
+  }
+  get mediaController() {
+    return getStringAttr(this, MediaStateReceiverAttributes.MEDIA_CONTROLLER);
+  }
+  set mediaController(value) {
+    setStringAttr(this, MediaStateReceiverAttributes.MEDIA_CONTROLLER, value);
+  }
+  get noAutohide() {
+    return getBooleanAttr(this, Attributes5.NO_AUTOHIDE);
+  }
+  set noAutohide(value) {
+    setBooleanAttr(this, Attributes5.NO_AUTOHIDE, value);
+  }
+};
+_mediaController6 = /* @__PURE__ */ new WeakMap();
+_delay = /* @__PURE__ */ new WeakMap();
+if (!GlobalThis.customElements.get("media-loading-indicator")) {
+  GlobalThis.customElements.define(
+    "media-loading-indicator",
+    MediaLoadingIndicator
+  );
+}
+
+// ../../node_modules/media-chrome/dist/media-mute-button.js
+var { MEDIA_VOLUME_LEVEL } = MediaUIAttributes;
+var offIcon = `<svg aria-hidden="true" viewBox="0 0 24 24">
   <path d="M16.5 12A4.5 4.5 0 0 0 14 8v2.18l2.45 2.45a4.22 4.22 0 0 0 .05-.63Zm2.5 0a6.84 6.84 0 0 1-.54 2.64L20 16.15A8.8 8.8 0 0 0 21 12a9 9 0 0 0-7-8.77v2.06A7 7 0 0 1 19 12ZM4.27 3 3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25A6.92 6.92 0 0 1 14 18.7v2.06A9 9 0 0 0 17.69 19l2 2.05L21 19.73l-9-9L4.27 3ZM12 4 9.91 6.09 12 8.18V4Z"/>
-</svg>`,sc=`<svg aria-hidden="true" viewBox="0 0 24 24">
+</svg>`;
+var lowIcon = `<svg aria-hidden="true" viewBox="0 0 24 24">
   <path d="M3 9v6h4l5 5V4L7 9H3Zm13.5 3A4.5 4.5 0 0 0 14 8v8a4.47 4.47 0 0 0 2.5-4Z"/>
-</svg>`,Mp=`<svg aria-hidden="true" viewBox="0 0 24 24">
+</svg>`;
+var highIcon = `<svg aria-hidden="true" viewBox="0 0 24 24">
   <path d="M3 9v6h4l5 5V4L7 9H3Zm13.5 3A4.5 4.5 0 0 0 14 8v8a4.47 4.47 0 0 0 2.5-4ZM14 3.23v2.06a7 7 0 0 1 0 13.42v2.06a9 9 0 0 0 0-17.54Z"/>
-</svg>`,dc=h.createElement("template");dc.innerHTML=`
+</svg>`;
+var slotTemplate6 = Document2.createElement("template");
+slotTemplate6.innerHTML = /*html*/
+`
   <style>
-  
-  :host(:not([${jt}])) slot[name=icon] slot:not([name=high]), 
-  :host([${jt}=high]) slot[name=icon] slot:not([name=high]) {
+  ${/* Default to High slot/icon. */
+""}
+  :host(:not([${MEDIA_VOLUME_LEVEL}])) slot[name=icon] slot:not([name=high]), 
+  :host([${MEDIA_VOLUME_LEVEL}=high]) slot[name=icon] slot:not([name=high]) {
     display: none !important;
   }
 
-  :host([${jt}=off]) slot[name=icon] slot:not([name=off]) {
+  :host([${MEDIA_VOLUME_LEVEL}=off]) slot[name=icon] slot:not([name=off]) {
     display: none !important;
   }
 
-  :host([${jt}=low]) slot[name=icon] slot:not([name=low]) {
+  :host([${MEDIA_VOLUME_LEVEL}=low]) slot[name=icon] slot:not([name=low]) {
     display: none !important;
   }
 
-  :host([${jt}=medium]) slot[name=icon] slot:not([name=medium]) {
+  :host([${MEDIA_VOLUME_LEVEL}=medium]) slot[name=icon] slot:not([name=medium]) {
     display: none !important;
   }
 
-  :host(:not([${jt}=off])) slot[name=tooltip-unmute],
-  :host([${jt}=off]) slot[name=tooltip-mute] {
+  :host(:not([${MEDIA_VOLUME_LEVEL}=off])) slot[name=tooltip-unmute],
+  :host([${MEDIA_VOLUME_LEVEL}=off]) slot[name=tooltip-mute] {
     display: none;
   }
   </style>
 
   <slot name="icon">
-    <slot name="off">${Cp}</slot>
-    <slot name="low">${sc}</slot>
-    <slot name="medium">${sc}</slot>
-    <slot name="high">${Mp}</slot>
+    <slot name="off">${offIcon}</slot>
+    <slot name="low">${lowIcon}</slot>
+    <slot name="medium">${lowIcon}</slot>
+    <slot name="high">${highIcon}</slot>
   </slot>
-`;var wp=`
-  <slot name="tooltip-mute">${v("Mute")}</slot>
-  <slot name="tooltip-unmute">${v("Unmute")}</slot>
-`,lc=i=>{let t=i.mediaVolumeLevel==="off"?v("unmute"):v("mute");i.setAttribute("aria-label",t)},As=class extends V{static get observedAttributes(){return[...super.observedAttributes,o.MEDIA_VOLUME_LEVEL]}constructor(e={}){super({slotTemplate:dc,tooltipContent:wp,...e})}connectedCallback(){lc(this),super.connectedCallback()}attributeChangedCallback(e,t,a){e===o.MEDIA_VOLUME_LEVEL&&lc(this),super.attributeChangedCallback(e,t,a)}get mediaVolumeLevel(){return M(this,o.MEDIA_VOLUME_LEVEL)}set mediaVolumeLevel(e){w(this,o.MEDIA_VOLUME_LEVEL,e)}handleClick(){let e=this.mediaVolumeLevel==="off"?f.MEDIA_UNMUTE_REQUEST:f.MEDIA_MUTE_REQUEST;this.dispatchEvent(new d.CustomEvent(e,{composed:!0,bubbles:!0}))}};d.customElements.get("media-mute-button")||d.customElements.define("media-mute-button",As);var uc=`<svg aria-hidden="true" viewBox="0 0 28 24">
+`;
+var tooltipContent5 = (
+  /*html*/
+  `
+  <slot name="tooltip-mute">${t("Mute")}</slot>
+  <slot name="tooltip-unmute">${t("Unmute")}</slot>
+`
+);
+var updateAriaLabel4 = (el) => {
+  const muted = el.mediaVolumeLevel === "off";
+  const label = muted ? t("unmute") : t("mute");
+  el.setAttribute("aria-label", label);
+};
+var MediaMuteButton = class extends MediaChromeButton {
+  static get observedAttributes() {
+    return [...super.observedAttributes, MediaUIAttributes.MEDIA_VOLUME_LEVEL];
+  }
+  constructor(options = {}) {
+    super({ slotTemplate: slotTemplate6, tooltipContent: tooltipContent5, ...options });
+  }
+  connectedCallback() {
+    updateAriaLabel4(this);
+    super.connectedCallback();
+  }
+  attributeChangedCallback(attrName, oldValue, newValue) {
+    if (attrName === MediaUIAttributes.MEDIA_VOLUME_LEVEL) {
+      updateAriaLabel4(this);
+    }
+    super.attributeChangedCallback(attrName, oldValue, newValue);
+  }
+  /**
+   * @type {string | undefined}
+   */
+  get mediaVolumeLevel() {
+    return getStringAttr(this, MediaUIAttributes.MEDIA_VOLUME_LEVEL);
+  }
+  set mediaVolumeLevel(value) {
+    setStringAttr(this, MediaUIAttributes.MEDIA_VOLUME_LEVEL, value);
+  }
+  handleClick() {
+    const eventName = this.mediaVolumeLevel === "off" ? MediaUIEvents.MEDIA_UNMUTE_REQUEST : MediaUIEvents.MEDIA_MUTE_REQUEST;
+    this.dispatchEvent(
+      new GlobalThis.CustomEvent(eventName, { composed: true, bubbles: true })
+    );
+  }
+};
+if (!GlobalThis.customElements.get("media-mute-button")) {
+  GlobalThis.customElements.define("media-mute-button", MediaMuteButton);
+}
+
+// ../../node_modules/media-chrome/dist/media-pip-button.js
+var pipIcon = `<svg aria-hidden="true" viewBox="0 0 28 24">
   <path d="M24 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h20a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1Zm-1 16H5V5h18v14Zm-3-8h-7v5h7v-5Z"/>
-</svg>`,mc=h.createElement("template");mc.innerHTML=`
+</svg>`;
+var slotTemplate7 = Document2.createElement("template");
+slotTemplate7.innerHTML = /*html*/
+`
   <style>
-  :host([${o.MEDIA_IS_PIP}]) slot[name=icon] slot:not([name=exit]) {
+  :host([${MediaUIAttributes.MEDIA_IS_PIP}]) slot[name=icon] slot:not([name=exit]) {
     display: none !important;
   }
 
-  
-  :host(:not([${o.MEDIA_IS_PIP}])) slot[name=icon] slot:not([name=enter]) {
+  ${/* Double negative, but safer if display doesn't equal 'block' */
+""}
+  :host(:not([${MediaUIAttributes.MEDIA_IS_PIP}])) slot[name=icon] slot:not([name=enter]) {
     display: none !important;
   }
 
-  :host([${o.MEDIA_IS_PIP}]) slot[name=tooltip-enter],
-  :host(:not([${o.MEDIA_IS_PIP}])) slot[name=tooltip-exit] {
+  :host([${MediaUIAttributes.MEDIA_IS_PIP}]) slot[name=tooltip-enter],
+  :host(:not([${MediaUIAttributes.MEDIA_IS_PIP}])) slot[name=tooltip-exit] {
     display: none;
   }
   </style>
 
   <slot name="icon">
-    <slot name="enter">${uc}</slot>
-    <slot name="exit">${uc}</slot>
+    <slot name="enter">${pipIcon}</slot>
+    <slot name="exit">${pipIcon}</slot>
   </slot>
-`;var Rp=`
-  <slot name="tooltip-enter">${v("Enter picture in picture mode")}</slot>
-  <slot name="tooltip-exit">${v("Exit picture in picture mode")}</slot>
-`,cc=i=>{let e=i.mediaIsPip?v("exit picture in picture mode"):v("enter picture in picture mode");i.setAttribute("aria-label",e)},ys=class extends V{static get observedAttributes(){return[...super.observedAttributes,o.MEDIA_IS_PIP,o.MEDIA_PIP_UNAVAILABLE]}constructor(e={}){super({slotTemplate:mc,tooltipContent:Rp,...e})}connectedCallback(){cc(this),super.connectedCallback()}attributeChangedCallback(e,t,a){e===o.MEDIA_IS_PIP&&cc(this),super.attributeChangedCallback(e,t,a)}get mediaPipUnavailable(){return M(this,o.MEDIA_PIP_UNAVAILABLE)}set mediaPipUnavailable(e){w(this,o.MEDIA_PIP_UNAVAILABLE,e)}get mediaIsPip(){return k(this,o.MEDIA_IS_PIP)}set mediaIsPip(e){S(this,o.MEDIA_IS_PIP,e)}handleClick(){let e=this.mediaIsPip?f.MEDIA_EXIT_PIP_REQUEST:f.MEDIA_ENTER_PIP_REQUEST;this.dispatchEvent(new d.CustomEvent(e,{composed:!0,bubbles:!0}))}};d.customElements.get("media-pip-button")||d.customElements.define("media-pip-button",ys);var Lp=(i,e,t)=>{if(!e.has(i))throw TypeError("Cannot "+t)},on=(i,e,t)=>(Lp(i,e,"read from private field"),t?t.call(i):e.get(i)),xp=(i,e,t)=>{if(e.has(i))throw TypeError("Cannot add the same private member more than once");e instanceof WeakSet?e.add(i):e.set(i,t)},Di,Ts={RATES:"rates"},Ss=[1,1.2,1.5,1.7,2],Oi=1,hc=h.createElement("template");hc.innerHTML=`
+`;
+var tooltipContent6 = (
+  /*html*/
+  `
+  <slot name="tooltip-enter">${t("Enter picture in picture mode")}</slot>
+  <slot name="tooltip-exit">${t("Exit picture in picture mode")}</slot>
+`
+);
+var updateAriaLabel5 = (el) => {
+  const label = el.mediaIsPip ? t("exit picture in picture mode") : t("enter picture in picture mode");
+  el.setAttribute("aria-label", label);
+};
+var MediaPipButton = class extends MediaChromeButton {
+  static get observedAttributes() {
+    return [
+      ...super.observedAttributes,
+      MediaUIAttributes.MEDIA_IS_PIP,
+      MediaUIAttributes.MEDIA_PIP_UNAVAILABLE
+    ];
+  }
+  constructor(options = {}) {
+    super({ slotTemplate: slotTemplate7, tooltipContent: tooltipContent6, ...options });
+  }
+  connectedCallback() {
+    updateAriaLabel5(this);
+    super.connectedCallback();
+  }
+  attributeChangedCallback(attrName, oldValue, newValue) {
+    if (attrName === MediaUIAttributes.MEDIA_IS_PIP) {
+      updateAriaLabel5(this);
+    }
+    super.attributeChangedCallback(attrName, oldValue, newValue);
+  }
+  /**
+   * @type {string | undefined} Pip unavailability state
+   */
+  get mediaPipUnavailable() {
+    return getStringAttr(this, MediaUIAttributes.MEDIA_PIP_UNAVAILABLE);
+  }
+  set mediaPipUnavailable(value) {
+    setStringAttr(this, MediaUIAttributes.MEDIA_PIP_UNAVAILABLE, value);
+  }
+  /**
+   * @type {boolean} Is the media currently playing picture-in-picture
+   */
+  get mediaIsPip() {
+    return getBooleanAttr(this, MediaUIAttributes.MEDIA_IS_PIP);
+  }
+  set mediaIsPip(value) {
+    setBooleanAttr(this, MediaUIAttributes.MEDIA_IS_PIP, value);
+  }
+  handleClick() {
+    const eventName = this.mediaIsPip ? MediaUIEvents.MEDIA_EXIT_PIP_REQUEST : MediaUIEvents.MEDIA_ENTER_PIP_REQUEST;
+    this.dispatchEvent(
+      new GlobalThis.CustomEvent(eventName, { composed: true, bubbles: true })
+    );
+  }
+};
+if (!GlobalThis.customElements.get("media-pip-button")) {
+  GlobalThis.customElements.define("media-pip-button", MediaPipButton);
+}
+
+// ../../node_modules/media-chrome/dist/media-playback-rate-button.js
+var __accessCheck14 = (obj, member, msg) => {
+  if (!member.has(obj))
+    throw TypeError("Cannot " + msg);
+};
+var __privateGet14 = (obj, member, getter) => {
+  __accessCheck14(obj, member, "read from private field");
+  return getter ? getter.call(obj) : member.get(obj);
+};
+var __privateAdd14 = (obj, member, value) => {
+  if (member.has(obj))
+    throw TypeError("Cannot add the same private member more than once");
+  member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+};
+var _rates;
+var Attributes6 = {
+  RATES: "rates"
+};
+var DEFAULT_RATES = [1, 1.2, 1.5, 1.7, 2];
+var DEFAULT_RATE = 1;
+var slotTemplate8 = Document2.createElement("template");
+slotTemplate8.innerHTML = /*html*/
+`
   <style>
     :host {
       min-width: 5ch;
@@ -844,31 +6391,177 @@ svg, img, ::slotted(svg), ::slotted(img) {
     }
   </style>
   <slot name="icon"></slot>
-`;var ks=class extends V{constructor(e={}){super({slotTemplate:hc,tooltipContent:v("Playback rate"),...e}),xp(this,Di,new We(this,Ts.RATES,{defaultValue:Ss})),this.container=this.shadowRoot.querySelector('slot[name="icon"]'),this.container.innerHTML=`${Oi}x`}static get observedAttributes(){return[...super.observedAttributes,o.MEDIA_PLAYBACK_RATE,Ts.RATES]}attributeChangedCallback(e,t,a){if(super.attributeChangedCallback(e,t,a),e===Ts.RATES&&(on(this,Di).value=a),e===o.MEDIA_PLAYBACK_RATE){let r=a?+a:Number.NaN,n=Number.isNaN(r)?Oi:r;this.container.innerHTML=`${n}x`,this.setAttribute("aria-label",v("Playback rate {playbackRate}",{playbackRate:n}))}}get rates(){return on(this,Di)}set rates(e){e?Array.isArray(e)&&(on(this,Di).value=e.join(" ")):on(this,Di).value=""}get mediaPlaybackRate(){return x(this,o.MEDIA_PLAYBACK_RATE,Oi)}set mediaPlaybackRate(e){N(this,o.MEDIA_PLAYBACK_RATE,e)}handleClick(){var e,t;let a=Array.from(this.rates.values(),s=>+s).sort((s,l)=>s-l),r=(t=(e=a.find(s=>s>this.mediaPlaybackRate))!=null?e:a[0])!=null?t:Oi,n=new d.CustomEvent(f.MEDIA_PLAYBACK_RATE_REQUEST,{composed:!0,bubbles:!0,detail:r});this.dispatchEvent(n)}};Di=new WeakMap;d.customElements.get("media-playback-rate-button")||d.customElements.define("media-playback-rate-button",ks);var Dp=`<svg aria-hidden="true" viewBox="0 0 24 24">
+`;
+var MediaPlaybackRateButton = class extends MediaChromeButton {
+  constructor(options = {}) {
+    super({
+      slotTemplate: slotTemplate8,
+      tooltipContent: t("Playback rate"),
+      ...options
+    });
+    __privateAdd14(this, _rates, new AttributeTokenList(this, Attributes6.RATES, {
+      defaultValue: DEFAULT_RATES
+    }));
+    this.container = this.shadowRoot.querySelector('slot[name="icon"]');
+    this.container.innerHTML = `${DEFAULT_RATE}x`;
+  }
+  static get observedAttributes() {
+    return [
+      ...super.observedAttributes,
+      MediaUIAttributes.MEDIA_PLAYBACK_RATE,
+      Attributes6.RATES
+    ];
+  }
+  attributeChangedCallback(attrName, oldValue, newValue) {
+    super.attributeChangedCallback(attrName, oldValue, newValue);
+    if (attrName === Attributes6.RATES) {
+      __privateGet14(this, _rates).value = newValue;
+    }
+    if (attrName === MediaUIAttributes.MEDIA_PLAYBACK_RATE) {
+      const newPlaybackRate = newValue ? +newValue : Number.NaN;
+      const playbackRate = !Number.isNaN(newPlaybackRate) ? newPlaybackRate : DEFAULT_RATE;
+      this.container.innerHTML = `${playbackRate}x`;
+      this.setAttribute(
+        "aria-label",
+        t("Playback rate {playbackRate}", { playbackRate })
+      );
+    }
+  }
+  /**
+   * @type { AttributeTokenList | Array<number> | undefined} Will return a DOMTokenList.
+   * Setting a value will accept an array of numbers.
+   */
+  get rates() {
+    return __privateGet14(this, _rates);
+  }
+  set rates(value) {
+    if (!value) {
+      __privateGet14(this, _rates).value = "";
+    } else if (Array.isArray(value)) {
+      __privateGet14(this, _rates).value = value.join(" ");
+    }
+  }
+  /**
+   * @type {number} The current playback rate
+   */
+  get mediaPlaybackRate() {
+    return getNumericAttr(
+      this,
+      MediaUIAttributes.MEDIA_PLAYBACK_RATE,
+      DEFAULT_RATE
+    );
+  }
+  set mediaPlaybackRate(value) {
+    setNumericAttr(this, MediaUIAttributes.MEDIA_PLAYBACK_RATE, value);
+  }
+  handleClick() {
+    var _a3, _b2;
+    const availableRates = Array.from(this.rates.values(), (str) => +str).sort(
+      (a, b) => a - b
+    );
+    const detail = (_b2 = (_a3 = availableRates.find((r) => r > this.mediaPlaybackRate)) != null ? _a3 : availableRates[0]) != null ? _b2 : DEFAULT_RATE;
+    const evt = new GlobalThis.CustomEvent(
+      MediaUIEvents.MEDIA_PLAYBACK_RATE_REQUEST,
+      { composed: true, bubbles: true, detail }
+    );
+    this.dispatchEvent(evt);
+  }
+};
+_rates = /* @__PURE__ */ new WeakMap();
+if (!GlobalThis.customElements.get("media-playback-rate-button")) {
+  GlobalThis.customElements.define(
+    "media-playback-rate-button",
+    MediaPlaybackRateButton
+  );
+}
+
+// ../../node_modules/media-chrome/dist/media-play-button.js
+var playIcon = `<svg aria-hidden="true" viewBox="0 0 24 24">
   <path d="m6 21 15-9L6 3v18Z"/>
-</svg>`,Op=`<svg aria-hidden="true" viewBox="0 0 24 24">
+</svg>`;
+var pauseIcon = `<svg aria-hidden="true" viewBox="0 0 24 24">
   <path d="M6 20h4V4H6v16Zm8-16v16h4V4h-4Z"/>
-</svg>`,fc=h.createElement("template");fc.innerHTML=`
+</svg>`;
+var slotTemplate9 = Document2.createElement("template");
+slotTemplate9.innerHTML = /*html*/
+`
   <style>
-    :host([${o.MEDIA_PAUSED}]) slot[name=pause],
-    :host(:not([${o.MEDIA_PAUSED}])) slot[name=play] {
+    :host([${MediaUIAttributes.MEDIA_PAUSED}]) slot[name=pause],
+    :host(:not([${MediaUIAttributes.MEDIA_PAUSED}])) slot[name=play] {
       display: none !important;
     }
 
-    :host([${o.MEDIA_PAUSED}]) slot[name=tooltip-pause],
-    :host(:not([${o.MEDIA_PAUSED}])) slot[name=tooltip-play] {
+    :host([${MediaUIAttributes.MEDIA_PAUSED}]) slot[name=tooltip-pause],
+    :host(:not([${MediaUIAttributes.MEDIA_PAUSED}])) slot[name=tooltip-play] {
       display: none;
     }
   </style>
 
   <slot name="icon">
-    <slot name="play">${Dp}</slot>
-    <slot name="pause">${Op}</slot>
+    <slot name="play">${playIcon}</slot>
+    <slot name="pause">${pauseIcon}</slot>
   </slot>
-`;var Np=`
-  <slot name="tooltip-play">${v("Play")}</slot>
-  <slot name="tooltip-pause">${v("Pause")}</slot>
-`,pc=i=>{let e=i.mediaPaused?v("play"):v("pause");i.setAttribute("aria-label",e)},Is=class extends V{static get observedAttributes(){return[...super.observedAttributes,o.MEDIA_PAUSED,o.MEDIA_ENDED]}constructor(e={}){super({slotTemplate:fc,tooltipContent:Np,...e})}connectedCallback(){pc(this),super.connectedCallback()}attributeChangedCallback(e,t,a){e===o.MEDIA_PAUSED&&pc(this),super.attributeChangedCallback(e,t,a)}get mediaPaused(){return k(this,o.MEDIA_PAUSED)}set mediaPaused(e){S(this,o.MEDIA_PAUSED,e)}handleClick(){let e=this.mediaPaused?f.MEDIA_PLAY_REQUEST:f.MEDIA_PAUSE_REQUEST;this.dispatchEvent(new d.CustomEvent(e,{composed:!0,bubbles:!0}))}};d.customElements.get("media-play-button")||d.customElements.define("media-play-button",Is);var qe={PLACEHOLDER_SRC:"placeholdersrc",SRC:"src"},vc=h.createElement("template");vc.innerHTML=`
+`;
+var tooltipContent7 = (
+  /*html*/
+  `
+  <slot name="tooltip-play">${t("Play")}</slot>
+  <slot name="tooltip-pause">${t("Pause")}</slot>
+`
+);
+var updateAriaLabel6 = (el) => {
+  const label = el.mediaPaused ? t("play") : t("pause");
+  el.setAttribute("aria-label", label);
+};
+var MediaPlayButton = class extends MediaChromeButton {
+  static get observedAttributes() {
+    return [
+      ...super.observedAttributes,
+      MediaUIAttributes.MEDIA_PAUSED,
+      MediaUIAttributes.MEDIA_ENDED
+    ];
+  }
+  constructor(options = {}) {
+    super({ slotTemplate: slotTemplate9, tooltipContent: tooltipContent7, ...options });
+  }
+  connectedCallback() {
+    updateAriaLabel6(this);
+    super.connectedCallback();
+  }
+  attributeChangedCallback(attrName, oldValue, newValue) {
+    if (attrName === MediaUIAttributes.MEDIA_PAUSED) {
+      updateAriaLabel6(this);
+    }
+    super.attributeChangedCallback(attrName, oldValue, newValue);
+  }
+  /**
+   * Is the media paused
+   */
+  get mediaPaused() {
+    return getBooleanAttr(this, MediaUIAttributes.MEDIA_PAUSED);
+  }
+  set mediaPaused(value) {
+    setBooleanAttr(this, MediaUIAttributes.MEDIA_PAUSED, value);
+  }
+  handleClick() {
+    const eventName = this.mediaPaused ? MediaUIEvents.MEDIA_PLAY_REQUEST : MediaUIEvents.MEDIA_PAUSE_REQUEST;
+    this.dispatchEvent(
+      new GlobalThis.CustomEvent(eventName, { composed: true, bubbles: true })
+    );
+  }
+};
+if (!GlobalThis.customElements.get("media-play-button")) {
+  GlobalThis.customElements.define("media-play-button", MediaPlayButton);
+}
+
+// ../../node_modules/media-chrome/dist/media-poster-image.js
+var Attributes7 = {
+  PLACEHOLDER_SRC: "placeholdersrc",
+  SRC: "src"
+};
+var template8 = Document2.createElement("template");
+template8.innerHTML = /*html*/
+`
   <style>
     :host {
       pointer-events: none;
@@ -890,7 +6583,150 @@ svg, img, ::slotted(svg), ::slotted(img) {
   </style>
 
   <img part="poster img" aria-hidden="true" id="image"/>
-`;var Pp=i=>{i.style.removeProperty("background-image")},Up=(i,e)=>{i.style["background-image"]=`url('${e}')`},Cs=class extends d.HTMLElement{static get observedAttributes(){return[qe.PLACEHOLDER_SRC,qe.SRC]}constructor(){super(),this.shadowRoot||(this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(vc.content.cloneNode(!0))),this.image=this.shadowRoot.querySelector("#image")}attributeChangedCallback(e,t,a){e===qe.SRC&&(a==null?this.image.removeAttribute(qe.SRC):this.image.setAttribute(qe.SRC,a)),e===qe.PLACEHOLDER_SRC&&(a==null?Pp(this.image):Up(this.image,a))}get placeholderSrc(){return M(this,qe.PLACEHOLDER_SRC)}set placeholderSrc(e){w(this,qe.SRC,e)}get src(){return M(this,qe.SRC)}set src(e){w(this,qe.SRC,e)}};d.customElements.get("media-poster-image")||d.customElements.define("media-poster-image",Cs);var Ec=(i,e,t)=>{if(!e.has(i))throw TypeError("Cannot "+t)},Bp=(i,e,t)=>(Ec(i,e,"read from private field"),t?t.call(i):e.get(i)),Hp=(i,e,t)=>{if(e.has(i))throw TypeError("Cannot add the same private member more than once");e instanceof WeakSet?e.add(i):e.set(i,t)},Wp=(i,e,t,a)=>(Ec(i,e,"write to private field"),a?a.call(i,t):e.set(i,t),t),sn,Ms=class extends Oe{constructor(){super(),Hp(this,sn,void 0),Wp(this,sn,this.shadowRoot.querySelector("slot"))}static get observedAttributes(){return[...super.observedAttributes,o.MEDIA_PREVIEW_CHAPTER]}attributeChangedCallback(e,t,a){super.attributeChangedCallback(e,t,a),e===o.MEDIA_PREVIEW_CHAPTER&&a!==t&&a!=null&&(Bp(this,sn).textContent=a,a!==""?this.setAttribute("aria-valuetext",`chapter: ${a}`):this.removeAttribute("aria-valuetext"))}get mediaPreviewChapter(){return M(this,o.MEDIA_PREVIEW_CHAPTER)}set mediaPreviewChapter(e){w(this,o.MEDIA_PREVIEW_CHAPTER,e)}};sn=new WeakMap;d.customElements.get("media-preview-chapter-display")||d.customElements.define("media-preview-chapter-display",Ms);var bc=(i,e,t)=>{if(!e.has(i))throw TypeError("Cannot "+t)},ln=(i,e,t)=>(bc(i,e,"read from private field"),t?t.call(i):e.get(i)),$p=(i,e,t)=>{if(e.has(i))throw TypeError("Cannot add the same private member more than once");e instanceof WeakSet?e.add(i):e.set(i,t)},dn=(i,e,t,a)=>(bc(i,e,"write to private field"),a?a.call(i,t):e.set(i,t),t),Ze,gc=h.createElement("template");gc.innerHTML=`
+`;
+var unsetBackgroundImage = (el) => {
+  el.style.removeProperty("background-image");
+};
+var setBackgroundImage = (el, image) => {
+  el.style["background-image"] = `url('${image}')`;
+};
+var MediaPosterImage = class extends GlobalThis.HTMLElement {
+  static get observedAttributes() {
+    return [Attributes7.PLACEHOLDER_SRC, Attributes7.SRC];
+  }
+  constructor() {
+    super();
+    if (!this.shadowRoot) {
+      this.attachShadow({ mode: "open" });
+      this.shadowRoot.appendChild(template8.content.cloneNode(true));
+    }
+    this.image = this.shadowRoot.querySelector("#image");
+  }
+  attributeChangedCallback(attrName, oldValue, newValue) {
+    if (attrName === Attributes7.SRC) {
+      if (newValue == null) {
+        this.image.removeAttribute(Attributes7.SRC);
+      } else {
+        this.image.setAttribute(Attributes7.SRC, newValue);
+      }
+    }
+    if (attrName === Attributes7.PLACEHOLDER_SRC) {
+      if (newValue == null) {
+        unsetBackgroundImage(this.image);
+      } else {
+        setBackgroundImage(this.image, newValue);
+      }
+    }
+  }
+  /**
+   *
+   */
+  get placeholderSrc() {
+    return getStringAttr(this, Attributes7.PLACEHOLDER_SRC);
+  }
+  set placeholderSrc(value) {
+    setStringAttr(this, Attributes7.SRC, value);
+  }
+  /**
+   *
+   */
+  get src() {
+    return getStringAttr(this, Attributes7.SRC);
+  }
+  set src(value) {
+    setStringAttr(this, Attributes7.SRC, value);
+  }
+};
+if (!GlobalThis.customElements.get("media-poster-image")) {
+  GlobalThis.customElements.define("media-poster-image", MediaPosterImage);
+}
+
+// ../../node_modules/media-chrome/dist/media-preview-chapter-display.js
+var __accessCheck15 = (obj, member, msg) => {
+  if (!member.has(obj))
+    throw TypeError("Cannot " + msg);
+};
+var __privateGet15 = (obj, member, getter) => {
+  __accessCheck15(obj, member, "read from private field");
+  return getter ? getter.call(obj) : member.get(obj);
+};
+var __privateAdd15 = (obj, member, value) => {
+  if (member.has(obj))
+    throw TypeError("Cannot add the same private member more than once");
+  member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+};
+var __privateSet14 = (obj, member, value, setter) => {
+  __accessCheck15(obj, member, "write to private field");
+  setter ? setter.call(obj, value) : member.set(obj, value);
+  return value;
+};
+var _slot2;
+var MediaPreviewChapterDisplay = class extends MediaTextDisplay {
+  constructor() {
+    super();
+    __privateAdd15(this, _slot2, void 0);
+    __privateSet14(this, _slot2, this.shadowRoot.querySelector("slot"));
+  }
+  static get observedAttributes() {
+    return [
+      ...super.observedAttributes,
+      MediaUIAttributes.MEDIA_PREVIEW_CHAPTER
+    ];
+  }
+  attributeChangedCallback(attrName, oldValue, newValue) {
+    super.attributeChangedCallback(attrName, oldValue, newValue);
+    if (attrName === MediaUIAttributes.MEDIA_PREVIEW_CHAPTER) {
+      if (newValue !== oldValue && newValue != null) {
+        __privateGet15(this, _slot2).textContent = newValue;
+        if (newValue !== "") {
+          this.setAttribute("aria-valuetext", `chapter: ${newValue}`);
+        } else {
+          this.removeAttribute("aria-valuetext");
+        }
+      }
+    }
+  }
+  /**
+   * @type {string | undefined} Timeline preview chapter
+   */
+  get mediaPreviewChapter() {
+    return getStringAttr(this, MediaUIAttributes.MEDIA_PREVIEW_CHAPTER);
+  }
+  set mediaPreviewChapter(value) {
+    setStringAttr(this, MediaUIAttributes.MEDIA_PREVIEW_CHAPTER, value);
+  }
+};
+_slot2 = /* @__PURE__ */ new WeakMap();
+if (!GlobalThis.customElements.get("media-preview-chapter-display")) {
+  GlobalThis.customElements.define(
+    "media-preview-chapter-display",
+    MediaPreviewChapterDisplay
+  );
+}
+
+// ../../node_modules/media-chrome/dist/media-preview-thumbnail.js
+var __accessCheck16 = (obj, member, msg) => {
+  if (!member.has(obj))
+    throw TypeError("Cannot " + msg);
+};
+var __privateGet16 = (obj, member, getter) => {
+  __accessCheck16(obj, member, "read from private field");
+  return getter ? getter.call(obj) : member.get(obj);
+};
+var __privateAdd16 = (obj, member, value) => {
+  if (member.has(obj))
+    throw TypeError("Cannot add the same private member more than once");
+  member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+};
+var __privateSet15 = (obj, member, value, setter) => {
+  __accessCheck16(obj, member, "write to private field");
+  setter ? setter.call(obj, value) : member.set(obj, value);
+  return value;
+};
+var _mediaController7;
+var template9 = Document2.createElement("template");
+template9.innerHTML = /*html*/
+`
   <style>
     :host {
       box-sizing: border-box;
@@ -904,11 +6740,765 @@ svg, img, ::slotted(svg), ::slotted(img) {
     }
   </style>
   <img crossorigin loading="eager" decoding="async">
-`;var ws=class extends d.HTMLElement{constructor(){super(),$p(this,Ze,void 0),this.shadowRoot||(this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(gc.content.cloneNode(!0)))}static get observedAttributes(){return[R.MEDIA_CONTROLLER,o.MEDIA_PREVIEW_IMAGE,o.MEDIA_PREVIEW_COORDS]}connectedCallback(){var e,t,a;let r=this.getAttribute(R.MEDIA_CONTROLLER);r&&(dn(this,Ze,(e=this.getRootNode())==null?void 0:e.getElementById(r)),(a=(t=ln(this,Ze))==null?void 0:t.associateElement)==null||a.call(t,this))}disconnectedCallback(){var e,t;(t=(e=ln(this,Ze))==null?void 0:e.unassociateElement)==null||t.call(e,this),dn(this,Ze,null)}attributeChangedCallback(e,t,a){var r,n,s,l,u;[o.MEDIA_PREVIEW_IMAGE,o.MEDIA_PREVIEW_COORDS].includes(e)&&this.update(),e===R.MEDIA_CONTROLLER&&(t&&((n=(r=ln(this,Ze))==null?void 0:r.unassociateElement)==null||n.call(r,this),dn(this,Ze,null)),a&&this.isConnected&&(dn(this,Ze,(s=this.getRootNode())==null?void 0:s.getElementById(a)),(u=(l=ln(this,Ze))==null?void 0:l.associateElement)==null||u.call(l,this)))}get mediaPreviewImage(){return M(this,o.MEDIA_PREVIEW_IMAGE)}set mediaPreviewImage(e){w(this,o.MEDIA_PREVIEW_IMAGE,e)}get mediaPreviewCoords(){let e=this.getAttribute(o.MEDIA_PREVIEW_COORDS);if(e)return e.split(/\s+/).map(t=>+t)}set mediaPreviewCoords(e){if(!e){this.removeAttribute(o.MEDIA_PREVIEW_COORDS);return}this.setAttribute(o.MEDIA_PREVIEW_COORDS,e.join(" "))}update(){let e=this.mediaPreviewCoords,t=this.mediaPreviewImage;if(!(e&&t))return;let[a,r,n,s]=e,l=t.split("#")[0],u=getComputedStyle(this),{maxWidth:c,maxHeight:A,minWidth:g,minHeight:p}=u,E=Math.min(parseInt(c)/n,parseInt(A)/s),O=Math.max(parseInt(g)/n,parseInt(p)/s),y=E<1,I=y?E:O>1?O:1,{style:U}=$(this.shadowRoot,":host"),z=$(this.shadowRoot,"img").style,se=this.shadowRoot.querySelector("img"),we=y?"min":"max";U.setProperty(`${we}-width`,"initial","important"),U.setProperty(`${we}-height`,"initial","important"),U.width=`${n*I}px`,U.height=`${s*I}px`;let Ie=()=>{z.width=`${this.imgWidth*I}px`,z.height=`${this.imgHeight*I}px`,z.display="block"};se.src!==l&&(se.onload=()=>{this.imgWidth=se.naturalWidth,this.imgHeight=se.naturalHeight,Ie()},se.src=l,Ie()),Ie(),z.transform=`translate(-${a*I}px, -${r*I}px)`}};Ze=new WeakMap;d.customElements.get("media-preview-thumbnail")||d.customElements.define("media-preview-thumbnail",ws);var Ac=(i,e,t)=>{if(!e.has(i))throw TypeError("Cannot "+t)},_c=(i,e,t)=>(Ac(i,e,"read from private field"),t?t.call(i):e.get(i)),Fp=(i,e,t)=>{if(e.has(i))throw TypeError("Cannot add the same private member more than once");e instanceof WeakSet?e.add(i):e.set(i,t)},Vp=(i,e,t,a)=>(Ac(i,e,"write to private field"),a?a.call(i,t):e.set(i,t),t),Sa,Rs=class extends Oe{constructor(){super(),Fp(this,Sa,void 0),Vp(this,Sa,this.shadowRoot.querySelector("slot")),_c(this,Sa).textContent=Be(0)}static get observedAttributes(){return[...super.observedAttributes,o.MEDIA_PREVIEW_TIME]}attributeChangedCallback(e,t,a){super.attributeChangedCallback(e,t,a),e===o.MEDIA_PREVIEW_TIME&&a!=null&&(_c(this,Sa).textContent=Be(parseFloat(a)))}get mediaPreviewTime(){return x(this,o.MEDIA_PREVIEW_TIME)}set mediaPreviewTime(e){N(this,o.MEDIA_PREVIEW_TIME,e)}};Sa=new WeakMap;d.customElements.get("media-preview-time-display")||d.customElements.define("media-preview-time-display",Rs);var Ni={SEEK_OFFSET:"seekoffset"},un=30,Kp=`<svg aria-hidden="true" viewBox="0 0 20 24"><defs><style>.text{font-size:8px;font-family:Arial-BoldMT, Arial;font-weight:700;}</style></defs><text class="text value" transform="translate(2.18 19.87)">${un}</text><path d="M10 6V3L4.37 7 10 10.94V8a5.54 5.54 0 0 1 1.9 10.48v2.12A7.5 7.5 0 0 0 10 6Z"/></svg>`,yc=h.createElement("template");yc.innerHTML=`
-  <slot name="icon">${Kp}</slot>
-`;var Gp=0,Ls=class extends V{static get observedAttributes(){return[...super.observedAttributes,o.MEDIA_CURRENT_TIME,Ni.SEEK_OFFSET]}constructor(e={}){super({slotTemplate:yc,tooltipContent:v("Seek backward"),...e})}connectedCallback(){this.seekOffset=x(this,Ni.SEEK_OFFSET,un),super.connectedCallback()}attributeChangedCallback(e,t,a){e===Ni.SEEK_OFFSET&&(this.seekOffset=x(this,Ni.SEEK_OFFSET,un)),super.attributeChangedCallback(e,t,a)}get seekOffset(){return x(this,Ni.SEEK_OFFSET,un)}set seekOffset(e){N(this,Ni.SEEK_OFFSET,e),this.setAttribute("aria-label",v("seek back {seekOffset} seconds",{seekOffset:this.seekOffset})),fr(vr(this,"icon"),this.seekOffset)}get mediaCurrentTime(){return x(this,o.MEDIA_CURRENT_TIME,Gp)}set mediaCurrentTime(e){N(this,o.MEDIA_CURRENT_TIME,e)}handleClick(){let e=Math.max(this.mediaCurrentTime-this.seekOffset,0),t=new d.CustomEvent(f.MEDIA_SEEK_REQUEST,{composed:!0,bubbles:!0,detail:e});this.dispatchEvent(t)}};d.customElements.get("media-seek-backward-button")||d.customElements.define("media-seek-backward-button",Ls);var Pi={SEEK_OFFSET:"seekoffset"},cn=30,Yp=`<svg aria-hidden="true" viewBox="0 0 20 24"><defs><style>.text{font-size:8px;font-family:Arial-BoldMT, Arial;font-weight:700;}</style></defs><text class="text value" transform="translate(8.9 19.87)">${cn}</text><path d="M10 6V3l5.61 4L10 10.94V8a5.54 5.54 0 0 0-1.9 10.48v2.12A7.5 7.5 0 0 1 10 6Z"/></svg>`,Tc=h.createElement("template");Tc.innerHTML=`
-  <slot name="icon">${Yp}</slot>
-`;var qp=0,xs=class extends V{static get observedAttributes(){return[...super.observedAttributes,o.MEDIA_CURRENT_TIME,Pi.SEEK_OFFSET]}constructor(e={}){super({slotTemplate:Tc,tooltipContent:v("Seek forward"),...e})}connectedCallback(){this.seekOffset=x(this,Pi.SEEK_OFFSET,cn),super.connectedCallback()}attributeChangedCallback(e,t,a){e===Pi.SEEK_OFFSET&&(this.seekOffset=x(this,Pi.SEEK_OFFSET,cn)),super.attributeChangedCallback(e,t,a)}get seekOffset(){return x(this,Pi.SEEK_OFFSET,cn)}set seekOffset(e){N(this,Pi.SEEK_OFFSET,e),this.setAttribute("aria-label",v("seek forward {seekOffset} seconds",{seekOffset:this.seekOffset})),fr(vr(this,"icon"),this.seekOffset)}get mediaCurrentTime(){return x(this,o.MEDIA_CURRENT_TIME,qp)}set mediaCurrentTime(e){N(this,o.MEDIA_CURRENT_TIME,e)}handleClick(){let e=this.mediaCurrentTime+this.seekOffset,t=new d.CustomEvent(f.MEDIA_SEEK_REQUEST,{composed:!0,bubbles:!0,detail:e});this.dispatchEvent(t)}};d.customElements.get("media-seek-forward-button")||d.customElements.define("media-seek-forward-button",xs);var Cc=(i,e,t)=>{if(!e.has(i))throw TypeError("Cannot "+t)},Ds=(i,e,t)=>(Cc(i,e,"read from private field"),t?t.call(i):e.get(i)),Zp=(i,e,t)=>{if(e.has(i))throw TypeError("Cannot add the same private member more than once");e instanceof WeakSet?e.add(i):e.set(i,t)},zp=(i,e,t,a)=>(Cc(i,e,"write to private field"),a?a.call(i,t):e.set(i,t),t),Ui,Ne={REMAINING:"remaining",SHOW_DURATION:"showduration",NO_TOGGLE:"notoggle"},kc=[...Object.values(Ne),o.MEDIA_CURRENT_TIME,o.MEDIA_DURATION,o.MEDIA_SEEKABLE],Sc=["Enter"," "],Qp="&nbsp;/&nbsp;",Ic=(i,{timesSep:e=Qp}={})=>{var t,a;let r=i.hasAttribute(Ne.REMAINING),n=i.hasAttribute(Ne.SHOW_DURATION),s=(t=i.mediaCurrentTime)!=null?t:0,[,l]=(a=i.mediaSeekable)!=null?a:[],u=0;Number.isFinite(i.mediaDuration)?u=i.mediaDuration:Number.isFinite(l)&&(u=l);let c=r?Be(0-(u-s)):Be(s);return n?`${c}${e}${Be(u)}`:c},Xp="video not loaded, unknown time.",Jp=i=>{var e;let t=i.mediaCurrentTime,[,a]=(e=i.mediaSeekable)!=null?e:[],r=null;if(Number.isFinite(i.mediaDuration)?r=i.mediaDuration:Number.isFinite(a)&&(r=a),t==null||r===null){i.setAttribute("aria-valuetext",Xp);return}let n=i.hasAttribute(Ne.REMAINING),s=i.hasAttribute(Ne.SHOW_DURATION),l=n?Ht(0-(r-t)):Ht(t);if(!s){i.setAttribute("aria-valuetext",l);return}let u=Ht(r),c=`${l} of ${u}`;i.setAttribute("aria-valuetext",c)},Os=class extends Oe{constructor(){super(),Zp(this,Ui,void 0),zp(this,Ui,this.shadowRoot.querySelector("slot")),Ds(this,Ui).innerHTML=`${Ic(this)}`}static get observedAttributes(){return[...super.observedAttributes,...kc,"disabled"]}connectedCallback(){let{style:e}=$(this.shadowRoot,":host(:hover:not([notoggle]))");e.setProperty("cursor","pointer"),e.setProperty("background","var(--media-control-hover-background, rgba(50 50 70 / .7))"),this.hasAttribute("disabled")||this.enable(),this.setAttribute("role","progressbar"),this.setAttribute("aria-label",v("playback time"));let t=a=>{let{key:r}=a;if(!Sc.includes(r)){this.removeEventListener("keyup",t);return}this.toggleTimeDisplay()};this.addEventListener("keydown",a=>{let{metaKey:r,altKey:n,key:s}=a;if(r||n||!Sc.includes(s)){this.removeEventListener("keyup",t);return}this.addEventListener("keyup",t)}),this.addEventListener("click",this.toggleTimeDisplay),super.connectedCallback()}toggleTimeDisplay(){this.noToggle||(this.hasAttribute("remaining")?this.removeAttribute("remaining"):this.setAttribute("remaining",""))}disconnectedCallback(){this.disable(),super.disconnectedCallback()}attributeChangedCallback(e,t,a){kc.includes(e)?this.update():e==="disabled"&&a!==t&&(a==null?this.enable():this.disable()),super.attributeChangedCallback(e,t,a)}enable(){this.tabIndex=0}disable(){this.tabIndex=-1}get remaining(){return k(this,Ne.REMAINING)}set remaining(e){S(this,Ne.REMAINING,e)}get showDuration(){return k(this,Ne.SHOW_DURATION)}set showDuration(e){S(this,Ne.SHOW_DURATION,e)}get noToggle(){return k(this,Ne.NO_TOGGLE)}set noToggle(e){S(this,Ne.NO_TOGGLE,e)}get mediaDuration(){return x(this,o.MEDIA_DURATION)}set mediaDuration(e){N(this,o.MEDIA_DURATION,e)}get mediaCurrentTime(){return x(this,o.MEDIA_CURRENT_TIME)}set mediaCurrentTime(e){N(this,o.MEDIA_CURRENT_TIME,e)}get mediaSeekable(){let e=this.getAttribute(o.MEDIA_SEEKABLE);if(e)return e.split(":").map(t=>+t)}set mediaSeekable(e){if(e==null){this.removeAttribute(o.MEDIA_SEEKABLE);return}this.setAttribute(o.MEDIA_SEEKABLE,e.join(":"))}update(){let e=Ic(this);Jp(this),e!==Ds(this,Ui).innerHTML&&(Ds(this,Ui).innerHTML=e)}};Ui=new WeakMap;d.customElements.get("media-time-display")||d.customElements.define("media-time-display",Os);var Mc=(i,e,t)=>{if(!e.has(i))throw TypeError("Cannot "+t)},ie=(i,e,t)=>(Mc(i,e,"read from private field"),t?t.call(i):e.get(i)),ze=(i,e,t)=>{if(e.has(i))throw TypeError("Cannot add the same private member more than once");e instanceof WeakSet?e.add(i):e.set(i,t)},Se=(i,e,t,a)=>(Mc(i,e,"write to private field"),a?a.call(i,t):e.set(i,t),t),jp=(i,e,t,a)=>({set _(r){Se(i,e,r,t)},get _(){return ie(i,e,a)}}),Bi,mn,Hi,Ia,hn,pn,fn,Wi,ei,vn,En=class{constructor(e,t,a){ze(this,Bi,void 0),ze(this,mn,void 0),ze(this,Hi,void 0),ze(this,Ia,void 0),ze(this,hn,void 0),ze(this,pn,void 0),ze(this,fn,void 0),ze(this,Wi,void 0),ze(this,ei,0),ze(this,vn,(r=performance.now())=>{Se(this,ei,requestAnimationFrame(ie(this,vn))),Se(this,Ia,performance.now()-ie(this,Hi));let n=1e3/this.fps;if(ie(this,Ia)>n){Se(this,Hi,r-ie(this,Ia)%n);let s=1e3/((r-ie(this,mn))/++jp(this,hn)._),l=(r-ie(this,pn))/1e3/this.duration,u=ie(this,fn)+l*this.playbackRate;u-ie(this,Bi).valueAsNumber>0?Se(this,Wi,this.playbackRate/this.duration/s):(Se(this,Wi,.995*ie(this,Wi)),u=ie(this,Bi).valueAsNumber+ie(this,Wi)),this.callback(u)}}),Se(this,Bi,e),this.callback=t,this.fps=a}start(){ie(this,ei)===0&&(Se(this,Hi,performance.now()),Se(this,mn,ie(this,Hi)),Se(this,hn,0),ie(this,vn).call(this))}stop(){ie(this,ei)!==0&&(cancelAnimationFrame(ie(this,ei)),Se(this,ei,0))}update({start:e,duration:t,playbackRate:a}){let r=e-ie(this,Bi).valueAsNumber,n=Math.abs(t-this.duration);(r>0||r<-.03||n>=.5)&&this.callback(e),Se(this,fn,e),Se(this,pn,performance.now()),this.duration=t,this.playbackRate=a}};Bi=new WeakMap;mn=new WeakMap;Hi=new WeakMap;Ia=new WeakMap;hn=new WeakMap;pn=new WeakMap;fn=new WeakMap;Wi=new WeakMap;ei=new WeakMap;vn=new WeakMap;var Hs=(i,e,t)=>{if(!e.has(i))throw TypeError("Cannot "+t)},j=(i,e,t)=>(Hs(i,e,"read from private field"),t?t.call(i):e.get(i)),ae=(i,e,t)=>{if(e.has(i))throw TypeError("Cannot add the same private member more than once");e instanceof WeakSet?e.add(i):e.set(i,t)},Qe=(i,e,t,a)=>(Hs(i,e,"write to private field"),a?a.call(i,t):e.set(i,t),t),le=(i,e,t)=>(Hs(i,e,"access private method"),t),$i,ti,_n,Ma,An,gn,wa,Ra,Fi,Vi,Ca,Ws,wc,Ns,yn,$s,Tn,Fs,kn,Vs,Ps,Rc,La,Sn,Us,Lc,ef="video not loaded, unknown time.",tf=i=>{let e=i.range,t=Ht(+Dc(i)),a=Ht(+i.mediaSeekableEnd),r=t&&a?`${t} of ${a}`:ef;e.setAttribute("aria-valuetext",r)},xc=h.createElement("template");xc.innerHTML=`
+`;
+var MediaPreviewThumbnail = class extends GlobalThis.HTMLElement {
+  constructor() {
+    super();
+    __privateAdd16(this, _mediaController7, void 0);
+    if (!this.shadowRoot) {
+      this.attachShadow({ mode: "open" });
+      this.shadowRoot.appendChild(template9.content.cloneNode(true));
+    }
+  }
+  static get observedAttributes() {
+    return [
+      MediaStateReceiverAttributes.MEDIA_CONTROLLER,
+      MediaUIAttributes.MEDIA_PREVIEW_IMAGE,
+      MediaUIAttributes.MEDIA_PREVIEW_COORDS
+    ];
+  }
+  connectedCallback() {
+    var _a3, _b2, _c;
+    const mediaControllerId = this.getAttribute(
+      MediaStateReceiverAttributes.MEDIA_CONTROLLER
+    );
+    if (mediaControllerId) {
+      __privateSet15(
+        this,
+        _mediaController7,
+        // @ts-ignore
+        (_a3 = this.getRootNode()) == null ? void 0 : _a3.getElementById(mediaControllerId)
+      );
+      (_c = (_b2 = __privateGet16(this, _mediaController7)) == null ? void 0 : _b2.associateElement) == null ? void 0 : _c.call(_b2, this);
+    }
+  }
+  disconnectedCallback() {
+    var _a3, _b2;
+    (_b2 = (_a3 = __privateGet16(this, _mediaController7)) == null ? void 0 : _a3.unassociateElement) == null ? void 0 : _b2.call(_a3, this);
+    __privateSet15(this, _mediaController7, null);
+  }
+  attributeChangedCallback(attrName, oldValue, newValue) {
+    var _a3, _b2, _c, _d, _e;
+    if ([
+      MediaUIAttributes.MEDIA_PREVIEW_IMAGE,
+      MediaUIAttributes.MEDIA_PREVIEW_COORDS
+    ].includes(attrName)) {
+      this.update();
+    }
+    if (attrName === MediaStateReceiverAttributes.MEDIA_CONTROLLER) {
+      if (oldValue) {
+        (_b2 = (_a3 = __privateGet16(this, _mediaController7)) == null ? void 0 : _a3.unassociateElement) == null ? void 0 : _b2.call(_a3, this);
+        __privateSet15(this, _mediaController7, null);
+      }
+      if (newValue && this.isConnected) {
+        __privateSet15(this, _mediaController7, (_c = this.getRootNode()) == null ? void 0 : _c.getElementById(newValue));
+        (_e = (_d = __privateGet16(this, _mediaController7)) == null ? void 0 : _d.associateElement) == null ? void 0 : _e.call(_d, this);
+      }
+    }
+  }
+  /**
+   * @type {string | undefined} The url of the preview image
+   */
+  get mediaPreviewImage() {
+    return getStringAttr(this, MediaUIAttributes.MEDIA_PREVIEW_IMAGE);
+  }
+  set mediaPreviewImage(value) {
+    setStringAttr(this, MediaUIAttributes.MEDIA_PREVIEW_IMAGE, value);
+  }
+  /**
+   * @type {Array<number> | undefined} Fixed length array [x, y, width, height] or undefined
+   */
+  get mediaPreviewCoords() {
+    const attrVal = this.getAttribute(MediaUIAttributes.MEDIA_PREVIEW_COORDS);
+    if (!attrVal)
+      return void 0;
+    return attrVal.split(/\s+/).map((coord) => +coord);
+  }
+  set mediaPreviewCoords(value) {
+    if (!value) {
+      this.removeAttribute(MediaUIAttributes.MEDIA_PREVIEW_COORDS);
+      return;
+    }
+    this.setAttribute(MediaUIAttributes.MEDIA_PREVIEW_COORDS, value.join(" "));
+  }
+  update() {
+    const coords = this.mediaPreviewCoords;
+    const previewImage = this.mediaPreviewImage;
+    if (!(coords && previewImage))
+      return;
+    const [x, y, w, h] = coords;
+    const src = previewImage.split("#")[0];
+    const computedStyle = getComputedStyle(this);
+    const { maxWidth, maxHeight, minWidth, minHeight } = computedStyle;
+    const maxRatio = Math.min(parseInt(maxWidth) / w, parseInt(maxHeight) / h);
+    const minRatio = Math.max(parseInt(minWidth) / w, parseInt(minHeight) / h);
+    const isScalingDown = maxRatio < 1;
+    const scale = isScalingDown ? maxRatio : minRatio > 1 ? minRatio : 1;
+    const { style } = getOrInsertCSSRule(this.shadowRoot, ":host");
+    const imgStyle = getOrInsertCSSRule(this.shadowRoot, "img").style;
+    const img = this.shadowRoot.querySelector("img");
+    const extremum = isScalingDown ? "min" : "max";
+    style.setProperty(`${extremum}-width`, "initial", "important");
+    style.setProperty(`${extremum}-height`, "initial", "important");
+    style.width = `${w * scale}px`;
+    style.height = `${h * scale}px`;
+    const resize = () => {
+      imgStyle.width = `${this.imgWidth * scale}px`;
+      imgStyle.height = `${this.imgHeight * scale}px`;
+      imgStyle.display = "block";
+    };
+    if (img.src !== src) {
+      img.onload = () => {
+        this.imgWidth = img.naturalWidth;
+        this.imgHeight = img.naturalHeight;
+        resize();
+      };
+      img.src = src;
+      resize();
+    }
+    resize();
+    imgStyle.transform = `translate(-${x * scale}px, -${y * scale}px)`;
+  }
+};
+_mediaController7 = /* @__PURE__ */ new WeakMap();
+if (!GlobalThis.customElements.get("media-preview-thumbnail")) {
+  GlobalThis.customElements.define(
+    "media-preview-thumbnail",
+    MediaPreviewThumbnail
+  );
+}
+
+// ../../node_modules/media-chrome/dist/media-preview-time-display.js
+var __accessCheck17 = (obj, member, msg) => {
+  if (!member.has(obj))
+    throw TypeError("Cannot " + msg);
+};
+var __privateGet17 = (obj, member, getter) => {
+  __accessCheck17(obj, member, "read from private field");
+  return getter ? getter.call(obj) : member.get(obj);
+};
+var __privateAdd17 = (obj, member, value) => {
+  if (member.has(obj))
+    throw TypeError("Cannot add the same private member more than once");
+  member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+};
+var __privateSet16 = (obj, member, value, setter) => {
+  __accessCheck17(obj, member, "write to private field");
+  setter ? setter.call(obj, value) : member.set(obj, value);
+  return value;
+};
+var _slot3;
+var MediaPreviewTimeDisplay = class extends MediaTextDisplay {
+  constructor() {
+    super();
+    __privateAdd17(this, _slot3, void 0);
+    __privateSet16(this, _slot3, this.shadowRoot.querySelector("slot"));
+    __privateGet17(this, _slot3).textContent = formatTime(0);
+  }
+  static get observedAttributes() {
+    return [...super.observedAttributes, MediaUIAttributes.MEDIA_PREVIEW_TIME];
+  }
+  attributeChangedCallback(attrName, oldValue, newValue) {
+    super.attributeChangedCallback(attrName, oldValue, newValue);
+    if (attrName === MediaUIAttributes.MEDIA_PREVIEW_TIME && newValue != null) {
+      __privateGet17(this, _slot3).textContent = formatTime(parseFloat(newValue));
+    }
+  }
+  /**
+   * Timeline preview time
+   */
+  get mediaPreviewTime() {
+    return getNumericAttr(this, MediaUIAttributes.MEDIA_PREVIEW_TIME);
+  }
+  set mediaPreviewTime(value) {
+    setNumericAttr(this, MediaUIAttributes.MEDIA_PREVIEW_TIME, value);
+  }
+};
+_slot3 = /* @__PURE__ */ new WeakMap();
+if (!GlobalThis.customElements.get("media-preview-time-display")) {
+  GlobalThis.customElements.define(
+    "media-preview-time-display",
+    MediaPreviewTimeDisplay
+  );
+}
+
+// ../../node_modules/media-chrome/dist/media-seek-backward-button.js
+var Attributes8 = {
+  SEEK_OFFSET: "seekoffset"
+};
+var DEFAULT_SEEK_OFFSET2 = 30;
+var backwardIcon = `<svg aria-hidden="true" viewBox="0 0 20 24"><defs><style>.text{font-size:8px;font-family:Arial-BoldMT, Arial;font-weight:700;}</style></defs><text class="text value" transform="translate(2.18 19.87)">${DEFAULT_SEEK_OFFSET2}</text><path d="M10 6V3L4.37 7 10 10.94V8a5.54 5.54 0 0 1 1.9 10.48v2.12A7.5 7.5 0 0 0 10 6Z"/></svg>`;
+var slotTemplate10 = Document2.createElement("template");
+slotTemplate10.innerHTML = `
+  <slot name="icon">${backwardIcon}</slot>
+`;
+var DEFAULT_TIME = 0;
+var MediaSeekBackwardButton = class extends MediaChromeButton {
+  static get observedAttributes() {
+    return [
+      ...super.observedAttributes,
+      MediaUIAttributes.MEDIA_CURRENT_TIME,
+      Attributes8.SEEK_OFFSET
+    ];
+  }
+  constructor(options = {}) {
+    super({
+      slotTemplate: slotTemplate10,
+      tooltipContent: t("Seek backward"),
+      ...options
+    });
+  }
+  connectedCallback() {
+    this.seekOffset = getNumericAttr(
+      this,
+      Attributes8.SEEK_OFFSET,
+      DEFAULT_SEEK_OFFSET2
+    );
+    super.connectedCallback();
+  }
+  attributeChangedCallback(attrName, _oldValue, newValue) {
+    if (attrName === Attributes8.SEEK_OFFSET) {
+      this.seekOffset = getNumericAttr(
+        this,
+        Attributes8.SEEK_OFFSET,
+        DEFAULT_SEEK_OFFSET2
+      );
+    }
+    super.attributeChangedCallback(attrName, _oldValue, newValue);
+  }
+  // Own props
+  /**
+   * Seek amount in seconds
+   */
+  get seekOffset() {
+    return getNumericAttr(this, Attributes8.SEEK_OFFSET, DEFAULT_SEEK_OFFSET2);
+  }
+  set seekOffset(value) {
+    setNumericAttr(this, Attributes8.SEEK_OFFSET, value);
+    this.setAttribute(
+      "aria-label",
+      t("seek back {seekOffset} seconds", { seekOffset: this.seekOffset })
+    );
+    updateIconText(getSlotted(this, "icon"), this.seekOffset);
+  }
+  // Props derived from Media UI Attributes
+  /**
+   * The current time in seconds
+   */
+  get mediaCurrentTime() {
+    return getNumericAttr(
+      this,
+      MediaUIAttributes.MEDIA_CURRENT_TIME,
+      DEFAULT_TIME
+    );
+  }
+  set mediaCurrentTime(time) {
+    setNumericAttr(this, MediaUIAttributes.MEDIA_CURRENT_TIME, time);
+  }
+  handleClick() {
+    const detail = Math.max(this.mediaCurrentTime - this.seekOffset, 0);
+    const evt = new GlobalThis.CustomEvent(MediaUIEvents.MEDIA_SEEK_REQUEST, {
+      composed: true,
+      bubbles: true,
+      detail
+    });
+    this.dispatchEvent(evt);
+  }
+};
+if (!GlobalThis.customElements.get("media-seek-backward-button")) {
+  GlobalThis.customElements.define(
+    "media-seek-backward-button",
+    MediaSeekBackwardButton
+  );
+}
+
+// ../../node_modules/media-chrome/dist/media-seek-forward-button.js
+var Attributes9 = {
+  SEEK_OFFSET: "seekoffset"
+};
+var DEFAULT_SEEK_OFFSET3 = 30;
+var forwardIcon = `<svg aria-hidden="true" viewBox="0 0 20 24"><defs><style>.text{font-size:8px;font-family:Arial-BoldMT, Arial;font-weight:700;}</style></defs><text class="text value" transform="translate(8.9 19.87)">${DEFAULT_SEEK_OFFSET3}</text><path d="M10 6V3l5.61 4L10 10.94V8a5.54 5.54 0 0 0-1.9 10.48v2.12A7.5 7.5 0 0 1 10 6Z"/></svg>`;
+var slotTemplate11 = Document2.createElement("template");
+slotTemplate11.innerHTML = `
+  <slot name="icon">${forwardIcon}</slot>
+`;
+var DEFAULT_TIME2 = 0;
+var MediaSeekForwardButton = class extends MediaChromeButton {
+  static get observedAttributes() {
+    return [
+      ...super.observedAttributes,
+      MediaUIAttributes.MEDIA_CURRENT_TIME,
+      Attributes9.SEEK_OFFSET
+    ];
+  }
+  constructor(options = {}) {
+    super({
+      slotTemplate: slotTemplate11,
+      tooltipContent: t("Seek forward"),
+      ...options
+    });
+  }
+  connectedCallback() {
+    this.seekOffset = getNumericAttr(
+      this,
+      Attributes9.SEEK_OFFSET,
+      DEFAULT_SEEK_OFFSET3
+    );
+    super.connectedCallback();
+  }
+  attributeChangedCallback(attrName, _oldValue, newValue) {
+    if (attrName === Attributes9.SEEK_OFFSET) {
+      this.seekOffset = getNumericAttr(
+        this,
+        Attributes9.SEEK_OFFSET,
+        DEFAULT_SEEK_OFFSET3
+      );
+    }
+    super.attributeChangedCallback(attrName, _oldValue, newValue);
+  }
+  // Own props
+  /**
+   * Seek amount in seconds
+   */
+  get seekOffset() {
+    return getNumericAttr(this, Attributes9.SEEK_OFFSET, DEFAULT_SEEK_OFFSET3);
+  }
+  set seekOffset(value) {
+    setNumericAttr(this, Attributes9.SEEK_OFFSET, value);
+    this.setAttribute(
+      "aria-label",
+      t("seek forward {seekOffset} seconds", { seekOffset: this.seekOffset })
+    );
+    updateIconText(getSlotted(this, "icon"), this.seekOffset);
+  }
+  // Props derived from Media UI Attributes
+  /**
+   * The current time in seconds
+   */
+  get mediaCurrentTime() {
+    return getNumericAttr(
+      this,
+      MediaUIAttributes.MEDIA_CURRENT_TIME,
+      DEFAULT_TIME2
+    );
+  }
+  set mediaCurrentTime(time) {
+    setNumericAttr(this, MediaUIAttributes.MEDIA_CURRENT_TIME, time);
+  }
+  handleClick() {
+    const detail = this.mediaCurrentTime + this.seekOffset;
+    const evt = new GlobalThis.CustomEvent(MediaUIEvents.MEDIA_SEEK_REQUEST, {
+      composed: true,
+      bubbles: true,
+      detail
+    });
+    this.dispatchEvent(evt);
+  }
+};
+if (!GlobalThis.customElements.get("media-seek-forward-button")) {
+  GlobalThis.customElements.define(
+    "media-seek-forward-button",
+    MediaSeekForwardButton
+  );
+}
+
+// ../../node_modules/media-chrome/dist/media-time-display.js
+var __accessCheck18 = (obj, member, msg) => {
+  if (!member.has(obj))
+    throw TypeError("Cannot " + msg);
+};
+var __privateGet18 = (obj, member, getter) => {
+  __accessCheck18(obj, member, "read from private field");
+  return getter ? getter.call(obj) : member.get(obj);
+};
+var __privateAdd18 = (obj, member, value) => {
+  if (member.has(obj))
+    throw TypeError("Cannot add the same private member more than once");
+  member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+};
+var __privateSet17 = (obj, member, value, setter) => {
+  __accessCheck18(obj, member, "write to private field");
+  setter ? setter.call(obj, value) : member.set(obj, value);
+  return value;
+};
+var _slot4;
+var Attributes10 = {
+  REMAINING: "remaining",
+  SHOW_DURATION: "showduration",
+  NO_TOGGLE: "notoggle"
+};
+var CombinedAttributes = [
+  ...Object.values(Attributes10),
+  MediaUIAttributes.MEDIA_CURRENT_TIME,
+  MediaUIAttributes.MEDIA_DURATION,
+  MediaUIAttributes.MEDIA_SEEKABLE
+];
+var ButtonPressedKeys2 = ["Enter", " "];
+var DEFAULT_TIMES_SEP = "&nbsp;/&nbsp;";
+var formatTimesLabel = (el, { timesSep = DEFAULT_TIMES_SEP } = {}) => {
+  var _a3, _b2;
+  const showRemaining = el.hasAttribute(Attributes10.REMAINING);
+  const showDuration = el.hasAttribute(Attributes10.SHOW_DURATION);
+  const currentTime = (_a3 = el.mediaCurrentTime) != null ? _a3 : 0;
+  const [, seekableEnd] = (_b2 = el.mediaSeekable) != null ? _b2 : [];
+  let endTime = 0;
+  if (Number.isFinite(el.mediaDuration)) {
+    endTime = el.mediaDuration;
+  } else if (Number.isFinite(seekableEnd)) {
+    endTime = seekableEnd;
+  }
+  const timeLabel = showRemaining ? formatTime(0 - (endTime - currentTime)) : formatTime(currentTime);
+  if (!showDuration)
+    return timeLabel;
+  return `${timeLabel}${timesSep}${formatTime(endTime)}`;
+};
+var DEFAULT_MISSING_TIME_PHRASE = "video not loaded, unknown time.";
+var updateAriaValueText = (el) => {
+  var _a3;
+  const currentTime = el.mediaCurrentTime;
+  const [, seekableEnd] = (_a3 = el.mediaSeekable) != null ? _a3 : [];
+  let endTime = null;
+  if (Number.isFinite(el.mediaDuration)) {
+    endTime = el.mediaDuration;
+  } else if (Number.isFinite(seekableEnd)) {
+    endTime = seekableEnd;
+  }
+  if (currentTime == null || endTime === null) {
+    el.setAttribute("aria-valuetext", DEFAULT_MISSING_TIME_PHRASE);
+    return;
+  }
+  const showRemaining = el.hasAttribute(Attributes10.REMAINING);
+  const showDuration = el.hasAttribute(Attributes10.SHOW_DURATION);
+  const currentTimePhrase = showRemaining ? formatAsTimePhrase(0 - (endTime - currentTime)) : formatAsTimePhrase(currentTime);
+  if (!showDuration) {
+    el.setAttribute("aria-valuetext", currentTimePhrase);
+    return;
+  }
+  const totalTimePhrase = formatAsTimePhrase(endTime);
+  const fullPhrase = `${currentTimePhrase} of ${totalTimePhrase}`;
+  el.setAttribute("aria-valuetext", fullPhrase);
+};
+var MediaTimeDisplay = class extends MediaTextDisplay {
+  constructor() {
+    super();
+    __privateAdd18(this, _slot4, void 0);
+    __privateSet17(this, _slot4, this.shadowRoot.querySelector("slot"));
+    __privateGet18(this, _slot4).innerHTML = `${formatTimesLabel(this)}`;
+  }
+  static get observedAttributes() {
+    return [...super.observedAttributes, ...CombinedAttributes, "disabled"];
+  }
+  connectedCallback() {
+    const { style } = getOrInsertCSSRule(
+      this.shadowRoot,
+      ":host(:hover:not([notoggle]))"
+    );
+    style.setProperty("cursor", "pointer");
+    style.setProperty(
+      "background",
+      "var(--media-control-hover-background, rgba(50 50 70 / .7))"
+    );
+    if (!this.hasAttribute("disabled")) {
+      this.enable();
+    }
+    this.setAttribute("role", "progressbar");
+    this.setAttribute("aria-label", t("playback time"));
+    const keyUpHandler = (evt) => {
+      const { key } = evt;
+      if (!ButtonPressedKeys2.includes(key)) {
+        this.removeEventListener("keyup", keyUpHandler);
+        return;
+      }
+      this.toggleTimeDisplay();
+    };
+    this.addEventListener("keydown", (evt) => {
+      const { metaKey, altKey, key } = evt;
+      if (metaKey || altKey || !ButtonPressedKeys2.includes(key)) {
+        this.removeEventListener("keyup", keyUpHandler);
+        return;
+      }
+      this.addEventListener("keyup", keyUpHandler);
+    });
+    this.addEventListener("click", this.toggleTimeDisplay);
+    super.connectedCallback();
+  }
+  toggleTimeDisplay() {
+    if (this.noToggle) {
+      return;
+    }
+    if (this.hasAttribute("remaining")) {
+      this.removeAttribute("remaining");
+    } else {
+      this.setAttribute("remaining", "");
+    }
+  }
+  disconnectedCallback() {
+    this.disable();
+    super.disconnectedCallback();
+  }
+  attributeChangedCallback(attrName, oldValue, newValue) {
+    if (CombinedAttributes.includes(attrName)) {
+      this.update();
+    } else if (attrName === "disabled" && newValue !== oldValue) {
+      if (newValue == null) {
+        this.enable();
+      } else {
+        this.disable();
+      }
+    }
+    super.attributeChangedCallback(attrName, oldValue, newValue);
+  }
+  enable() {
+    this.tabIndex = 0;
+  }
+  disable() {
+    this.tabIndex = -1;
+  }
+  // Own props
+  /**
+   * Whether to show the remaining time
+   */
+  get remaining() {
+    return getBooleanAttr(this, Attributes10.REMAINING);
+  }
+  set remaining(show) {
+    setBooleanAttr(this, Attributes10.REMAINING, show);
+  }
+  /**
+   * Whether to show the duration
+   */
+  get showDuration() {
+    return getBooleanAttr(this, Attributes10.SHOW_DURATION);
+  }
+  set showDuration(show) {
+    setBooleanAttr(this, Attributes10.SHOW_DURATION, show);
+  }
+  /**
+   * Disable the default behavior that toggles between current and remaining time
+   */
+  get noToggle() {
+    return getBooleanAttr(this, Attributes10.NO_TOGGLE);
+  }
+  set noToggle(noToggle) {
+    setBooleanAttr(this, Attributes10.NO_TOGGLE, noToggle);
+  }
+  // Props derived from media UI attributes
+  /**
+   * Get the duration
+   */
+  get mediaDuration() {
+    return getNumericAttr(this, MediaUIAttributes.MEDIA_DURATION);
+  }
+  set mediaDuration(time) {
+    setNumericAttr(this, MediaUIAttributes.MEDIA_DURATION, time);
+  }
+  /**
+   * The current time in seconds
+   */
+  get mediaCurrentTime() {
+    return getNumericAttr(this, MediaUIAttributes.MEDIA_CURRENT_TIME);
+  }
+  set mediaCurrentTime(time) {
+    setNumericAttr(this, MediaUIAttributes.MEDIA_CURRENT_TIME, time);
+  }
+  /**
+   * Range of values that can be seeked to.
+   * An array of two numbers [start, end]
+   */
+  get mediaSeekable() {
+    const seekable = this.getAttribute(MediaUIAttributes.MEDIA_SEEKABLE);
+    if (!seekable)
+      return void 0;
+    return seekable.split(":").map((time) => +time);
+  }
+  set mediaSeekable(range) {
+    if (range == null) {
+      this.removeAttribute(MediaUIAttributes.MEDIA_SEEKABLE);
+      return;
+    }
+    this.setAttribute(MediaUIAttributes.MEDIA_SEEKABLE, range.join(":"));
+  }
+  update() {
+    const timesLabel = formatTimesLabel(this);
+    updateAriaValueText(this);
+    if (timesLabel !== __privateGet18(this, _slot4).innerHTML) {
+      __privateGet18(this, _slot4).innerHTML = timesLabel;
+    }
+  }
+};
+_slot4 = /* @__PURE__ */ new WeakMap();
+if (!GlobalThis.customElements.get("media-time-display")) {
+  GlobalThis.customElements.define("media-time-display", MediaTimeDisplay);
+}
+
+// ../../node_modules/media-chrome/dist/utils/range-animation.js
+var __accessCheck19 = (obj, member, msg) => {
+  if (!member.has(obj))
+    throw TypeError("Cannot " + msg);
+};
+var __privateGet19 = (obj, member, getter) => {
+  __accessCheck19(obj, member, "read from private field");
+  return getter ? getter.call(obj) : member.get(obj);
+};
+var __privateAdd19 = (obj, member, value) => {
+  if (member.has(obj))
+    throw TypeError("Cannot add the same private member more than once");
+  member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+};
+var __privateSet18 = (obj, member, value, setter) => {
+  __accessCheck19(obj, member, "write to private field");
+  setter ? setter.call(obj, value) : member.set(obj, value);
+  return value;
+};
+var __privateWrapper = (obj, member, setter, getter) => ({
+  set _(value) {
+    __privateSet18(obj, member, value, setter);
+  },
+  get _() {
+    return __privateGet19(obj, member, getter);
+  }
+});
+var _range;
+var _startTime;
+var _previousTime;
+var _deltaTime;
+var _frameCount;
+var _updateTimestamp;
+var _updateStartValue;
+var _lastRangeIncrease;
+var _id;
+var _animate;
+var RangeAnimation = class {
+  constructor(range, callback, fps) {
+    __privateAdd19(this, _range, void 0);
+    __privateAdd19(this, _startTime, void 0);
+    __privateAdd19(this, _previousTime, void 0);
+    __privateAdd19(this, _deltaTime, void 0);
+    __privateAdd19(this, _frameCount, void 0);
+    __privateAdd19(this, _updateTimestamp, void 0);
+    __privateAdd19(this, _updateStartValue, void 0);
+    __privateAdd19(this, _lastRangeIncrease, void 0);
+    __privateAdd19(this, _id, 0);
+    __privateAdd19(this, _animate, (now = performance.now()) => {
+      __privateSet18(this, _id, requestAnimationFrame(__privateGet19(this, _animate)));
+      __privateSet18(this, _deltaTime, performance.now() - __privateGet19(this, _previousTime));
+      const fpsInterval = 1e3 / this.fps;
+      if (__privateGet19(this, _deltaTime) > fpsInterval) {
+        __privateSet18(this, _previousTime, now - __privateGet19(this, _deltaTime) % fpsInterval);
+        const fps2 = 1e3 / ((now - __privateGet19(this, _startTime)) / ++__privateWrapper(this, _frameCount)._);
+        const delta = (now - __privateGet19(this, _updateTimestamp)) / 1e3 / this.duration;
+        let value = __privateGet19(this, _updateStartValue) + delta * this.playbackRate;
+        const increase = value - __privateGet19(this, _range).valueAsNumber;
+        if (increase > 0) {
+          __privateSet18(this, _lastRangeIncrease, this.playbackRate / this.duration / fps2);
+        } else {
+          __privateSet18(this, _lastRangeIncrease, 0.995 * __privateGet19(this, _lastRangeIncrease));
+          value = __privateGet19(this, _range).valueAsNumber + __privateGet19(this, _lastRangeIncrease);
+        }
+        this.callback(value);
+      }
+    });
+    __privateSet18(this, _range, range);
+    this.callback = callback;
+    this.fps = fps;
+  }
+  start() {
+    if (__privateGet19(this, _id) !== 0)
+      return;
+    __privateSet18(this, _previousTime, performance.now());
+    __privateSet18(this, _startTime, __privateGet19(this, _previousTime));
+    __privateSet18(this, _frameCount, 0);
+    __privateGet19(this, _animate).call(this);
+  }
+  stop() {
+    if (__privateGet19(this, _id) === 0)
+      return;
+    cancelAnimationFrame(__privateGet19(this, _id));
+    __privateSet18(this, _id, 0);
+  }
+  update({ start, duration, playbackRate }) {
+    const increase = start - __privateGet19(this, _range).valueAsNumber;
+    const durationDelta = Math.abs(duration - this.duration);
+    if (increase > 0 || increase < -0.03 || durationDelta >= 0.5) {
+      this.callback(start);
+    }
+    __privateSet18(this, _updateStartValue, start);
+    __privateSet18(this, _updateTimestamp, performance.now());
+    this.duration = duration;
+    this.playbackRate = playbackRate;
+  }
+};
+_range = /* @__PURE__ */ new WeakMap();
+_startTime = /* @__PURE__ */ new WeakMap();
+_previousTime = /* @__PURE__ */ new WeakMap();
+_deltaTime = /* @__PURE__ */ new WeakMap();
+_frameCount = /* @__PURE__ */ new WeakMap();
+_updateTimestamp = /* @__PURE__ */ new WeakMap();
+_updateStartValue = /* @__PURE__ */ new WeakMap();
+_lastRangeIncrease = /* @__PURE__ */ new WeakMap();
+_id = /* @__PURE__ */ new WeakMap();
+_animate = /* @__PURE__ */ new WeakMap();
+
+// ../../node_modules/media-chrome/dist/media-time-range.js
+var __accessCheck20 = (obj, member, msg) => {
+  if (!member.has(obj))
+    throw TypeError("Cannot " + msg);
+};
+var __privateGet20 = (obj, member, getter) => {
+  __accessCheck20(obj, member, "read from private field");
+  return getter ? getter.call(obj) : member.get(obj);
+};
+var __privateAdd20 = (obj, member, value) => {
+  if (member.has(obj))
+    throw TypeError("Cannot add the same private member more than once");
+  member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+};
+var __privateSet19 = (obj, member, value, setter) => {
+  __accessCheck20(obj, member, "write to private field");
+  setter ? setter.call(obj, value) : member.set(obj, value);
+  return value;
+};
+var __privateMethod7 = (obj, member, method) => {
+  __accessCheck20(obj, member, "access private method");
+  return method;
+};
+var _rootNode;
+var _animation;
+var _boxes;
+var _previewTime;
+var _previewBox;
+var _currentBox;
+var _boxPaddingLeft;
+var _boxPaddingRight;
+var _mediaChaptersCues;
+var _toggleRangeAnimation;
+var toggleRangeAnimation_fn;
+var _shouldRangeAnimate;
+var shouldRangeAnimate_fn;
+var _updateRange;
+var _getElementRects;
+var getElementRects_fn;
+var _getBoxPosition;
+var getBoxPosition_fn;
+var _getBoxShiftPosition;
+var getBoxShiftPosition_fn;
+var _handlePointerMove3;
+var handlePointerMove_fn3;
+var _previewRequest;
+var previewRequest_fn;
+var _seekRequest;
+var seekRequest_fn;
+var DEFAULT_MISSING_TIME_PHRASE2 = "video not loaded, unknown time.";
+var updateAriaValueText2 = (el) => {
+  const range = el.range;
+  const currentTimePhrase = formatAsTimePhrase(+calcTimeFromRangeValue(el));
+  const totalTimePhrase = formatAsTimePhrase(+el.mediaSeekableEnd);
+  const fullPhrase = !(currentTimePhrase && totalTimePhrase) ? DEFAULT_MISSING_TIME_PHRASE2 : `${currentTimePhrase} of ${totalTimePhrase}`;
+  range.setAttribute("aria-valuetext", fullPhrase);
+};
+var template10 = Document2.createElement("template");
+template10.innerHTML = /*html*/
+`
   <style>
     :host {
       --media-box-border-radius: 4px;
@@ -919,7 +7509,9 @@ svg, img, ::slotted(svg), ::slotted(img) {
       --_control-background: var(--media-control-background, var(--media-secondary-color, rgb(20 20 30 / .7)));
       --_preview-background: var(--media-preview-background, var(--_control-background));
 
-      
+      ${/* 1% rail width trick was off in Safari, contain: layout seems to
+prevent the horizontal overflow as well. */
+""}
       contain: layout;
     }
 
@@ -942,7 +7534,8 @@ svg, img, ::slotted(svg), ::slotted(img) {
 
     [part~="box"] {
       width: min-content;
-      
+      ${/* absolute position is needed here so the box doesn't overflow the bounds */
+""}
       position: absolute;
       bottom: 100%;
       flex-direction: column;
@@ -966,7 +7559,7 @@ svg, img, ::slotted(svg), ::slotted(img) {
       opacity: 0;
     }
 
-    :host(:is([${o.MEDIA_PREVIEW_IMAGE}], [${o.MEDIA_PREVIEW_TIME}])[dragging]) [part~="preview-box"] {
+    :host(:is([${MediaUIAttributes.MEDIA_PREVIEW_IMAGE}], [${MediaUIAttributes.MEDIA_PREVIEW_TIME}])[dragging]) [part~="preview-box"] {
       transition-duration: var(--media-preview-transition-duration-in, .5s);
       transition-delay: var(--media-preview-transition-delay-in, .25s);
       visibility: visible;
@@ -974,7 +7567,7 @@ svg, img, ::slotted(svg), ::slotted(img) {
     }
 
     @media (hover: hover) {
-      :host(:is([${o.MEDIA_PREVIEW_IMAGE}], [${o.MEDIA_PREVIEW_TIME}]):hover) [part~="preview-box"] {
+      :host(:is([${MediaUIAttributes.MEDIA_PREVIEW_IMAGE}], [${MediaUIAttributes.MEDIA_PREVIEW_TIME}]):hover) [part~="preview-box"] {
         transition-duration: var(--media-preview-transition-duration-in, .5s);
         transition-delay: var(--media-preview-transition-delay-in, .25s);
         visibility: visible;
@@ -985,7 +7578,8 @@ svg, img, ::slotted(svg), ::slotted(img) {
     media-preview-thumbnail,
     ::slotted(media-preview-thumbnail) {
       visibility: hidden;
-      
+      ${/* delay changing these CSS props until the preview box transition is ended */
+""}
       transition: visibility 0s .25s;
       transition-delay: calc(var(--media-preview-transition-delay-out, 0s) + var(--media-preview-transition-duration-out, .25s));
       background: var(--media-preview-thumbnail-background, var(--_preview-background));
@@ -999,20 +7593,20 @@ svg, img, ::slotted(svg), ::slotted(img) {
         var(--media-preview-border-radius) var(--media-preview-border-radius) 0 0);
     }
 
-    :host([${o.MEDIA_PREVIEW_IMAGE}][dragging]) media-preview-thumbnail,
-    :host([${o.MEDIA_PREVIEW_IMAGE}][dragging]) ::slotted(media-preview-thumbnail) {
+    :host([${MediaUIAttributes.MEDIA_PREVIEW_IMAGE}][dragging]) media-preview-thumbnail,
+    :host([${MediaUIAttributes.MEDIA_PREVIEW_IMAGE}][dragging]) ::slotted(media-preview-thumbnail) {
       transition-delay: var(--media-preview-transition-delay-in, .25s);
       visibility: visible;
     }
 
     @media (hover: hover) {
-      :host([${o.MEDIA_PREVIEW_IMAGE}]:hover) media-preview-thumbnail,
-      :host([${o.MEDIA_PREVIEW_IMAGE}]:hover) ::slotted(media-preview-thumbnail) {
+      :host([${MediaUIAttributes.MEDIA_PREVIEW_IMAGE}]:hover) media-preview-thumbnail,
+      :host([${MediaUIAttributes.MEDIA_PREVIEW_IMAGE}]:hover) ::slotted(media-preview-thumbnail) {
         transition-delay: var(--media-preview-transition-delay-in, .25s);
         visibility: visible;
       }
 
-      :host([${o.MEDIA_PREVIEW_TIME}]:hover) {
+      :host([${MediaUIAttributes.MEDIA_PREVIEW_TIME}]:hover) {
         --media-time-range-hover-display: block;
       }
     }
@@ -1023,7 +7617,8 @@ svg, img, ::slotted(svg), ::slotted(img) {
       line-height: 17px;
       min-width: 0;
       visibility: hidden;
-      
+      ${/* delay changing these CSS props until the preview box transition is ended */
+""}
       transition: min-width 0s, border-radius 0s, margin 0s, padding 0s, visibility 0s;
       transition-delay: calc(var(--media-preview-transition-delay-out, 0s) + var(--media-preview-transition-duration-out, .25s));
       background: var(--media-preview-chapter-background, var(--_preview-background));
@@ -1035,8 +7630,8 @@ svg, img, ::slotted(svg), ::slotted(img) {
       text-shadow: var(--media-preview-chapter-text-shadow, 0 0 4px rgb(0 0 0 / .75));
     }
 
-    :host([${o.MEDIA_PREVIEW_IMAGE}]) media-preview-chapter-display,
-    :host([${o.MEDIA_PREVIEW_IMAGE}]) ::slotted(media-preview-chapter-display) {
+    :host([${MediaUIAttributes.MEDIA_PREVIEW_IMAGE}]) media-preview-chapter-display,
+    :host([${MediaUIAttributes.MEDIA_PREVIEW_IMAGE}]) ::slotted(media-preview-chapter-display) {
       transition-delay: var(--media-preview-transition-delay-in, .25s);
       border-radius: var(--media-preview-chapter-border-radius, 0);
       padding: var(--media-preview-chapter-padding, 3.5px 9px 0);
@@ -1044,8 +7639,8 @@ svg, img, ::slotted(svg), ::slotted(img) {
       min-width: 100%;
     }
 
-    media-preview-chapter-display[${o.MEDIA_PREVIEW_CHAPTER}],
-    ::slotted(media-preview-chapter-display[${o.MEDIA_PREVIEW_CHAPTER}]) {
+    media-preview-chapter-display[${MediaUIAttributes.MEDIA_PREVIEW_CHAPTER}],
+    ::slotted(media-preview-chapter-display[${MediaUIAttributes.MEDIA_PREVIEW_CHAPTER}]) {
       visibility: visible;
     }
 
@@ -1061,7 +7656,8 @@ svg, img, ::slotted(svg), ::slotted(img) {
       font-size: var(--media-font-size, 13px);
       line-height: 17px;
       min-width: 0;
-      
+      ${/* delay changing these CSS props until the preview box transition is ended */
+""}
       transition: min-width 0s, border-radius 0s;
       transition-delay: calc(var(--media-preview-transition-delay-out, 0s) + var(--media-preview-transition-duration-out, .25s));
       background: var(--media-preview-time-background, var(--_preview-background));
@@ -1078,15 +7674,15 @@ svg, img, ::slotted(svg), ::slotted(img) {
       ));
     }
 
-    :host([${o.MEDIA_PREVIEW_IMAGE}]) media-preview-time-display,
-    :host([${o.MEDIA_PREVIEW_IMAGE}]) ::slotted(media-preview-time-display) {
+    :host([${MediaUIAttributes.MEDIA_PREVIEW_IMAGE}]) media-preview-time-display,
+    :host([${MediaUIAttributes.MEDIA_PREVIEW_IMAGE}]) ::slotted(media-preview-time-display) {
       transition-delay: var(--media-preview-transition-delay-in, .25s);
       border-radius: var(--media-preview-time-border-radius,
         0 0 var(--media-preview-border-radius) var(--media-preview-border-radius));
       min-width: 100%;
     }
 
-    :host([${o.MEDIA_PREVIEW_TIME}]:hover) {
+    :host([${MediaUIAttributes.MEDIA_PREVIEW_TIME}]:hover) {
       --media-time-range-hover-display: block;
     }
 
@@ -1098,7 +7694,8 @@ svg, img, ::slotted(svg), ::slotted(img) {
         calc(var(--_box-shift, 0))),
         calc(var(--_box-width) / 2 - 50% - var(--media-box-arrow-offset))
       ));
-      
+      ${/* border-color has to come before border-top-color! */
+""}
       border-color: transparent;
       border-top-color: var(--media-box-arrow-background, var(--_control-background));
       border-width: var(--media-box-arrow-border-width,
@@ -1118,10 +7715,465 @@ svg, img, ::slotted(svg), ::slotted(img) {
   </div>
   <div id="current-rail">
     <slot name="current" part="box current-box">
-      
+      ${/* Example: add the current time w/ arrow to the playhead
+<media-time-display slot="current"></media-time-display>
+<div part="arrow" slot="current"></div> */
+""}
     </slot>
   </div>
-`;var bn=(i,e=i.mediaCurrentTime)=>{let t=Number.isFinite(i.mediaSeekableStart)?i.mediaSeekableStart:0,a=Number.isFinite(i.mediaDuration)?i.mediaDuration:i.mediaSeekableEnd;if(Number.isNaN(a))return 0;let r=(e-t)/(a-t);return Math.max(0,Math.min(r,1))},Dc=(i,e=i.range.valueAsNumber)=>{let t=Number.isFinite(i.mediaSeekableStart)?i.mediaSeekableStart:0,a=Number.isFinite(i.mediaDuration)?i.mediaDuration:i.mediaSeekableEnd;return Number.isNaN(a)?0:e*(a-t)+t},Bs=class extends Jt{constructor(){super(),ae(this,Vi),ae(this,Ws),ae(this,yn),ae(this,Tn),ae(this,kn),ae(this,Ps),ae(this,La),ae(this,Us),ae(this,$i,void 0),ae(this,ti,void 0),ae(this,_n,void 0),ae(this,Ma,void 0),ae(this,An,void 0),ae(this,gn,void 0),ae(this,wa,void 0),ae(this,Ra,void 0),ae(this,Fi,void 0),ae(this,Ns,a=>{this.dragging||(_i(a)&&(this.range.valueAsNumber=a),this.updateBar())}),this.container.appendChild(xc.content.cloneNode(!0)),this.shadowRoot.querySelector("#track").insertAdjacentHTML("afterbegin",'<div id="buffered" part="buffered"></div>'),Qe(this,_n,this.shadowRoot.querySelectorAll('[part~="box"]')),Qe(this,An,this.shadowRoot.querySelector('[part~="preview-box"]')),Qe(this,gn,this.shadowRoot.querySelector('[part~="current-box"]'));let t=getComputedStyle(this);Qe(this,wa,parseInt(t.getPropertyValue("--media-box-padding-left"))),Qe(this,Ra,parseInt(t.getPropertyValue("--media-box-padding-right"))),Qe(this,ti,new En(this.range,j(this,Ns),60))}static get observedAttributes(){return[...super.observedAttributes,o.MEDIA_PAUSED,o.MEDIA_DURATION,o.MEDIA_SEEKABLE,o.MEDIA_CURRENT_TIME,o.MEDIA_PREVIEW_IMAGE,o.MEDIA_PREVIEW_TIME,o.MEDIA_PREVIEW_CHAPTER,o.MEDIA_BUFFERED,o.MEDIA_PLAYBACK_RATE,o.MEDIA_LOADING,o.MEDIA_ENDED]}connectedCallback(){var e;super.connectedCallback(),this.range.setAttribute("aria-label",v("seek")),le(this,Vi,Ca).call(this),Qe(this,$i,this.getRootNode()),(e=j(this,$i))==null||e.addEventListener("transitionstart",this)}disconnectedCallback(){var e;super.disconnectedCallback(),le(this,Vi,Ca).call(this),(e=j(this,$i))==null||e.removeEventListener("transitionstart",this),Qe(this,$i,null)}attributeChangedCallback(e,t,a){super.attributeChangedCallback(e,t,a),t!=a&&(e===o.MEDIA_CURRENT_TIME||e===o.MEDIA_PAUSED||e===o.MEDIA_ENDED||e===o.MEDIA_LOADING||e===o.MEDIA_DURATION||e===o.MEDIA_SEEKABLE?(j(this,ti).update({start:bn(this),duration:this.mediaSeekableEnd-this.mediaSeekableStart,playbackRate:this.mediaPlaybackRate}),le(this,Vi,Ca).call(this),tf(this)):e===o.MEDIA_BUFFERED&&this.updateBufferedBar(),(e===o.MEDIA_DURATION||e===o.MEDIA_SEEKABLE)&&(this.mediaChaptersCues=j(this,Fi),this.updateBar()))}get mediaChaptersCues(){return j(this,Fi)}set mediaChaptersCues(e){var t;Qe(this,Fi,e),this.updateSegments((t=j(this,Fi))==null?void 0:t.map(a=>({start:bn(this,a.startTime),end:bn(this,a.endTime)})))}get mediaPaused(){return k(this,o.MEDIA_PAUSED)}set mediaPaused(e){S(this,o.MEDIA_PAUSED,e)}get mediaLoading(){return k(this,o.MEDIA_LOADING)}set mediaLoading(e){S(this,o.MEDIA_LOADING,e)}get mediaDuration(){return x(this,o.MEDIA_DURATION)}set mediaDuration(e){N(this,o.MEDIA_DURATION,e)}get mediaCurrentTime(){return x(this,o.MEDIA_CURRENT_TIME)}set mediaCurrentTime(e){N(this,o.MEDIA_CURRENT_TIME,e)}get mediaPlaybackRate(){return x(this,o.MEDIA_PLAYBACK_RATE,1)}set mediaPlaybackRate(e){N(this,o.MEDIA_PLAYBACK_RATE,e)}get mediaBuffered(){let e=this.getAttribute(o.MEDIA_BUFFERED);return e?e.split(" ").map(t=>t.split(":").map(a=>+a)):[]}set mediaBuffered(e){if(!e){this.removeAttribute(o.MEDIA_BUFFERED);return}let t=e.map(a=>a.join(":")).join(" ");this.setAttribute(o.MEDIA_BUFFERED,t)}get mediaSeekable(){let e=this.getAttribute(o.MEDIA_SEEKABLE);if(e)return e.split(":").map(t=>+t)}set mediaSeekable(e){if(e==null){this.removeAttribute(o.MEDIA_SEEKABLE);return}this.setAttribute(o.MEDIA_SEEKABLE,e.join(":"))}get mediaSeekableEnd(){var e;let[,t=this.mediaDuration]=(e=this.mediaSeekable)!=null?e:[];return t}get mediaSeekableStart(){var e;let[t=0]=(e=this.mediaSeekable)!=null?e:[];return t}get mediaPreviewImage(){return M(this,o.MEDIA_PREVIEW_IMAGE)}set mediaPreviewImage(e){w(this,o.MEDIA_PREVIEW_IMAGE,e)}get mediaPreviewTime(){return x(this,o.MEDIA_PREVIEW_TIME)}set mediaPreviewTime(e){N(this,o.MEDIA_PREVIEW_TIME,e)}get mediaEnded(){return k(this,o.MEDIA_ENDED)}set mediaEnded(e){S(this,o.MEDIA_ENDED,e)}updateBar(){super.updateBar(),this.updateBufferedBar(),this.updateCurrentBox()}updateBufferedBar(){var e;let t=this.mediaBuffered;if(!t.length)return;let a;if(this.mediaEnded)a=1;else{let n=this.mediaCurrentTime,[,s=this.mediaSeekableStart]=(e=t.find(([l,u])=>l<=n&&n<=u))!=null?e:[];a=bn(this,s)}let{style:r}=$(this.shadowRoot,"#buffered");r.setProperty("width",`${a*100}%`)}updateCurrentBox(){if(!this.shadowRoot.querySelector('slot[name="current"]').assignedElements().length)return;let t=$(this.shadowRoot,"#current-rail"),a=$(this.shadowRoot,'[part~="current-box"]'),r=le(this,yn,$s).call(this,j(this,gn)),n=le(this,Tn,Fs).call(this,r,this.range.valueAsNumber),s=le(this,kn,Vs).call(this,r,this.range.valueAsNumber);t.style.transform=`translateX(${n})`,t.style.setProperty("--_range-width",`${r.range.width}`),a.style.setProperty("--_box-shift",`${s}`),a.style.setProperty("--_box-width",`${r.box.width}px`),a.style.setProperty("visibility","initial")}handleEvent(e){switch(super.handleEvent(e),e.type){case"input":le(this,Us,Lc).call(this);break;case"pointermove":le(this,Ps,Rc).call(this,e);break;case"pointerup":case"pointerleave":le(this,La,Sn).call(this,null);break;case"transitionstart":de(e.target,this)&&setTimeout(()=>le(this,Vi,Ca).call(this),0);break}}};$i=new WeakMap;ti=new WeakMap;_n=new WeakMap;Ma=new WeakMap;An=new WeakMap;gn=new WeakMap;wa=new WeakMap;Ra=new WeakMap;Fi=new WeakMap;Vi=new WeakSet;Ca=function(){le(this,Ws,wc).call(this)?j(this,ti).start():j(this,ti).stop()};Ws=new WeakSet;wc=function(){return this.isConnected&&!this.mediaPaused&&!this.mediaLoading&&!this.mediaEnded&&this.mediaSeekableEnd>0&&Er(this)};Ns=new WeakMap;yn=new WeakSet;$s=function(i){var e;let a=((e=this.getAttribute("bounds")?He(this,`#${this.getAttribute("bounds")}`):this.parentElement)!=null?e:this).getBoundingClientRect(),r=this.range.getBoundingClientRect(),n=i.offsetWidth,s=-(r.left-a.left-n/2),l=a.right-r.left-n/2;return{box:{width:n,min:s,max:l},bounds:a,range:r}};Tn=new WeakSet;Fs=function(i,e){let t=`${e*100}%`,{width:a,min:r,max:n}=i.box;if(!a)return t;if(Number.isNaN(r)||(t=`max(${`calc(1 / var(--_range-width) * 100 * ${r}% + var(--media-box-padding-left))`}, ${t})`),!Number.isNaN(n)){let l=`calc(1 / var(--_range-width) * 100 * ${n}% - var(--media-box-padding-right))`;t=`min(${t}, ${l})`}return t};kn=new WeakSet;Vs=function(i,e){let{width:t,min:a,max:r}=i.box,n=e*i.range.width;if(n<a+j(this,wa)){let s=i.range.left-i.bounds.left-j(this,wa);return`${n-t/2+s}px`}if(n>r-j(this,Ra)){let s=i.bounds.right-i.range.right-j(this,Ra);return`${n+t/2-s-i.range.width}px`}return 0};Ps=new WeakSet;Rc=function(i){let e=[...j(this,_n)].some(A=>i.composedPath().includes(A));if(!this.dragging&&(e||!i.composedPath().includes(this))){le(this,La,Sn).call(this,null);return}let t=this.mediaSeekableEnd;if(!t)return;let a=$(this.shadowRoot,"#preview-rail"),r=$(this.shadowRoot,'[part~="preview-box"]'),n=le(this,yn,$s).call(this,j(this,An)),s=(i.clientX-n.range.left)/n.range.width;s=Math.max(0,Math.min(1,s));let l=le(this,Tn,Fs).call(this,n,s),u=le(this,kn,Vs).call(this,n,s);a.style.transform=`translateX(${l})`,a.style.setProperty("--_range-width",`${n.range.width}`),r.style.setProperty("--_box-shift",`${u}`),r.style.setProperty("--_box-width",`${n.box.width}px`);let c=Math.round(j(this,Ma))-Math.round(s*t);Math.abs(c)<1&&s>.01&&s<.99||(Qe(this,Ma,s*t),le(this,La,Sn).call(this,j(this,Ma)))};La=new WeakSet;Sn=function(i){this.dispatchEvent(new d.CustomEvent(f.MEDIA_PREVIEW_REQUEST,{composed:!0,bubbles:!0,detail:i}))};Us=new WeakSet;Lc=function(){j(this,ti).stop();let i=Dc(this);this.dispatchEvent(new d.CustomEvent(f.MEDIA_SEEK_REQUEST,{composed:!0,bubbles:!0,detail:i}))};d.customElements.get("media-time-range")||d.customElements.define("media-time-range",Bs);var Ki={PLACEMENT:"placement",BOUNDS:"bounds"},Oc=h.createElement("template");Oc.innerHTML=`
+`;
+var calcRangeValueFromTime = (el, time = el.mediaCurrentTime) => {
+  const startTime = Number.isFinite(el.mediaSeekableStart) ? el.mediaSeekableStart : 0;
+  const endTime = Number.isFinite(el.mediaDuration) ? el.mediaDuration : el.mediaSeekableEnd;
+  if (Number.isNaN(endTime))
+    return 0;
+  const value = (time - startTime) / (endTime - startTime);
+  return Math.max(0, Math.min(value, 1));
+};
+var calcTimeFromRangeValue = (el, value = el.range.valueAsNumber) => {
+  const startTime = Number.isFinite(el.mediaSeekableStart) ? el.mediaSeekableStart : 0;
+  const endTime = Number.isFinite(el.mediaDuration) ? el.mediaDuration : el.mediaSeekableEnd;
+  if (Number.isNaN(endTime))
+    return 0;
+  return value * (endTime - startTime) + startTime;
+};
+var MediaTimeRange = class extends MediaChromeRange {
+  constructor() {
+    super();
+    __privateAdd20(this, _toggleRangeAnimation);
+    __privateAdd20(this, _shouldRangeAnimate);
+    __privateAdd20(this, _getElementRects);
+    __privateAdd20(this, _getBoxPosition);
+    __privateAdd20(this, _getBoxShiftPosition);
+    __privateAdd20(this, _handlePointerMove3);
+    __privateAdd20(this, _previewRequest);
+    __privateAdd20(this, _seekRequest);
+    __privateAdd20(this, _rootNode, void 0);
+    __privateAdd20(this, _animation, void 0);
+    __privateAdd20(this, _boxes, void 0);
+    __privateAdd20(this, _previewTime, void 0);
+    __privateAdd20(this, _previewBox, void 0);
+    __privateAdd20(this, _currentBox, void 0);
+    __privateAdd20(this, _boxPaddingLeft, void 0);
+    __privateAdd20(this, _boxPaddingRight, void 0);
+    __privateAdd20(this, _mediaChaptersCues, void 0);
+    __privateAdd20(this, _updateRange, (value) => {
+      if (this.dragging)
+        return;
+      if (isValidNumber(value)) {
+        this.range.valueAsNumber = value;
+      }
+      this.updateBar();
+    });
+    this.container.appendChild(template10.content.cloneNode(true));
+    const track = this.shadowRoot.querySelector("#track");
+    track.insertAdjacentHTML(
+      "afterbegin",
+      '<div id="buffered" part="buffered"></div>'
+    );
+    __privateSet19(this, _boxes, this.shadowRoot.querySelectorAll('[part~="box"]'));
+    __privateSet19(this, _previewBox, this.shadowRoot.querySelector('[part~="preview-box"]'));
+    __privateSet19(this, _currentBox, this.shadowRoot.querySelector('[part~="current-box"]'));
+    const computedStyle = getComputedStyle(this);
+    __privateSet19(this, _boxPaddingLeft, parseInt(
+      computedStyle.getPropertyValue("--media-box-padding-left")
+    ));
+    __privateSet19(this, _boxPaddingRight, parseInt(
+      computedStyle.getPropertyValue("--media-box-padding-right")
+    ));
+    __privateSet19(this, _animation, new RangeAnimation(this.range, __privateGet20(this, _updateRange), 60));
+  }
+  static get observedAttributes() {
+    return [
+      ...super.observedAttributes,
+      MediaUIAttributes.MEDIA_PAUSED,
+      MediaUIAttributes.MEDIA_DURATION,
+      MediaUIAttributes.MEDIA_SEEKABLE,
+      MediaUIAttributes.MEDIA_CURRENT_TIME,
+      MediaUIAttributes.MEDIA_PREVIEW_IMAGE,
+      MediaUIAttributes.MEDIA_PREVIEW_TIME,
+      MediaUIAttributes.MEDIA_PREVIEW_CHAPTER,
+      MediaUIAttributes.MEDIA_BUFFERED,
+      MediaUIAttributes.MEDIA_PLAYBACK_RATE,
+      MediaUIAttributes.MEDIA_LOADING,
+      MediaUIAttributes.MEDIA_ENDED
+    ];
+  }
+  connectedCallback() {
+    var _a3;
+    super.connectedCallback();
+    this.range.setAttribute("aria-label", t("seek"));
+    __privateMethod7(this, _toggleRangeAnimation, toggleRangeAnimation_fn).call(this);
+    __privateSet19(this, _rootNode, this.getRootNode());
+    (_a3 = __privateGet20(this, _rootNode)) == null ? void 0 : _a3.addEventListener("transitionstart", this);
+  }
+  disconnectedCallback() {
+    var _a3;
+    super.disconnectedCallback();
+    __privateMethod7(this, _toggleRangeAnimation, toggleRangeAnimation_fn).call(this);
+    (_a3 = __privateGet20(this, _rootNode)) == null ? void 0 : _a3.removeEventListener("transitionstart", this);
+    __privateSet19(this, _rootNode, null);
+  }
+  attributeChangedCallback(attrName, oldValue, newValue) {
+    super.attributeChangedCallback(attrName, oldValue, newValue);
+    if (oldValue == newValue)
+      return;
+    if (attrName === MediaUIAttributes.MEDIA_CURRENT_TIME || attrName === MediaUIAttributes.MEDIA_PAUSED || attrName === MediaUIAttributes.MEDIA_ENDED || attrName === MediaUIAttributes.MEDIA_LOADING || attrName === MediaUIAttributes.MEDIA_DURATION || attrName === MediaUIAttributes.MEDIA_SEEKABLE) {
+      __privateGet20(this, _animation).update({
+        start: calcRangeValueFromTime(this),
+        duration: this.mediaSeekableEnd - this.mediaSeekableStart,
+        playbackRate: this.mediaPlaybackRate
+      });
+      __privateMethod7(this, _toggleRangeAnimation, toggleRangeAnimation_fn).call(this);
+      updateAriaValueText2(this);
+    } else if (attrName === MediaUIAttributes.MEDIA_BUFFERED) {
+      this.updateBufferedBar();
+    }
+    if (attrName === MediaUIAttributes.MEDIA_DURATION || attrName === MediaUIAttributes.MEDIA_SEEKABLE) {
+      this.mediaChaptersCues = __privateGet20(this, _mediaChaptersCues);
+      this.updateBar();
+    }
+  }
+  get mediaChaptersCues() {
+    return __privateGet20(this, _mediaChaptersCues);
+  }
+  set mediaChaptersCues(value) {
+    var _a3;
+    __privateSet19(this, _mediaChaptersCues, value);
+    this.updateSegments(
+      (_a3 = __privateGet20(this, _mediaChaptersCues)) == null ? void 0 : _a3.map((c) => ({
+        start: calcRangeValueFromTime(this, c.startTime),
+        end: calcRangeValueFromTime(this, c.endTime)
+      }))
+    );
+  }
+  /**
+   * Is the media paused
+   */
+  get mediaPaused() {
+    return getBooleanAttr(this, MediaUIAttributes.MEDIA_PAUSED);
+  }
+  set mediaPaused(value) {
+    setBooleanAttr(this, MediaUIAttributes.MEDIA_PAUSED, value);
+  }
+  /**
+   * Is the media loading
+   */
+  get mediaLoading() {
+    return getBooleanAttr(this, MediaUIAttributes.MEDIA_LOADING);
+  }
+  set mediaLoading(value) {
+    setBooleanAttr(this, MediaUIAttributes.MEDIA_LOADING, value);
+  }
+  /**
+   *
+   */
+  get mediaDuration() {
+    return getNumericAttr(this, MediaUIAttributes.MEDIA_DURATION);
+  }
+  set mediaDuration(value) {
+    setNumericAttr(this, MediaUIAttributes.MEDIA_DURATION, value);
+  }
+  /**
+   *
+   */
+  get mediaCurrentTime() {
+    return getNumericAttr(this, MediaUIAttributes.MEDIA_CURRENT_TIME);
+  }
+  set mediaCurrentTime(value) {
+    setNumericAttr(this, MediaUIAttributes.MEDIA_CURRENT_TIME, value);
+  }
+  /**
+   *
+   */
+  get mediaPlaybackRate() {
+    return getNumericAttr(this, MediaUIAttributes.MEDIA_PLAYBACK_RATE, 1);
+  }
+  set mediaPlaybackRate(value) {
+    setNumericAttr(this, MediaUIAttributes.MEDIA_PLAYBACK_RATE, value);
+  }
+  /**
+   * An array of ranges, each range being an array of two numbers.
+   * e.g. [[1, 2], [3, 4]]
+   */
+  get mediaBuffered() {
+    const buffered = this.getAttribute(MediaUIAttributes.MEDIA_BUFFERED);
+    if (!buffered)
+      return [];
+    return buffered.split(" ").map((timePair) => timePair.split(":").map((timeStr) => +timeStr));
+  }
+  set mediaBuffered(list) {
+    if (!list) {
+      this.removeAttribute(MediaUIAttributes.MEDIA_BUFFERED);
+      return;
+    }
+    const strVal = list.map((tuple) => tuple.join(":")).join(" ");
+    this.setAttribute(MediaUIAttributes.MEDIA_BUFFERED, strVal);
+  }
+  /**
+   * Range of values that can be seeked to
+   * An array of two numbers [start, end]
+   */
+  get mediaSeekable() {
+    const seekable = this.getAttribute(MediaUIAttributes.MEDIA_SEEKABLE);
+    if (!seekable)
+      return void 0;
+    return seekable.split(":").map((time) => +time);
+  }
+  set mediaSeekable(range) {
+    if (range == null) {
+      this.removeAttribute(MediaUIAttributes.MEDIA_SEEKABLE);
+      return;
+    }
+    this.setAttribute(MediaUIAttributes.MEDIA_SEEKABLE, range.join(":"));
+  }
+  /**
+   *
+   */
+  get mediaSeekableEnd() {
+    var _a3;
+    const [, end = this.mediaDuration] = (_a3 = this.mediaSeekable) != null ? _a3 : [];
+    return end;
+  }
+  get mediaSeekableStart() {
+    var _a3;
+    const [start = 0] = (_a3 = this.mediaSeekable) != null ? _a3 : [];
+    return start;
+  }
+  /**
+   * The url of the preview image
+   */
+  get mediaPreviewImage() {
+    return getStringAttr(this, MediaUIAttributes.MEDIA_PREVIEW_IMAGE);
+  }
+  set mediaPreviewImage(value) {
+    setStringAttr(this, MediaUIAttributes.MEDIA_PREVIEW_IMAGE, value);
+  }
+  /**
+   *
+   */
+  get mediaPreviewTime() {
+    return getNumericAttr(this, MediaUIAttributes.MEDIA_PREVIEW_TIME);
+  }
+  set mediaPreviewTime(value) {
+    setNumericAttr(this, MediaUIAttributes.MEDIA_PREVIEW_TIME, value);
+  }
+  /**
+   *
+   */
+  get mediaEnded() {
+    return getBooleanAttr(this, MediaUIAttributes.MEDIA_ENDED);
+  }
+  set mediaEnded(value) {
+    setBooleanAttr(this, MediaUIAttributes.MEDIA_ENDED, value);
+  }
+  /* Add a buffered progress bar */
+  updateBar() {
+    super.updateBar();
+    this.updateBufferedBar();
+    this.updateCurrentBox();
+  }
+  updateBufferedBar() {
+    var _a3;
+    const buffered = this.mediaBuffered;
+    if (!buffered.length) {
+      return;
+    }
+    let relativeBufferedEnd;
+    if (!this.mediaEnded) {
+      const currentTime = this.mediaCurrentTime;
+      const [, bufferedEnd = this.mediaSeekableStart] = (_a3 = buffered.find(
+        ([start, end]) => start <= currentTime && currentTime <= end
+      )) != null ? _a3 : [];
+      relativeBufferedEnd = calcRangeValueFromTime(this, bufferedEnd);
+    } else {
+      relativeBufferedEnd = 1;
+    }
+    const { style } = getOrInsertCSSRule(this.shadowRoot, "#buffered");
+    style.setProperty("width", `${relativeBufferedEnd * 100}%`);
+  }
+  updateCurrentBox() {
+    const currentSlot = this.shadowRoot.querySelector(
+      'slot[name="current"]'
+    );
+    if (!currentSlot.assignedElements().length)
+      return;
+    const currentRailRule = getOrInsertCSSRule(
+      this.shadowRoot,
+      "#current-rail"
+    );
+    const currentBoxRule = getOrInsertCSSRule(
+      this.shadowRoot,
+      '[part~="current-box"]'
+    );
+    const rects = __privateMethod7(this, _getElementRects, getElementRects_fn).call(this, __privateGet20(this, _currentBox));
+    const boxPos = __privateMethod7(this, _getBoxPosition, getBoxPosition_fn).call(this, rects, this.range.valueAsNumber);
+    const boxShift = __privateMethod7(this, _getBoxShiftPosition, getBoxShiftPosition_fn).call(this, rects, this.range.valueAsNumber);
+    currentRailRule.style.transform = `translateX(${boxPos})`;
+    currentRailRule.style.setProperty("--_range-width", `${rects.range.width}`);
+    currentBoxRule.style.setProperty("--_box-shift", `${boxShift}`);
+    currentBoxRule.style.setProperty("--_box-width", `${rects.box.width}px`);
+    currentBoxRule.style.setProperty("visibility", "initial");
+  }
+  handleEvent(evt) {
+    super.handleEvent(evt);
+    switch (evt.type) {
+      case "input":
+        __privateMethod7(this, _seekRequest, seekRequest_fn).call(this);
+        break;
+      case "pointermove":
+        __privateMethod7(this, _handlePointerMove3, handlePointerMove_fn3).call(this, evt);
+        break;
+      case "pointerup":
+      case "pointerleave":
+        __privateMethod7(this, _previewRequest, previewRequest_fn).call(this, null);
+        break;
+      case "transitionstart":
+        if (containsComposedNode(evt.target, this)) {
+          setTimeout(() => __privateMethod7(this, _toggleRangeAnimation, toggleRangeAnimation_fn).call(this), 0);
+        }
+        break;
+    }
+  }
+};
+_rootNode = /* @__PURE__ */ new WeakMap();
+_animation = /* @__PURE__ */ new WeakMap();
+_boxes = /* @__PURE__ */ new WeakMap();
+_previewTime = /* @__PURE__ */ new WeakMap();
+_previewBox = /* @__PURE__ */ new WeakMap();
+_currentBox = /* @__PURE__ */ new WeakMap();
+_boxPaddingLeft = /* @__PURE__ */ new WeakMap();
+_boxPaddingRight = /* @__PURE__ */ new WeakMap();
+_mediaChaptersCues = /* @__PURE__ */ new WeakMap();
+_toggleRangeAnimation = /* @__PURE__ */ new WeakSet();
+toggleRangeAnimation_fn = function() {
+  if (__privateMethod7(this, _shouldRangeAnimate, shouldRangeAnimate_fn).call(this)) {
+    __privateGet20(this, _animation).start();
+  } else {
+    __privateGet20(this, _animation).stop();
+  }
+};
+_shouldRangeAnimate = /* @__PURE__ */ new WeakSet();
+shouldRangeAnimate_fn = function() {
+  return this.isConnected && !this.mediaPaused && !this.mediaLoading && !this.mediaEnded && this.mediaSeekableEnd > 0 && isElementVisible(this);
+};
+_updateRange = /* @__PURE__ */ new WeakMap();
+_getElementRects = /* @__PURE__ */ new WeakSet();
+getElementRects_fn = function(box) {
+  var _a3;
+  const bounds = (_a3 = this.getAttribute("bounds") ? closestComposedNode(this, `#${this.getAttribute("bounds")}`) : this.parentElement) != null ? _a3 : this;
+  const boundsRect = bounds.getBoundingClientRect();
+  const rangeRect = this.range.getBoundingClientRect();
+  const width = box.offsetWidth;
+  const min = -(rangeRect.left - boundsRect.left - width / 2);
+  const max = boundsRect.right - rangeRect.left - width / 2;
+  return {
+    box: { width, min, max },
+    bounds: boundsRect,
+    range: rangeRect
+  };
+};
+_getBoxPosition = /* @__PURE__ */ new WeakSet();
+getBoxPosition_fn = function(rects, ratio) {
+  let position = `${ratio * 100}%`;
+  const { width, min, max } = rects.box;
+  if (!width)
+    return position;
+  if (!Number.isNaN(min)) {
+    const pad = `var(--media-box-padding-left)`;
+    const minPos = `calc(1 / var(--_range-width) * 100 * ${min}% + ${pad})`;
+    position = `max(${minPos}, ${position})`;
+  }
+  if (!Number.isNaN(max)) {
+    const pad = `var(--media-box-padding-right)`;
+    const maxPos = `calc(1 / var(--_range-width) * 100 * ${max}% - ${pad})`;
+    position = `min(${position}, ${maxPos})`;
+  }
+  return position;
+};
+_getBoxShiftPosition = /* @__PURE__ */ new WeakSet();
+getBoxShiftPosition_fn = function(rects, ratio) {
+  const { width, min, max } = rects.box;
+  const pointerX = ratio * rects.range.width;
+  if (pointerX < min + __privateGet20(this, _boxPaddingLeft)) {
+    const offset = rects.range.left - rects.bounds.left - __privateGet20(this, _boxPaddingLeft);
+    return `${pointerX - width / 2 + offset}px`;
+  }
+  if (pointerX > max - __privateGet20(this, _boxPaddingRight)) {
+    const offset = rects.bounds.right - rects.range.right - __privateGet20(this, _boxPaddingRight);
+    return `${pointerX + width / 2 - offset - rects.range.width}px`;
+  }
+  return 0;
+};
+_handlePointerMove3 = /* @__PURE__ */ new WeakSet();
+handlePointerMove_fn3 = function(evt) {
+  const isOverBoxes = [...__privateGet20(this, _boxes)].some(
+    (b) => evt.composedPath().includes(b)
+  );
+  if (!this.dragging && (isOverBoxes || !evt.composedPath().includes(this))) {
+    __privateMethod7(this, _previewRequest, previewRequest_fn).call(this, null);
+    return;
+  }
+  const duration = this.mediaSeekableEnd;
+  if (!duration)
+    return;
+  const previewRailRule = getOrInsertCSSRule(
+    this.shadowRoot,
+    "#preview-rail"
+  );
+  const previewBoxRule = getOrInsertCSSRule(
+    this.shadowRoot,
+    '[part~="preview-box"]'
+  );
+  const rects = __privateMethod7(this, _getElementRects, getElementRects_fn).call(this, __privateGet20(this, _previewBox));
+  let pointerRatio = (evt.clientX - rects.range.left) / rects.range.width;
+  pointerRatio = Math.max(0, Math.min(1, pointerRatio));
+  const boxPos = __privateMethod7(this, _getBoxPosition, getBoxPosition_fn).call(this, rects, pointerRatio);
+  const boxShift = __privateMethod7(this, _getBoxShiftPosition, getBoxShiftPosition_fn).call(this, rects, pointerRatio);
+  previewRailRule.style.transform = `translateX(${boxPos})`;
+  previewRailRule.style.setProperty("--_range-width", `${rects.range.width}`);
+  previewBoxRule.style.setProperty("--_box-shift", `${boxShift}`);
+  previewBoxRule.style.setProperty("--_box-width", `${rects.box.width}px`);
+  const diff = Math.round(__privateGet20(this, _previewTime)) - Math.round(pointerRatio * duration);
+  if (Math.abs(diff) < 1 && pointerRatio > 0.01 && pointerRatio < 0.99)
+    return;
+  __privateSet19(this, _previewTime, pointerRatio * duration);
+  __privateMethod7(this, _previewRequest, previewRequest_fn).call(this, __privateGet20(this, _previewTime));
+};
+_previewRequest = /* @__PURE__ */ new WeakSet();
+previewRequest_fn = function(detail) {
+  this.dispatchEvent(
+    new GlobalThis.CustomEvent(MediaUIEvents.MEDIA_PREVIEW_REQUEST, {
+      composed: true,
+      bubbles: true,
+      detail
+    })
+  );
+};
+_seekRequest = /* @__PURE__ */ new WeakSet();
+seekRequest_fn = function() {
+  __privateGet20(this, _animation).stop();
+  const detail = calcTimeFromRangeValue(this);
+  this.dispatchEvent(
+    new GlobalThis.CustomEvent(MediaUIEvents.MEDIA_SEEK_REQUEST, {
+      composed: true,
+      bubbles: true,
+      detail
+    })
+  );
+};
+if (!GlobalThis.customElements.get("media-time-range")) {
+  GlobalThis.customElements.define("media-time-range", MediaTimeRange);
+}
+
+// ../../node_modules/media-chrome/dist/media-tooltip.js
+var Attributes11 = {
+  PLACEMENT: "placement",
+  BOUNDS: "bounds"
+};
+var template11 = Document2.createElement("template");
+template11.innerHTML = /*html*/
+`
   <style>
     :host {
       --_tooltip-background-color: var(--media-tooltip-background-color, var(--media-secondary-color, rgba(20, 20, 30, .7)));
@@ -1231,8 +8283,1256 @@ svg, img, ::slotted(svg), ::slotted(img) {
   </style>
   <slot></slot>
   <div id="arrow"></div>
-`;var Ks=class extends d.HTMLElement{constructor(){if(super(),this.updateXOffset=()=>{var e;if(!Er(this,{checkOpacity:!1,checkVisibilityCSS:!1}))return;let t=this.placement;if(t==="left"||t==="right"){this.style.removeProperty("--media-tooltip-offset-x");return}let a=getComputedStyle(this),r=(e=He(this,"#"+this.bounds))!=null?e:q(this);if(!r)return;let{x:n,width:s}=r.getBoundingClientRect(),{x:l,width:u}=this.getBoundingClientRect(),c=l+u,A=n+s,g=a.getPropertyValue("--media-tooltip-offset-x"),p=g?parseFloat(g.replace("px","")):0,E=a.getPropertyValue("--media-tooltip-container-margin"),O=E?parseFloat(E.replace("px","")):0,y=l-n+p-O,I=c-A+p+O;if(y<0){this.style.setProperty("--media-tooltip-offset-x",`${y}px`);return}if(I>0){this.style.setProperty("--media-tooltip-offset-x",`${I}px`);return}this.style.removeProperty("--media-tooltip-offset-x")},this.shadowRoot||(this.attachShadow({mode:"open"}),this.shadowRoot.appendChild(Oc.content.cloneNode(!0))),this.arrowEl=this.shadowRoot.querySelector("#arrow"),Object.prototype.hasOwnProperty.call(this,"placement")){let e=this.placement;delete this.placement,this.placement=e}}static get observedAttributes(){return[Ki.PLACEMENT,Ki.BOUNDS]}get placement(){return M(this,Ki.PLACEMENT)}set placement(e){w(this,Ki.PLACEMENT,e)}get bounds(){return M(this,Ki.BOUNDS)}set bounds(e){w(this,Ki.BOUNDS,e)}};d.customElements.get("media-tooltip")||d.customElements.define("media-tooltip",Ks);var af=1,rf=i=>i.mediaMuted?0:i.mediaVolume,nf=i=>`${Math.round(i*100)}%`,Gs=class extends Jt{static get observedAttributes(){return[...super.observedAttributes,o.MEDIA_VOLUME,o.MEDIA_MUTED,o.MEDIA_VOLUME_UNAVAILABLE]}constructor(){super(),this.range.addEventListener("input",()=>{let e=this.range.value,t=new d.CustomEvent(f.MEDIA_VOLUME_REQUEST,{composed:!0,bubbles:!0,detail:e});this.dispatchEvent(t)})}connectedCallback(){super.connectedCallback(),this.range.setAttribute("aria-label",v("volume"))}attributeChangedCallback(e,t,a){super.attributeChangedCallback(e,t,a),(e===o.MEDIA_VOLUME||e===o.MEDIA_MUTED)&&(this.range.valueAsNumber=rf(this),this.range.setAttribute("aria-valuetext",nf(this.range.valueAsNumber)),this.updateBar())}get mediaVolume(){return x(this,o.MEDIA_VOLUME,af)}set mediaVolume(e){N(this,o.MEDIA_VOLUME,e)}get mediaMuted(){return k(this,o.MEDIA_MUTED)}set mediaMuted(e){S(this,o.MEDIA_MUTED,e)}get mediaVolumeUnavailable(){return M(this,o.MEDIA_VOLUME_UNAVAILABLE)}set mediaVolumeUnavailable(e){w(this,o.MEDIA_VOLUME_UNAVAILABLE,e)}};d.customElements.get("media-volume-range")||d.customElements.define("media-volume-range",Gs);var b=require("@mux/mux-video"),L=require("@mux/playback-core");var Kc=require("@mux/mux-video");var Wc=require("@mux/playback-core");var ri=require("@mux/playback-core");function Nc(i){let e="";return Object.entries(i).forEach(([t,a])=>{a!=null&&(e+=`${In(t)}: ${a}; `)}),e?e.trim():void 0}function In(i){return i.replace(/([a-z])([A-Z])/g,"$1-$2").toLowerCase()}function Cn(i){return i.replace(/[-_]([a-z])/g,(e,t)=>t.toUpperCase())}function ue(i){if(i==null)return;let e=+i;return Number.isNaN(e)?void 0:e}function Ys(i){let e=of(i).toString();return e?"?"+e:""}function of(i){let e={};for(let t in i)i[t]!=null&&(e[t]=i[t]);return new URLSearchParams(e)}var qs=(i,e)=>!i||!e?!1:i.contains(e)?!0:qs(i,e.getRootNode().host);var Pc="mux.com",sf=()=>{try{return"3.3.1"}catch{}return"UNKNOWN"},lf=sf(),wn=()=>lf,Uc=(i,{token:e,customDomain:t=Pc,thumbnailTime:a,programTime:r}={})=>{var l;let n=e==null?a:void 0,{aud:s}=(l=(0,ri.parseJwt)(e))!=null?l:{};if(!(e&&s!=="t"))return`https://image.${t}/${i}/thumbnail.webp${Ys({token:e,time:n,program_time:r})}`},Bc=(i,{token:e,customDomain:t=Pc,programStartTime:a,programEndTime:r}={})=>{var s;let{aud:n}=(s=(0,ri.parseJwt)(e))!=null?s:{};if(!(e&&n!=="s"))return`https://image.${t}/${i}/storyboard.vtt${Ys({token:e,format:"webp",program_start_time:a,program_end_time:r})}`},xa=i=>{if(i){if([ri.StreamTypes.LIVE,ri.StreamTypes.ON_DEMAND].includes(i))return i;if(i!=null&&i.includes("live"))return ri.StreamTypes.LIVE}};var df={crossorigin:"crossOrigin",playsinline:"playsInline"};function Hc(i){var e;return(e=df[i])!=null?e:Cn(i)}var ii,ai,ce,Mn=class{constructor(e,t){he(this,ii);he(this,ai);he(this,ce,[]);Ae(this,ii,e),Ae(this,ai,t)}[Symbol.iterator](){return B(this,ce).values()}get length(){return B(this,ce).length}get value(){var e;return(e=B(this,ce).join(" "))!=null?e:""}set value(e){var t;e!==this.value&&(Ae(this,ce,[]),this.add(...(t=e==null?void 0:e.split(" "))!=null?t:[]))}toString(){return this.value}item(e){return B(this,ce)[e]}values(){return B(this,ce).values()}keys(){return B(this,ce).keys()}forEach(e){B(this,ce).forEach(e)}add(...e){var t,a;e.forEach(r=>{this.contains(r)||B(this,ce).push(r)}),!(this.value===""&&!((t=B(this,ii))!=null&&t.hasAttribute(`${B(this,ai)}`)))&&((a=B(this,ii))==null||a.setAttribute(`${B(this,ai)}`,`${this.value}`))}remove(...e){var t;e.forEach(a=>{B(this,ce).splice(B(this,ce).indexOf(a),1)}),(t=B(this,ii))==null||t.setAttribute(`${B(this,ai)}`,`${this.value}`)}contains(e){return B(this,ce).includes(e)}toggle(e,t){return typeof t!="undefined"?t?(this.add(e),!0):(this.remove(e),!1):this.contains(e)?(this.remove(e),!1):(this.add(e),!0)}replace(e,t){this.remove(e),this.add(t)}};ii=new WeakMap,ai=new WeakMap,ce=new WeakMap;var $c=`[mux-player ${wn()}]`;function Xe(...i){console.warn($c,...i)}function Ee(...i){console.error($c,...i)}function Zs(i){var t;let e=(t=i.message)!=null?t:"";i.context&&(e+=` ${i.context}`),i.file&&(e+=` ${(0,Wc.i18n)("Read more: ")}
-https://github.com/muxinc/elements/blob/main/errors/${i.file}`),Xe(e)}var ne={AUTOPLAY:"autoplay",CROSSORIGIN:"crossorigin",LOOP:"loop",MUTED:"muted",PLAYSINLINE:"playsinline",PRELOAD:"preload"},It={VOLUME:"volume",PLAYBACKRATE:"playbackrate",MUTED:"muted",MUX_VIDEO_ELEMENT:"mux-video-element"},uf={...ne,...It},Vc=Object.freeze({length:0,start(i){let e=i>>>0;if(e>=this.length)throw new DOMException(`Failed to execute 'start' on 'TimeRanges': The index provided (${e}) is greater than or equal to the maximum bound (${this.length}).`);return 0},end(i){let e=i>>>0;if(e>=this.length)throw new DOMException(`Failed to execute 'end' on 'TimeRanges': The index provided (${e}) is greater than or equal to the maximum bound (${this.length}).`);return 0}}),cf=Kc.VideoEvents.filter(i=>i!=="error"),mf=Object.values(ne).filter(i=>ne.PLAYSINLINE!==i),hf=Object.values(It),pf=[...mf,...hf],zs=class extends pe.HTMLElement{static get observedAttributes(){return pf}constructor(){super()}init(){cf.forEach(e=>{var t;(t=this.media)==null||t.addEventListener(e,a=>{this.dispatchEvent(new Event(a.type))})})}attributeChangedCallback(e,t,a){var r,n;switch(e){case It.MUTED:{this.media&&(this.media.muted=a!=null,this.media.defaultMuted=a!=null);return}case It.VOLUME:{let s=(r=ue(a))!=null?r:1;this.media&&(this.media.volume=s);return}case It.PLAYBACKRATE:{let s=(n=ue(a))!=null?n:1;this.media&&(this.media.playbackRate=s,this.media.defaultPlaybackRate=s);return}}}play(){var e,t;return(t=(e=this.media)==null?void 0:e.play())!=null?t:Promise.reject()}pause(){var e;(e=this.media)==null||e.pause()}load(){var e;(e=this.media)==null||e.load()}requestCast(e){var t;return(t=this.media)==null?void 0:t.requestCast(e)}get muxVideoElement(){var e;return(e=this.getAttribute(uf.MUX_VIDEO_ELEMENT))!=null?e:"mux-video"}get media(){var e;return(e=this.shadowRoot)==null?void 0:e.querySelector(this.muxVideoElement)}get audioTracks(){return this.media.audioTracks}get videoTracks(){return this.media.videoTracks}get audioRenditions(){return this.media.audioRenditions}get videoRenditions(){return this.media.videoRenditions}get paused(){var e,t;return(t=(e=this.media)==null?void 0:e.paused)!=null?t:!0}get duration(){var e,t;return(t=(e=this.media)==null?void 0:e.duration)!=null?t:NaN}get ended(){var e,t;return(t=(e=this.media)==null?void 0:e.ended)!=null?t:!1}get buffered(){var e,t;return(t=(e=this.media)==null?void 0:e.buffered)!=null?t:Vc}get seekable(){var e,t;return(t=(e=this.media)==null?void 0:e.seekable)!=null?t:Vc}get readyState(){var e,t;return(t=(e=this.media)==null?void 0:e.readyState)!=null?t:0}get videoWidth(){var e,t;return(t=(e=this.media)==null?void 0:e.videoWidth)!=null?t:0}get videoHeight(){var e,t;return(t=(e=this.media)==null?void 0:e.videoHeight)!=null?t:0}get currentSrc(){var e,t;return(t=(e=this.media)==null?void 0:e.currentSrc)!=null?t:""}get currentTime(){var e,t;return(t=(e=this.media)==null?void 0:e.currentTime)!=null?t:0}set currentTime(e){this.media&&(this.media.currentTime=Number(e))}get volume(){var e,t;return(t=(e=this.media)==null?void 0:e.volume)!=null?t:1}set volume(e){this.media&&(this.media.volume=Number(e))}get playbackRate(){var e,t;return(t=(e=this.media)==null?void 0:e.playbackRate)!=null?t:1}set playbackRate(e){this.media&&(this.media.playbackRate=Number(e))}get defaultPlaybackRate(){var e;return(e=ue(this.getAttribute(It.PLAYBACKRATE)))!=null?e:1}set defaultPlaybackRate(e){e!=null?this.setAttribute(It.PLAYBACKRATE,`${e}`):this.removeAttribute(It.PLAYBACKRATE)}get crossOrigin(){return Da(this,ne.CROSSORIGIN)}set crossOrigin(e){this.setAttribute(ne.CROSSORIGIN,`${e}`)}get autoplay(){return Da(this,ne.AUTOPLAY)!=null}set autoplay(e){e?this.setAttribute(ne.AUTOPLAY,typeof e=="string"?e:""):this.removeAttribute(ne.AUTOPLAY)}get loop(){return Da(this,ne.LOOP)!=null}set loop(e){e?this.setAttribute(ne.LOOP,""):this.removeAttribute(ne.LOOP)}get muted(){var e,t;return(t=(e=this.media)==null?void 0:e.muted)!=null?t:!1}set muted(e){this.media&&(this.media.muted=!!e)}get defaultMuted(){return Da(this,ne.MUTED)!=null}set defaultMuted(e){e?this.setAttribute(ne.MUTED,""):this.removeAttribute(ne.MUTED)}get playsInline(){return Da(this,ne.PLAYSINLINE)!=null}set playsInline(e){Ee("playsInline is set to true by default and is not currently supported as a setter.")}get preload(){return this.media?this.media.preload:this.getAttribute("preload")}set preload(e){["","none","metadata","auto"].includes(e)?this.setAttribute(ne.PRELOAD,e):this.removeAttribute(ne.PRELOAD)}};function Da(i,e){return i.media?i.media.getAttribute(e):i.getAttribute(e)}var Qs=zs;var zc=(i,e,t)=>{if(!e.has(i))throw TypeError("Cannot "+t)},D=(i,e,t)=>(zc(i,e,"read from private field"),t?t.call(i):e.get(i)),Je=(i,e,t)=>{if(e.has(i))throw TypeError("Cannot add the same private member more than once");e instanceof WeakSet?e.add(i):e.set(i,t)},mt=(i,e,t,a)=>(zc(i,e,"write to private field"),a?a.call(i,t):e.set(i,t),t),Gi,Rn,ni,Oa,Ct,Mt,wt,oi,Yi,Ln,Pe,Gc=1,Yc=0,ff=1,vf={processCallback(i,e,t){if(t){for(let[a,r]of e)if(a in t){let n=t[a];typeof n=="boolean"&&r instanceof me&&typeof r.element[r.attributeName]=="boolean"?r.booleanValue=n:typeof n=="function"&&r instanceof me?r.element[r.attributeName]=n:r.value=n}}}},ht=class extends d.DocumentFragment{constructor(e,t,a=vf){var r;super(),Je(this,Gi,void 0),Je(this,Rn,void 0),this.append(e.content.cloneNode(!0)),mt(this,Gi,Qc(this)),mt(this,Rn,a),(r=a.createCallback)==null||r.call(a,this,D(this,Gi),t),a.processCallback(this,D(this,Gi),t)}update(e){D(this,Rn).processCallback(this,D(this,Gi),e)}};Gi=new WeakMap;Rn=new WeakMap;var Qc=(i,e=[])=>{let t,a;for(let r of i.attributes||[])if(r.value.includes("{{")){let n=new Xs;for([t,a]of Zc(r.value))if(!t)n.append(a);else{let s=new me(i,r.name,r.namespaceURI);n.append(s),e.push([a,s])}r.value=n.toString()}for(let r of i.childNodes)if(r.nodeType===Gc&&!(r instanceof HTMLTemplateElement))Qc(r,e);else{let n=r.data;if(r.nodeType===Gc||n.includes("{{")){let s=[];if(n)for([t,a]of Zc(n))if(!t)s.push(new Text(a));else{let l=new pt(i);s.push(l),e.push([a,l])}else if(r instanceof HTMLTemplateElement){let l=new Na(i,r);s.push(l),e.push([l.expression,l])}r.replaceWith(...s.flatMap(l=>l.replacementNodes||[l]))}}return e},qc={},Zc=i=>{let e="",t=0,a=qc[i],r=0,n;if(a)return a;for(a=[];n=i[r];r++)n==="{"&&i[r+1]==="{"&&i[r-1]!=="\\"&&i[r+2]&&++t==1?(e&&a.push([Yc,e]),e="",r++):n==="}"&&i[r+1]==="}"&&i[r-1]!=="\\"&&!--t?(a.push([ff,e.trim()]),e="",r++):e+=n||"";return e&&a.push([Yc,(t>0?"{{":"")+e]),qc[i]=a},Ef=11,xn=class{get value(){return""}set value(e){}toString(){return this.value}},Xc=new WeakMap,Xs=class{constructor(){Je(this,ni,[])}[Symbol.iterator](){return D(this,ni).values()}get length(){return D(this,ni).length}item(e){return D(this,ni)[e]}append(...e){for(let t of e)t instanceof me&&Xc.set(t,this),D(this,ni).push(t)}toString(){return D(this,ni).join("")}};ni=new WeakMap;var me=class extends xn{constructor(e,t,a){super(),Je(this,oi),Je(this,Oa,""),Je(this,Ct,void 0),Je(this,Mt,void 0),Je(this,wt,void 0),mt(this,Ct,e),mt(this,Mt,t),mt(this,wt,a)}get attributeName(){return D(this,Mt)}get attributeNamespace(){return D(this,wt)}get element(){return D(this,Ct)}get value(){return D(this,Oa)}set value(e){D(this,Oa)!==e&&(mt(this,Oa,e),!D(this,oi,Yi)||D(this,oi,Yi).length===1?e==null?D(this,Ct).removeAttributeNS(D(this,wt),D(this,Mt)):D(this,Ct).setAttributeNS(D(this,wt),D(this,Mt),e):D(this,Ct).setAttributeNS(D(this,wt),D(this,Mt),D(this,oi,Yi).toString()))}get booleanValue(){return D(this,Ct).hasAttributeNS(D(this,wt),D(this,Mt))}set booleanValue(e){if(!D(this,oi,Yi)||D(this,oi,Yi).length===1)this.value=e?"":null;else throw new DOMException("Value is not fully templatized")}};Oa=new WeakMap;Ct=new WeakMap;Mt=new WeakMap;wt=new WeakMap;oi=new WeakSet;Yi=function(){return Xc.get(this)};var pt=class extends xn{constructor(e,t){super(),Je(this,Ln,void 0),Je(this,Pe,void 0),mt(this,Ln,e),mt(this,Pe,t?[...t]:[new Text])}get replacementNodes(){return D(this,Pe)}get parentNode(){return D(this,Ln)}get nextSibling(){return D(this,Pe)[D(this,Pe).length-1].nextSibling}get previousSibling(){return D(this,Pe)[0].previousSibling}get value(){return D(this,Pe).map(e=>e.textContent).join("")}set value(e){this.replace(e)}replace(...e){let t=e.flat().flatMap(a=>a==null?[new Text]:a.forEach?[...a]:a.nodeType===Ef?[...a.childNodes]:a.nodeType?[a]:[new Text(a)]);t.length||t.push(new Text),mt(this,Pe,bf(D(this,Pe)[0].parentNode,D(this,Pe),t,this.nextSibling))}};Ln=new WeakMap;Pe=new WeakMap;var Na=class extends pt{constructor(e,t){let a=t.getAttribute("directive")||t.getAttribute("type"),r=t.getAttribute("expression")||t.getAttribute(a)||"";r.startsWith("{{")&&(r=r.trim().slice(2,-2).trim()),super(e),this.expression=r,this.template=t,this.directive=a}};function bf(i,e,t,a=null){let r=0,n,s,l,u=t.length,c=e.length;for(;r<u&&r<c&&e[r]==t[r];)r++;for(;r<u&&r<c&&t[u-1]==e[c-1];)a=t[--c,--u];if(r==c)for(;r<u;)i.insertBefore(t[r++],a);if(r==u)for(;r<c;)i.removeChild(e[r++]);else{for(n=e[r];r<u;)l=t[r++],s=n?n.nextSibling:a,n==l?n=s:r<u&&t[r]==s?(i.replaceChild(l,n),n=s):i.insertBefore(l,n);for(;n!=a;)s=n.nextSibling,i.removeChild(n),n=s}return t}var Jc={string:i=>String(i)},On=class{constructor(e){this.template=e,this.state=void 0}},si=new WeakMap,li=new WeakMap,Js={partial:(i,e)=>{e[i.expression]=new On(i.template)},if:(i,e)=>{var t;if(em(i.expression,e))if(si.get(i)!==i.template){si.set(i,i.template);let a=new ht(i.template,e,Nn);i.replace(a),li.set(i,a)}else(t=li.get(i))==null||t.update(e);else i.replace(""),si.delete(i),li.delete(i)}},gf=Object.keys(Js),Nn={processCallback(i,e,t){var a,r;if(t)for(let[n,s]of e){if(s instanceof Na){if(!s.directive){let u=gf.find(c=>s.template.hasAttribute(c));u&&(s.directive=u,s.expression=s.template.getAttribute(u))}(a=Js[s.directive])==null||a.call(Js,s,t);continue}let l=em(n,t);if(l instanceof On){si.get(s)!==l.template?(si.set(s,l.template),l=new ht(l.template,l.state,Nn),s.value=l,li.set(s,l)):(r=li.get(s))==null||r.update(l.state);continue}l?(s instanceof me&&s.attributeName.startsWith("aria-")&&(l=String(l)),s instanceof me?typeof l=="boolean"?s.booleanValue=l:typeof l=="function"?s.element[s.attributeName]=l:s.value=l:(s.value=l,si.delete(s),li.delete(s))):s instanceof me?s.value=void 0:(s.value=void 0,si.delete(s),li.delete(s))}}},jc={"!":i=>!i,"!!":i=>!!i,"==":(i,e)=>i==e,"!=":(i,e)=>i!=e,">":(i,e)=>i>e,">=":(i,e)=>i>=e,"<":(i,e)=>i<e,"<=":(i,e)=>i<=e,"??":(i,e)=>i!=null?i:e,"|":(i,e)=>{var t;return(t=Jc[e])==null?void 0:t.call(Jc,i)}};function _f(i){return Af(i,{boolean:/true|false/,number:/-?\d+\.?\d*/,string:/(["'])((?:\\.|[^\\])*?)\1/,operator:/[!=><][=!]?|\?\?|\|/,ws:/\s+/,param:/[$a-z_][$\w]*/i}).filter(({type:e})=>e!=="ws")}function em(i,e={}){var t,a,r,n,s,l,u;let c=_f(i);if(c.length===0||c.some(({type:A})=>!A))return Pa(i);if(((t=c[0])==null?void 0:t.token)===">"){let A=e[(a=c[1])==null?void 0:a.token];if(!A)return Pa(i);let g={...e};A.state=g;let p=c.slice(2);for(let E=0;E<p.length;E+=3){let O=(r=p[E])==null?void 0:r.token,y=(n=p[E+1])==null?void 0:n.token,I=(s=p[E+2])==null?void 0:s.token;O&&y==="="&&(g[O]=Ua(I,e))}return A}if(c.length===1)return Dn(c[0])?Ua(c[0].token,e):Pa(i);if(c.length===2){let A=(l=c[0])==null?void 0:l.token,g=jc[A];if(!g||!Dn(c[1]))return Pa(i);let p=Ua(c[1].token,e);return g(p)}if(c.length===3){let A=(u=c[1])==null?void 0:u.token,g=jc[A];if(!g||!Dn(c[0])||!Dn(c[2]))return Pa(i);let p=Ua(c[0].token,e);if(A==="|")return g(p,c[2].token);let E=Ua(c[2].token,e);return g(p,E)}}function Pa(i){return console.warn(`Warning: invalid expression \`${i}\``),!1}function Dn({type:i}){return["number","boolean","string","param"].includes(i)}function Ua(i,e){let t=i[0],a=i.slice(-1);return i==="true"||i==="false"?i==="true":t===a&&["'",'"'].includes(t)?i.slice(1,-1):dr(i)?parseFloat(i):e[i]}function Af(i,e){let t,a,r,n=[];for(;i;){r=null,t=i.length;for(let s in e)a=e[s].exec(i),a&&a.index<t&&(r={token:a[0],type:s,matches:a.slice(1)},t=a.index);t&&n.push({token:i.substr(0,t),type:void 0}),r&&n.push(r),i=i.substr(t+(r?r.token.length:0))}return n}var rl=(i,e,t)=>{if(!e.has(i))throw TypeError("Cannot "+t)},tl=(i,e,t)=>(rl(i,e,"read from private field"),t?t.call(i):e.get(i)),Ba=(i,e,t)=>{if(e.has(i))throw TypeError("Cannot add the same private member more than once");e instanceof WeakSet?e.add(i):e.set(i,t)},di=(i,e,t,a)=>(rl(i,e,"write to private field"),a?a.call(i,t):e.set(i,t),t),js=(i,e,t)=>(rl(i,e,"access private method"),t),qi,Pn,Zi,il,tm,Un,al,el={mediatargetlivewindow:"targetlivewindow",mediastreamtype:"streamtype"},im=h.createElement("template");im.innerHTML=`
+`;
+var MediaTooltip = class extends GlobalThis.HTMLElement {
+  constructor() {
+    super();
+    this.updateXOffset = () => {
+      var _a3;
+      if (!isElementVisible(this, { checkOpacity: false, checkVisibilityCSS: false }))
+        return;
+      const placement = this.placement;
+      if (placement === "left" || placement === "right") {
+        this.style.removeProperty("--media-tooltip-offset-x");
+        return;
+      }
+      const tooltipStyle = getComputedStyle(this);
+      const containingEl = (_a3 = closestComposedNode(this, "#" + this.bounds)) != null ? _a3 : getMediaController(this);
+      if (!containingEl)
+        return;
+      const { x: containerX, width: containerWidth } = containingEl.getBoundingClientRect();
+      const { x: tooltipX, width: tooltipWidth } = this.getBoundingClientRect();
+      const tooltipRight = tooltipX + tooltipWidth;
+      const containerRight = containerX + containerWidth;
+      const offsetXVal = tooltipStyle.getPropertyValue(
+        "--media-tooltip-offset-x"
+      );
+      const currOffsetX = offsetXVal ? parseFloat(offsetXVal.replace("px", "")) : 0;
+      const marginVal = tooltipStyle.getPropertyValue(
+        "--media-tooltip-container-margin"
+      );
+      const currMargin = marginVal ? parseFloat(marginVal.replace("px", "")) : 0;
+      const leftDiff = tooltipX - containerX + currOffsetX - currMargin;
+      const rightDiff = tooltipRight - containerRight + currOffsetX + currMargin;
+      if (leftDiff < 0) {
+        this.style.setProperty("--media-tooltip-offset-x", `${leftDiff}px`);
+        return;
+      }
+      if (rightDiff > 0) {
+        this.style.setProperty("--media-tooltip-offset-x", `${rightDiff}px`);
+        return;
+      }
+      this.style.removeProperty("--media-tooltip-offset-x");
+    };
+    if (!this.shadowRoot) {
+      this.attachShadow({ mode: "open" });
+      this.shadowRoot.appendChild(template11.content.cloneNode(true));
+    }
+    this.arrowEl = this.shadowRoot.querySelector("#arrow");
+    if (Object.prototype.hasOwnProperty.call(this, "placement")) {
+      const placement = this.placement;
+      delete this.placement;
+      this.placement = placement;
+    }
+  }
+  static get observedAttributes() {
+    return [Attributes11.PLACEMENT, Attributes11.BOUNDS];
+  }
+  /**
+   * Get or set tooltip placement
+   */
+  get placement() {
+    return getStringAttr(this, Attributes11.PLACEMENT);
+  }
+  set placement(value) {
+    setStringAttr(this, Attributes11.PLACEMENT, value);
+  }
+  /**
+   * Get or set tooltip container ID selector that will constrain the tooltips
+   * horizontal position.
+   */
+  get bounds() {
+    return getStringAttr(this, Attributes11.BOUNDS);
+  }
+  set bounds(value) {
+    setStringAttr(this, Attributes11.BOUNDS, value);
+  }
+};
+if (!GlobalThis.customElements.get("media-tooltip")) {
+  GlobalThis.customElements.define("media-tooltip", MediaTooltip);
+}
+
+// ../../node_modules/media-chrome/dist/media-volume-range.js
+var DEFAULT_VOLUME = 1;
+var toVolume = (el) => {
+  if (el.mediaMuted)
+    return 0;
+  return el.mediaVolume;
+};
+var formatAsPercentString = (value) => `${Math.round(value * 100)}%`;
+var MediaVolumeRange = class extends MediaChromeRange {
+  static get observedAttributes() {
+    return [
+      ...super.observedAttributes,
+      MediaUIAttributes.MEDIA_VOLUME,
+      MediaUIAttributes.MEDIA_MUTED,
+      MediaUIAttributes.MEDIA_VOLUME_UNAVAILABLE
+    ];
+  }
+  constructor() {
+    super();
+    this.range.addEventListener("input", () => {
+      const detail = this.range.value;
+      const evt = new GlobalThis.CustomEvent(
+        MediaUIEvents.MEDIA_VOLUME_REQUEST,
+        {
+          composed: true,
+          bubbles: true,
+          detail
+        }
+      );
+      this.dispatchEvent(evt);
+    });
+  }
+  connectedCallback() {
+    super.connectedCallback();
+    this.range.setAttribute("aria-label", t("volume"));
+  }
+  attributeChangedCallback(attrName, oldValue, newValue) {
+    super.attributeChangedCallback(attrName, oldValue, newValue);
+    if (attrName === MediaUIAttributes.MEDIA_VOLUME || attrName === MediaUIAttributes.MEDIA_MUTED) {
+      this.range.valueAsNumber = toVolume(this);
+      this.range.setAttribute(
+        "aria-valuetext",
+        formatAsPercentString(this.range.valueAsNumber)
+      );
+      this.updateBar();
+    }
+  }
+  /**
+   *
+   */
+  get mediaVolume() {
+    return getNumericAttr(this, MediaUIAttributes.MEDIA_VOLUME, DEFAULT_VOLUME);
+  }
+  set mediaVolume(value) {
+    setNumericAttr(this, MediaUIAttributes.MEDIA_VOLUME, value);
+  }
+  /**
+   * Is the media currently muted
+   */
+  get mediaMuted() {
+    return getBooleanAttr(this, MediaUIAttributes.MEDIA_MUTED);
+  }
+  set mediaMuted(value) {
+    setBooleanAttr(this, MediaUIAttributes.MEDIA_MUTED, value);
+  }
+  /**
+   * The volume unavailability state
+   */
+  get mediaVolumeUnavailable() {
+    return getStringAttr(this, MediaUIAttributes.MEDIA_VOLUME_UNAVAILABLE);
+  }
+  set mediaVolumeUnavailable(value) {
+    setStringAttr(this, MediaUIAttributes.MEDIA_VOLUME_UNAVAILABLE, value);
+  }
+};
+if (!GlobalThis.customElements.get("media-volume-range")) {
+  GlobalThis.customElements.define("media-volume-range", MediaVolumeRange);
+}
+
+// src/index.ts
+var import_mux_video2 = require("@mux/mux-video");
+var import_playback_core5 = require("@mux/playback-core");
+
+// src/video-api.ts
+var import_mux_video = require("@mux/mux-video");
+
+// src/logger.ts
+var import_playback_core2 = require("@mux/playback-core");
+
+// src/helpers.ts
+var import_playback_core = require("@mux/playback-core");
+
+// src/utils.ts
+function stylePropsToString(props) {
+  let style = "";
+  Object.entries(props).forEach(([key, value]) => {
+    if (value == null) return;
+    style += `${kebabCase(key)}: ${value}; `;
+  });
+  return style ? style.trim() : void 0;
+}
+function kebabCase(name) {
+  return name.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase();
+}
+function camelCase2(name) {
+  return name.replace(/[-_]([a-z])/g, (_$0, $1) => $1.toUpperCase());
+}
+function toNumberOrUndefined(val) {
+  if (val == null) return void 0;
+  const num = +val;
+  return !Number.isNaN(num) ? num : void 0;
+}
+function toQuery(obj) {
+  const params = toParams(obj).toString();
+  return params ? "?" + params : "";
+}
+function toParams(obj) {
+  const params = {};
+  for (const key in obj) {
+    if (obj[key] != null) params[key] = obj[key];
+  }
+  return new URLSearchParams(params);
+}
+var containsComposedNode2 = (rootNode, childNode) => {
+  if (!rootNode || !childNode) return false;
+  if (rootNode.contains(childNode)) return true;
+  return containsComposedNode2(rootNode, childNode.getRootNode().host);
+};
+
+// src/helpers.ts
+var MUX_VIDEO_DOMAIN = "mux.com";
+var getEnvPlayerVersion = () => {
+  try {
+    return "3.3.1";
+  } catch {
+  }
+  return "UNKNOWN";
+};
+var player_version = getEnvPlayerVersion();
+var getPlayerVersion = () => player_version;
+var getPosterURLFromPlaybackId = (playbackId, {
+  token,
+  customDomain: domain = MUX_VIDEO_DOMAIN,
+  thumbnailTime,
+  programTime: program_time
+} = {}) => {
+  var _a3;
+  const time = token == null ? thumbnailTime : void 0;
+  const { aud } = (_a3 = (0, import_playback_core.parseJwt)(token)) != null ? _a3 : {};
+  if (token && aud !== "t") {
+    return;
+  }
+  return `https://image.${domain}/${playbackId}/thumbnail.webp${toQuery({
+    token,
+    time,
+    program_time
+  })}`;
+};
+var getStoryboardURLFromPlaybackId = (playbackId, {
+  token,
+  customDomain: domain = MUX_VIDEO_DOMAIN,
+  programStartTime: program_start_time,
+  programEndTime: program_end_time
+} = {}) => {
+  var _a3;
+  const { aud } = (_a3 = (0, import_playback_core.parseJwt)(token)) != null ? _a3 : {};
+  if (token && aud !== "s") {
+    return;
+  }
+  return `https://image.${domain}/${playbackId}/storyboard.vtt${toQuery({
+    token,
+    format: "webp",
+    program_start_time,
+    program_end_time
+  })}`;
+};
+var getStreamTypeFromAttr = (streamTypeAttr) => {
+  if (!streamTypeAttr) return void 0;
+  if ([import_playback_core.StreamTypes.LIVE, import_playback_core.StreamTypes.ON_DEMAND].includes(streamTypeAttr))
+    return streamTypeAttr;
+  if (streamTypeAttr == null ? void 0 : streamTypeAttr.includes("live")) return import_playback_core.StreamTypes.LIVE;
+  return void 0;
+};
+var attrToPropNameMap = {
+  crossorigin: "crossOrigin",
+  playsinline: "playsInline"
+};
+function toPropName(attrName) {
+  var _a3;
+  return (_a3 = attrToPropNameMap[attrName]) != null ? _a3 : camelCase2(attrName);
+}
+var _el2, _attr2, _tokens2;
+var AttributeTokenList2 = class {
+  constructor(el, attr) {
+    __privateAdd(this, _el2);
+    __privateAdd(this, _attr2);
+    __privateAdd(this, _tokens2, []);
+    __privateSet(this, _el2, el);
+    __privateSet(this, _attr2, attr);
+  }
+  [Symbol.iterator]() {
+    return __privateGet(this, _tokens2).values();
+  }
+  get length() {
+    return __privateGet(this, _tokens2).length;
+  }
+  get value() {
+    var _a3;
+    return (_a3 = __privateGet(this, _tokens2).join(" ")) != null ? _a3 : "";
+  }
+  set value(val) {
+    var _a3;
+    if (val === this.value) return;
+    __privateSet(this, _tokens2, []);
+    this.add(...(_a3 = val == null ? void 0 : val.split(" ")) != null ? _a3 : []);
+  }
+  toString() {
+    return this.value;
+  }
+  item(index) {
+    return __privateGet(this, _tokens2)[index];
+  }
+  values() {
+    return __privateGet(this, _tokens2).values();
+  }
+  keys() {
+    return __privateGet(this, _tokens2).keys();
+  }
+  forEach(callback) {
+    __privateGet(this, _tokens2).forEach(callback);
+  }
+  add(...tokens) {
+    var _a3, _b2;
+    tokens.forEach((t2) => {
+      if (!this.contains(t2)) __privateGet(this, _tokens2).push(t2);
+    });
+    if (this.value === "" && !((_a3 = __privateGet(this, _el2)) == null ? void 0 : _a3.hasAttribute(`${__privateGet(this, _attr2)}`))) {
+      return;
+    }
+    (_b2 = __privateGet(this, _el2)) == null ? void 0 : _b2.setAttribute(`${__privateGet(this, _attr2)}`, `${this.value}`);
+  }
+  remove(...tokens) {
+    var _a3;
+    tokens.forEach((t2) => {
+      __privateGet(this, _tokens2).splice(__privateGet(this, _tokens2).indexOf(t2), 1);
+    });
+    (_a3 = __privateGet(this, _el2)) == null ? void 0 : _a3.setAttribute(`${__privateGet(this, _attr2)}`, `${this.value}`);
+  }
+  contains(token) {
+    return __privateGet(this, _tokens2).includes(token);
+  }
+  toggle(token, force) {
+    if (typeof force !== "undefined") {
+      if (force) {
+        this.add(token);
+        return true;
+      } else {
+        this.remove(token);
+        return false;
+      }
+    }
+    if (this.contains(token)) {
+      this.remove(token);
+      return false;
+    }
+    this.add(token);
+    return true;
+  }
+  replace(oldToken, newToken) {
+    this.remove(oldToken);
+    this.add(newToken);
+  }
+};
+_el2 = new WeakMap();
+_attr2 = new WeakMap();
+_tokens2 = new WeakMap();
+
+// src/logger.ts
+var prefix = `[mux-player ${getPlayerVersion()}]`;
+function warn(...args) {
+  console.warn(prefix, ...args);
+}
+function error(...args) {
+  console.error(prefix, ...args);
+}
+function devlog(opts) {
+  var _a3;
+  let message = (_a3 = opts.message) != null ? _a3 : "";
+  if (opts.context) {
+    message += ` ${opts.context}`;
+  }
+  if (opts.file) {
+    const githubErrorsBase = "https://github.com/muxinc/elements/blob/main/errors/";
+    message += ` ${(0, import_playback_core2.i18n)(`Read more: `)}
+${githubErrorsBase}${opts.file}`;
+  }
+  warn(message);
+}
+
+// src/video-api.ts
+var AllowedVideoAttributes = {
+  AUTOPLAY: "autoplay",
+  CROSSORIGIN: "crossorigin",
+  LOOP: "loop",
+  MUTED: "muted",
+  PLAYSINLINE: "playsinline",
+  PRELOAD: "preload"
+};
+var CustomVideoAttributes = {
+  VOLUME: "volume",
+  PLAYBACKRATE: "playbackrate",
+  // This muted attribute also reflects to the muted property while the muted
+  // attribute on a native video element reflects only to video.defaultMuted.
+  MUTED: "muted",
+  /** @TODO Consider renaming to a more generic identifier e.g. media-element-name (CJP) */
+  MUX_VIDEO_ELEMENT: "mux-video-element"
+};
+var Attributes12 = {
+  ...AllowedVideoAttributes,
+  ...CustomVideoAttributes
+};
+var emptyTimeRanges2 = Object.freeze({
+  length: 0,
+  start(index) {
+    const unsignedIdx = index >>> 0;
+    if (unsignedIdx >= this.length) {
+      throw new DOMException(
+        `Failed to execute 'start' on 'TimeRanges': The index provided (${unsignedIdx}) is greater than or equal to the maximum bound (${this.length}).`
+      );
+    }
+    return 0;
+  },
+  end(index) {
+    const unsignedIdx = index >>> 0;
+    if (unsignedIdx >= this.length) {
+      throw new DOMException(
+        `Failed to execute 'end' on 'TimeRanges': The index provided (${unsignedIdx}) is greater than or equal to the maximum bound (${this.length}).`
+      );
+    }
+    return 0;
+  }
+});
+var AllowedVideoEvents = import_mux_video.VideoEvents.filter((type) => type !== "error");
+var AllowedVideoAttributeNames = Object.values(AllowedVideoAttributes).filter(
+  (name) => AllowedVideoAttributes.PLAYSINLINE !== name
+);
+var CustomVideoAttributesNames = Object.values(CustomVideoAttributes);
+var AttributeNames = [...AllowedVideoAttributeNames, ...CustomVideoAttributesNames];
+var VideoApiElement = class extends internalGlobalThis.HTMLElement {
+  static get observedAttributes() {
+    return AttributeNames;
+  }
+  /**
+   * Create a HTMLVideoElement like API with opt-in methods to expose publicly.
+   * This class is intentionally not extending MuxVideoElement but composing it
+   * to opt in methods and not expose too much. More flexibility in the future.
+   */
+  constructor() {
+    super();
+  }
+  /**
+   * Gets called from mux-player when mux-video is rendered and upgraded.
+   * We might just merge VideoApiElement in MuxPlayerElement and remove this?
+   */
+  init() {
+    AllowedVideoEvents.forEach((type) => {
+      var _a3;
+      (_a3 = this.media) == null ? void 0 : _a3.addEventListener(type, (evt) => {
+        this.dispatchEvent(new Event(evt.type));
+      });
+    });
+  }
+  attributeChangedCallback(attrName, _oldValue, newValue) {
+    var _a3, _b2;
+    switch (attrName) {
+      case CustomVideoAttributes.MUTED: {
+        if (this.media) {
+          this.media.muted = newValue != null;
+          this.media.defaultMuted = newValue != null;
+        }
+        return;
+      }
+      case CustomVideoAttributes.VOLUME: {
+        const val = (_a3 = toNumberOrUndefined(newValue)) != null ? _a3 : 1;
+        if (this.media) {
+          this.media.volume = val;
+        }
+        return;
+      }
+      case CustomVideoAttributes.PLAYBACKRATE: {
+        const val = (_b2 = toNumberOrUndefined(newValue)) != null ? _b2 : 1;
+        if (this.media) {
+          this.media.playbackRate = val;
+          this.media.defaultPlaybackRate = val;
+        }
+        return;
+      }
+    }
+  }
+  play() {
+    var _a3, _b2;
+    return (_b2 = (_a3 = this.media) == null ? void 0 : _a3.play()) != null ? _b2 : Promise.reject();
+  }
+  pause() {
+    var _a3;
+    (_a3 = this.media) == null ? void 0 : _a3.pause();
+  }
+  load() {
+    var _a3;
+    (_a3 = this.media) == null ? void 0 : _a3.load();
+  }
+  requestCast(options) {
+    var _a3;
+    return (_a3 = this.media) == null ? void 0 : _a3.requestCast(options);
+  }
+  get muxVideoElement() {
+    var _a3;
+    return (_a3 = this.getAttribute(Attributes12.MUX_VIDEO_ELEMENT)) != null ? _a3 : "mux-video";
+  }
+  get media() {
+    var _a3;
+    return (_a3 = this.shadowRoot) == null ? void 0 : _a3.querySelector(this.muxVideoElement);
+  }
+  get audioTracks() {
+    return this.media.audioTracks;
+  }
+  get videoTracks() {
+    return this.media.videoTracks;
+  }
+  get audioRenditions() {
+    return this.media.audioRenditions;
+  }
+  get videoRenditions() {
+    return this.media.videoRenditions;
+  }
+  get paused() {
+    var _a3, _b2;
+    return (_b2 = (_a3 = this.media) == null ? void 0 : _a3.paused) != null ? _b2 : true;
+  }
+  get duration() {
+    var _a3, _b2;
+    return (_b2 = (_a3 = this.media) == null ? void 0 : _a3.duration) != null ? _b2 : NaN;
+  }
+  get ended() {
+    var _a3, _b2;
+    return (_b2 = (_a3 = this.media) == null ? void 0 : _a3.ended) != null ? _b2 : false;
+  }
+  get buffered() {
+    var _a3, _b2;
+    return (_b2 = (_a3 = this.media) == null ? void 0 : _a3.buffered) != null ? _b2 : emptyTimeRanges2;
+  }
+  get seekable() {
+    var _a3, _b2;
+    return (_b2 = (_a3 = this.media) == null ? void 0 : _a3.seekable) != null ? _b2 : emptyTimeRanges2;
+  }
+  get readyState() {
+    var _a3, _b2;
+    return (_b2 = (_a3 = this.media) == null ? void 0 : _a3.readyState) != null ? _b2 : 0;
+  }
+  get videoWidth() {
+    var _a3, _b2;
+    return (_b2 = (_a3 = this.media) == null ? void 0 : _a3.videoWidth) != null ? _b2 : 0;
+  }
+  get videoHeight() {
+    var _a3, _b2;
+    return (_b2 = (_a3 = this.media) == null ? void 0 : _a3.videoHeight) != null ? _b2 : 0;
+  }
+  get currentSrc() {
+    var _a3, _b2;
+    return (_b2 = (_a3 = this.media) == null ? void 0 : _a3.currentSrc) != null ? _b2 : "";
+  }
+  get currentTime() {
+    var _a3, _b2;
+    return (_b2 = (_a3 = this.media) == null ? void 0 : _a3.currentTime) != null ? _b2 : 0;
+  }
+  set currentTime(val) {
+    if (this.media) {
+      this.media.currentTime = Number(val);
+    }
+  }
+  get volume() {
+    var _a3, _b2;
+    return (_b2 = (_a3 = this.media) == null ? void 0 : _a3.volume) != null ? _b2 : 1;
+  }
+  set volume(val) {
+    if (this.media) {
+      this.media.volume = Number(val);
+    }
+  }
+  get playbackRate() {
+    var _a3, _b2;
+    return (_b2 = (_a3 = this.media) == null ? void 0 : _a3.playbackRate) != null ? _b2 : 1;
+  }
+  set playbackRate(val) {
+    if (this.media) {
+      this.media.playbackRate = Number(val);
+    }
+  }
+  get defaultPlaybackRate() {
+    var _a3;
+    return (_a3 = toNumberOrUndefined(this.getAttribute(CustomVideoAttributes.PLAYBACKRATE))) != null ? _a3 : 1;
+  }
+  set defaultPlaybackRate(val) {
+    if (val != null) {
+      this.setAttribute(CustomVideoAttributes.PLAYBACKRATE, `${val}`);
+    } else {
+      this.removeAttribute(CustomVideoAttributes.PLAYBACKRATE);
+    }
+  }
+  get crossOrigin() {
+    return getVideoAttribute(this, AllowedVideoAttributes.CROSSORIGIN);
+  }
+  set crossOrigin(val) {
+    this.setAttribute(AllowedVideoAttributes.CROSSORIGIN, `${val}`);
+  }
+  get autoplay() {
+    return getVideoAttribute(this, AllowedVideoAttributes.AUTOPLAY) != null;
+  }
+  set autoplay(val) {
+    if (val) {
+      this.setAttribute(AllowedVideoAttributes.AUTOPLAY, typeof val === "string" ? val : "");
+    } else {
+      this.removeAttribute(AllowedVideoAttributes.AUTOPLAY);
+    }
+  }
+  get loop() {
+    return getVideoAttribute(this, AllowedVideoAttributes.LOOP) != null;
+  }
+  set loop(val) {
+    if (val) {
+      this.setAttribute(AllowedVideoAttributes.LOOP, "");
+    } else {
+      this.removeAttribute(AllowedVideoAttributes.LOOP);
+    }
+  }
+  get muted() {
+    var _a3, _b2;
+    return (_b2 = (_a3 = this.media) == null ? void 0 : _a3.muted) != null ? _b2 : false;
+  }
+  set muted(val) {
+    if (this.media) {
+      this.media.muted = Boolean(val);
+    }
+  }
+  get defaultMuted() {
+    return getVideoAttribute(this, AllowedVideoAttributes.MUTED) != null;
+  }
+  set defaultMuted(val) {
+    if (val) {
+      this.setAttribute(AllowedVideoAttributes.MUTED, "");
+    } else {
+      this.removeAttribute(AllowedVideoAttributes.MUTED);
+    }
+  }
+  get playsInline() {
+    return getVideoAttribute(this, AllowedVideoAttributes.PLAYSINLINE) != null;
+  }
+  set playsInline(val) {
+    error("playsInline is set to true by default and is not currently supported as a setter.");
+  }
+  get preload() {
+    return this.media ? this.media.preload : this.getAttribute("preload");
+  }
+  set preload(val) {
+    if (["", "none", "metadata", "auto"].includes(val)) {
+      this.setAttribute(AllowedVideoAttributes.PRELOAD, val);
+    } else {
+      this.removeAttribute(AllowedVideoAttributes.PRELOAD);
+    }
+  }
+};
+function getVideoAttribute(el, name) {
+  return el.media ? el.media.getAttribute(name) : el.getAttribute(name);
+}
+var video_api_default = VideoApiElement;
+
+// ../../node_modules/media-chrome/dist/utils/template-parts.js
+var __accessCheck21 = (obj, member, msg) => {
+  if (!member.has(obj))
+    throw TypeError("Cannot " + msg);
+};
+var __privateGet21 = (obj, member, getter) => {
+  __accessCheck21(obj, member, "read from private field");
+  return getter ? getter.call(obj) : member.get(obj);
+};
+var __privateAdd21 = (obj, member, value) => {
+  if (member.has(obj))
+    throw TypeError("Cannot add the same private member more than once");
+  member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+};
+var __privateSet20 = (obj, member, value, setter) => {
+  __accessCheck21(obj, member, "write to private field");
+  setter ? setter.call(obj, value) : member.set(obj, value);
+  return value;
+};
+var _parts;
+var _processor;
+var _items;
+var _value;
+var _element;
+var _attributeName;
+var _namespaceURI;
+var _list;
+var list_get;
+var _parentNode;
+var _nodes;
+var ELEMENT = 1;
+var STRING = 0;
+var PART = 1;
+var defaultProcessor = {
+  processCallback(instance, parts, state) {
+    if (!state)
+      return;
+    for (const [expression, part] of parts) {
+      if (expression in state) {
+        const value = state[expression];
+        if (typeof value === "boolean" && part instanceof AttrPart && typeof part.element[part.attributeName] === "boolean") {
+          part.booleanValue = value;
+        } else if (typeof value === "function" && part instanceof AttrPart) {
+          part.element[part.attributeName] = value;
+        } else {
+          part.value = value;
+        }
+      }
+    }
+  }
+};
+var TemplateInstance = class extends GlobalThis.DocumentFragment {
+  constructor(template19, state, processor2 = defaultProcessor) {
+    var _a3;
+    super();
+    __privateAdd21(this, _parts, void 0);
+    __privateAdd21(this, _processor, void 0);
+    this.append(template19.content.cloneNode(true));
+    __privateSet20(this, _parts, parse(this));
+    __privateSet20(this, _processor, processor2);
+    (_a3 = processor2.createCallback) == null ? void 0 : _a3.call(processor2, this, __privateGet21(this, _parts), state);
+    processor2.processCallback(this, __privateGet21(this, _parts), state);
+  }
+  update(state) {
+    __privateGet21(this, _processor).processCallback(this, __privateGet21(this, _parts), state);
+  }
+};
+_parts = /* @__PURE__ */ new WeakMap();
+_processor = /* @__PURE__ */ new WeakMap();
+var parse = (element, parts = []) => {
+  let type, value;
+  for (const attr of element.attributes || []) {
+    if (attr.value.includes("{{")) {
+      const list = new AttrPartList();
+      for ([type, value] of tokenize(attr.value)) {
+        if (!type)
+          list.append(value);
+        else {
+          const part = new AttrPart(element, attr.name, attr.namespaceURI);
+          list.append(part);
+          parts.push([value, part]);
+        }
+      }
+      attr.value = list.toString();
+    }
+  }
+  for (const node of element.childNodes) {
+    if (node.nodeType === ELEMENT && !(node instanceof HTMLTemplateElement)) {
+      parse(node, parts);
+    } else {
+      const data = node.data;
+      if (node.nodeType === ELEMENT || data.includes("{{")) {
+        const items = [];
+        if (data) {
+          for ([type, value] of tokenize(data))
+            if (!type)
+              items.push(new Text(value));
+            else {
+              const part = new ChildNodePart(element);
+              items.push(part);
+              parts.push([value, part]);
+            }
+        } else if (node instanceof HTMLTemplateElement) {
+          const part = new InnerTemplatePart(element, node);
+          items.push(part);
+          parts.push([part.expression, part]);
+        }
+        node.replaceWith(
+          ...items.flatMap((part) => part.replacementNodes || [part])
+        );
+      }
+    }
+  }
+  return parts;
+};
+var mem = {};
+var tokenize = (text) => {
+  let value = "", open = 0, tokens = mem[text], i = 0, c;
+  if (tokens)
+    return tokens;
+  else
+    tokens = [];
+  for (; c = text[i]; i++) {
+    if (c === "{" && text[i + 1] === "{" && text[i - 1] !== "\\" && text[i + 2] && ++open == 1) {
+      if (value)
+        tokens.push([STRING, value]);
+      value = "";
+      i++;
+    } else if (c === "}" && text[i + 1] === "}" && text[i - 1] !== "\\" && !--open) {
+      tokens.push([PART, value.trim()]);
+      value = "";
+      i++;
+    } else
+      value += c || "";
+  }
+  if (value)
+    tokens.push([STRING, (open > 0 ? "{{" : "") + value]);
+  return mem[text] = tokens;
+};
+var FRAGMENT = 11;
+var Part = class {
+  get value() {
+    return "";
+  }
+  set value(val) {
+  }
+  toString() {
+    return this.value;
+  }
+};
+var attrPartToList = /* @__PURE__ */ new WeakMap();
+var AttrPartList = class {
+  constructor() {
+    __privateAdd21(this, _items, []);
+  }
+  [Symbol.iterator]() {
+    return __privateGet21(this, _items).values();
+  }
+  get length() {
+    return __privateGet21(this, _items).length;
+  }
+  item(index) {
+    return __privateGet21(this, _items)[index];
+  }
+  append(...items) {
+    for (const item of items) {
+      if (item instanceof AttrPart) {
+        attrPartToList.set(item, this);
+      }
+      __privateGet21(this, _items).push(item);
+    }
+  }
+  toString() {
+    return __privateGet21(this, _items).join("");
+  }
+};
+_items = /* @__PURE__ */ new WeakMap();
+var AttrPart = class extends Part {
+  constructor(element, attributeName, namespaceURI) {
+    super();
+    __privateAdd21(this, _list);
+    __privateAdd21(this, _value, "");
+    __privateAdd21(this, _element, void 0);
+    __privateAdd21(this, _attributeName, void 0);
+    __privateAdd21(this, _namespaceURI, void 0);
+    __privateSet20(this, _element, element);
+    __privateSet20(this, _attributeName, attributeName);
+    __privateSet20(this, _namespaceURI, namespaceURI);
+  }
+  get attributeName() {
+    return __privateGet21(this, _attributeName);
+  }
+  get attributeNamespace() {
+    return __privateGet21(this, _namespaceURI);
+  }
+  get element() {
+    return __privateGet21(this, _element);
+  }
+  get value() {
+    return __privateGet21(this, _value);
+  }
+  set value(newValue) {
+    if (__privateGet21(this, _value) === newValue)
+      return;
+    __privateSet20(this, _value, newValue);
+    if (!__privateGet21(this, _list, list_get) || __privateGet21(this, _list, list_get).length === 1) {
+      if (newValue == null) {
+        __privateGet21(this, _element).removeAttributeNS(
+          __privateGet21(this, _namespaceURI),
+          __privateGet21(this, _attributeName)
+        );
+      } else {
+        __privateGet21(this, _element).setAttributeNS(
+          __privateGet21(this, _namespaceURI),
+          __privateGet21(this, _attributeName),
+          newValue
+        );
+      }
+    } else {
+      __privateGet21(this, _element).setAttributeNS(
+        __privateGet21(this, _namespaceURI),
+        __privateGet21(this, _attributeName),
+        __privateGet21(this, _list, list_get).toString()
+      );
+    }
+  }
+  get booleanValue() {
+    return __privateGet21(this, _element).hasAttributeNS(
+      __privateGet21(this, _namespaceURI),
+      __privateGet21(this, _attributeName)
+    );
+  }
+  set booleanValue(value) {
+    if (!__privateGet21(this, _list, list_get) || __privateGet21(this, _list, list_get).length === 1)
+      this.value = value ? "" : null;
+    else
+      throw new DOMException("Value is not fully templatized");
+  }
+};
+_value = /* @__PURE__ */ new WeakMap();
+_element = /* @__PURE__ */ new WeakMap();
+_attributeName = /* @__PURE__ */ new WeakMap();
+_namespaceURI = /* @__PURE__ */ new WeakMap();
+_list = /* @__PURE__ */ new WeakSet();
+list_get = function() {
+  return attrPartToList.get(this);
+};
+var ChildNodePart = class extends Part {
+  constructor(parentNode, nodes) {
+    super();
+    __privateAdd21(this, _parentNode, void 0);
+    __privateAdd21(this, _nodes, void 0);
+    __privateSet20(this, _parentNode, parentNode);
+    __privateSet20(this, _nodes, nodes ? [...nodes] : [new Text()]);
+  }
+  get replacementNodes() {
+    return __privateGet21(this, _nodes);
+  }
+  get parentNode() {
+    return __privateGet21(this, _parentNode);
+  }
+  get nextSibling() {
+    return __privateGet21(this, _nodes)[__privateGet21(this, _nodes).length - 1].nextSibling;
+  }
+  get previousSibling() {
+    return __privateGet21(this, _nodes)[0].previousSibling;
+  }
+  // FIXME: not sure why do we need string serialization here? Just because parent class has type DOMString?
+  get value() {
+    return __privateGet21(this, _nodes).map((node) => node.textContent).join("");
+  }
+  set value(newValue) {
+    this.replace(newValue);
+  }
+  replace(...nodes) {
+    const normalisedNodes = nodes.flat().flatMap(
+      (node) => node == null ? [new Text()] : node.forEach ? [...node] : node.nodeType === FRAGMENT ? [...node.childNodes] : node.nodeType ? [node] : [new Text(node)]
+    );
+    if (!normalisedNodes.length)
+      normalisedNodes.push(new Text());
+    __privateSet20(this, _nodes, swapdom(
+      __privateGet21(this, _nodes)[0].parentNode,
+      __privateGet21(this, _nodes),
+      normalisedNodes,
+      this.nextSibling
+    ));
+  }
+};
+_parentNode = /* @__PURE__ */ new WeakMap();
+_nodes = /* @__PURE__ */ new WeakMap();
+var InnerTemplatePart = class extends ChildNodePart {
+  constructor(parentNode, template19) {
+    const directive = template19.getAttribute("directive") || template19.getAttribute("type");
+    let expression = template19.getAttribute("expression") || template19.getAttribute(directive) || "";
+    if (expression.startsWith("{{"))
+      expression = expression.trim().slice(2, -2).trim();
+    super(parentNode);
+    this.expression = expression;
+    this.template = template19;
+    this.directive = directive;
+  }
+};
+function swapdom(parent, a, b, end = null) {
+  let i = 0, cur, next, bi, n = b.length, m = a.length;
+  while (i < n && i < m && a[i] == b[i])
+    i++;
+  while (i < n && i < m && b[n - 1] == a[m - 1])
+    end = b[--m, --n];
+  if (i == m)
+    while (i < n)
+      parent.insertBefore(b[i++], end);
+  if (i == n)
+    while (i < m)
+      parent.removeChild(a[i++]);
+  else {
+    cur = a[i];
+    while (i < n) {
+      bi = b[i++], next = cur ? cur.nextSibling : end;
+      if (cur == bi)
+        cur = next;
+      else if (i < n && b[i] == next)
+        parent.replaceChild(bi, cur), cur = next;
+      else
+        parent.insertBefore(bi, cur);
+    }
+    while (cur != end)
+      next = cur.nextSibling, parent.removeChild(cur), cur = next;
+  }
+  return b;
+}
+
+// ../../node_modules/media-chrome/dist/utils/template-processor.js
+var pipeModifiers = {
+  string: (value) => String(value)
+};
+var PartialTemplate = class {
+  constructor(template19) {
+    this.template = template19;
+    this.state = void 0;
+  }
+};
+var templates = /* @__PURE__ */ new WeakMap();
+var templateInstances = /* @__PURE__ */ new WeakMap();
+var Directives = {
+  partial: (part, state) => {
+    state[part.expression] = new PartialTemplate(part.template);
+  },
+  if: (part, state) => {
+    var _a3;
+    if (evaluateExpression(part.expression, state)) {
+      if (templates.get(part) !== part.template) {
+        templates.set(part, part.template);
+        const tpl = new TemplateInstance(part.template, state, processor);
+        part.replace(tpl);
+        templateInstances.set(part, tpl);
+      } else {
+        (_a3 = templateInstances.get(part)) == null ? void 0 : _a3.update(state);
+      }
+    } else {
+      part.replace("");
+      templates.delete(part);
+      templateInstances.delete(part);
+    }
+  }
+};
+var DirectiveNames = Object.keys(Directives);
+var processor = {
+  processCallback(instance, parts, state) {
+    var _a3, _b2;
+    if (!state)
+      return;
+    for (const [expression, part] of parts) {
+      if (part instanceof InnerTemplatePart) {
+        if (!part.directive) {
+          const directive = DirectiveNames.find(
+            (n) => part.template.hasAttribute(n)
+          );
+          if (directive) {
+            part.directive = directive;
+            part.expression = part.template.getAttribute(directive);
+          }
+        }
+        (_a3 = Directives[part.directive]) == null ? void 0 : _a3.call(Directives, part, state);
+        continue;
+      }
+      let value = evaluateExpression(expression, state);
+      if (value instanceof PartialTemplate) {
+        if (templates.get(part) !== value.template) {
+          templates.set(part, value.template);
+          value = new TemplateInstance(value.template, value.state, processor);
+          part.value = value;
+          templateInstances.set(part, value);
+        } else {
+          (_b2 = templateInstances.get(part)) == null ? void 0 : _b2.update(value.state);
+        }
+        continue;
+      }
+      if (value) {
+        if (part instanceof AttrPart) {
+          if (part.attributeName.startsWith("aria-")) {
+            value = String(value);
+          }
+        }
+        if (part instanceof AttrPart) {
+          if (typeof value === "boolean") {
+            part.booleanValue = value;
+          } else if (typeof value === "function") {
+            part.element[part.attributeName] = value;
+          } else {
+            part.value = value;
+          }
+        } else {
+          part.value = value;
+          templates.delete(part);
+          templateInstances.delete(part);
+        }
+      } else {
+        if (part instanceof AttrPart) {
+          part.value = void 0;
+        } else {
+          part.value = void 0;
+          templates.delete(part);
+          templateInstances.delete(part);
+        }
+      }
+    }
+  }
+};
+var operators = {
+  "!": (a) => !a,
+  "!!": (a) => !!a,
+  "==": (a, b) => a == b,
+  "!=": (a, b) => a != b,
+  ">": (a, b) => a > b,
+  ">=": (a, b) => a >= b,
+  "<": (a, b) => a < b,
+  "<=": (a, b) => a <= b,
+  "??": (a, b) => a != null ? a : b,
+  "|": (a, b) => {
+    var _a3;
+    return (_a3 = pipeModifiers[b]) == null ? void 0 : _a3.call(pipeModifiers, a);
+  }
+};
+function tokenizeExpression(expr) {
+  return tokenize2(expr, {
+    boolean: /true|false/,
+    number: /-?\d+\.?\d*/,
+    string: /(["'])((?:\\.|[^\\])*?)\1/,
+    operator: /[!=><][=!]?|\?\?|\|/,
+    ws: /\s+/,
+    param: /[$a-z_][$\w]*/i
+  }).filter(({ type }) => type !== "ws");
+}
+function evaluateExpression(expr, state = {}) {
+  var _a3, _b2, _c, _d, _e, _f, _g;
+  const tokens = tokenizeExpression(expr);
+  if (tokens.length === 0 || tokens.some(({ type }) => !type)) {
+    return invalidExpression(expr);
+  }
+  if (((_a3 = tokens[0]) == null ? void 0 : _a3.token) === ">") {
+    const partial = state[(_b2 = tokens[1]) == null ? void 0 : _b2.token];
+    if (!partial) {
+      return invalidExpression(expr);
+    }
+    const partialState = { ...state };
+    partial.state = partialState;
+    const args = tokens.slice(2);
+    for (let i = 0; i < args.length; i += 3) {
+      const name = (_c = args[i]) == null ? void 0 : _c.token;
+      const operator = (_d = args[i + 1]) == null ? void 0 : _d.token;
+      const value = (_e = args[i + 2]) == null ? void 0 : _e.token;
+      if (name && operator === "=") {
+        partialState[name] = getParamValue(value, state);
+      }
+    }
+    return partial;
+  }
+  if (tokens.length === 1) {
+    if (!isValidParam(tokens[0])) {
+      return invalidExpression(expr);
+    }
+    return getParamValue(tokens[0].token, state);
+  }
+  if (tokens.length === 2) {
+    const operator = (_f = tokens[0]) == null ? void 0 : _f.token;
+    const run = operators[operator];
+    if (!run || !isValidParam(tokens[1])) {
+      return invalidExpression(expr);
+    }
+    const a = getParamValue(tokens[1].token, state);
+    return run(a);
+  }
+  if (tokens.length === 3) {
+    const operator = (_g = tokens[1]) == null ? void 0 : _g.token;
+    const run = operators[operator];
+    if (!run || !isValidParam(tokens[0]) || !isValidParam(tokens[2])) {
+      return invalidExpression(expr);
+    }
+    const a = getParamValue(tokens[0].token, state);
+    if (operator === "|") {
+      return run(a, tokens[2].token);
+    }
+    const b = getParamValue(tokens[2].token, state);
+    return run(a, b);
+  }
+}
+function invalidExpression(expr) {
+  console.warn(`Warning: invalid expression \`${expr}\``);
+  return false;
+}
+function isValidParam({ type }) {
+  return ["number", "boolean", "string", "param"].includes(type);
+}
+function getParamValue(raw, state) {
+  const firstChar = raw[0];
+  const lastChar = raw.slice(-1);
+  if (raw === "true" || raw === "false") {
+    return raw === "true";
+  }
+  if (firstChar === lastChar && [`'`, `"`].includes(firstChar)) {
+    return raw.slice(1, -1);
+  }
+  if (isNumericString(raw)) {
+    return parseFloat(raw);
+  }
+  return state[raw];
+}
+function tokenize2(str, parsers) {
+  let len, match, token;
+  const tokens = [];
+  while (str) {
+    token = null;
+    len = str.length;
+    for (const key in parsers) {
+      match = parsers[key].exec(str);
+      if (match && match.index < len) {
+        token = {
+          token: match[0],
+          type: key,
+          matches: match.slice(1)
+        };
+        len = match.index;
+      }
+    }
+    if (len) {
+      tokens.push({
+        token: str.substr(0, len),
+        type: void 0
+      });
+    }
+    if (token) {
+      tokens.push(token);
+    }
+    str = str.substr(len + (token ? token.token.length : 0));
+  }
+  return tokens;
+}
+
+// ../../node_modules/media-chrome/dist/media-theme-element.js
+var __accessCheck22 = (obj, member, msg) => {
+  if (!member.has(obj))
+    throw TypeError("Cannot " + msg);
+};
+var __privateGet22 = (obj, member, getter) => {
+  __accessCheck22(obj, member, "read from private field");
+  return getter ? getter.call(obj) : member.get(obj);
+};
+var __privateAdd22 = (obj, member, value) => {
+  if (member.has(obj))
+    throw TypeError("Cannot add the same private member more than once");
+  member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+};
+var __privateSet21 = (obj, member, value, setter) => {
+  __accessCheck22(obj, member, "write to private field");
+  setter ? setter.call(obj, value) : member.set(obj, value);
+  return value;
+};
+var __privateMethod8 = (obj, member, method) => {
+  __accessCheck22(obj, member, "access private method");
+  return method;
+};
+var _template;
+var _prevTemplate;
+var _prevTemplateId;
+var _upgradeProperty;
+var upgradeProperty_fn;
+var _updateTemplate;
+var updateTemplate_fn;
+var observedMediaAttributes = {
+  mediatargetlivewindow: "targetlivewindow",
+  mediastreamtype: "streamtype"
+};
+var prependTemplate = Document2.createElement("template");
+prependTemplate.innerHTML = /*html*/
+`
   <style>
     :host {
       display: inline-block;
@@ -1259,201 +9559,663 @@ https://github.com/muxinc/elements/blob/main/errors/${i.file}`),Xe(e)}var ne={AU
       display: none;
     }
   </style>
-`;var ui=class extends d.HTMLElement{constructor(){super(),Ba(this,il),Ba(this,Un),Ba(this,qi,void 0),Ba(this,Pn,void 0),Ba(this,Zi,void 0),this.shadowRoot?this.renderRoot=this.shadowRoot:(this.renderRoot=this.attachShadow({mode:"open"}),this.createRenderer());let e=new MutationObserver(t=>{var a;this.mediaController&&!((a=this.mediaController)!=null&&a.breakpointsComputed)||t.some(r=>{let n=r.target;return n===this?!0:n.localName!=="media-controller"?!1:!!(el[r.attributeName]||r.attributeName.startsWith("breakpoint"))})&&this.render()});e.observe(this,{attributes:!0}),e.observe(this.renderRoot,{attributes:!0,subtree:!0}),this.addEventListener(nt.BREAKPOINTS_COMPUTED,this.render),js(this,il,tm).call(this,"template")}get mediaController(){return this.renderRoot.querySelector("media-controller")}get template(){var e;return(e=tl(this,qi))!=null?e:this.constructor.template}set template(e){di(this,Zi,null),di(this,qi,e),this.createRenderer()}get props(){var e,t,a;let r=[...Array.from((t=(e=this.mediaController)==null?void 0:e.attributes)!=null?t:[]).filter(({name:s})=>el[s]||s.startsWith("breakpoint")),...Array.from(this.attributes)],n={};for(let s of r){let l=(a=el[s.name])!=null?a:Bd(s.name),{value:u}=s;u!=null?(dr(u)&&(u=parseFloat(u)),n[l]=u===""?!0:u):n[l]=!1}return n}attributeChangedCallback(e,t,a){e==="template"&&t!=a&&js(this,Un,al).call(this)}connectedCallback(){js(this,Un,al).call(this)}createRenderer(){this.template&&this.template!==tl(this,Pn)&&(di(this,Pn,this.template),this.renderer=new ht(this.template,this.props,this.constructor.processor),this.renderRoot.textContent="",this.renderRoot.append(im.content.cloneNode(!0),this.renderer))}render(){var e;(e=this.renderer)==null||e.update(this.props)}};qi=new WeakMap;Pn=new WeakMap;Zi=new WeakMap;il=new WeakSet;tm=function(i){if(Object.prototype.hasOwnProperty.call(this,i)){let e=this[i];delete this[i],this[i]=e}};Un=new WeakSet;al=function(){var i;let e=this.getAttribute("template");if(!e||e===tl(this,Zi))return;let t=this.getRootNode(),a=(i=t==null?void 0:t.getElementById)==null?void 0:i.call(t,e);if(a){di(this,Zi,e),di(this,qi,a),this.createRenderer();return}yf(e)&&(di(this,Zi,e),Tf(e).then(r=>{let n=h.createElement("template");n.innerHTML=r,di(this,qi,n),this.createRenderer()}).catch(console.error))};ui.observedAttributes=["template"];ui.processor=Nn;function yf(i){if(!/^(\/|\.\/|https?:\/\/)/.test(i))return!1;let e=/^https?:\/\//.test(i)?void 0:location.origin;try{new URL(i,e)}catch{return!1}return!0}async function Tf(i){let e=await fetch(i);if(e.status!==200)throw new Error(`Failed to load resource: the server responded with a status of ${e.status}`);return e.text()}d.customElements.get("media-theme")||d.customElements.define("media-theme",ui);var am=`:host {
-  --media-control-display: var(--controls);
-  --media-loading-indicator-display: var(--loading-indicator);
-  --media-dialog-display: var(--dialog);
-  --media-play-button-display: var(--play-button);
-  --media-live-button-display: var(--live-button);
-  --media-seek-backward-button-display: var(--seek-backward-button);
-  --media-seek-forward-button-display: var(--seek-forward-button);
-  --media-mute-button-display: var(--mute-button);
-  --media-captions-button-display: var(--captions-button);
-  --media-captions-menu-button-display: var(--captions-menu-button, var(--media-captions-button-display));
-  --media-rendition-menu-button-display: var(--rendition-menu-button);
-  --media-audio-track-menu-button-display: var(--audio-track-menu-button);
-  --media-airplay-button-display: var(--airplay-button);
-  --media-pip-button-display: var(--pip-button);
-  --media-fullscreen-button-display: var(--fullscreen-button);
-  --media-cast-button-display: var(--cast-button, var(--_cast-button-drm-display));
-  --media-playback-rate-button-display: var(--playback-rate-button);
-  --media-playback-rate-menu-button-display: var(--playback-rate-menu-button);
-  --media-volume-range-display: var(--volume-range);
-  --media-time-range-display: var(--time-range);
-  --media-time-display-display: var(--time-display);
-  --media-duration-display-display: var(--duration-display);
-  --media-title-display-display: var(--title-display);
-
-  display: inline-block;
-  line-height: 0;
-  width: 100%;
+`;
+var MediaThemeElement = class extends GlobalThis.HTMLElement {
+  constructor() {
+    super();
+    __privateAdd22(this, _upgradeProperty);
+    __privateAdd22(this, _updateTemplate);
+    __privateAdd22(this, _template, void 0);
+    __privateAdd22(this, _prevTemplate, void 0);
+    __privateAdd22(this, _prevTemplateId, void 0);
+    if (this.shadowRoot) {
+      this.renderRoot = this.shadowRoot;
+    } else {
+      this.renderRoot = this.attachShadow({ mode: "open" });
+      this.createRenderer();
+    }
+    const observer2 = new MutationObserver((mutationList) => {
+      var _a3;
+      if (this.mediaController && !((_a3 = this.mediaController) == null ? void 0 : _a3.breakpointsComputed))
+        return;
+      if (mutationList.some((mutation) => {
+        const target = mutation.target;
+        if (target === this)
+          return true;
+        if (target.localName !== "media-controller")
+          return false;
+        if (observedMediaAttributes[mutation.attributeName])
+          return true;
+        if (mutation.attributeName.startsWith("breakpoint"))
+          return true;
+        return false;
+      })) {
+        this.render();
+      }
+    });
+    observer2.observe(this, { attributes: true });
+    observer2.observe(this.renderRoot, {
+      attributes: true,
+      subtree: true
+    });
+    this.addEventListener(
+      MediaStateChangeEvents.BREAKPOINTS_COMPUTED,
+      this.render
+    );
+    __privateMethod8(this, _upgradeProperty, upgradeProperty_fn).call(this, "template");
+  }
+  /** @type {HTMLElement & { breakpointsComputed?: boolean }} */
+  get mediaController() {
+    return this.renderRoot.querySelector("media-controller");
+  }
+  get template() {
+    var _a3;
+    return (_a3 = __privateGet22(this, _template)) != null ? _a3 : this.constructor.template;
+  }
+  set template(element) {
+    __privateSet21(this, _prevTemplateId, null);
+    __privateSet21(this, _template, element);
+    this.createRenderer();
+  }
+  get props() {
+    var _a3, _b2, _c;
+    const observedAttributes2 = [
+      ...Array.from((_b2 = (_a3 = this.mediaController) == null ? void 0 : _a3.attributes) != null ? _b2 : []).filter(
+        ({ name }) => {
+          return observedMediaAttributes[name] || name.startsWith("breakpoint");
+        }
+      ),
+      ...Array.from(this.attributes)
+    ];
+    const props = {};
+    for (const attr of observedAttributes2) {
+      const name = (_c = observedMediaAttributes[attr.name]) != null ? _c : camelCase(attr.name);
+      let { value } = attr;
+      if (value != null) {
+        if (isNumericString(value)) {
+          value = parseFloat(value);
+        }
+        props[name] = value === "" ? true : value;
+      } else {
+        props[name] = false;
+      }
+    }
+    return props;
+  }
+  attributeChangedCallback(attrName, oldValue, newValue) {
+    if (attrName === "template" && oldValue != newValue) {
+      __privateMethod8(this, _updateTemplate, updateTemplate_fn).call(this);
+    }
+  }
+  connectedCallback() {
+    __privateMethod8(this, _updateTemplate, updateTemplate_fn).call(this);
+  }
+  createRenderer() {
+    if (this.template && this.template !== __privateGet22(this, _prevTemplate)) {
+      __privateSet21(this, _prevTemplate, this.template);
+      this.renderer = new TemplateInstance(
+        this.template,
+        this.props,
+        // @ts-ignore
+        this.constructor.processor
+      );
+      this.renderRoot.textContent = "";
+      this.renderRoot.append(
+        prependTemplate.content.cloneNode(true),
+        this.renderer
+      );
+    }
+  }
+  render() {
+    var _a3;
+    (_a3 = this.renderer) == null ? void 0 : _a3.update(this.props);
+  }
+};
+_template = /* @__PURE__ */ new WeakMap();
+_prevTemplate = /* @__PURE__ */ new WeakMap();
+_prevTemplateId = /* @__PURE__ */ new WeakMap();
+_upgradeProperty = /* @__PURE__ */ new WeakSet();
+upgradeProperty_fn = function(prop) {
+  if (Object.prototype.hasOwnProperty.call(this, prop)) {
+    const value = this[prop];
+    delete this[prop];
+    this[prop] = value;
+  }
+};
+_updateTemplate = /* @__PURE__ */ new WeakSet();
+updateTemplate_fn = function() {
+  var _a3;
+  const templateId = this.getAttribute("template");
+  if (!templateId || templateId === __privateGet22(this, _prevTemplateId))
+    return;
+  const rootNode = this.getRootNode();
+  const template19 = (_a3 = rootNode == null ? void 0 : rootNode.getElementById) == null ? void 0 : _a3.call(rootNode, templateId);
+  if (template19) {
+    __privateSet21(this, _prevTemplateId, templateId);
+    __privateSet21(this, _template, template19);
+    this.createRenderer();
+    return;
+  }
+  if (isValidUrl(templateId)) {
+    __privateSet21(this, _prevTemplateId, templateId);
+    request(templateId).then((data) => {
+      const template22 = Document2.createElement("template");
+      template22.innerHTML = data;
+      __privateSet21(this, _template, template22);
+      this.createRenderer();
+    }).catch(console.error);
+  }
+};
+MediaThemeElement.observedAttributes = ["template"];
+MediaThemeElement.processor = processor;
+function isValidUrl(url) {
+  if (!/^(\/|\.\/|https?:\/\/)/.test(url))
+    return false;
+  const base = /^https?:\/\//.test(url) ? void 0 : location.origin;
+  try {
+    new URL(url, base);
+  } catch (e) {
+    return false;
+  }
+  return true;
+}
+async function request(resource) {
+  const response = await fetch(resource);
+  if (response.status !== 200) {
+    throw new Error(
+      `Failed to load resource: the server responded with a status of ${response.status}`
+    );
+  }
+  return response.text();
+}
+if (!GlobalThis.customElements.get("media-theme")) {
+  GlobalThis.customElements.define("media-theme", MediaThemeElement);
 }
 
-a {
-  color: #fff;
-  font-size: 0.9em;
-  text-decoration: underline;
+// src/styles.css
+var styles_default = ":host {\n  --media-control-display: var(--controls);\n  --media-loading-indicator-display: var(--loading-indicator);\n  --media-dialog-display: var(--dialog);\n  --media-play-button-display: var(--play-button);\n  --media-live-button-display: var(--live-button);\n  --media-seek-backward-button-display: var(--seek-backward-button);\n  --media-seek-forward-button-display: var(--seek-forward-button);\n  --media-mute-button-display: var(--mute-button);\n  --media-captions-button-display: var(--captions-button);\n  --media-captions-menu-button-display: var(--captions-menu-button, var(--media-captions-button-display));\n  --media-rendition-menu-button-display: var(--rendition-menu-button);\n  --media-audio-track-menu-button-display: var(--audio-track-menu-button);\n  --media-airplay-button-display: var(--airplay-button);\n  --media-pip-button-display: var(--pip-button);\n  --media-fullscreen-button-display: var(--fullscreen-button);\n  --media-cast-button-display: var(--cast-button, var(--_cast-button-drm-display));\n  --media-playback-rate-button-display: var(--playback-rate-button);\n  --media-playback-rate-menu-button-display: var(--playback-rate-menu-button);\n  --media-volume-range-display: var(--volume-range);\n  --media-time-range-display: var(--time-range);\n  --media-time-display-display: var(--time-display);\n  --media-duration-display-display: var(--duration-display);\n  --media-title-display-display: var(--title-display);\n\n  display: inline-block;\n  line-height: 0;\n  width: 100%;\n}\n\na {\n  color: #fff;\n  font-size: 0.9em;\n  text-decoration: underline;\n}\n\nmedia-theme {\n  display: inline-block;\n  line-height: 0;\n  width: 100%;\n  height: 100%;\n  direction: ltr;\n}\n\nmedia-poster-image {\n  display: inline-block;\n  line-height: 0;\n  width: 100%;\n  height: 100%;\n}\n\nmedia-poster-image:not([src]):not([placeholdersrc]) {\n  display: none;\n}\n\n::part(top),\n[part~='top'] {\n  --media-control-display: var(--controls, var(--top-controls));\n  --media-play-button-display: var(--play-button, var(--top-play-button));\n  --media-live-button-display: var(--live-button, var(--top-live-button));\n  --media-seek-backward-button-display: var(--seek-backward-button, var(--top-seek-backward-button));\n  --media-seek-forward-button-display: var(--seek-forward-button, var(--top-seek-forward-button));\n  --media-mute-button-display: var(--mute-button, var(--top-mute-button));\n  --media-captions-button-display: var(--captions-button, var(--top-captions-button));\n  --media-captions-menu-button-display: var(\n    --captions-menu-button,\n    var(--media-captions-button-display, var(--top-captions-menu-button))\n  );\n  --media-rendition-menu-button-display: var(--rendition-menu-button, var(--top-rendition-menu-button));\n  --media-audio-track-menu-button-display: var(--audio-track-menu-button, var(--top-audio-track-menu-button));\n  --media-airplay-button-display: var(--airplay-button, var(--top-airplay-button));\n  --media-pip-button-display: var(--pip-button, var(--top-pip-button));\n  --media-fullscreen-button-display: var(--fullscreen-button, var(--top-fullscreen-button));\n  --media-cast-button-display: var(--cast-button, var(--top-cast-button, var(--_cast-button-drm-display)));\n  --media-playback-rate-button-display: var(--playback-rate-button, var(--top-playback-rate-button));\n  --media-playback-rate-menu-button-display: var(\n    --captions-menu-button,\n    var(--media-playback-rate-button-display, var(--top-playback-rate-menu-button))\n  );\n  --media-volume-range-display: var(--volume-range, var(--top-volume-range));\n  --media-time-range-display: var(--time-range, var(--top-time-range));\n  --media-time-display-display: var(--time-display, var(--top-time-display));\n  --media-duration-display-display: var(--duration-display, var(--top-duration-display));\n  --media-title-display-display: var(--title-display, var(--top-title-display));\n}\n\n::part(center),\n[part~='center'] {\n  --media-control-display: var(--controls, var(--center-controls));\n  --media-play-button-display: var(--play-button, var(--center-play-button));\n  --media-live-button-display: var(--live-button, var(--center-live-button));\n  --media-seek-backward-button-display: var(--seek-backward-button, var(--center-seek-backward-button));\n  --media-seek-forward-button-display: var(--seek-forward-button, var(--center-seek-forward-button));\n  --media-mute-button-display: var(--mute-button, var(--center-mute-button));\n  --media-captions-button-display: var(--captions-button, var(--center-captions-button));\n  --media-captions-menu-button-display: var(\n    --captions-menu-button,\n    var(--media-captions-button-display, var(--center-captions-menu-button))\n  );\n  --media-rendition-menu-button-display: var(--rendition-menu-button, var(--center-rendition-menu-button));\n  --media-audio-track-menu-button-display: var(--audio-track-menu-button, var(--center-audio-track-menu-button));\n  --media-airplay-button-display: var(--airplay-button, var(--center-airplay-button));\n  --media-pip-button-display: var(--pip-button, var(--center-pip-button));\n  --media-fullscreen-button-display: var(--fullscreen-button, var(--center-fullscreen-button));\n  --media-cast-button-display: var(--cast-button, var(--center-cast-button, var(--_cast-button-drm-display)));\n  --media-playback-rate-button-display: var(--playback-rate-button, var(--center-playback-rate-button));\n  --media-playback-rate-menu-button-display: var(\n    --playback-rate-menu-button,\n    var(--media-playback-rate-button-display, var(--center-playback-rate-menu-button))\n  );\n  --media-volume-range-display: var(--volume-range, var(--center-volume-range));\n  --media-time-range-display: var(--time-range, var(--center-time-range));\n  --media-time-display-display: var(--time-display, var(--center-time-display));\n  --media-duration-display-display: var(--duration-display, var(--center-duration-display));\n}\n\n::part(bottom),\n[part~='bottom'] {\n  --media-control-display: var(--controls, var(--bottom-controls));\n  --media-play-button-display: var(--play-button, var(--bottom-play-button));\n  --media-live-button-display: var(--live-button, var(--bottom-live-button));\n  --media-seek-backward-button-display: var(--seek-backward-button, var(--bottom-seek-backward-button));\n  --media-seek-forward-button-display: var(--seek-forward-button, var(--bottom-seek-forward-button));\n  --media-mute-button-display: var(--mute-button, var(--bottom-mute-button));\n  --media-captions-button-display: var(--captions-button, var(--bottom-captions-button));\n  --media-captions-menu-button-display: var(\n    --captions-menu-button,\n    var(--media-captions-button-display, var(--bottom-captions-menu-button))\n  );\n  --media-rendition-menu-button-display: var(--rendition-menu-button, var(--bottom-rendition-menu-button));\n  --media-audio-track-menu-button-display: var(--audio-track-menu-button, var(--bottom-audio-track-menu-button));\n  --media-airplay-button-display: var(--airplay-button, var(--bottom-airplay-button));\n  --media-pip-button-display: var(--pip-button, var(--bottom-pip-button));\n  --media-fullscreen-button-display: var(--fullscreen-button, var(--bottom-fullscreen-button));\n  --media-cast-button-display: var(--cast-button, var(--bottom-cast-button, var(--_cast-button-drm-display)));\n  --media-playback-rate-button-display: var(--playback-rate-button, var(--bottom-playback-rate-button));\n  --media-playback-rate-menu-button-display: var(\n    --playback-rate-menu-button,\n    var(--media-playback-rate-button-display, var(--bottom-playback-rate-menu-button))\n  );\n  --media-volume-range-display: var(--volume-range, var(--bottom-volume-range));\n  --media-time-range-display: var(--time-range, var(--bottom-time-range));\n  --media-time-display-display: var(--time-display, var(--bottom-time-display));\n  --media-duration-display-display: var(--duration-display, var(--bottom-duration-display));\n  --media-title-display-display: var(--title-display, var(--bottom-title-display));\n}\n\n:host([no-tooltips]) {\n  --media-tooltip-display: none;\n}\n";
+
+// src/html.ts
+var eventListeners = /* @__PURE__ */ new WeakMap();
+var EventHandler = class _EventHandler {
+  constructor(element, type) {
+    this.element = element;
+    this.type = type;
+    this.element.addEventListener(this.type, this);
+    const elementMap = eventListeners.get(this.element);
+    if (elementMap) {
+      elementMap.set(this.type, this);
+    }
+  }
+  set(listener) {
+    if (typeof listener == "function") {
+      this.handleEvent = listener.bind(this.element);
+    } else if (typeof listener === "object" && typeof listener.handleEvent === "function") {
+      this.handleEvent = listener.handleEvent.bind(listener);
+    } else {
+      this.element.removeEventListener(this.type, this);
+      const elementMap = eventListeners.get(this.element);
+      if (elementMap) {
+        elementMap.delete(this.type);
+      }
+    }
+  }
+  static for(part) {
+    if (!eventListeners.has(part.element)) eventListeners.set(part.element, /* @__PURE__ */ new Map());
+    const type = part.attributeName.slice(2);
+    const elementListeners = eventListeners.get(part.element);
+    if (elementListeners && elementListeners.has(type)) return elementListeners.get(type);
+    return new _EventHandler(part.element, type);
+  }
+};
+function processEvent(part, value) {
+  if (part instanceof AttrPart && part.attributeName.startsWith("on")) {
+    EventHandler.for(part).set(value);
+    part.element.removeAttributeNS(part.attributeNamespace, part.attributeName);
+    return true;
+  }
+  return false;
+}
+function processSubTemplate(part, value) {
+  if (value instanceof TemplateResult && part instanceof ChildNodePart) {
+    value.renderInto(part);
+    return true;
+  }
+  return false;
+}
+function processDocumentFragment(part, value) {
+  if (value instanceof DocumentFragment && part instanceof ChildNodePart) {
+    if (value.childNodes.length) part.replace(...value.childNodes);
+    return true;
+  }
+  return false;
+}
+function processPropertyIdentity(part, value) {
+  if (part instanceof AttrPart) {
+    const ns = part.attributeNamespace;
+    const oldValue = part.element.getAttributeNS(ns, part.attributeName);
+    if (String(value) !== oldValue) {
+      part.value = String(value);
+    }
+    return true;
+  }
+  part.value = String(value);
+  return true;
+}
+function processElementAttribute(part, value) {
+  if (part instanceof AttrPart && value instanceof Element) {
+    const element = part.element;
+    if (element[part.attributeName] !== value) {
+      part.element.removeAttributeNS(part.attributeNamespace, part.attributeName);
+      element[part.attributeName] = value;
+    }
+    return true;
+  }
+  return false;
+}
+function processBooleanAttribute(part, value) {
+  if (typeof value === "boolean" && part instanceof AttrPart) {
+    const ns = part.attributeNamespace;
+    const oldValue = part.element.hasAttributeNS(ns, part.attributeName);
+    if (value !== oldValue) {
+      part.booleanValue = value;
+    }
+    return true;
+  }
+  return false;
+}
+function processBooleanNode(part, value) {
+  if (value === false && part instanceof ChildNodePart) {
+    part.replace("");
+    return true;
+  }
+  return false;
+}
+function processPart(part, value) {
+  processElementAttribute(part, value) || processBooleanAttribute(part, value) || processEvent(part, value) || processBooleanNode(part, value) || processSubTemplate(part, value) || processDocumentFragment(part, value) || processPropertyIdentity(part, value);
+}
+var templates2 = /* @__PURE__ */ new Map();
+var renderedTemplates = /* @__PURE__ */ new WeakMap();
+var renderedTemplateInstances = /* @__PURE__ */ new WeakMap();
+var TemplateResult = class {
+  constructor(strings, values, processor2) {
+    this.strings = strings;
+    this.values = values;
+    this.processor = processor2;
+    this.stringsKey = this.strings.join("");
+  }
+  get template() {
+    if (templates2.has(this.stringsKey)) {
+      return templates2.get(this.stringsKey);
+    } else {
+      const template19 = internalDocument.createElement("template");
+      const end = this.strings.length - 1;
+      template19.innerHTML = this.strings.reduce((str, cur, i) => str + cur + (i < end ? `{{ ${i} }}` : ""), "");
+      templates2.set(this.stringsKey, template19);
+      return template19;
+    }
+  }
+  renderInto(element) {
+    var _a3;
+    const template19 = this.template;
+    if (renderedTemplates.get(element) !== template19) {
+      renderedTemplates.set(element, template19);
+      const instance = new TemplateInstance(template19, this.values, this.processor);
+      renderedTemplateInstances.set(element, instance);
+      if (element instanceof ChildNodePart) {
+        element.replace(...instance.children);
+      } else {
+        element.appendChild(instance);
+      }
+      return;
+    }
+    const templateInstance = renderedTemplateInstances.get(element);
+    (_a3 = templateInstance == null ? void 0 : templateInstance.update) == null ? void 0 : _a3.call(templateInstance, this.values);
+  }
+};
+var defaultProcessor2 = {
+  processCallback(_instance, parts, state) {
+    var _a3;
+    if (!state) return;
+    for (const [expression, part] of parts) {
+      if (expression in state) {
+        const value = (_a3 = state[expression]) != null ? _a3 : "";
+        processPart(part, value);
+      }
+    }
+  }
+};
+function html(strings, ...values) {
+  return new TemplateResult(strings, values, defaultProcessor2);
+}
+function render(result, element) {
+  result.renderInto(element);
 }
 
-media-theme {
-  display: inline-block;
-  line-height: 0;
-  width: 100%;
-  height: 100%;
-  direction: ltr;
-}
-
-media-poster-image {
-  display: inline-block;
-  line-height: 0;
-  width: 100%;
-  height: 100%;
-}
-
-media-poster-image:not([src]):not([placeholdersrc]) {
-  display: none;
-}
-
-::part(top),
-[part~='top'] {
-  --media-control-display: var(--controls, var(--top-controls));
-  --media-play-button-display: var(--play-button, var(--top-play-button));
-  --media-live-button-display: var(--live-button, var(--top-live-button));
-  --media-seek-backward-button-display: var(--seek-backward-button, var(--top-seek-backward-button));
-  --media-seek-forward-button-display: var(--seek-forward-button, var(--top-seek-forward-button));
-  --media-mute-button-display: var(--mute-button, var(--top-mute-button));
-  --media-captions-button-display: var(--captions-button, var(--top-captions-button));
-  --media-captions-menu-button-display: var(
-    --captions-menu-button,
-    var(--media-captions-button-display, var(--top-captions-menu-button))
-  );
-  --media-rendition-menu-button-display: var(--rendition-menu-button, var(--top-rendition-menu-button));
-  --media-audio-track-menu-button-display: var(--audio-track-menu-button, var(--top-audio-track-menu-button));
-  --media-airplay-button-display: var(--airplay-button, var(--top-airplay-button));
-  --media-pip-button-display: var(--pip-button, var(--top-pip-button));
-  --media-fullscreen-button-display: var(--fullscreen-button, var(--top-fullscreen-button));
-  --media-cast-button-display: var(--cast-button, var(--top-cast-button, var(--_cast-button-drm-display)));
-  --media-playback-rate-button-display: var(--playback-rate-button, var(--top-playback-rate-button));
-  --media-playback-rate-menu-button-display: var(
-    --captions-menu-button,
-    var(--media-playback-rate-button-display, var(--top-playback-rate-menu-button))
-  );
-  --media-volume-range-display: var(--volume-range, var(--top-volume-range));
-  --media-time-range-display: var(--time-range, var(--top-time-range));
-  --media-time-display-display: var(--time-display, var(--top-time-display));
-  --media-duration-display-display: var(--duration-display, var(--top-duration-display));
-  --media-title-display-display: var(--title-display, var(--top-title-display));
-}
-
-::part(center),
-[part~='center'] {
-  --media-control-display: var(--controls, var(--center-controls));
-  --media-play-button-display: var(--play-button, var(--center-play-button));
-  --media-live-button-display: var(--live-button, var(--center-live-button));
-  --media-seek-backward-button-display: var(--seek-backward-button, var(--center-seek-backward-button));
-  --media-seek-forward-button-display: var(--seek-forward-button, var(--center-seek-forward-button));
-  --media-mute-button-display: var(--mute-button, var(--center-mute-button));
-  --media-captions-button-display: var(--captions-button, var(--center-captions-button));
-  --media-captions-menu-button-display: var(
-    --captions-menu-button,
-    var(--media-captions-button-display, var(--center-captions-menu-button))
-  );
-  --media-rendition-menu-button-display: var(--rendition-menu-button, var(--center-rendition-menu-button));
-  --media-audio-track-menu-button-display: var(--audio-track-menu-button, var(--center-audio-track-menu-button));
-  --media-airplay-button-display: var(--airplay-button, var(--center-airplay-button));
-  --media-pip-button-display: var(--pip-button, var(--center-pip-button));
-  --media-fullscreen-button-display: var(--fullscreen-button, var(--center-fullscreen-button));
-  --media-cast-button-display: var(--cast-button, var(--center-cast-button, var(--_cast-button-drm-display)));
-  --media-playback-rate-button-display: var(--playback-rate-button, var(--center-playback-rate-button));
-  --media-playback-rate-menu-button-display: var(
-    --playback-rate-menu-button,
-    var(--media-playback-rate-button-display, var(--center-playback-rate-menu-button))
-  );
-  --media-volume-range-display: var(--volume-range, var(--center-volume-range));
-  --media-time-range-display: var(--time-range, var(--center-time-range));
-  --media-time-display-display: var(--time-display, var(--center-time-display));
-  --media-duration-display-display: var(--duration-display, var(--center-duration-display));
-}
-
-::part(bottom),
-[part~='bottom'] {
-  --media-control-display: var(--controls, var(--bottom-controls));
-  --media-play-button-display: var(--play-button, var(--bottom-play-button));
-  --media-live-button-display: var(--live-button, var(--bottom-live-button));
-  --media-seek-backward-button-display: var(--seek-backward-button, var(--bottom-seek-backward-button));
-  --media-seek-forward-button-display: var(--seek-forward-button, var(--bottom-seek-forward-button));
-  --media-mute-button-display: var(--mute-button, var(--bottom-mute-button));
-  --media-captions-button-display: var(--captions-button, var(--bottom-captions-button));
-  --media-captions-menu-button-display: var(
-    --captions-menu-button,
-    var(--media-captions-button-display, var(--bottom-captions-menu-button))
-  );
-  --media-rendition-menu-button-display: var(--rendition-menu-button, var(--bottom-rendition-menu-button));
-  --media-audio-track-menu-button-display: var(--audio-track-menu-button, var(--bottom-audio-track-menu-button));
-  --media-airplay-button-display: var(--airplay-button, var(--bottom-airplay-button));
-  --media-pip-button-display: var(--pip-button, var(--bottom-pip-button));
-  --media-fullscreen-button-display: var(--fullscreen-button, var(--bottom-fullscreen-button));
-  --media-cast-button-display: var(--cast-button, var(--bottom-cast-button, var(--_cast-button-drm-display)));
-  --media-playback-rate-button-display: var(--playback-rate-button, var(--bottom-playback-rate-button));
-  --media-playback-rate-menu-button-display: var(
-    --playback-rate-menu-button,
-    var(--media-playback-rate-button-display, var(--bottom-playback-rate-menu-button))
-  );
-  --media-volume-range-display: var(--volume-range, var(--bottom-volume-range));
-  --media-time-range-display: var(--time-range, var(--bottom-time-range));
-  --media-time-display-display: var(--time-display, var(--bottom-time-display));
-  --media-duration-display-display: var(--duration-display, var(--bottom-duration-display));
-  --media-title-display-display: var(--title-display, var(--bottom-title-display));
-}
-
-:host([no-tooltips]) {
-  --media-tooltip-display: none;
-}
-`;var Ha=new WeakMap,ol=class i{constructor(e,t){this.element=e;this.type=t;this.element.addEventListener(this.type,this);let a=Ha.get(this.element);a&&a.set(this.type,this)}set(e){if(typeof e=="function")this.handleEvent=e.bind(this.element);else if(typeof e=="object"&&typeof e.handleEvent=="function")this.handleEvent=e.handleEvent.bind(e);else{this.element.removeEventListener(this.type,this);let t=Ha.get(this.element);t&&t.delete(this.type)}}static for(e){Ha.has(e.element)||Ha.set(e.element,new Map);let t=e.attributeName.slice(2),a=Ha.get(e.element);return a&&a.has(t)?a.get(t):new i(e.element,t)}};function Sf(i,e){return i instanceof me&&i.attributeName.startsWith("on")?(ol.for(i).set(e),i.element.removeAttributeNS(i.attributeNamespace,i.attributeName),!0):!1}function If(i,e){return e instanceof Bn&&i instanceof pt?(e.renderInto(i),!0):!1}function Cf(i,e){return e instanceof DocumentFragment&&i instanceof pt?(e.childNodes.length&&i.replace(...e.childNodes),!0):!1}function Mf(i,e){if(i instanceof me){let t=i.attributeNamespace,a=i.element.getAttributeNS(t,i.attributeName);return String(e)!==a&&(i.value=String(e)),!0}return i.value=String(e),!0}function wf(i,e){if(i instanceof me&&e instanceof Element){let t=i.element;return t[i.attributeName]!==e&&(i.element.removeAttributeNS(i.attributeNamespace,i.attributeName),t[i.attributeName]=e),!0}return!1}function Rf(i,e){if(typeof e=="boolean"&&i instanceof me){let t=i.attributeNamespace,a=i.element.hasAttributeNS(t,i.attributeName);return e!==a&&(i.booleanValue=e),!0}return!1}function Lf(i,e){return e===!1&&i instanceof pt?(i.replace(""),!0):!1}function xf(i,e){wf(i,e)||Rf(i,e)||Sf(i,e)||Lf(i,e)||If(i,e)||Cf(i,e)||Mf(i,e)}var nl=new Map,rm=new WeakMap,nm=new WeakMap,Bn=class{constructor(e,t,a){this.strings=e;this.values=t;this.processor=a;this.stringsKey=this.strings.join("")}get template(){if(nl.has(this.stringsKey))return nl.get(this.stringsKey);{let e=gi.createElement("template"),t=this.strings.length-1;return e.innerHTML=this.strings.reduce((a,r,n)=>a+r+(n<t?`{{ ${n} }}`:""),""),nl.set(this.stringsKey,e),e}}renderInto(e){var r;let t=this.template;if(rm.get(e)!==t){rm.set(e,t);let n=new ht(t,this.values,this.processor);nm.set(e,n),e instanceof pt?e.replace(...n.children):e.appendChild(n);return}let a=nm.get(e);(r=a==null?void 0:a.update)==null||r.call(a,this.values)}},Df={processCallback(i,e,t){var a;if(t){for(let[r,n]of e)if(r in t){let s=(a=t[r])!=null?a:"";xf(n,s)}}}};function ci(i,...e){return new Bn(i,e,Df)}function om(i,e){i.renderInto(e)}var Wa=require("@mux/playback-core"),Of=i=>{let{tokens:e}=i;return e.drm?":host { --_cast-button-drm-display: none; }":""},sm=i=>ci`
+// src/template.ts
+var import_playback_core3 = require("@mux/playback-core");
+var getPropsCSS = (props) => {
+  const { tokens } = props;
+  if (!tokens.drm) return "";
+  return ":host { --_cast-button-drm-display: none; }";
+};
+var template12 = (props) => html`
   <style>
-    ${Of(i)}
-    ${am}
+    ${getPropsCSS(props)}
+    ${styles_default}
   </style>
-  ${Hf(i)}
-`,Nf=i=>{let e=i.hotKeys?`${i.hotKeys}`:"";return xa(i.streamType)==="live"&&(e+=" noarrowleft noarrowright"),e},Pf={TOP:"top",CENTER:"center",BOTTOM:"bottom",LAYER:"layer",MEDIA_LAYER:"media-layer",POSTER_LAYER:"poster-layer",VERTICAL_LAYER:"vertical-layer",CENTERED_LAYER:"centered-layer",GESTURE_LAYER:"gesture-layer",CONTROLLER_LAYER:"controller",BUTTON:"button",RANGE:"range",DISPLAY:"display",CONTROL_BAR:"control-bar",MENU_BUTTON:"menu-button",MENU:"menu",OPTION:"option",POSTER:"poster",LIVE:"live",PLAY:"play",PRE_PLAY:"pre-play",SEEK_BACKWARD:"seek-backward",SEEK_FORWARD:"seek-forward",MUTE:"mute",CAPTIONS:"captions",AIRPLAY:"airplay",PIP:"pip",FULLSCREEN:"fullscreen",CAST:"cast",PLAYBACK_RATE:"playback-rate",VOLUME:"volume",TIME:"time",TITLE:"title",AUDIO_TRACK:"audio-track",RENDITION:"rendition"},Uf=Object.values(Pf).join(", "),Bf=(i,e)=>{var a,r,n,s,l,u,c,A,g,p,E,O,y,I,U,z,se,we,Ie,Et,Ut,Bt;let t={"target-live-window":(a=e.targetLiveWindow)!=null?a:!1,"stream-type":(r=xa(e.streamType))!=null?r:!1,crossorigin:(n=e.crossOrigin)!=null?n:"",playsinline:"",autoplay:(s=e.autoplay)!=null?s:!1,muted:(l=e.muted)!=null?l:!1,loop:(u=e.loop)!=null?u:!1,preload:(c=e.preload)!=null?c:!1,debug:(A=e.debug)!=null?A:!1,"prefer-cmcd":(g=e.preferCmcd)!=null?g:!1,"disable-tracking":(p=e.disableTracking)!=null?p:!1,"disable-cookies":(E=e.disableCookies)!=null?E:!1,"prefer-playback":(O=e.preferPlayback)!=null?O:!1,"start-time":e.startTime!=null?e.startTime:!1,"beacon-collection-domain":(y=e.beaconCollectionDomain)!=null?y:!1,"player-init-time":(I=e.playerInitTime)!=null?I:!1,"player-software-name":(U=e.playerSoftwareName)!=null?U:!1,"player-software-version":(z=e.playerSoftwareVersion)!=null?z:!1,"env-key":(se=e.envKey)!=null?se:!1,"custom-domain":(we=e.customDomain)!=null?we:!1,src:e.src?e.src:e.playbackId?(0,Wa.toMuxVideoURL)(e):!1,"cast-src":e.src?e.src:e.playbackId?(0,Wa.toMuxVideoURL)(e):!1,"cast-receiver":(Ie=e.castReceiver)!=null?Ie:!1,"drm-token":(Ut=(Et=e.tokens)==null?void 0:Et.drm)!=null?Ut:!1,exportparts:"video"};switch(i){case"mux-video-ads":return{...t,adTagUrl:(Bt=e.adTagUrl)!=null?Bt:!1};default:return t}},Hf=i=>{var u,c,A,g,p,E,O,y,I,U,z,se,we,Ie;let e=i.muxVideoElement||"mux-video",t=ci`
-    ${i.storyboard?ci`<track label="thumbnails" default kind="metadata" src="${i.storyboard}" />`:ci``}
+  ${content(props)}
+`;
+var getHotKeys = (props) => {
+  let hotKeys = props.hotKeys ? `${props.hotKeys}` : "";
+  if (getStreamTypeFromAttr(props.streamType) === "live") {
+    hotKeys += " noarrowleft noarrowright";
+  }
+  return hotKeys;
+};
+var Parts = {
+  // media container regions
+  TOP: "top",
+  CENTER: "center",
+  BOTTOM: "bottom",
+  // media container layers
+  LAYER: "layer",
+  // Generic
+  MEDIA_LAYER: "media-layer",
+  POSTER_LAYER: "poster-layer",
+  VERTICAL_LAYER: "vertical-layer",
+  CENTERED_LAYER: "centered-layer",
+  GESTURE_LAYER: "gesture-layer",
+  CONTROLLER_LAYER: "controller",
+  // component/subcomponent types
+  BUTTON: "button",
+  RANGE: "range",
+  DISPLAY: "display",
+  CONTROL_BAR: "control-bar",
+  MENU_BUTTON: "menu-button",
+  MENU: "menu",
+  OPTION: "option",
+  // component/subcomponent purposes
+  POSTER: "poster",
+  LIVE: "live",
+  PLAY: "play",
+  PRE_PLAY: "pre-play",
+  SEEK_BACKWARD: "seek-backward",
+  SEEK_FORWARD: "seek-forward",
+  MUTE: "mute",
+  CAPTIONS: "captions",
+  AIRPLAY: "airplay",
+  PIP: "pip",
+  FULLSCREEN: "fullscreen",
+  CAST: "cast",
+  PLAYBACK_RATE: "playback-rate",
+  VOLUME: "volume",
+  TIME: "time",
+  TITLE: "title",
+  AUDIO_TRACK: "audio-track",
+  RENDITION: "rendition"
+};
+var partsListStr = Object.values(Parts).join(", ");
+var getTagSpecificProps = (tag, props) => {
+  var _a3, _b2, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n, _o, _p, _q, _r, _s, _t, _u, _v;
+  const baseProps = {
+    "target-live-window": (_a3 = props.targetLiveWindow) != null ? _a3 : false,
+    "stream-type": (_b2 = getStreamTypeFromAttr(props.streamType)) != null ? _b2 : false,
+    crossorigin: (_c = props.crossOrigin) != null ? _c : "",
+    playsinline: "",
+    autoplay: (_d = props.autoplay) != null ? _d : false,
+    muted: (_e = props.muted) != null ? _e : false,
+    loop: (_f = props.loop) != null ? _f : false,
+    preload: (_g = props.preload) != null ? _g : false,
+    debug: (_h = props.debug) != null ? _h : false,
+    "prefer-cmcd": (_i = props.preferCmcd) != null ? _i : false,
+    "disable-tracking": (_j = props.disableTracking) != null ? _j : false,
+    "disable-cookies": (_k = props.disableCookies) != null ? _k : false,
+    "prefer-playback": (_l = props.preferPlayback) != null ? _l : false,
+    "start-time": props.startTime != null ? props.startTime : false,
+    "beacon-collection-domain": (_m = props.beaconCollectionDomain) != null ? _m : false,
+    "player-init-time": (_n = props.playerInitTime) != null ? _n : false,
+    "player-software-name": (_o = props.playerSoftwareName) != null ? _o : false,
+    "player-software-version": (_p = props.playerSoftwareVersion) != null ? _p : false,
+    "env-key": (_q = props.envKey) != null ? _q : false,
+    "custom-domain": (_r = props.customDomain) != null ? _r : false,
+    src: !!props.src ? props.src : props.playbackId ? (0, import_playback_core3.toMuxVideoURL)(props) : false,
+    "cast-src": !!props.src ? props.src : props.playbackId ? (0, import_playback_core3.toMuxVideoURL)(props) : false,
+    "cast-receiver": (_s = props.castReceiver) != null ? _s : false,
+    "drm-token": (_u = (_t = props.tokens) == null ? void 0 : _t.drm) != null ? _u : false,
+    exportparts: "video"
+  };
+  switch (tag) {
+    case "mux-video-ads":
+      return {
+        ...baseProps,
+        adTagUrl: (_v = props.adTagUrl) != null ? _v : false
+      };
+    default:
+      return baseProps;
+  }
+};
+var content = (props) => {
+  var _a3, _b2, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n;
+  const tag = props.muxVideoElement || "mux-video";
+  const videoSlots = html`
+    ${props.storyboard ? html`<track label="thumbnails" default kind="metadata" src="${props.storyboard}" />` : html``}
     <slot></slot>
-  `,a=Bf(e,i),r=[`<${e} slot='media' `],n=[];Object.entries(a).forEach(([Et,Ut],Bt)=>{Bt==0?r[0]+=` ${Et}="`:r.push(`" ${Et}="`),n.push(Ut)}),r.push('">'),r.push("</"+e+">"),n.push(t);let s=Object.assign([],r,{raw:r}),l=ci(s,...n);return ci`
+  `;
+  const tagProps = getTagSpecificProps(tag, props);
+  const templateStrings = [`<${tag} slot='media' `];
+  const values = [];
+  Object.entries(tagProps).forEach(([key, value], index) => {
+    if (index == 0) {
+      templateStrings[0] += ` ${key}="`;
+    } else {
+      templateStrings.push(`" ${key}="`);
+    }
+    values.push(value);
+  });
+  templateStrings.push('">');
+  templateStrings.push("</" + tag + ">");
+  values.push(videoSlots);
+  const templateArray = Object.assign([], templateStrings, { raw: templateStrings });
+  const videoElement = html(templateArray, ...values);
+  return html`
     <media-theme
-      template="${i.themeTemplate||!1}"
-      mediaadbreak="${(u=i.adBreak)!=null?u:!1}"
-      defaultstreamtype="${(c=i.defaultStreamType)!=null?c:!1}"
-      hotkeys="${Nf(i)||!1}"
-      nohotkeys="${i.noHotKeys||!i.hasSrc||!1}"
-      noautoseektolive="${!!((A=i.streamType)!=null&&A.includes(Wa.StreamTypes.LIVE))&&i.targetLiveWindow!==0}"
-      novolumepref="${i.novolumepref||!1}"
-      disabled="${!i.hasSrc||i.isDialogOpen}"
-      audio="${(g=i.audio)!=null?g:!1}"
-      style="${(p=Nc({"--media-primary-color":i.primaryColor,"--media-secondary-color":i.secondaryColor,"--media-accent-color":i.accentColor}))!=null?p:!1}"
-      defaultsubtitles="${!i.defaultHiddenCaptions}"
-      forwardseekoffset="${(E=i.forwardSeekOffset)!=null?E:!1}"
-      backwardseekoffset="${(O=i.backwardSeekOffset)!=null?O:!1}"
-      playbackrates="${(y=i.playbackRates)!=null?y:!1}"
-      defaultshowremainingtime="${(I=i.defaultShowRemainingTime)!=null?I:!1}"
-      defaultduration="${(U=i.defaultDuration)!=null?U:!1}"
-      hideduration="${(z=i.hideDuration)!=null?z:!1}"
-      title="${(se=i.title)!=null?se:!1}"
-      proudlydisplaymuxbadge="${(we=i.proudlyDisplayMuxBadge)!=null?we:!1}"
-      exportparts="${Uf}"
-      onclose="${i.onCloseErrorDialog}"
-      onfocusin="${i.onFocusInErrorDialog}"
+      template="${props.themeTemplate || false}"
+      mediaadbreak="${(_a3 = props.adBreak) != null ? _a3 : false}"
+      defaultstreamtype="${(_b2 = props.defaultStreamType) != null ? _b2 : false}"
+      hotkeys="${getHotKeys(props) || false}"
+      nohotkeys="${props.noHotKeys || !props.hasSrc || false}"
+      noautoseektolive="${!!((_c = props.streamType) == null ? void 0 : _c.includes(import_playback_core3.StreamTypes.LIVE)) && props.targetLiveWindow !== 0}"
+      novolumepref="${props.novolumepref || false}"
+      disabled="${!props.hasSrc || props.isDialogOpen}"
+      audio="${(_d = props.audio) != null ? _d : false}"
+      style="${(_e = stylePropsToString({
+    "--media-primary-color": props.primaryColor,
+    "--media-secondary-color": props.secondaryColor,
+    "--media-accent-color": props.accentColor
+  })) != null ? _e : false}"
+      defaultsubtitles="${!props.defaultHiddenCaptions}"
+      forwardseekoffset="${(_f = props.forwardSeekOffset) != null ? _f : false}"
+      backwardseekoffset="${(_g = props.backwardSeekOffset) != null ? _g : false}"
+      playbackrates="${(_h = props.playbackRates) != null ? _h : false}"
+      defaultshowremainingtime="${(_i = props.defaultShowRemainingTime) != null ? _i : false}"
+      defaultduration="${(_j = props.defaultDuration) != null ? _j : false}"
+      hideduration="${(_k = props.hideDuration) != null ? _k : false}"
+      title="${(_l = props.title) != null ? _l : false}"
+      proudlydisplaymuxbadge="${(_m = props.proudlyDisplayMuxBadge) != null ? _m : false}"
+      exportparts="${partsListStr}"
+      onclose="${props.onCloseErrorDialog}"
+      onfocusin="${props.onFocusInErrorDialog}"
     >
-      ${l}
+      ${videoElement}
       <slot name="poster" slot="poster">
         <media-poster-image
           part="poster"
           exportparts="poster, img"
-          src="${i.poster?i.poster:!1}"
-          placeholdersrc="${(Ie=i.placeholder)!=null?Ie:!1}"
+          src="${!!props.poster ? props.poster : false}"
+          placeholdersrc="${(_n = props.placeholder) != null ? _n : false}"
         ></media-poster-image>
       </slot>
     </media-theme>
-  `};var _=require("@mux/playback-core"),lm=i=>i.charAt(0).toUpperCase()+i.slice(1),Wf=(i,e=!1)=>{var t,a;if(i.muxCode){let r=lm((t=i.errorCategory)!=null?t:"video"),n=(0,_.errorCategoryToTokenNameOrPrefix)((a=i.errorCategory)!=null?a:_.MuxErrorCategory.VIDEO);if(i.muxCode===_.MuxErrorCode.NETWORK_OFFLINE)return(0,_.i18n)("Your device appears to be offline",e);if(i.muxCode===_.MuxErrorCode.NETWORK_TOKEN_EXPIRED)return(0,_.i18n)("{category} URL has expired",e).format({category:r});if([_.MuxErrorCode.NETWORK_TOKEN_SUB_MISMATCH,_.MuxErrorCode.NETWORK_TOKEN_AUD_MISMATCH,_.MuxErrorCode.NETWORK_TOKEN_AUD_MISSING,_.MuxErrorCode.NETWORK_TOKEN_MALFORMED].includes(i.muxCode))return(0,_.i18n)("{category} URL is formatted incorrectly",e).format({category:r});if(i.muxCode===_.MuxErrorCode.NETWORK_TOKEN_MISSING)return(0,_.i18n)("Invalid {categoryName} URL",e).format({categoryName:n});if(i.muxCode===_.MuxErrorCode.NETWORK_NOT_FOUND)return(0,_.i18n)("{category} does not exist",e).format({category:r});if(i.muxCode===_.MuxErrorCode.NETWORK_NOT_READY)return(0,_.i18n)("{category} is not currently available",e).format({category:r})}if(i.code){if(i.code===_.MediaError.MEDIA_ERR_NETWORK)return(0,_.i18n)("Network Error",e);if(i.code===_.MediaError.MEDIA_ERR_DECODE)return(0,_.i18n)("Media Error",e);if(i.code===_.MediaError.MEDIA_ERR_SRC_NOT_SUPPORTED)return(0,_.i18n)("Source Not Supported",e)}return(0,_.i18n)("Error",e)},$f=(i,e=!1)=>{var t,a;if(i.muxCode){let r=lm((t=i.errorCategory)!=null?t:"video"),n=(0,_.errorCategoryToTokenNameOrPrefix)((a=i.errorCategory)!=null?a:_.MuxErrorCategory.VIDEO);return i.muxCode===_.MuxErrorCode.NETWORK_OFFLINE?(0,_.i18n)("Check your internet connection and try reloading this video.",e):i.muxCode===_.MuxErrorCode.NETWORK_TOKEN_EXPIRED?(0,_.i18n)("The video\u2019s secured {tokenNamePrefix}-token has expired.",e).format({tokenNamePrefix:n}):i.muxCode===_.MuxErrorCode.NETWORK_TOKEN_SUB_MISMATCH?(0,_.i18n)("The video\u2019s playback ID does not match the one encoded in the {tokenNamePrefix}-token.",e).format({tokenNamePrefix:n}):i.muxCode===_.MuxErrorCode.NETWORK_TOKEN_MALFORMED?(0,_.i18n)("{category} URL is formatted incorrectly",e).format({category:r}):[_.MuxErrorCode.NETWORK_TOKEN_AUD_MISMATCH,_.MuxErrorCode.NETWORK_TOKEN_AUD_MISSING].includes(i.muxCode)?(0,_.i18n)("The {tokenNamePrefix}-token is formatted with incorrect information.",e).format({tokenNamePrefix:n}):[_.MuxErrorCode.NETWORK_TOKEN_MISSING,_.MuxErrorCode.NETWORK_INVALID_URL].includes(i.muxCode)?(0,_.i18n)("The video URL or {tokenNamePrefix}-token are formatted with incorrect or incomplete information.",e).format({tokenNamePrefix:n}):i.muxCode===_.MuxErrorCode.NETWORK_NOT_FOUND?"":i.muxCode===_.MuxErrorCode.NETWORK_NOT_READY?(0,_.i18n)("The live stream or video file are not yet ready.",e):i.message}return i.code&&(i.code===_.MediaError.MEDIA_ERR_NETWORK||i.code===_.MediaError.MEDIA_ERR_DECODE||i.code===_.MediaError.MEDIA_ERR_SRC_NOT_SUPPORTED),i.message},dm=(i,e=!1)=>{let t=Wf(i,e),a=$f(i,e);return{title:t,message:a}},Ff=i=>{if(i.muxCode){if(i.muxCode===_.MuxErrorCode.NETWORK_TOKEN_EXPIRED)return"403-expired-token.md";if(i.muxCode===_.MuxErrorCode.NETWORK_TOKEN_MALFORMED)return"403-malformatted-token.md";if([_.MuxErrorCode.NETWORK_TOKEN_AUD_MISMATCH,_.MuxErrorCode.NETWORK_TOKEN_AUD_MISSING].includes(i.muxCode))return"403-incorrect-aud-value.md";if(i.muxCode===_.MuxErrorCode.NETWORK_TOKEN_SUB_MISMATCH)return"403-playback-id-mismatch.md";if(i.muxCode===_.MuxErrorCode.NETWORK_TOKEN_MISSING)return"missing-signed-tokens.md";if(i.muxCode===_.MuxErrorCode.NETWORK_NOT_FOUND)return"404-not-found.md";if(i.muxCode===_.MuxErrorCode.NETWORK_NOT_READY)return"412-not-playable.md"}if(i.code){if(i.code===_.MediaError.MEDIA_ERR_NETWORK)return"";if(i.code===_.MediaError.MEDIA_ERR_DECODE)return"media-decode-error.md";if(i.code===_.MediaError.MEDIA_ERR_SRC_NOT_SUPPORTED)return"media-src-not-supported.md"}return""},sl=(i,e)=>{let t=Ff(i);return{message:i.message,context:i.context,file:t}};var um=`<template id="media-theme-gerwig">
+  `;
+};
+
+// src/errors.ts
+var import_playback_core4 = require("@mux/playback-core");
+var capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1);
+var muxMediaErrorToDialogTitle = (mediaError, translate = false) => {
+  var _a3, _b2;
+  if (mediaError.muxCode) {
+    const category = capitalizeFirstLetter((_a3 = mediaError.errorCategory) != null ? _a3 : "video");
+    const categoryName = (0, import_playback_core4.errorCategoryToTokenNameOrPrefix)((_b2 = mediaError.errorCategory) != null ? _b2 : import_playback_core4.MuxErrorCategory.VIDEO);
+    if (mediaError.muxCode === import_playback_core4.MuxErrorCode.NETWORK_OFFLINE) {
+      return (0, import_playback_core4.i18n)(`Your device appears to be offline`, translate);
+    }
+    if (mediaError.muxCode === import_playback_core4.MuxErrorCode.NETWORK_TOKEN_EXPIRED) {
+      return (0, import_playback_core4.i18n)(`{category} URL has expired`, translate).format({
+        category
+      });
+    }
+    if ([
+      import_playback_core4.MuxErrorCode.NETWORK_TOKEN_SUB_MISMATCH,
+      import_playback_core4.MuxErrorCode.NETWORK_TOKEN_AUD_MISMATCH,
+      import_playback_core4.MuxErrorCode.NETWORK_TOKEN_AUD_MISSING,
+      import_playback_core4.MuxErrorCode.NETWORK_TOKEN_MALFORMED
+      // @ts-ignore
+    ].includes(mediaError.muxCode)) {
+      return (0, import_playback_core4.i18n)(`{category} URL is formatted incorrectly`, translate).format({ category });
+    }
+    if (mediaError.muxCode === import_playback_core4.MuxErrorCode.NETWORK_TOKEN_MISSING) {
+      return (0, import_playback_core4.i18n)(`Invalid {categoryName} URL`, translate).format({ categoryName });
+    }
+    if (mediaError.muxCode === import_playback_core4.MuxErrorCode.NETWORK_NOT_FOUND) {
+      return (0, import_playback_core4.i18n)(`{category} does not exist`, translate).format({ category });
+    }
+    if (mediaError.muxCode === import_playback_core4.MuxErrorCode.NETWORK_NOT_READY) {
+      return (0, import_playback_core4.i18n)(`{category} is not currently available`, translate).format({ category });
+    }
+  }
+  if (mediaError.code) {
+    if (mediaError.code === import_playback_core4.MediaError.MEDIA_ERR_NETWORK) return (0, import_playback_core4.i18n)(`Network Error`, translate);
+    if (mediaError.code === import_playback_core4.MediaError.MEDIA_ERR_DECODE) return (0, import_playback_core4.i18n)(`Media Error`, translate);
+    if (mediaError.code === import_playback_core4.MediaError.MEDIA_ERR_SRC_NOT_SUPPORTED) return (0, import_playback_core4.i18n)(`Source Not Supported`, translate);
+  }
+  return (0, import_playback_core4.i18n)(`Error`, translate);
+};
+var muxMediaErrorToDialogMessage = (mediaError, translate = false) => {
+  var _a3, _b2;
+  if (mediaError.muxCode) {
+    const category = capitalizeFirstLetter((_a3 = mediaError.errorCategory) != null ? _a3 : "video");
+    const tokenNamePrefix = (0, import_playback_core4.errorCategoryToTokenNameOrPrefix)((_b2 = mediaError.errorCategory) != null ? _b2 : import_playback_core4.MuxErrorCategory.VIDEO);
+    if (mediaError.muxCode === import_playback_core4.MuxErrorCode.NETWORK_OFFLINE) {
+      return (0, import_playback_core4.i18n)(`Check your internet connection and try reloading this video.`, translate);
+    }
+    if (mediaError.muxCode === import_playback_core4.MuxErrorCode.NETWORK_TOKEN_EXPIRED) {
+      return (0, import_playback_core4.i18n)(`The video\u2019s secured {tokenNamePrefix}-token has expired.`, translate).format({
+        tokenNamePrefix
+      });
+    }
+    if (mediaError.muxCode === import_playback_core4.MuxErrorCode.NETWORK_TOKEN_SUB_MISMATCH) {
+      return (0, import_playback_core4.i18n)(
+        `The video\u2019s playback ID does not match the one encoded in the {tokenNamePrefix}-token.`,
+        translate
+      ).format({
+        tokenNamePrefix
+      });
+    }
+    if (mediaError.muxCode === import_playback_core4.MuxErrorCode.NETWORK_TOKEN_MALFORMED) {
+      return (0, import_playback_core4.i18n)(`{category} URL is formatted incorrectly`, translate).format({ category });
+    }
+    if ([
+      import_playback_core4.MuxErrorCode.NETWORK_TOKEN_AUD_MISMATCH,
+      import_playback_core4.MuxErrorCode.NETWORK_TOKEN_AUD_MISSING
+      // @ts-ignore
+    ].includes(mediaError.muxCode)) {
+      return (0, import_playback_core4.i18n)(`The {tokenNamePrefix}-token is formatted with incorrect information.`, translate).format({
+        tokenNamePrefix
+      });
+    }
+    if ([
+      import_playback_core4.MuxErrorCode.NETWORK_TOKEN_MISSING,
+      import_playback_core4.MuxErrorCode.NETWORK_INVALID_URL
+      // @ts-ignore
+    ].includes(mediaError.muxCode)) {
+      return (0, import_playback_core4.i18n)(
+        `The video URL or {tokenNamePrefix}-token are formatted with incorrect or incomplete information.`,
+        translate
+      ).format({
+        tokenNamePrefix
+      });
+    }
+    if (mediaError.muxCode === import_playback_core4.MuxErrorCode.NETWORK_NOT_FOUND) {
+      return "";
+    }
+    if (mediaError.muxCode === import_playback_core4.MuxErrorCode.NETWORK_NOT_READY) {
+      return (0, import_playback_core4.i18n)(`The live stream or video file are not yet ready.`, translate);
+    }
+    return mediaError.message;
+  }
+  if (mediaError.code) {
+    if (mediaError.code === import_playback_core4.MediaError.MEDIA_ERR_NETWORK) return mediaError.message;
+    if (mediaError.code === import_playback_core4.MediaError.MEDIA_ERR_DECODE) return mediaError.message;
+    if (mediaError.code === import_playback_core4.MediaError.MEDIA_ERR_SRC_NOT_SUPPORTED) return mediaError.message;
+  }
+  return mediaError.message;
+};
+var muxMediaErrorToDialog = (mediaError, translate = false) => {
+  const title = muxMediaErrorToDialogTitle(mediaError, translate);
+  const message = muxMediaErrorToDialogMessage(mediaError, translate);
+  return {
+    title,
+    message
+  };
+};
+var muxMediaErrorToDevlogFile = (mediaError) => {
+  if (mediaError.muxCode) {
+    if (mediaError.muxCode === import_playback_core4.MuxErrorCode.NETWORK_TOKEN_EXPIRED) {
+      return "403-expired-token.md";
+    }
+    if (mediaError.muxCode === import_playback_core4.MuxErrorCode.NETWORK_TOKEN_MALFORMED) {
+      return "403-malformatted-token.md";
+    }
+    if ([
+      import_playback_core4.MuxErrorCode.NETWORK_TOKEN_AUD_MISMATCH,
+      import_playback_core4.MuxErrorCode.NETWORK_TOKEN_AUD_MISSING
+      // @ts-ignore
+    ].includes(mediaError.muxCode)) {
+      return "403-incorrect-aud-value.md";
+    }
+    if (mediaError.muxCode === import_playback_core4.MuxErrorCode.NETWORK_TOKEN_SUB_MISMATCH) {
+      return "403-playback-id-mismatch.md";
+    }
+    if (mediaError.muxCode === import_playback_core4.MuxErrorCode.NETWORK_TOKEN_MISSING) {
+      return "missing-signed-tokens.md";
+    }
+    if (mediaError.muxCode === import_playback_core4.MuxErrorCode.NETWORK_NOT_FOUND) {
+      return "404-not-found.md";
+    }
+    if (mediaError.muxCode === import_playback_core4.MuxErrorCode.NETWORK_NOT_READY) {
+      return "412-not-playable.md";
+    }
+  }
+  if (mediaError.code) {
+    if (mediaError.code === import_playback_core4.MediaError.MEDIA_ERR_NETWORK) return "";
+    if (mediaError.code === import_playback_core4.MediaError.MEDIA_ERR_DECODE) return "media-decode-error.md";
+    if (mediaError.code === import_playback_core4.MediaError.MEDIA_ERR_SRC_NOT_SUPPORTED) return "media-src-not-supported.md";
+  }
+  return "";
+};
+var muxMediaErrorToDevlog = (mediaError, _translate) => {
+  const file = muxMediaErrorToDevlogFile(mediaError);
+  return {
+    message: mediaError.message,
+    context: mediaError.context,
+    file
+  };
+};
+
+// src/themes/gerwig/gerwig.html
+var gerwig_default = `<template id="media-theme-gerwig">
   <style>
     @keyframes pre-play-hide {
       0% {
@@ -2570,7 +11332,212 @@ media-poster-image:not([src]):not([placeholdersrc]) {
     <slot></slot>
   </media-controller>
 </template>
-`;function cm({anchor:i,floating:e,placement:t}){let a=Kf({anchor:i,floating:e}),{x:r,y:n}=Yf(a,t);return{x:r,y:n}}function Kf({anchor:i,floating:e}){return{anchor:Gf(i,e.offsetParent),floating:{x:0,y:0,width:e.offsetWidth,height:e.offsetHeight}}}function Gf(i,e){var t;let a=i.getBoundingClientRect(),r=(t=e==null?void 0:e.getBoundingClientRect())!=null?t:{x:0,y:0};return{x:a.x-r.x,y:a.y-r.y,width:a.width,height:a.height}}function Yf({anchor:i,floating:e},t){let a=qf(t)==="x"?"y":"x",r=a==="y"?"height":"width",n=mm(t),s=i.x+i.width/2-e.width/2,l=i.y+i.height/2-e.height/2,u=i[r]/2-e[r]/2,c;switch(n){case"top":c={x:s,y:i.y-e.height};break;case"bottom":c={x:s,y:i.y+i.height};break;case"right":c={x:i.x+i.width,y:l};break;case"left":c={x:i.x-e.width,y:l};break;default:c={x:i.x,y:i.y}}switch(t.split("-")[1]){case"start":c[a]-=u;break;case"end":c[a]+=u;break}return c}function mm(i){return i.split("-")[0]}function qf(i){return["top","bottom"].includes(mm(i))?"y":"x"}var Rt=class extends Event{constructor({action:e="auto",relatedTarget:t,...a}){super("invoke",a),this.action=e,this.relatedTarget=t}},Hn=class extends Event{constructor({newState:e,oldState:t,...a}){super("toggle",a),this.newState=e,this.oldState=t}};var gl=(i,e,t)=>{if(!e.has(i))throw TypeError("Cannot "+t)},H=(i,e,t)=>(gl(i,e,"read from private field"),t?t.call(i):e.get(i)),K=(i,e,t)=>{if(e.has(i))throw TypeError("Cannot add the same private member more than once");e instanceof WeakSet?e.add(i):e.set(i,t)},je=(i,e,t,a)=>(gl(i,e,"write to private field"),a?a.call(i,t):e.set(i,t),t),G=(i,e,t)=>(gl(i,e,"access private method"),t),et,hi,Lt,Wn,$n,pi,Va,ll,hm,Kn,Fn,dl,ul,pm,cl,fm,ml,vm,zi,Qi,Xi,Ka,Gn,_l,hl,Em,Al,bm,pl,gm,yl,_m,fl,Am,vl,ym,$a,Yn,El,Tm,Fa,qn,Vn,bl;function tt({type:i,text:e,value:t,checked:a}){let r=h.createElement("media-chrome-menu-item");r.type=i!=null?i:"",r.part.add("menu-item"),i&&r.part.add(i),r.value=t,r.checked=a;let n=h.createElement("span");return n.textContent=e,r.append(n),r}function Ue(i,e){let t=i.querySelector(`:scope > [slot="${e}"]`);if((t==null?void 0:t.nodeName)=="SLOT"&&(t=t.assignedElements({flatten:!0})[0]),t)return t=t.cloneNode(!0),t;let a=i.shadowRoot.querySelector(`[name="${e}"] > svg`);return a?a.cloneNode(!0):""}var km=h.createElement("template");km.innerHTML=`
+`;
+
+// ../../node_modules/media-chrome/dist/utils/anchor-utils.js
+function computePosition({
+  anchor,
+  floating,
+  placement
+}) {
+  const rects = getElementRects({ anchor, floating });
+  const { x, y } = computeCoordsFromPlacement(rects, placement);
+  return { x, y };
+}
+function getElementRects({
+  anchor,
+  floating
+}) {
+  return {
+    anchor: getRectRelativeToOffsetParent(anchor, floating.offsetParent),
+    floating: {
+      x: 0,
+      y: 0,
+      width: floating.offsetWidth,
+      height: floating.offsetHeight
+    }
+  };
+}
+function getRectRelativeToOffsetParent(element, offsetParent) {
+  var _a3;
+  const rect = element.getBoundingClientRect();
+  const offsetRect = (_a3 = offsetParent == null ? void 0 : offsetParent.getBoundingClientRect()) != null ? _a3 : { x: 0, y: 0 };
+  return {
+    x: rect.x - offsetRect.x,
+    y: rect.y - offsetRect.y,
+    width: rect.width,
+    height: rect.height
+  };
+}
+function computeCoordsFromPlacement({ anchor, floating }, placement) {
+  const alignmentAxis = getSideAxis(placement) === "x" ? "y" : "x";
+  const alignLength = alignmentAxis === "y" ? "height" : "width";
+  const side = getSide(placement);
+  const commonX = anchor.x + anchor.width / 2 - floating.width / 2;
+  const commonY = anchor.y + anchor.height / 2 - floating.height / 2;
+  const commonAlign = anchor[alignLength] / 2 - floating[alignLength] / 2;
+  let coords;
+  switch (side) {
+    case "top":
+      coords = { x: commonX, y: anchor.y - floating.height };
+      break;
+    case "bottom":
+      coords = { x: commonX, y: anchor.y + anchor.height };
+      break;
+    case "right":
+      coords = { x: anchor.x + anchor.width, y: commonY };
+      break;
+    case "left":
+      coords = { x: anchor.x - floating.width, y: commonY };
+      break;
+    default:
+      coords = { x: anchor.x, y: anchor.y };
+  }
+  switch (placement.split("-")[1]) {
+    case "start":
+      coords[alignmentAxis] -= commonAlign;
+      break;
+    case "end":
+      coords[alignmentAxis] += commonAlign;
+      break;
+  }
+  return coords;
+}
+function getSide(placement) {
+  return placement.split("-")[0];
+}
+function getSideAxis(placement) {
+  return ["top", "bottom"].includes(getSide(placement)) ? "y" : "x";
+}
+
+// ../../node_modules/media-chrome/dist/utils/events.js
+var InvokeEvent = class extends Event {
+  /**
+   * @param init - The event options.
+   */
+  constructor({ action = "auto", relatedTarget, ...options }) {
+    super("invoke", options);
+    this.action = action;
+    this.relatedTarget = relatedTarget;
+  }
+};
+var ToggleEvent = class extends Event {
+  /**
+   * @param init - The event options.
+   */
+  constructor({ newState, oldState, ...options }) {
+    super("toggle", options);
+    this.newState = newState;
+    this.oldState = oldState;
+  }
+};
+
+// ../../node_modules/media-chrome/dist/menu/media-chrome-menu.js
+var __accessCheck23 = (obj, member, msg) => {
+  if (!member.has(obj))
+    throw TypeError("Cannot " + msg);
+};
+var __privateGet23 = (obj, member, getter) => {
+  __accessCheck23(obj, member, "read from private field");
+  return getter ? getter.call(obj) : member.get(obj);
+};
+var __privateAdd23 = (obj, member, value) => {
+  if (member.has(obj))
+    throw TypeError("Cannot add the same private member more than once");
+  member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+};
+var __privateSet22 = (obj, member, value, setter) => {
+  __accessCheck23(obj, member, "write to private field");
+  setter ? setter.call(obj, value) : member.set(obj, value);
+  return value;
+};
+var __privateMethod9 = (obj, member, method) => {
+  __accessCheck23(obj, member, "access private method");
+  return method;
+};
+var _mediaController8;
+var _previouslyFocused2;
+var _invokerElement2;
+var _previousItems;
+var _mutationObserver2;
+var _isPopover;
+var _cssRule;
+var _handleSlotChange;
+var handleSlotChange_fn;
+var _handleMenuItems;
+var _updateLayoutStyle;
+var updateLayoutStyle_fn;
+var _handleInvoke2;
+var handleInvoke_fn2;
+var _handleOpen2;
+var handleOpen_fn2;
+var _handleClosed2;
+var handleClosed_fn2;
+var _handleBoundsResize;
+var _handleMenuResize;
+var _positionMenu;
+var positionMenu_fn;
+var _resizeMenu;
+var resizeMenu_fn;
+var _handleClick;
+var handleClick_fn;
+var _backButtonElement;
+var backButtonElement_get;
+var _handleToggle;
+var handleToggle_fn;
+var _checkSubmenuHasExpanded;
+var checkSubmenuHasExpanded_fn;
+var _handleFocusOut2;
+var handleFocusOut_fn2;
+var _handleKeyDown2;
+var handleKeyDown_fn2;
+var _getItem;
+var getItem_fn;
+var _getTabItem;
+var getTabItem_fn;
+var _setTabItem;
+var setTabItem_fn;
+var _selectItem;
+var selectItem_fn;
+function createMenuItem({
+  type,
+  text,
+  value,
+  checked
+}) {
+  const item = Document2.createElement(
+    "media-chrome-menu-item"
+  );
+  item.type = type != null ? type : "";
+  item.part.add("menu-item");
+  if (type)
+    item.part.add(type);
+  item.value = value;
+  item.checked = checked;
+  const label = Document2.createElement("span");
+  label.textContent = text;
+  item.append(label);
+  return item;
+}
+function createIndicator(el, name) {
+  let customIndicator = el.querySelector(`:scope > [slot="${name}"]`);
+  if ((customIndicator == null ? void 0 : customIndicator.nodeName) == "SLOT")
+    customIndicator = customIndicator.assignedElements({ flatten: true })[0];
+  if (customIndicator) {
+    customIndicator = customIndicator.cloneNode(true);
+    return customIndicator;
+  }
+  const fallbackIndicator = el.shadowRoot.querySelector(
+    `[name="${name}"] > svg`
+  );
+  if (fallbackIndicator) {
+    return fallbackIndicator.cloneNode(true);
+  }
+  return "";
+}
+var template13 = Document2.createElement("template");
+template13.innerHTML = /*html*/
+`
   <style>
     :host {
       font: var(--media-font,
@@ -2592,13 +11559,15 @@ media-poster-image:not([src]):not([placeholdersrc]) {
         min-width .2s ease-in-out,
         min-height .2s ease-in-out
       ) !important;
-      
+      ${/* ^^Prevent transition override by media-container */
+""}
       visibility: var(--media-menu-visibility, visible);
       opacity: var(--media-menu-opacity, 1);
       max-height: var(--media-menu-max-height, var(--_menu-max-height, 300px));
       transform: var(--media-menu-transform-in, translateY(0) scale(1));
       flex-direction: column;
-      
+      ${/* Prevent overflowing a flex container */
+""}
       min-height: 0;
       position: relative;
       bottom: var(--_menu-bottom);
@@ -2725,7 +11694,8 @@ media-poster-image:not([src]):not([placeholdersrc]) {
       background: var(--media-menu-item-checked-background, rgb(255 255 255 / .2));
     }
 
-    
+    ${/* In row layout hide the checked indicator completely. */
+""}
     media-chrome-menu-item::part(checked-indicator) {
       display: var(--media-menu-item-checked-indicator-display, none);
     }
@@ -2744,7 +11714,589 @@ media-poster-image:not([src]):not([placeholdersrc]) {
     <slot></slot>
   </div>
   <slot name="checked-indicator" hidden></slot>
-`;var mi={STYLE:"style",HIDDEN:"hidden",DISABLED:"disabled",ANCHOR:"anchor"},oe=class extends d.HTMLElement{constructor(){super(),K(this,ll),K(this,Fn),K(this,ul),K(this,cl),K(this,ml),K(this,Xi),K(this,Gn),K(this,hl),K(this,Al),K(this,pl),K(this,yl),K(this,fl),K(this,vl),K(this,$a),K(this,El),K(this,Fa),K(this,Vn),K(this,et,null),K(this,hi,null),K(this,Lt,null),K(this,Wn,new Set),K(this,$n,void 0),K(this,pi,!1),K(this,Va,null),K(this,Kn,()=>{let e=H(this,Wn),t=new Set(this.items);for(let a of e)t.has(a)||this.dispatchEvent(new CustomEvent("removemenuitem",{detail:a}));for(let a of t)e.has(a)||this.dispatchEvent(new CustomEvent("addmenuitem",{detail:a}));je(this,Wn,t)}),K(this,zi,()=>{G(this,Xi,Ka).call(this),G(this,Gn,_l).call(this,!1)}),K(this,Qi,()=>{G(this,Xi,Ka).call(this)}),this.shadowRoot||(this.attachShadow({mode:"open"}),this.nativeEl=this.constructor.template.content.cloneNode(!0),this.shadowRoot.append(this.nativeEl)),this.container=this.shadowRoot.querySelector("#container"),this.defaultSlot=this.shadowRoot.querySelector("slot:not([name])"),this.shadowRoot.addEventListener("slotchange",this),je(this,$n,new MutationObserver(H(this,Kn))),H(this,$n).observe(this.defaultSlot,{childList:!0})}static get observedAttributes(){return[mi.DISABLED,mi.HIDDEN,mi.STYLE,mi.ANCHOR,R.MEDIA_CONTROLLER]}static formatMenuItemText(e,t){return e}enable(){this.addEventListener("click",this),this.addEventListener("focusout",this),this.addEventListener("keydown",this),this.addEventListener("invoke",this),this.addEventListener("toggle",this)}disable(){this.removeEventListener("click",this),this.removeEventListener("focusout",this),this.removeEventListener("keyup",this),this.removeEventListener("invoke",this),this.removeEventListener("toggle",this)}handleEvent(e){switch(e.type){case"slotchange":G(this,ll,hm).call(this,e);break;case"invoke":G(this,ul,pm).call(this,e);break;case"click":G(this,hl,Em).call(this,e);break;case"toggle":G(this,pl,gm).call(this,e);break;case"focusout":G(this,fl,Am).call(this,e);break;case"keydown":G(this,vl,ym).call(this,e);break}}connectedCallback(){var e,t;je(this,Va,Ro(this.shadowRoot,":host")),G(this,Fn,dl).call(this),this.hasAttribute("disabled")||this.enable(),this.role||(this.role="menu"),je(this,et,pr(this)),(t=(e=H(this,et))==null?void 0:e.associateElement)==null||t.call(e,this),this.hidden||(ot(Ga(this),H(this,zi)),ot(this,H(this,Qi)))}disconnectedCallback(){var e,t;st(Ga(this),H(this,zi)),st(this,H(this,Qi)),this.disable(),(t=(e=H(this,et))==null?void 0:e.unassociateElement)==null||t.call(e,this),je(this,et,null)}attributeChangedCallback(e,t,a){var r,n,s,l;e===mi.HIDDEN&&a!==t?(H(this,pi)||je(this,pi,!0),this.hidden?G(this,ml,vm).call(this):G(this,cl,fm).call(this),this.dispatchEvent(new Hn({oldState:this.hidden?"open":"closed",newState:this.hidden?"closed":"open",bubbles:!0}))):e===R.MEDIA_CONTROLLER?(t&&((n=(r=H(this,et))==null?void 0:r.unassociateElement)==null||n.call(r,this),je(this,et,null)),a&&this.isConnected&&(je(this,et,pr(this)),(l=(s=H(this,et))==null?void 0:s.associateElement)==null||l.call(s,this))):e===mi.DISABLED&&a!==t?a==null?this.enable():this.disable():e===mi.STYLE&&a!==t&&G(this,Fn,dl).call(this)}formatMenuItemText(e,t){return this.constructor.formatMenuItemText(e,t)}get anchor(){return this.getAttribute("anchor")}set anchor(e){this.setAttribute("anchor",`${e}`)}get anchorElement(){var e;return this.anchor?(e=Wt(this))==null?void 0:e.querySelector(`#${this.anchor}`):null}get items(){return this.defaultSlot.assignedElements({flatten:!0}).filter(Zf)}get radioGroupItems(){return this.items.filter(e=>e.role==="menuitemradio")}get checkedItems(){return this.items.filter(e=>e.checked)}get value(){var e,t;return(t=(e=this.checkedItems[0])==null?void 0:e.value)!=null?t:""}set value(e){let t=this.items.find(a=>a.value===e);t&&G(this,Vn,bl).call(this,t)}focus(){if(je(this,hi,la()),this.items.length){G(this,Fa,qn).call(this,this.items[0]),this.items[0].focus();return}let e=this.querySelector('[autofocus], [tabindex]:not([tabindex="-1"]), [role="menu"]');e==null||e.focus()}handleSelect(e){var t;let a=G(this,$a,Yn).call(this,e);a&&(G(this,Vn,bl).call(this,a,a.type==="checkbox"),H(this,Lt)&&!this.hidden&&((t=H(this,hi))==null||t.focus(),this.hidden=!0))}get keysUsed(){return["Enter","Escape","Tab"," ","ArrowDown","ArrowUp","Home","End"]}handleMove(e){var t,a;let{key:r}=e,n=this.items,s=(a=(t=G(this,$a,Yn).call(this,e))!=null?t:G(this,El,Tm).call(this))!=null?a:n[0],l=n.indexOf(s),u=Math.max(0,l);r==="ArrowDown"?u++:r==="ArrowUp"?u--:e.key==="Home"?u=0:e.key==="End"&&(u=n.length-1),u<0&&(u=n.length-1),u>n.length-1&&(u=0),G(this,Fa,qn).call(this,n[u]),n[u].focus()}};et=new WeakMap;hi=new WeakMap;Lt=new WeakMap;Wn=new WeakMap;$n=new WeakMap;pi=new WeakMap;Va=new WeakMap;ll=new WeakSet;hm=function(i){let e=i.target;for(let t of e.assignedNodes({flatten:!0}))t.nodeType===3&&t.textContent.trim()===""&&t.remove();if(["header","title"].includes(e.name)){let t=this.shadowRoot.querySelector('slot[name="header"]');t.hidden=e.assignedNodes().length===0}e.name||H(this,Kn).call(this)};Kn=new WeakMap;Fn=new WeakSet;dl=function(){var i;let e=this.shadowRoot.querySelector("#layout-row"),t=(i=getComputedStyle(this).getPropertyValue("--media-menu-layout"))==null?void 0:i.trim();e.setAttribute("media",t==="row"?"":"width:0")};ul=new WeakSet;pm=function(i){je(this,Lt,i.relatedTarget),de(this,i.relatedTarget)||(this.hidden=!this.hidden)};cl=new WeakSet;fm=function(){var i;(i=H(this,Lt))==null||i.setAttribute("aria-expanded","true"),this.addEventListener("transitionend",()=>this.focus(),{once:!0}),ot(Ga(this),H(this,zi)),ot(this,H(this,Qi))};ml=new WeakSet;vm=function(){var i;(i=H(this,Lt))==null||i.setAttribute("aria-expanded","false"),st(Ga(this),H(this,zi)),st(this,H(this,Qi))};zi=new WeakMap;Qi=new WeakMap;Xi=new WeakSet;Ka=function(i){if(this.hasAttribute("mediacontroller")&&!this.anchor||this.hidden||!this.anchorElement)return;let{x:e,y:t}=cm({anchor:this.anchorElement,floating:this,placement:"top-start"});i!=null||(i=this.offsetWidth);let r=Ga(this).getBoundingClientRect(),n=r.width-e-i,s=r.height-t-this.offsetHeight,{style:l}=H(this,Va);l.setProperty("position","absolute"),l.setProperty("right",`${Math.max(0,n)}px`),l.setProperty("--_menu-bottom",`${s}px`);let u=getComputedStyle(this),A=l.getPropertyValue("--_menu-bottom")===u.bottom?s:parseFloat(u.bottom),g=r.height-A-parseFloat(u.marginBottom);this.style.setProperty("--_menu-max-height",`${g}px`)};Gn=new WeakSet;_l=function(i){let e=this.querySelector('[role="menuitem"][aria-haspopup][aria-expanded="true"]'),t=e==null?void 0:e.querySelector('[role="menu"]'),{style:a}=H(this,Va);if(i||a.setProperty("--media-menu-transition-in","none"),t){let r=t.offsetHeight,n=Math.max(t.offsetWidth,e.offsetWidth);this.style.setProperty("min-width",`${n}px`),this.style.setProperty("min-height",`${r}px`),G(this,Xi,Ka).call(this,n)}else this.style.removeProperty("min-width"),this.style.removeProperty("min-height"),G(this,Xi,Ka).call(this);a.removeProperty("--media-menu-transition-in")};hl=new WeakSet;Em=function(i){var e;if(i.stopPropagation(),i.composedPath().includes(H(this,Al,bm))){(e=H(this,hi))==null||e.focus(),this.hidden=!0;return}let t=G(this,$a,Yn).call(this,i);!t||t.hasAttribute("disabled")||(G(this,Fa,qn).call(this,t),this.handleSelect(i))};Al=new WeakSet;bm=function(){var i;return(i=this.shadowRoot.querySelector('slot[name="header"]').assignedElements({flatten:!0}))==null?void 0:i.find(t=>t.matches('button[part~="back"]'))};pl=new WeakSet;gm=function(i){if(i.target===this)return;G(this,yl,_m).call(this);let e=Array.from(this.querySelectorAll('[role="menuitem"][aria-haspopup]'));for(let t of e)t.invokeTargetElement!=i.target&&i.newState=="open"&&t.getAttribute("aria-expanded")=="true"&&!t.invokeTargetElement.hidden&&t.invokeTargetElement.dispatchEvent(new Rt({relatedTarget:t}));for(let t of e)t.setAttribute("aria-expanded",`${!t.submenuElement.hidden}`);G(this,Gn,_l).call(this,!0)};yl=new WeakSet;_m=function(){let e=this.querySelector('[role="menuitem"] > [role="menu"]:not([hidden])');this.container.classList.toggle("has-expanded",!!e)};fl=new WeakSet;Am=function(i){var e;de(this,i.relatedTarget)||(H(this,pi)&&((e=H(this,hi))==null||e.focus()),H(this,Lt)&&H(this,Lt)!==i.relatedTarget&&!this.hidden&&(this.hidden=!0))};vl=new WeakSet;ym=function(i){var e,t,a,r,n;let{key:s,ctrlKey:l,altKey:u,metaKey:c}=i;if(!(l||u||c)&&this.keysUsed.includes(s))if(i.preventDefault(),i.stopPropagation(),s==="Tab"){if(H(this,pi)){this.hidden=!0;return}i.shiftKey?(t=(e=this.previousElementSibling)==null?void 0:e.focus)==null||t.call(e):(r=(a=this.nextElementSibling)==null?void 0:a.focus)==null||r.call(a),this.blur()}else s==="Escape"?((n=H(this,hi))==null||n.focus(),H(this,pi)&&(this.hidden=!0)):s==="Enter"||s===" "?this.handleSelect(i):this.handleMove(i)};$a=new WeakSet;Yn=function(i){return i.composedPath().find(e=>["menuitemradio","menuitemcheckbox"].includes(e.role))};El=new WeakSet;Tm=function(){return this.items.find(i=>i.tabIndex===0)};Fa=new WeakSet;qn=function(i){for(let e of this.items)e.tabIndex=e===i?0:-1};Vn=new WeakSet;bl=function(i,e){let t=[...this.checkedItems];i.type==="radio"&&this.radioGroupItems.forEach(a=>a.checked=!1),e?i.checked=!i.checked:i.checked=!0,this.checkedItems.some((a,r)=>a!=t[r])&&this.dispatchEvent(new Event("change",{bubbles:!0,composed:!0}))};oe.template=km;function Zf(i){return["menuitem","menuitemradio","menuitemcheckbox"].includes(i==null?void 0:i.role)}function Ga(i){var e;return(e=i.getAttribute("bounds")?He(i,`#${i.getAttribute("bounds")}`):q(i)||i.parentElement)!=null?e:i}d.customElements.get("media-chrome-menu")||d.customElements.define("media-chrome-menu",oe);var Ml=(i,e,t)=>{if(!e.has(i))throw TypeError("Cannot "+t)},at=(i,e,t)=>(Ml(i,e,"read from private field"),t?t.call(i):e.get(i)),ft=(i,e,t)=>{if(e.has(i))throw TypeError("Cannot add the same private member more than once");e instanceof WeakSet?e.add(i):e.set(i,t)},Tl=(i,e,t,a)=>(Ml(i,e,"write to private field"),a?a.call(i,t):e.set(i,t),t),it=(i,e,t)=>(Ml(i,e,"access private method"),t),Zn,qa,kl,Sm,wl,Im,Rl,Cm,rt,Ji,Za,Sl,Mm,zn,Il,wm=h.createElement("template");wm.innerHTML=`
+`;
+var Attributes13 = {
+  STYLE: "style",
+  HIDDEN: "hidden",
+  DISABLED: "disabled",
+  ANCHOR: "anchor"
+};
+var MediaChromeMenu = class extends GlobalThis.HTMLElement {
+  constructor() {
+    super();
+    __privateAdd23(this, _handleSlotChange);
+    __privateAdd23(this, _updateLayoutStyle);
+    __privateAdd23(this, _handleInvoke2);
+    __privateAdd23(this, _handleOpen2);
+    __privateAdd23(this, _handleClosed2);
+    __privateAdd23(this, _positionMenu);
+    __privateAdd23(this, _resizeMenu);
+    __privateAdd23(this, _handleClick);
+    __privateAdd23(this, _backButtonElement);
+    __privateAdd23(this, _handleToggle);
+    __privateAdd23(this, _checkSubmenuHasExpanded);
+    __privateAdd23(this, _handleFocusOut2);
+    __privateAdd23(this, _handleKeyDown2);
+    __privateAdd23(this, _getItem);
+    __privateAdd23(this, _getTabItem);
+    __privateAdd23(this, _setTabItem);
+    __privateAdd23(this, _selectItem);
+    __privateAdd23(this, _mediaController8, null);
+    __privateAdd23(this, _previouslyFocused2, null);
+    __privateAdd23(this, _invokerElement2, null);
+    __privateAdd23(this, _previousItems, /* @__PURE__ */ new Set());
+    __privateAdd23(this, _mutationObserver2, void 0);
+    __privateAdd23(this, _isPopover, false);
+    __privateAdd23(this, _cssRule, null);
+    __privateAdd23(this, _handleMenuItems, () => {
+      const previousItems = __privateGet23(this, _previousItems);
+      const currentItems = new Set(this.items);
+      for (const item of previousItems) {
+        if (!currentItems.has(item)) {
+          this.dispatchEvent(new CustomEvent("removemenuitem", { detail: item }));
+        }
+      }
+      for (const item of currentItems) {
+        if (!previousItems.has(item)) {
+          this.dispatchEvent(new CustomEvent("addmenuitem", { detail: item }));
+        }
+      }
+      __privateSet22(this, _previousItems, currentItems);
+    });
+    __privateAdd23(this, _handleBoundsResize, () => {
+      __privateMethod9(this, _positionMenu, positionMenu_fn).call(this);
+      __privateMethod9(this, _resizeMenu, resizeMenu_fn).call(this, false);
+    });
+    __privateAdd23(this, _handleMenuResize, () => {
+      __privateMethod9(this, _positionMenu, positionMenu_fn).call(this);
+    });
+    if (!this.shadowRoot) {
+      this.attachShadow({ mode: "open" });
+      this.nativeEl = this.constructor.template.content.cloneNode(true);
+      this.shadowRoot.append(this.nativeEl);
+    }
+    this.container = this.shadowRoot.querySelector("#container");
+    this.defaultSlot = this.shadowRoot.querySelector(
+      "slot:not([name])"
+    );
+    this.shadowRoot.addEventListener("slotchange", this);
+    __privateSet22(this, _mutationObserver2, new MutationObserver(__privateGet23(this, _handleMenuItems)));
+    __privateGet23(this, _mutationObserver2).observe(this.defaultSlot, { childList: true });
+  }
+  static get observedAttributes() {
+    return [
+      Attributes13.DISABLED,
+      Attributes13.HIDDEN,
+      Attributes13.STYLE,
+      Attributes13.ANCHOR,
+      MediaStateReceiverAttributes.MEDIA_CONTROLLER
+    ];
+  }
+  static formatMenuItemText(text, _data) {
+    return text;
+  }
+  enable() {
+    this.addEventListener("click", this);
+    this.addEventListener("focusout", this);
+    this.addEventListener("keydown", this);
+    this.addEventListener("invoke", this);
+    this.addEventListener("toggle", this);
+  }
+  disable() {
+    this.removeEventListener("click", this);
+    this.removeEventListener("focusout", this);
+    this.removeEventListener("keyup", this);
+    this.removeEventListener("invoke", this);
+    this.removeEventListener("toggle", this);
+  }
+  handleEvent(event) {
+    switch (event.type) {
+      case "slotchange":
+        __privateMethod9(this, _handleSlotChange, handleSlotChange_fn).call(this, event);
+        break;
+      case "invoke":
+        __privateMethod9(this, _handleInvoke2, handleInvoke_fn2).call(this, event);
+        break;
+      case "click":
+        __privateMethod9(this, _handleClick, handleClick_fn).call(this, event);
+        break;
+      case "toggle":
+        __privateMethod9(this, _handleToggle, handleToggle_fn).call(this, event);
+        break;
+      case "focusout":
+        __privateMethod9(this, _handleFocusOut2, handleFocusOut_fn2).call(this, event);
+        break;
+      case "keydown":
+        __privateMethod9(this, _handleKeyDown2, handleKeyDown_fn2).call(this, event);
+        break;
+    }
+  }
+  connectedCallback() {
+    var _a3, _b2;
+    __privateSet22(this, _cssRule, insertCSSRule(this.shadowRoot, ":host"));
+    __privateMethod9(this, _updateLayoutStyle, updateLayoutStyle_fn).call(this);
+    if (!this.hasAttribute("disabled")) {
+      this.enable();
+    }
+    if (!this.role) {
+      this.role = "menu";
+    }
+    __privateSet22(this, _mediaController8, getAttributeMediaController(this));
+    (_b2 = (_a3 = __privateGet23(this, _mediaController8)) == null ? void 0 : _a3.associateElement) == null ? void 0 : _b2.call(_a3, this);
+    if (!this.hidden) {
+      observeResize(getBoundsElement(this), __privateGet23(this, _handleBoundsResize));
+      observeResize(this, __privateGet23(this, _handleMenuResize));
+    }
+  }
+  disconnectedCallback() {
+    var _a3, _b2;
+    unobserveResize(getBoundsElement(this), __privateGet23(this, _handleBoundsResize));
+    unobserveResize(this, __privateGet23(this, _handleMenuResize));
+    this.disable();
+    (_b2 = (_a3 = __privateGet23(this, _mediaController8)) == null ? void 0 : _a3.unassociateElement) == null ? void 0 : _b2.call(_a3, this);
+    __privateSet22(this, _mediaController8, null);
+  }
+  attributeChangedCallback(attrName, oldValue, newValue) {
+    var _a3, _b2, _c, _d;
+    if (attrName === Attributes13.HIDDEN && newValue !== oldValue) {
+      if (!__privateGet23(this, _isPopover))
+        __privateSet22(this, _isPopover, true);
+      if (this.hidden) {
+        __privateMethod9(this, _handleClosed2, handleClosed_fn2).call(this);
+      } else {
+        __privateMethod9(this, _handleOpen2, handleOpen_fn2).call(this);
+      }
+      this.dispatchEvent(
+        new ToggleEvent({
+          oldState: this.hidden ? "open" : "closed",
+          newState: this.hidden ? "closed" : "open",
+          bubbles: true
+        })
+      );
+    } else if (attrName === MediaStateReceiverAttributes.MEDIA_CONTROLLER) {
+      if (oldValue) {
+        (_b2 = (_a3 = __privateGet23(this, _mediaController8)) == null ? void 0 : _a3.unassociateElement) == null ? void 0 : _b2.call(_a3, this);
+        __privateSet22(this, _mediaController8, null);
+      }
+      if (newValue && this.isConnected) {
+        __privateSet22(this, _mediaController8, getAttributeMediaController(this));
+        (_d = (_c = __privateGet23(this, _mediaController8)) == null ? void 0 : _c.associateElement) == null ? void 0 : _d.call(_c, this);
+      }
+    } else if (attrName === Attributes13.DISABLED && newValue !== oldValue) {
+      if (newValue == null) {
+        this.enable();
+      } else {
+        this.disable();
+      }
+    } else if (attrName === Attributes13.STYLE && newValue !== oldValue) {
+      __privateMethod9(this, _updateLayoutStyle, updateLayoutStyle_fn).call(this);
+    }
+  }
+  formatMenuItemText(text, data) {
+    return this.constructor.formatMenuItemText(
+      text,
+      data
+    );
+  }
+  get anchor() {
+    return this.getAttribute("anchor");
+  }
+  set anchor(value) {
+    this.setAttribute("anchor", `${value}`);
+  }
+  /**
+   * Returns the anchor element when it is a floating menu.
+   */
+  get anchorElement() {
+    var _a3;
+    if (this.anchor) {
+      return (_a3 = getDocumentOrShadowRoot(this)) == null ? void 0 : _a3.querySelector(
+        `#${this.anchor}`
+      );
+    }
+    return null;
+  }
+  /**
+   * Returns the menu items.
+   */
+  get items() {
+    return this.defaultSlot.assignedElements({ flatten: true }).filter(isMenuItem);
+  }
+  get radioGroupItems() {
+    return this.items.filter((item) => item.role === "menuitemradio");
+  }
+  get checkedItems() {
+    return this.items.filter((item) => item.checked);
+  }
+  get value() {
+    var _a3, _b2;
+    return (_b2 = (_a3 = this.checkedItems[0]) == null ? void 0 : _a3.value) != null ? _b2 : "";
+  }
+  set value(newValue) {
+    const item = this.items.find((item2) => item2.value === newValue);
+    if (!item)
+      return;
+    __privateMethod9(this, _selectItem, selectItem_fn).call(this, item);
+  }
+  focus() {
+    __privateSet22(this, _previouslyFocused2, getActiveElement());
+    if (this.items.length) {
+      __privateMethod9(this, _setTabItem, setTabItem_fn).call(this, this.items[0]);
+      this.items[0].focus();
+      return;
+    }
+    const focusable = this.querySelector(
+      '[autofocus], [tabindex]:not([tabindex="-1"]), [role="menu"]'
+    );
+    focusable == null ? void 0 : focusable.focus();
+  }
+  handleSelect(event) {
+    var _a3;
+    const item = __privateMethod9(this, _getItem, getItem_fn).call(this, event);
+    if (!item)
+      return;
+    __privateMethod9(this, _selectItem, selectItem_fn).call(this, item, item.type === "checkbox");
+    if (__privateGet23(this, _invokerElement2) && !this.hidden) {
+      (_a3 = __privateGet23(this, _previouslyFocused2)) == null ? void 0 : _a3.focus();
+      this.hidden = true;
+    }
+  }
+  get keysUsed() {
+    return [
+      "Enter",
+      "Escape",
+      "Tab",
+      " ",
+      "ArrowDown",
+      "ArrowUp",
+      "Home",
+      "End"
+    ];
+  }
+  handleMove(event) {
+    var _a3, _b2;
+    const { key } = event;
+    const items = this.items;
+    const currentItem = (_b2 = (_a3 = __privateMethod9(this, _getItem, getItem_fn).call(this, event)) != null ? _a3 : __privateMethod9(this, _getTabItem, getTabItem_fn).call(this)) != null ? _b2 : items[0];
+    const currentIndex = items.indexOf(currentItem);
+    let index = Math.max(0, currentIndex);
+    if (key === "ArrowDown") {
+      index++;
+    } else if (key === "ArrowUp") {
+      index--;
+    } else if (event.key === "Home") {
+      index = 0;
+    } else if (event.key === "End") {
+      index = items.length - 1;
+    }
+    if (index < 0) {
+      index = items.length - 1;
+    }
+    if (index > items.length - 1) {
+      index = 0;
+    }
+    __privateMethod9(this, _setTabItem, setTabItem_fn).call(this, items[index]);
+    items[index].focus();
+  }
+};
+_mediaController8 = /* @__PURE__ */ new WeakMap();
+_previouslyFocused2 = /* @__PURE__ */ new WeakMap();
+_invokerElement2 = /* @__PURE__ */ new WeakMap();
+_previousItems = /* @__PURE__ */ new WeakMap();
+_mutationObserver2 = /* @__PURE__ */ new WeakMap();
+_isPopover = /* @__PURE__ */ new WeakMap();
+_cssRule = /* @__PURE__ */ new WeakMap();
+_handleSlotChange = /* @__PURE__ */ new WeakSet();
+handleSlotChange_fn = function(event) {
+  const slot = event.target;
+  for (const node of slot.assignedNodes({ flatten: true })) {
+    if (node.nodeType === 3 && node.textContent.trim() === "") {
+      node.remove();
+    }
+  }
+  if (["header", "title"].includes(slot.name)) {
+    const header = this.shadowRoot.querySelector(
+      'slot[name="header"]'
+    );
+    header.hidden = slot.assignedNodes().length === 0;
+  }
+  if (!slot.name) {
+    __privateGet23(this, _handleMenuItems).call(this);
+  }
+};
+_handleMenuItems = /* @__PURE__ */ new WeakMap();
+_updateLayoutStyle = /* @__PURE__ */ new WeakSet();
+updateLayoutStyle_fn = function() {
+  var _a3;
+  const layoutRowStyle = this.shadowRoot.querySelector("#layout-row");
+  const menuLayout = (_a3 = getComputedStyle(this).getPropertyValue("--media-menu-layout")) == null ? void 0 : _a3.trim();
+  layoutRowStyle.setAttribute("media", menuLayout === "row" ? "" : "width:0");
+};
+_handleInvoke2 = /* @__PURE__ */ new WeakSet();
+handleInvoke_fn2 = function(event) {
+  __privateSet22(this, _invokerElement2, event.relatedTarget);
+  if (!containsComposedNode(this, event.relatedTarget)) {
+    this.hidden = !this.hidden;
+  }
+};
+_handleOpen2 = /* @__PURE__ */ new WeakSet();
+handleOpen_fn2 = function() {
+  var _a3;
+  (_a3 = __privateGet23(this, _invokerElement2)) == null ? void 0 : _a3.setAttribute("aria-expanded", "true");
+  this.addEventListener("transitionend", () => this.focus(), { once: true });
+  observeResize(getBoundsElement(this), __privateGet23(this, _handleBoundsResize));
+  observeResize(this, __privateGet23(this, _handleMenuResize));
+};
+_handleClosed2 = /* @__PURE__ */ new WeakSet();
+handleClosed_fn2 = function() {
+  var _a3;
+  (_a3 = __privateGet23(this, _invokerElement2)) == null ? void 0 : _a3.setAttribute("aria-expanded", "false");
+  unobserveResize(getBoundsElement(this), __privateGet23(this, _handleBoundsResize));
+  unobserveResize(this, __privateGet23(this, _handleMenuResize));
+};
+_handleBoundsResize = /* @__PURE__ */ new WeakMap();
+_handleMenuResize = /* @__PURE__ */ new WeakMap();
+_positionMenu = /* @__PURE__ */ new WeakSet();
+positionMenu_fn = function(menuWidth) {
+  if (this.hasAttribute("mediacontroller") && !this.anchor)
+    return;
+  if (this.hidden || !this.anchorElement)
+    return;
+  const { x, y } = computePosition({
+    anchor: this.anchorElement,
+    floating: this,
+    placement: "top-start"
+  });
+  menuWidth != null ? menuWidth : menuWidth = this.offsetWidth;
+  const bounds = getBoundsElement(this);
+  const boundsRect = bounds.getBoundingClientRect();
+  const right = boundsRect.width - x - menuWidth;
+  const bottom = boundsRect.height - y - this.offsetHeight;
+  const { style } = __privateGet23(this, _cssRule);
+  style.setProperty("position", "absolute");
+  style.setProperty("right", `${Math.max(0, right)}px`);
+  style.setProperty("--_menu-bottom", `${bottom}px`);
+  const computedStyle = getComputedStyle(this);
+  const isBottomCalc = style.getPropertyValue("--_menu-bottom") === computedStyle.bottom;
+  const realBottom = isBottomCalc ? bottom : parseFloat(computedStyle.bottom);
+  const maxHeight = boundsRect.height - realBottom - parseFloat(computedStyle.marginBottom);
+  this.style.setProperty("--_menu-max-height", `${maxHeight}px`);
+};
+_resizeMenu = /* @__PURE__ */ new WeakSet();
+resizeMenu_fn = function(animate) {
+  const expandedMenuItem = this.querySelector(
+    '[role="menuitem"][aria-haspopup][aria-expanded="true"]'
+  );
+  const expandedSubmenu = expandedMenuItem == null ? void 0 : expandedMenuItem.querySelector(
+    '[role="menu"]'
+  );
+  const { style } = __privateGet23(this, _cssRule);
+  if (!animate) {
+    style.setProperty("--media-menu-transition-in", "none");
+  }
+  if (expandedSubmenu) {
+    const height = expandedSubmenu.offsetHeight;
+    const width = Math.max(
+      expandedSubmenu.offsetWidth,
+      expandedMenuItem.offsetWidth
+    );
+    this.style.setProperty("min-width", `${width}px`);
+    this.style.setProperty("min-height", `${height}px`);
+    __privateMethod9(this, _positionMenu, positionMenu_fn).call(this, width);
+  } else {
+    this.style.removeProperty("min-width");
+    this.style.removeProperty("min-height");
+    __privateMethod9(this, _positionMenu, positionMenu_fn).call(this);
+  }
+  style.removeProperty("--media-menu-transition-in");
+};
+_handleClick = /* @__PURE__ */ new WeakSet();
+handleClick_fn = function(event) {
+  var _a3;
+  event.stopPropagation();
+  if (event.composedPath().includes(__privateGet23(this, _backButtonElement, backButtonElement_get))) {
+    (_a3 = __privateGet23(this, _previouslyFocused2)) == null ? void 0 : _a3.focus();
+    this.hidden = true;
+    return;
+  }
+  const item = __privateMethod9(this, _getItem, getItem_fn).call(this, event);
+  if (!item || item.hasAttribute("disabled"))
+    return;
+  __privateMethod9(this, _setTabItem, setTabItem_fn).call(this, item);
+  this.handleSelect(event);
+};
+_backButtonElement = /* @__PURE__ */ new WeakSet();
+backButtonElement_get = function() {
+  var _a3;
+  const headerSlot = this.shadowRoot.querySelector(
+    'slot[name="header"]'
+  );
+  return (_a3 = headerSlot.assignedElements({ flatten: true })) == null ? void 0 : _a3.find((el) => el.matches('button[part~="back"]'));
+};
+_handleToggle = /* @__PURE__ */ new WeakSet();
+handleToggle_fn = function(event) {
+  if (event.target === this)
+    return;
+  __privateMethod9(this, _checkSubmenuHasExpanded, checkSubmenuHasExpanded_fn).call(this);
+  const menuItemsWithSubmenu = Array.from(
+    this.querySelectorAll('[role="menuitem"][aria-haspopup]')
+  );
+  for (const item of menuItemsWithSubmenu) {
+    if (item.invokeTargetElement == event.target)
+      continue;
+    if (event.newState == "open" && item.getAttribute("aria-expanded") == "true" && !item.invokeTargetElement.hidden) {
+      item.invokeTargetElement.dispatchEvent(
+        new InvokeEvent({ relatedTarget: item })
+      );
+    }
+  }
+  for (const item of menuItemsWithSubmenu) {
+    item.setAttribute("aria-expanded", `${!item.submenuElement.hidden}`);
+  }
+  __privateMethod9(this, _resizeMenu, resizeMenu_fn).call(this, true);
+};
+_checkSubmenuHasExpanded = /* @__PURE__ */ new WeakSet();
+checkSubmenuHasExpanded_fn = function() {
+  const selector = '[role="menuitem"] > [role="menu"]:not([hidden])';
+  const expandedMenuItem = this.querySelector(selector);
+  this.container.classList.toggle("has-expanded", !!expandedMenuItem);
+};
+_handleFocusOut2 = /* @__PURE__ */ new WeakSet();
+handleFocusOut_fn2 = function(event) {
+  var _a3;
+  if (!containsComposedNode(this, event.relatedTarget)) {
+    if (__privateGet23(this, _isPopover)) {
+      (_a3 = __privateGet23(this, _previouslyFocused2)) == null ? void 0 : _a3.focus();
+    }
+    if (__privateGet23(this, _invokerElement2) && __privateGet23(this, _invokerElement2) !== event.relatedTarget && !this.hidden) {
+      this.hidden = true;
+    }
+  }
+};
+_handleKeyDown2 = /* @__PURE__ */ new WeakSet();
+handleKeyDown_fn2 = function(event) {
+  var _a3, _b2, _c, _d, _e;
+  const { key, ctrlKey, altKey, metaKey } = event;
+  if (ctrlKey || altKey || metaKey) {
+    return;
+  }
+  if (!this.keysUsed.includes(key)) {
+    return;
+  }
+  event.preventDefault();
+  event.stopPropagation();
+  if (key === "Tab") {
+    if (__privateGet23(this, _isPopover)) {
+      this.hidden = true;
+      return;
+    }
+    if (event.shiftKey) {
+      (_b2 = (_a3 = this.previousElementSibling) == null ? void 0 : _a3.focus) == null ? void 0 : _b2.call(_a3);
+    } else {
+      (_d = (_c = this.nextElementSibling) == null ? void 0 : _c.focus) == null ? void 0 : _d.call(_c);
+    }
+    this.blur();
+  } else if (key === "Escape") {
+    (_e = __privateGet23(this, _previouslyFocused2)) == null ? void 0 : _e.focus();
+    if (__privateGet23(this, _isPopover)) {
+      this.hidden = true;
+    }
+  } else if (key === "Enter" || key === " ") {
+    this.handleSelect(event);
+  } else {
+    this.handleMove(event);
+  }
+};
+_getItem = /* @__PURE__ */ new WeakSet();
+getItem_fn = function(event) {
+  return event.composedPath().find((el) => {
+    return ["menuitemradio", "menuitemcheckbox"].includes(
+      el.role
+    );
+  });
+};
+_getTabItem = /* @__PURE__ */ new WeakSet();
+getTabItem_fn = function() {
+  return this.items.find((item) => item.tabIndex === 0);
+};
+_setTabItem = /* @__PURE__ */ new WeakSet();
+setTabItem_fn = function(tabItem) {
+  for (const item of this.items) {
+    item.tabIndex = item === tabItem ? 0 : -1;
+  }
+};
+_selectItem = /* @__PURE__ */ new WeakSet();
+selectItem_fn = function(item, toggle) {
+  const oldCheckedItems = [...this.checkedItems];
+  if (item.type === "radio") {
+    this.radioGroupItems.forEach((el) => el.checked = false);
+  }
+  if (toggle) {
+    item.checked = !item.checked;
+  } else {
+    item.checked = true;
+  }
+  if (this.checkedItems.some((opt, i) => opt != oldCheckedItems[i])) {
+    this.dispatchEvent(
+      new Event("change", { bubbles: true, composed: true })
+    );
+  }
+};
+MediaChromeMenu.template = template13;
+function isMenuItem(element) {
+  return ["menuitem", "menuitemradio", "menuitemcheckbox"].includes(
+    element == null ? void 0 : element.role
+  );
+}
+function getBoundsElement(host) {
+  var _a3;
+  return (_a3 = host.getAttribute("bounds") ? closestComposedNode(host, `#${host.getAttribute("bounds")}`) : getMediaController(host) || host.parentElement) != null ? _a3 : host;
+}
+if (!GlobalThis.customElements.get("media-chrome-menu")) {
+  GlobalThis.customElements.define("media-chrome-menu", MediaChromeMenu);
+}
+
+// ../../node_modules/media-chrome/dist/menu/media-chrome-menu-item.js
+var __accessCheck24 = (obj, member, msg) => {
+  if (!member.has(obj))
+    throw TypeError("Cannot " + msg);
+};
+var __privateGet24 = (obj, member, getter) => {
+  __accessCheck24(obj, member, "read from private field");
+  return getter ? getter.call(obj) : member.get(obj);
+};
+var __privateAdd24 = (obj, member, value) => {
+  if (member.has(obj))
+    throw TypeError("Cannot add the same private member more than once");
+  member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+};
+var __privateSet23 = (obj, member, value, setter) => {
+  __accessCheck24(obj, member, "write to private field");
+  setter ? setter.call(obj, value) : member.set(obj, value);
+  return value;
+};
+var __privateMethod10 = (obj, member, method) => {
+  __accessCheck24(obj, member, "access private method");
+  return method;
+};
+var _dirty;
+var _ownerElement;
+var _handleSlotChange2;
+var handleSlotChange_fn2;
+var _submenuConnected;
+var submenuConnected_fn;
+var _submenuDisconnected;
+var submenuDisconnected_fn;
+var _handleMenuItem;
+var _handleKeyUp;
+var handleKeyUp_fn;
+var _handleKeyDown3;
+var handleKeyDown_fn3;
+var _reset;
+var reset_fn;
+var template14 = Document2.createElement("template");
+template14.innerHTML = /*html*/
+`
   <style>
     :host {
       transition: var(--media-menu-item-transition,
@@ -2826,14 +12378,16 @@ media-poster-image:not([src]):not([placeholdersrc]) {
       display: var(--media-menu-item-checked-indicator-display, inline-block);
     }
 
-    
+    ${/* For all slotted icons in prefix and suffix. */
+""}
     svg, img, ::slotted(svg), ::slotted(img) {
       height: var(--media-menu-item-icon-height, var(--media-control-height, 24px));
       fill: var(--media-icon-color, var(--media-primary-color, rgb(238 238 238)));
       display: block;
     }
 
-    
+    ${/* Only for indicator icons like checked-indicator or captions-indicator. */
+""}
     [part~="indicator"],
     ::slotted([part~="indicator"]) {
       fill: var(--media-menu-item-indicator-fill,
@@ -2860,7 +12414,291 @@ media-poster-image:not([src]):not([placeholdersrc]) {
   <slot name="description"></slot>
   <slot name="suffix"></slot>
   <slot name="submenu"></slot>
-`;var Me={TYPE:"type",VALUE:"value",CHECKED:"checked",DISABLED:"disabled"},xt=class extends d.HTMLElement{constructor(){super(),ft(this,kl),ft(this,wl),ft(this,Rl),ft(this,Ji),ft(this,Sl),ft(this,zn),ft(this,Zn,!1),ft(this,qa,void 0),ft(this,rt,()=>{var e,t;this.setAttribute("submenusize",`${this.submenuElement.items.length}`);let a=this.shadowRoot.querySelector('slot[name="description"]'),r=(e=this.submenuElement.checkedItems)==null?void 0:e[0],n=(t=r==null?void 0:r.dataset.description)!=null?t:r==null?void 0:r.text,s=h.createElement("span");s.textContent=n!=null?n:"",a.replaceChildren(s)}),this.shadowRoot||(this.attachShadow({mode:"open"}),this.shadowRoot.append(this.constructor.template.content.cloneNode(!0))),this.shadowRoot.addEventListener("slotchange",this)}static get observedAttributes(){return[Me.TYPE,Me.DISABLED,Me.CHECKED,Me.VALUE]}enable(){this.hasAttribute("tabindex")||this.setAttribute("tabindex","-1"),Ya(this)&&!this.hasAttribute("aria-checked")&&this.setAttribute("aria-checked","false"),this.addEventListener("click",this),this.addEventListener("keydown",this)}disable(){this.removeAttribute("tabindex"),this.removeEventListener("click",this),this.removeEventListener("keydown",this),this.removeEventListener("keyup",this)}handleEvent(e){switch(e.type){case"slotchange":it(this,kl,Sm).call(this,e);break;case"click":this.handleClick(e);break;case"keydown":it(this,Sl,Mm).call(this,e);break;case"keyup":it(this,Ji,Za).call(this,e);break}}attributeChangedCallback(e,t,a){e===Me.CHECKED&&Ya(this)&&!at(this,Zn)?this.setAttribute("aria-checked",a!=null?"true":"false"):e===Me.TYPE&&a!==t?this.role="menuitem"+a:e===Me.DISABLED&&a!==t&&(a==null?this.enable():this.disable())}connectedCallback(){this.hasAttribute(Me.DISABLED)||this.enable(),this.role="menuitem"+this.type,Tl(this,qa,Cl(this,this.parentNode)),it(this,zn,Il).call(this)}disconnectedCallback(){this.disable(),it(this,zn,Il).call(this),Tl(this,qa,null)}get invokeTarget(){return this.getAttribute("invoketarget")}set invokeTarget(e){this.setAttribute("invoketarget",`${e}`)}get invokeTargetElement(){var e;return this.invokeTarget?(e=Wt(this))==null?void 0:e.querySelector(`#${this.invokeTarget}`):this.submenuElement}get submenuElement(){return this.shadowRoot.querySelector('slot[name="submenu"]').assignedElements({flatten:!0})[0]}get type(){var e;return(e=this.getAttribute(Me.TYPE))!=null?e:""}set type(e){this.setAttribute(Me.TYPE,`${e}`)}get value(){var e;return(e=this.getAttribute(Me.VALUE))!=null?e:this.text}set value(e){this.setAttribute(Me.VALUE,e)}get text(){var e;return((e=this.textContent)!=null?e:"").trim()}get checked(){if(Ya(this))return this.getAttribute("aria-checked")==="true"}set checked(e){Ya(this)&&(Tl(this,Zn,!0),this.setAttribute("aria-checked",e?"true":"false"),e?this.part.add("checked"):this.part.remove("checked"))}handleClick(e){Ya(this)||this.invokeTargetElement&&de(this,e.target)&&this.invokeTargetElement.dispatchEvent(new Rt({relatedTarget:this}))}get keysUsed(){return["Enter"," "]}};Zn=new WeakMap;qa=new WeakMap;kl=new WeakSet;Sm=function(i){let e=i.target;if(!(e!=null&&e.name))for(let a of e.assignedNodes({flatten:!0}))a instanceof Text&&a.textContent.trim()===""&&a.remove();e.name==="submenu"&&(this.submenuElement?it(this,wl,Im).call(this):it(this,Rl,Cm).call(this))};wl=new WeakSet;Im=async function(){this.setAttribute("aria-haspopup","menu"),this.setAttribute("aria-expanded",`${!this.submenuElement.hidden}`),this.submenuElement.addEventListener("change",at(this,rt)),this.submenuElement.addEventListener("addmenuitem",at(this,rt)),this.submenuElement.addEventListener("removemenuitem",at(this,rt)),at(this,rt).call(this)};Rl=new WeakSet;Cm=function(){this.removeAttribute("aria-haspopup"),this.removeAttribute("aria-expanded"),this.submenuElement.removeEventListener("change",at(this,rt)),this.submenuElement.removeEventListener("addmenuitem",at(this,rt)),this.submenuElement.removeEventListener("removemenuitem",at(this,rt)),at(this,rt).call(this)};rt=new WeakMap;Ji=new WeakSet;Za=function(i){let{key:e}=i;if(!this.keysUsed.includes(e)){this.removeEventListener("keyup",it(this,Ji,Za));return}this.handleClick(i)};Sl=new WeakSet;Mm=function(i){let{metaKey:e,altKey:t,key:a}=i;if(e||t||!this.keysUsed.includes(a)){this.removeEventListener("keyup",it(this,Ji,Za));return}this.addEventListener("keyup",it(this,Ji,Za),{once:!0})};zn=new WeakSet;Il=function(){var i;let e=(i=at(this,qa))==null?void 0:i.radioGroupItems;if(!e)return;let t=e.filter(a=>a.getAttribute("aria-checked")==="true").pop();t||(t=e[0]);for(let a of e)a.setAttribute("aria-checked","false");t==null||t.setAttribute("aria-checked","true")};xt.template=wm;function Ya(i){return i.type==="radio"||i.type==="checkbox"}function Cl(i,e){if(!i)return null;let{host:t}=i.getRootNode();return!e&&t?Cl(i,t):e!=null&&e.items?e:Cl(e,e==null?void 0:e.parentNode)}d.customElements.get("media-chrome-menu-item")||d.customElements.define("media-chrome-menu-item",xt);var Rm=h.createElement("template");Rm.innerHTML=oe.template.innerHTML+`
+`;
+var Attributes14 = {
+  TYPE: "type",
+  VALUE: "value",
+  CHECKED: "checked",
+  DISABLED: "disabled"
+};
+var MediaChromeMenuItem = class extends GlobalThis.HTMLElement {
+  constructor() {
+    super();
+    __privateAdd24(this, _handleSlotChange2);
+    __privateAdd24(this, _submenuConnected);
+    __privateAdd24(this, _submenuDisconnected);
+    __privateAdd24(this, _handleKeyUp);
+    __privateAdd24(this, _handleKeyDown3);
+    __privateAdd24(this, _reset);
+    __privateAdd24(this, _dirty, false);
+    __privateAdd24(this, _ownerElement, void 0);
+    __privateAdd24(this, _handleMenuItem, () => {
+      var _a3, _b2;
+      this.setAttribute("submenusize", `${this.submenuElement.items.length}`);
+      const descriptionSlot = this.shadowRoot.querySelector(
+        'slot[name="description"]'
+      );
+      const checkedItem = (_a3 = this.submenuElement.checkedItems) == null ? void 0 : _a3[0];
+      const description = (_b2 = checkedItem == null ? void 0 : checkedItem.dataset.description) != null ? _b2 : checkedItem == null ? void 0 : checkedItem.text;
+      const span = Document2.createElement("span");
+      span.textContent = description != null ? description : "";
+      descriptionSlot.replaceChildren(span);
+    });
+    if (!this.shadowRoot) {
+      this.attachShadow({ mode: "open" });
+      this.shadowRoot.append(this.constructor.template.content.cloneNode(true));
+    }
+    this.shadowRoot.addEventListener("slotchange", this);
+  }
+  static get observedAttributes() {
+    return [
+      Attributes14.TYPE,
+      Attributes14.DISABLED,
+      Attributes14.CHECKED,
+      Attributes14.VALUE
+    ];
+  }
+  enable() {
+    if (!this.hasAttribute("tabindex")) {
+      this.setAttribute("tabindex", "-1");
+    }
+    if (isCheckable(this) && !this.hasAttribute("aria-checked")) {
+      this.setAttribute("aria-checked", "false");
+    }
+    this.addEventListener("click", this);
+    this.addEventListener("keydown", this);
+  }
+  disable() {
+    this.removeAttribute("tabindex");
+    this.removeEventListener("click", this);
+    this.removeEventListener("keydown", this);
+    this.removeEventListener("keyup", this);
+  }
+  handleEvent(event) {
+    switch (event.type) {
+      case "slotchange":
+        __privateMethod10(this, _handleSlotChange2, handleSlotChange_fn2).call(this, event);
+        break;
+      case "click":
+        this.handleClick(event);
+        break;
+      case "keydown":
+        __privateMethod10(this, _handleKeyDown3, handleKeyDown_fn3).call(this, event);
+        break;
+      case "keyup":
+        __privateMethod10(this, _handleKeyUp, handleKeyUp_fn).call(this, event);
+        break;
+    }
+  }
+  attributeChangedCallback(attrName, oldValue, newValue) {
+    if (attrName === Attributes14.CHECKED && isCheckable(this) && !__privateGet24(this, _dirty)) {
+      this.setAttribute("aria-checked", newValue != null ? "true" : "false");
+    } else if (attrName === Attributes14.TYPE && newValue !== oldValue) {
+      this.role = "menuitem" + newValue;
+    } else if (attrName === Attributes14.DISABLED && newValue !== oldValue) {
+      if (newValue == null) {
+        this.enable();
+      } else {
+        this.disable();
+      }
+    }
+  }
+  connectedCallback() {
+    if (!this.hasAttribute(Attributes14.DISABLED)) {
+      this.enable();
+    }
+    this.role = "menuitem" + this.type;
+    __privateSet23(this, _ownerElement, closestMenuItemsContainer(this, this.parentNode));
+    __privateMethod10(this, _reset, reset_fn).call(this);
+  }
+  disconnectedCallback() {
+    this.disable();
+    __privateMethod10(this, _reset, reset_fn).call(this);
+    __privateSet23(this, _ownerElement, null);
+  }
+  get invokeTarget() {
+    return this.getAttribute("invoketarget");
+  }
+  set invokeTarget(value) {
+    this.setAttribute("invoketarget", `${value}`);
+  }
+  /**
+   * Returns the element with the id specified by the `invoketarget` attribute
+   * or the slotted submenu element.
+   */
+  get invokeTargetElement() {
+    var _a3;
+    if (this.invokeTarget) {
+      return (_a3 = getDocumentOrShadowRoot(this)) == null ? void 0 : _a3.querySelector(
+        `#${this.invokeTarget}`
+      );
+    }
+    return this.submenuElement;
+  }
+  /**
+   * Returns the slotted submenu element.
+   */
+  get submenuElement() {
+    const submenuSlot = this.shadowRoot.querySelector(
+      'slot[name="submenu"]'
+    );
+    return submenuSlot.assignedElements({
+      flatten: true
+    })[0];
+  }
+  get type() {
+    var _a3;
+    return (_a3 = this.getAttribute(Attributes14.TYPE)) != null ? _a3 : "";
+  }
+  set type(val) {
+    this.setAttribute(Attributes14.TYPE, `${val}`);
+  }
+  get value() {
+    var _a3;
+    return (_a3 = this.getAttribute(Attributes14.VALUE)) != null ? _a3 : this.text;
+  }
+  set value(val) {
+    this.setAttribute(Attributes14.VALUE, val);
+  }
+  get text() {
+    var _a3;
+    return ((_a3 = this.textContent) != null ? _a3 : "").trim();
+  }
+  get checked() {
+    if (!isCheckable(this))
+      return void 0;
+    return this.getAttribute("aria-checked") === "true";
+  }
+  set checked(value) {
+    if (!isCheckable(this))
+      return;
+    __privateSet23(this, _dirty, true);
+    this.setAttribute("aria-checked", value ? "true" : "false");
+    if (value) {
+      this.part.add("checked");
+    } else {
+      this.part.remove("checked");
+    }
+  }
+  handleClick(event) {
+    if (isCheckable(this))
+      return;
+    if (this.invokeTargetElement && containsComposedNode(this, event.target)) {
+      this.invokeTargetElement.dispatchEvent(
+        new InvokeEvent({ relatedTarget: this })
+      );
+    }
+  }
+  get keysUsed() {
+    return ["Enter", " "];
+  }
+};
+_dirty = /* @__PURE__ */ new WeakMap();
+_ownerElement = /* @__PURE__ */ new WeakMap();
+_handleSlotChange2 = /* @__PURE__ */ new WeakSet();
+handleSlotChange_fn2 = function(event) {
+  const slot = event.target;
+  const isDefaultSlot = !(slot == null ? void 0 : slot.name);
+  if (isDefaultSlot) {
+    for (const node of slot.assignedNodes({ flatten: true })) {
+      if (node instanceof Text && node.textContent.trim() === "") {
+        node.remove();
+      }
+    }
+  }
+  if (slot.name === "submenu") {
+    if (this.submenuElement) {
+      __privateMethod10(this, _submenuConnected, submenuConnected_fn).call(this);
+    } else {
+      __privateMethod10(this, _submenuDisconnected, submenuDisconnected_fn).call(this);
+    }
+  }
+};
+_submenuConnected = /* @__PURE__ */ new WeakSet();
+submenuConnected_fn = async function() {
+  this.setAttribute("aria-haspopup", "menu");
+  this.setAttribute("aria-expanded", `${!this.submenuElement.hidden}`);
+  this.submenuElement.addEventListener("change", __privateGet24(this, _handleMenuItem));
+  this.submenuElement.addEventListener("addmenuitem", __privateGet24(this, _handleMenuItem));
+  this.submenuElement.addEventListener(
+    "removemenuitem",
+    __privateGet24(this, _handleMenuItem)
+  );
+  __privateGet24(this, _handleMenuItem).call(this);
+};
+_submenuDisconnected = /* @__PURE__ */ new WeakSet();
+submenuDisconnected_fn = function() {
+  this.removeAttribute("aria-haspopup");
+  this.removeAttribute("aria-expanded");
+  this.submenuElement.removeEventListener("change", __privateGet24(this, _handleMenuItem));
+  this.submenuElement.removeEventListener(
+    "addmenuitem",
+    __privateGet24(this, _handleMenuItem)
+  );
+  this.submenuElement.removeEventListener(
+    "removemenuitem",
+    __privateGet24(this, _handleMenuItem)
+  );
+  __privateGet24(this, _handleMenuItem).call(this);
+};
+_handleMenuItem = /* @__PURE__ */ new WeakMap();
+_handleKeyUp = /* @__PURE__ */ new WeakSet();
+handleKeyUp_fn = function(event) {
+  const { key } = event;
+  if (!this.keysUsed.includes(key)) {
+    this.removeEventListener("keyup", __privateMethod10(this, _handleKeyUp, handleKeyUp_fn));
+    return;
+  }
+  this.handleClick(event);
+};
+_handleKeyDown3 = /* @__PURE__ */ new WeakSet();
+handleKeyDown_fn3 = function(event) {
+  const { metaKey, altKey, key } = event;
+  if (metaKey || altKey || !this.keysUsed.includes(key)) {
+    this.removeEventListener("keyup", __privateMethod10(this, _handleKeyUp, handleKeyUp_fn));
+    return;
+  }
+  this.addEventListener("keyup", __privateMethod10(this, _handleKeyUp, handleKeyUp_fn), { once: true });
+};
+_reset = /* @__PURE__ */ new WeakSet();
+reset_fn = function() {
+  var _a3;
+  const items = (_a3 = __privateGet24(this, _ownerElement)) == null ? void 0 : _a3.radioGroupItems;
+  if (!items)
+    return;
+  let checkedItem = items.filter((item) => item.getAttribute("aria-checked") === "true").pop();
+  if (!checkedItem)
+    checkedItem = items[0];
+  for (const item of items) {
+    item.setAttribute("aria-checked", "false");
+  }
+  checkedItem == null ? void 0 : checkedItem.setAttribute("aria-checked", "true");
+};
+MediaChromeMenuItem.template = template14;
+function isCheckable(item) {
+  return item.type === "radio" || item.type === "checkbox";
+}
+function closestMenuItemsContainer(childNode, parentNode) {
+  if (!childNode)
+    return null;
+  const { host } = childNode.getRootNode();
+  if (!parentNode && host)
+    return closestMenuItemsContainer(childNode, host);
+  if (parentNode == null ? void 0 : parentNode.items)
+    return parentNode;
+  return closestMenuItemsContainer(parentNode, parentNode == null ? void 0 : parentNode.parentNode);
+}
+if (!GlobalThis.customElements.get("media-chrome-menu-item")) {
+  GlobalThis.customElements.define(
+    "media-chrome-menu-item",
+    MediaChromeMenuItem
+  );
+}
+
+// ../../node_modules/media-chrome/dist/menu/media-settings-menu.js
+var template15 = Document2.createElement("template");
+template15.innerHTML = MediaChromeMenu.template.innerHTML + /*html*/
+`
   <style>
     :host {
       --_menu-bg: rgb(20 20 30 / .8);
@@ -2880,7 +12718,8 @@ media-poster-image:not([src]):not([placeholdersrc]) {
     }
 
     :host([role="menu"]) {
-      
+      ${/* Bottom fix setting menu items for animation when the height expands. */
+""}
       justify-content: end;
     }
 
@@ -2894,7 +12733,29 @@ media-poster-image:not([src]):not([placeholdersrc]) {
       --media-settings-menu-item-opacity: 0;
     }
   </style>
-`;var za=class extends oe{get anchorElement(){return this.anchor!=="auto"?super.anchorElement:q(this).querySelector("media-settings-menu-button")}};za.template=Rm;d.customElements.get("media-settings-menu")||d.customElements.define("media-settings-menu",za);var Lm,Qn=h.createElement("template");Qn.innerHTML=xt.template.innerHTML+`
+`;
+var MediaSettingsMenu = class extends MediaChromeMenu {
+  /**
+   * Returns the anchor element when it is a floating menu.
+   */
+  get anchorElement() {
+    if (this.anchor !== "auto")
+      return super.anchorElement;
+    return getMediaController(this).querySelector(
+      "media-settings-menu-button"
+    );
+  }
+};
+MediaSettingsMenu.template = template15;
+if (!GlobalThis.customElements.get("media-settings-menu")) {
+  GlobalThis.customElements.define("media-settings-menu", MediaSettingsMenu);
+}
+
+// ../../node_modules/media-chrome/dist/menu/media-settings-menu-item.js
+var _a;
+var template16 = Document2.createElement("template");
+template16.innerHTML = MediaChromeMenuItem.template.innerHTML + /*html*/
+`
   <style>
     slot:not([name="submenu"]) {
       opacity: var(--media-settings-menu-item-opacity, var(--media-menu-item-opacity));
@@ -2904,11 +12765,70 @@ media-poster-image:not([src]):not([placeholdersrc]) {
       background: transparent;
     }
   </style>
-`;(Lm=Qn.content)!=null&&Lm.querySelector&&(Qn.content.querySelector('slot[name="suffix"]').innerHTML=`
+`;
+if ((_a = template16.content) == null ? void 0 : _a.querySelector) {
+  template16.content.querySelector('slot[name="suffix"]').innerHTML = /*html*/
+  `
     <svg aria-hidden="true" viewBox="0 0 20 24">
       <path d="m8.12 17.585-.742-.669 4.2-4.665-4.2-4.666.743-.669 4.803 5.335-4.803 5.334Z"/>
     </svg>
-  `);var Qa=class extends xt{};Qa.template=Qn;d.customElements.get("media-settings-menu-item")||d.customElements.define("media-settings-menu-item",Qa);var be=class extends V{connectedCallback(){super.connectedCallback(),this.invokeTargetElement&&this.setAttribute("aria-haspopup","menu")}get invokeTarget(){return this.getAttribute("invoketarget")}set invokeTarget(e){this.setAttribute("invoketarget",`${e}`)}get invokeTargetElement(){var e;return this.invokeTarget?(e=Wt(this))==null?void 0:e.querySelector(`#${this.invokeTarget}`):null}handleClick(){var e;(e=this.invokeTargetElement)==null||e.dispatchEvent(new Rt({relatedTarget:this}))}};d.customElements.get("media-chrome-menu-button")||d.customElements.define("media-chrome-menu-button",be);var xm=h.createElement("template");xm.innerHTML=`
+  `;
+}
+var MediaSettingsMenuItem = class extends MediaChromeMenuItem {
+};
+MediaSettingsMenuItem.template = template16;
+if (!GlobalThis.customElements.get("media-settings-menu-item")) {
+  GlobalThis.customElements.define(
+    "media-settings-menu-item",
+    MediaSettingsMenuItem
+  );
+}
+
+// ../../node_modules/media-chrome/dist/menu/media-chrome-menu-button.js
+var MediaChromeMenuButton = class extends MediaChromeButton {
+  connectedCallback() {
+    super.connectedCallback();
+    if (this.invokeTargetElement) {
+      this.setAttribute("aria-haspopup", "menu");
+    }
+  }
+  get invokeTarget() {
+    return this.getAttribute("invoketarget");
+  }
+  set invokeTarget(value) {
+    this.setAttribute("invoketarget", `${value}`);
+  }
+  /**
+   * Returns the element with the id specified by the `invoketarget` attribute.
+   * @return {HTMLElement | null}
+   */
+  get invokeTargetElement() {
+    var _a3;
+    if (this.invokeTarget) {
+      return (_a3 = getDocumentOrShadowRoot(this)) == null ? void 0 : _a3.querySelector(
+        `#${this.invokeTarget}`
+      );
+    }
+    return null;
+  }
+  handleClick() {
+    var _a3;
+    (_a3 = this.invokeTargetElement) == null ? void 0 : _a3.dispatchEvent(
+      new InvokeEvent({ relatedTarget: this })
+    );
+  }
+};
+if (!GlobalThis.customElements.get("media-chrome-menu-button")) {
+  GlobalThis.customElements.define(
+    "media-chrome-menu-button",
+    MediaChromeMenuButton
+  );
+}
+
+// ../../node_modules/media-chrome/dist/menu/media-settings-menu-button.js
+var slotTemplate12 = Document2.createElement("template");
+slotTemplate12.innerHTML = /*html*/
+`
   <style>
     :host([aria-expanded="true"]) slot[name=tooltip] {
       display: none;
@@ -2919,31 +12839,450 @@ media-poster-image:not([src]):not([placeholdersrc]) {
       <path d="M4.5 14.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Zm7.5 0a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Zm7.5 0a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/>
     </svg>
   </slot>
-`;var Xn=class extends be{static get observedAttributes(){return[...super.observedAttributes,"target"]}constructor(){super({slotTemplate:xm,tooltipContent:v("Settings")})}connectedCallback(){super.connectedCallback(),this.setAttribute("aria-label",v("settings"))}get invokeTargetElement(){return this.invokeTarget!=null?super.invokeTargetElement:q(this).querySelector("media-settings-menu")}};d.customElements.get("media-settings-menu-button")||d.customElements.define("media-settings-menu-button",Xn);var Ol=(i,e,t)=>{if(!e.has(i))throw TypeError("Cannot "+t)},Dm=(i,e,t)=>(Ol(i,e,"read from private field"),t?t.call(i):e.get(i)),Jn=(i,e,t)=>{if(e.has(i))throw TypeError("Cannot add the same private member more than once");e instanceof WeakSet?e.add(i):e.set(i,t)},Ll=(i,e,t,a)=>(Ol(i,e,"write to private field"),a?a.call(i,t):e.set(i,t),t),jn=(i,e,t)=>(Ol(i,e,"access private method"),t),Xa,io,eo,xl,to,Dl,ao=class extends oe{constructor(){super(...arguments),Jn(this,eo),Jn(this,to),Jn(this,Xa,[]),Jn(this,io,void 0)}static get observedAttributes(){return[...super.observedAttributes,o.MEDIA_AUDIO_TRACK_LIST,o.MEDIA_AUDIO_TRACK_ENABLED,o.MEDIA_AUDIO_TRACK_UNAVAILABLE]}attributeChangedCallback(e,t,a){super.attributeChangedCallback(e,t,a),e===o.MEDIA_AUDIO_TRACK_ENABLED&&t!==a?this.value=a:e===o.MEDIA_AUDIO_TRACK_LIST&&t!==a&&(Ll(this,Xa,Ud(a!=null?a:"")),jn(this,eo,xl).call(this))}connectedCallback(){super.connectedCallback(),this.addEventListener("change",jn(this,to,Dl))}disconnectedCallback(){super.disconnectedCallback(),this.removeEventListener("change",jn(this,to,Dl))}get anchorElement(){var e;return this.anchor!=="auto"?super.anchorElement:(e=q(this))==null?void 0:e.querySelector("media-audio-track-menu-button")}get mediaAudioTrackList(){return Dm(this,Xa)}set mediaAudioTrackList(e){Ll(this,Xa,e),jn(this,eo,xl).call(this)}get mediaAudioTrackEnabled(){var e;return(e=M(this,o.MEDIA_AUDIO_TRACK_ENABLED))!=null?e:""}set mediaAudioTrackEnabled(e){w(this,o.MEDIA_AUDIO_TRACK_ENABLED,e)}};Xa=new WeakMap;io=new WeakMap;eo=new WeakSet;xl=function(){if(Dm(this,io)===JSON.stringify(this.mediaAudioTrackList))return;Ll(this,io,JSON.stringify(this.mediaAudioTrackList));let i=this.mediaAudioTrackList;this.defaultSlot.textContent="";for(let e of i){let t=this.formatMenuItemText(e.label,e),a=tt({type:"radio",text:t,value:`${e.id}`,checked:e.enabled});a.prepend(Ue(this,"checked-indicator")),this.defaultSlot.append(a)}};to=new WeakSet;Dl=function(){if(this.value==null)return;let i=new d.CustomEvent(f.MEDIA_AUDIO_TRACK_REQUEST,{composed:!0,bubbles:!0,detail:this.value});this.dispatchEvent(i)};d.customElements.get("media-audio-track-menu")||d.customElements.define("media-audio-track-menu",ao);var zf=`<svg aria-hidden="true" viewBox="0 0 24 24">
+`;
+var MediaSettingsMenuButton = class extends MediaChromeMenuButton {
+  static get observedAttributes() {
+    return [...super.observedAttributes, "target"];
+  }
+  constructor() {
+    super({ slotTemplate: slotTemplate12, tooltipContent: t("Settings") });
+  }
+  connectedCallback() {
+    super.connectedCallback();
+    this.setAttribute("aria-label", t("settings"));
+  }
+  /**
+   * Returns the element with the id specified by the `invoketarget` attribute.
+   * @return {HTMLElement | null}
+   */
+  get invokeTargetElement() {
+    if (this.invokeTarget != void 0)
+      return super.invokeTargetElement;
+    return getMediaController(this).querySelector("media-settings-menu");
+  }
+};
+if (!GlobalThis.customElements.get("media-settings-menu-button")) {
+  GlobalThis.customElements.define(
+    "media-settings-menu-button",
+    MediaSettingsMenuButton
+  );
+}
+
+// ../../node_modules/media-chrome/dist/menu/media-audio-track-menu.js
+var __accessCheck25 = (obj, member, msg) => {
+  if (!member.has(obj))
+    throw TypeError("Cannot " + msg);
+};
+var __privateGet25 = (obj, member, getter) => {
+  __accessCheck25(obj, member, "read from private field");
+  return getter ? getter.call(obj) : member.get(obj);
+};
+var __privateAdd25 = (obj, member, value) => {
+  if (member.has(obj))
+    throw TypeError("Cannot add the same private member more than once");
+  member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+};
+var __privateSet24 = (obj, member, value, setter) => {
+  __accessCheck25(obj, member, "write to private field");
+  setter ? setter.call(obj, value) : member.set(obj, value);
+  return value;
+};
+var __privateMethod11 = (obj, member, method) => {
+  __accessCheck25(obj, member, "access private method");
+  return method;
+};
+var _audioTrackList;
+var _prevState;
+var _render;
+var render_fn;
+var _onChange;
+var onChange_fn;
+var MediaAudioTrackMenu = class extends MediaChromeMenu {
+  constructor() {
+    super(...arguments);
+    __privateAdd25(this, _render);
+    __privateAdd25(this, _onChange);
+    __privateAdd25(this, _audioTrackList, []);
+    __privateAdd25(this, _prevState, void 0);
+  }
+  static get observedAttributes() {
+    return [
+      ...super.observedAttributes,
+      MediaUIAttributes.MEDIA_AUDIO_TRACK_LIST,
+      MediaUIAttributes.MEDIA_AUDIO_TRACK_ENABLED,
+      MediaUIAttributes.MEDIA_AUDIO_TRACK_UNAVAILABLE
+    ];
+  }
+  attributeChangedCallback(attrName, oldValue, newValue) {
+    super.attributeChangedCallback(attrName, oldValue, newValue);
+    if (attrName === MediaUIAttributes.MEDIA_AUDIO_TRACK_ENABLED && oldValue !== newValue) {
+      this.value = newValue;
+    } else if (attrName === MediaUIAttributes.MEDIA_AUDIO_TRACK_LIST && oldValue !== newValue) {
+      __privateSet24(this, _audioTrackList, parseAudioTrackList(newValue != null ? newValue : ""));
+      __privateMethod11(this, _render, render_fn).call(this);
+    }
+  }
+  connectedCallback() {
+    super.connectedCallback();
+    this.addEventListener("change", __privateMethod11(this, _onChange, onChange_fn));
+  }
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    this.removeEventListener("change", __privateMethod11(this, _onChange, onChange_fn));
+  }
+  /**
+   * Returns the anchor element when it is a floating menu.
+   */
+  get anchorElement() {
+    var _a3;
+    if (this.anchor !== "auto")
+      return super.anchorElement;
+    return (_a3 = getMediaController(this)) == null ? void 0 : _a3.querySelector(
+      "media-audio-track-menu-button"
+    );
+  }
+  get mediaAudioTrackList() {
+    return __privateGet25(this, _audioTrackList);
+  }
+  set mediaAudioTrackList(list) {
+    __privateSet24(this, _audioTrackList, list);
+    __privateMethod11(this, _render, render_fn).call(this);
+  }
+  /**
+   * Get enabled audio track id.
+   */
+  get mediaAudioTrackEnabled() {
+    var _a3;
+    return (_a3 = getStringAttr(this, MediaUIAttributes.MEDIA_AUDIO_TRACK_ENABLED)) != null ? _a3 : "";
+  }
+  set mediaAudioTrackEnabled(id) {
+    setStringAttr(this, MediaUIAttributes.MEDIA_AUDIO_TRACK_ENABLED, id);
+  }
+};
+_audioTrackList = /* @__PURE__ */ new WeakMap();
+_prevState = /* @__PURE__ */ new WeakMap();
+_render = /* @__PURE__ */ new WeakSet();
+render_fn = function() {
+  if (__privateGet25(this, _prevState) === JSON.stringify(this.mediaAudioTrackList))
+    return;
+  __privateSet24(this, _prevState, JSON.stringify(this.mediaAudioTrackList));
+  const audioTrackList = this.mediaAudioTrackList;
+  this.defaultSlot.textContent = "";
+  for (const audioTrack of audioTrackList) {
+    const text = this.formatMenuItemText(audioTrack.label, audioTrack);
+    const item = createMenuItem({
+      type: "radio",
+      text,
+      value: `${audioTrack.id}`,
+      checked: audioTrack.enabled
+    });
+    item.prepend(createIndicator(this, "checked-indicator"));
+    this.defaultSlot.append(item);
+  }
+};
+_onChange = /* @__PURE__ */ new WeakSet();
+onChange_fn = function() {
+  if (this.value == null)
+    return;
+  const event = new GlobalThis.CustomEvent(
+    MediaUIEvents.MEDIA_AUDIO_TRACK_REQUEST,
+    {
+      composed: true,
+      bubbles: true,
+      detail: this.value
+    }
+  );
+  this.dispatchEvent(event);
+};
+if (!GlobalThis.customElements.get("media-audio-track-menu")) {
+  GlobalThis.customElements.define(
+    "media-audio-track-menu",
+    MediaAudioTrackMenu
+  );
+}
+
+// ../../node_modules/media-chrome/dist/menu/media-audio-track-menu-button.js
+var audioTrackIcon = (
+  /*html*/
+  `<svg aria-hidden="true" viewBox="0 0 24 24">
   <path d="M11 17H9.5V7H11v10Zm-3-3H6.5v-4H8v4Zm6-5h-1.5v6H14V9Zm3 7h-1.5V8H17v8Z"/>
   <path d="M22 12c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10Zm-2 0a8 8 0 1 0-16 0 8 8 0 0 0 16 0Z"/>
-</svg>`,Om=h.createElement("template");Om.innerHTML=`
+</svg>`
+);
+var slotTemplate13 = Document2.createElement("template");
+slotTemplate13.innerHTML = /*html*/
+`
   <style>
     :host([aria-expanded="true"]) slot[name=tooltip] {
       display: none;
     }
   </style>
-  <slot name="icon">${zf}</slot>
-`;var ro=class extends be{static get observedAttributes(){return[...super.observedAttributes,o.MEDIA_AUDIO_TRACK_ENABLED,o.MEDIA_AUDIO_TRACK_UNAVAILABLE]}constructor(){super({slotTemplate:Om,tooltipContent:v("Audio")})}connectedCallback(){super.connectedCallback(),this.setAttribute("aria-label",v("Audio"))}attributeChangedCallback(e,t,a){super.attributeChangedCallback(e,t,a)}get invokeTargetElement(){var e;return this.invokeTarget!=null?super.invokeTargetElement:(e=q(this))==null?void 0:e.querySelector("media-audio-track-menu")}get mediaAudioTrackEnabled(){var e;return(e=M(this,o.MEDIA_AUDIO_TRACK_ENABLED))!=null?e:""}set mediaAudioTrackEnabled(e){w(this,o.MEDIA_AUDIO_TRACK_ENABLED,e)}};d.customElements.get("media-audio-track-menu-button")||d.customElements.define("media-audio-track-menu-button",ro);var Hl=(i,e,t)=>{if(!e.has(i))throw TypeError("Cannot "+t)},Qf=(i,e,t)=>(Hl(i,e,"read from private field"),t?t.call(i):e.get(i)),Nl=(i,e,t)=>{if(e.has(i))throw TypeError("Cannot add the same private member more than once");e instanceof WeakSet?e.add(i):e.set(i,t)},Xf=(i,e,t,a)=>(Hl(i,e,"write to private field"),a?a.call(i,t):e.set(i,t),t),Pl=(i,e,t)=>(Hl(i,e,"access private method"),t),oo,Ul,Um,no,Bl,Jf=`
+  <slot name="icon">${audioTrackIcon}</slot>
+`;
+var MediaAudioTrackMenuButton = class extends MediaChromeMenuButton {
+  static get observedAttributes() {
+    return [
+      ...super.observedAttributes,
+      MediaUIAttributes.MEDIA_AUDIO_TRACK_ENABLED,
+      MediaUIAttributes.MEDIA_AUDIO_TRACK_UNAVAILABLE
+    ];
+  }
+  constructor() {
+    super({ slotTemplate: slotTemplate13, tooltipContent: t("Audio") });
+  }
+  connectedCallback() {
+    super.connectedCallback();
+    this.setAttribute("aria-label", t("Audio"));
+  }
+  attributeChangedCallback(attrName, oldValue, newValue) {
+    super.attributeChangedCallback(attrName, oldValue, newValue);
+  }
+  /**
+   * Returns the element with the id specified by the `invoketarget` attribute.
+   * @return {HTMLElement | null}
+   */
+  get invokeTargetElement() {
+    var _a3;
+    if (this.invokeTarget != void 0)
+      return super.invokeTargetElement;
+    return (_a3 = getMediaController(this)) == null ? void 0 : _a3.querySelector("media-audio-track-menu");
+  }
+  /**
+   * Get enabled audio track id.
+   * @return {string}
+   */
+  get mediaAudioTrackEnabled() {
+    var _a3;
+    return (_a3 = getStringAttr(this, MediaUIAttributes.MEDIA_AUDIO_TRACK_ENABLED)) != null ? _a3 : "";
+  }
+  set mediaAudioTrackEnabled(id) {
+    setStringAttr(this, MediaUIAttributes.MEDIA_AUDIO_TRACK_ENABLED, id);
+  }
+};
+if (!GlobalThis.customElements.get("media-audio-track-menu-button")) {
+  GlobalThis.customElements.define(
+    "media-audio-track-menu-button",
+    MediaAudioTrackMenuButton
+  );
+}
+
+// ../../node_modules/media-chrome/dist/menu/media-captions-menu.js
+var __accessCheck26 = (obj, member, msg) => {
+  if (!member.has(obj))
+    throw TypeError("Cannot " + msg);
+};
+var __privateGet26 = (obj, member, getter) => {
+  __accessCheck26(obj, member, "read from private field");
+  return getter ? getter.call(obj) : member.get(obj);
+};
+var __privateAdd26 = (obj, member, value) => {
+  if (member.has(obj))
+    throw TypeError("Cannot add the same private member more than once");
+  member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+};
+var __privateSet25 = (obj, member, value, setter) => {
+  __accessCheck26(obj, member, "write to private field");
+  setter ? setter.call(obj, value) : member.set(obj, value);
+  return value;
+};
+var __privateMethod12 = (obj, member, method) => {
+  __accessCheck26(obj, member, "access private method");
+  return method;
+};
+var _prevState2;
+var _render2;
+var render_fn2;
+var _onChange2;
+var onChange_fn2;
+var ccIcon = (
+  /*html*/
+  `
   <svg aria-hidden="true" viewBox="0 0 26 24" part="captions-indicator indicator">
     <path d="M22.83 5.68a2.58 2.58 0 0 0-2.3-2.5c-3.62-.24-11.44-.24-15.06 0a2.58 2.58 0 0 0-2.3 2.5c-.23 4.21-.23 8.43 0 12.64a2.58 2.58 0 0 0 2.3 2.5c3.62.24 11.44.24 15.06 0a2.58 2.58 0 0 0 2.3-2.5c.23-4.21.23-8.43 0-12.64Zm-11.39 9.45a3.07 3.07 0 0 1-1.91.57 3.06 3.06 0 0 1-2.34-1 3.75 3.75 0 0 1-.92-2.67 3.92 3.92 0 0 1 .92-2.77 3.18 3.18 0 0 1 2.43-1 2.94 2.94 0 0 1 2.13.78c.364.359.62.813.74 1.31l-1.43.35a1.49 1.49 0 0 0-1.51-1.17 1.61 1.61 0 0 0-1.29.58 2.79 2.79 0 0 0-.5 1.89 3 3 0 0 0 .49 1.93 1.61 1.61 0 0 0 1.27.58 1.48 1.48 0 0 0 1-.37 2.1 2.1 0 0 0 .59-1.14l1.4.44a3.23 3.23 0 0 1-1.07 1.69Zm7.22 0a3.07 3.07 0 0 1-1.91.57 3.06 3.06 0 0 1-2.34-1 3.75 3.75 0 0 1-.92-2.67 3.88 3.88 0 0 1 .93-2.77 3.14 3.14 0 0 1 2.42-1 3 3 0 0 1 2.16.82 2.8 2.8 0 0 1 .73 1.31l-1.43.35a1.49 1.49 0 0 0-1.51-1.21 1.61 1.61 0 0 0-1.29.58A2.79 2.79 0 0 0 15 12a3 3 0 0 0 .49 1.93 1.61 1.61 0 0 0 1.27.58 1.44 1.44 0 0 0 1-.37 2.1 2.1 0 0 0 .6-1.15l1.4.44a3.17 3.17 0 0 1-1.1 1.7Z"/>
-  </svg>`,Bm=h.createElement("template");Bm.innerHTML=oe.template.innerHTML+`
-  <slot name="captions-indicator" hidden>${Jf}</slot>`;var Ja=class extends oe{constructor(){super(...arguments),Nl(this,Ul),Nl(this,no),Nl(this,oo,void 0)}static get observedAttributes(){return[...super.observedAttributes,o.MEDIA_SUBTITLES_LIST,o.MEDIA_SUBTITLES_SHOWING]}attributeChangedCallback(e,t,a){super.attributeChangedCallback(e,t,a),e===o.MEDIA_SUBTITLES_LIST&&t!==a?Pl(this,Ul,Um).call(this):e===o.MEDIA_SUBTITLES_SHOWING&&t!==a&&(this.value=a)}connectedCallback(){super.connectedCallback(),this.addEventListener("change",Pl(this,no,Bl))}disconnectedCallback(){super.disconnectedCallback(),this.removeEventListener("change",Pl(this,no,Bl))}get anchorElement(){return this.anchor!=="auto"?super.anchorElement:q(this).querySelector("media-captions-menu-button")}get mediaSubtitlesList(){return Nm(this,o.MEDIA_SUBTITLES_LIST)}set mediaSubtitlesList(e){Pm(this,o.MEDIA_SUBTITLES_LIST,e)}get mediaSubtitlesShowing(){return Nm(this,o.MEDIA_SUBTITLES_SHOWING)}set mediaSubtitlesShowing(e){Pm(this,o.MEDIA_SUBTITLES_SHOWING,e)}};oo=new WeakMap;Ul=new WeakSet;Um=function(){var i;if(Qf(this,oo)===JSON.stringify(this.mediaSubtitlesList))return;Xf(this,oo,JSON.stringify(this.mediaSubtitlesList)),this.defaultSlot.textContent="";let e=!this.value,t=tt({type:"radio",text:this.formatMenuItemText("Off"),value:"off",checked:e});t.prepend(Ue(this,"checked-indicator")),this.defaultSlot.append(t);let a=this.mediaSubtitlesList;for(let r of a){let n=tt({type:"radio",text:this.formatMenuItemText(r.label,r),value:Ir(r),checked:this.value==Ir(r)});n.prepend(Ue(this,"checked-indicator")),((i=r.kind)!=null?i:"subs")==="captions"&&n.append(Ue(this,"captions-indicator")),this.defaultSlot.append(n)}};no=new WeakSet;Bl=function(){let i=this.mediaSubtitlesShowing,e=this.getAttribute(o.MEDIA_SUBTITLES_SHOWING),t=this.value!==e;if(i!=null&&i.length&&t&&this.dispatchEvent(new d.CustomEvent(f.MEDIA_DISABLE_SUBTITLES_REQUEST,{composed:!0,bubbles:!0,detail:i})),!this.value||!t)return;let a=new d.CustomEvent(f.MEDIA_SHOW_SUBTITLES_REQUEST,{composed:!0,bubbles:!0,detail:this.value});this.dispatchEvent(a)};Ja.template=Bm;var Nm=(i,e)=>{let t=i.getAttribute(e);return t?Vt(t):[]},Pm=(i,e,t)=>{if(!(t!=null&&t.length)){i.removeAttribute(e);return}let a=dt(t);i.getAttribute(e)!==a&&i.setAttribute(e,a)};d.customElements.get("media-captions-menu")||d.customElements.define("media-captions-menu",Ja);var jf=(i,e,t)=>{if(!e.has(i))throw TypeError("Cannot "+t)},ev=(i,e,t)=>{if(e.has(i))throw TypeError("Cannot add the same private member more than once");e instanceof WeakSet?e.add(i):e.set(i,t)},tv=(i,e,t,a)=>(jf(i,e,"write to private field"),a?a.call(i,t):e.set(i,t),t),Wl,iv=`<svg aria-hidden="true" viewBox="0 0 26 24">
+  </svg>`
+);
+var template17 = Document2.createElement("template");
+template17.innerHTML = MediaChromeMenu.template.innerHTML + /*html*/
+`
+  <slot name="captions-indicator" hidden>${ccIcon}</slot>`;
+var MediaCaptionsMenu = class extends MediaChromeMenu {
+  constructor() {
+    super(...arguments);
+    __privateAdd26(this, _render2);
+    __privateAdd26(this, _onChange2);
+    __privateAdd26(this, _prevState2, void 0);
+  }
+  static get observedAttributes() {
+    return [
+      ...super.observedAttributes,
+      MediaUIAttributes.MEDIA_SUBTITLES_LIST,
+      MediaUIAttributes.MEDIA_SUBTITLES_SHOWING
+    ];
+  }
+  attributeChangedCallback(attrName, oldValue, newValue) {
+    super.attributeChangedCallback(attrName, oldValue, newValue);
+    if (attrName === MediaUIAttributes.MEDIA_SUBTITLES_LIST && oldValue !== newValue) {
+      __privateMethod12(this, _render2, render_fn2).call(this);
+    } else if (attrName === MediaUIAttributes.MEDIA_SUBTITLES_SHOWING && oldValue !== newValue) {
+      this.value = newValue;
+    }
+  }
+  connectedCallback() {
+    super.connectedCallback();
+    this.addEventListener("change", __privateMethod12(this, _onChange2, onChange_fn2));
+  }
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    this.removeEventListener("change", __privateMethod12(this, _onChange2, onChange_fn2));
+  }
+  /**
+   * Returns the anchor element when it is a floating menu.
+   */
+  get anchorElement() {
+    if (this.anchor !== "auto")
+      return super.anchorElement;
+    return getMediaController(this).querySelector("media-captions-menu-button");
+  }
+  /**
+   * @type {Array<object>} An array of TextTrack-like objects.
+   * Objects must have the properties: kind, language, and label.
+   */
+  get mediaSubtitlesList() {
+    return getSubtitlesListAttr2(this, MediaUIAttributes.MEDIA_SUBTITLES_LIST);
+  }
+  set mediaSubtitlesList(list) {
+    setSubtitlesListAttr2(this, MediaUIAttributes.MEDIA_SUBTITLES_LIST, list);
+  }
+  /**
+   * An array of TextTrack-like objects.
+   * Objects must have the properties: kind, language, and label.
+   */
+  get mediaSubtitlesShowing() {
+    return getSubtitlesListAttr2(
+      this,
+      MediaUIAttributes.MEDIA_SUBTITLES_SHOWING
+    );
+  }
+  set mediaSubtitlesShowing(list) {
+    setSubtitlesListAttr2(this, MediaUIAttributes.MEDIA_SUBTITLES_SHOWING, list);
+  }
+};
+_prevState2 = /* @__PURE__ */ new WeakMap();
+_render2 = /* @__PURE__ */ new WeakSet();
+render_fn2 = function() {
+  var _a3;
+  if (__privateGet26(this, _prevState2) === JSON.stringify(this.mediaSubtitlesList))
+    return;
+  __privateSet25(this, _prevState2, JSON.stringify(this.mediaSubtitlesList));
+  this.defaultSlot.textContent = "";
+  const isOff = !this.value;
+  const item = createMenuItem({
+    type: "radio",
+    text: this.formatMenuItemText("Off"),
+    value: "off",
+    checked: isOff
+  });
+  item.prepend(createIndicator(this, "checked-indicator"));
+  this.defaultSlot.append(item);
+  const subtitlesList = this.mediaSubtitlesList;
+  for (const subs of subtitlesList) {
+    const item2 = createMenuItem({
+      type: "radio",
+      text: this.formatMenuItemText(subs.label, subs),
+      value: formatTextTrackObj(subs),
+      checked: this.value == formatTextTrackObj(subs)
+    });
+    item2.prepend(createIndicator(this, "checked-indicator"));
+    const type = (_a3 = subs.kind) != null ? _a3 : "subs";
+    if (type === "captions") {
+      item2.append(createIndicator(this, "captions-indicator"));
+    }
+    this.defaultSlot.append(item2);
+  }
+};
+_onChange2 = /* @__PURE__ */ new WeakSet();
+onChange_fn2 = function() {
+  const showingSubs = this.mediaSubtitlesShowing;
+  const showingSubsStr = this.getAttribute(
+    MediaUIAttributes.MEDIA_SUBTITLES_SHOWING
+  );
+  const localStateChange = this.value !== showingSubsStr;
+  if ((showingSubs == null ? void 0 : showingSubs.length) && localStateChange) {
+    this.dispatchEvent(
+      new GlobalThis.CustomEvent(
+        MediaUIEvents.MEDIA_DISABLE_SUBTITLES_REQUEST,
+        {
+          composed: true,
+          bubbles: true,
+          detail: showingSubs
+        }
+      )
+    );
+  }
+  if (!this.value || !localStateChange)
+    return;
+  const event = new GlobalThis.CustomEvent(
+    MediaUIEvents.MEDIA_SHOW_SUBTITLES_REQUEST,
+    {
+      composed: true,
+      bubbles: true,
+      detail: this.value
+    }
+  );
+  this.dispatchEvent(event);
+};
+MediaCaptionsMenu.template = template17;
+var getSubtitlesListAttr2 = (el, attrName) => {
+  const attrVal = el.getAttribute(attrName);
+  return attrVal ? parseTextTracksStr(attrVal) : [];
+};
+var setSubtitlesListAttr2 = (el, attrName, list) => {
+  if (!(list == null ? void 0 : list.length)) {
+    el.removeAttribute(attrName);
+    return;
+  }
+  const newValStr = stringifyTextTrackList(list);
+  const oldVal = el.getAttribute(attrName);
+  if (oldVal === newValStr)
+    return;
+  el.setAttribute(attrName, newValStr);
+};
+if (!GlobalThis.customElements.get("media-captions-menu")) {
+  GlobalThis.customElements.define("media-captions-menu", MediaCaptionsMenu);
+}
+
+// ../../node_modules/media-chrome/dist/menu/media-captions-menu-button.js
+var __accessCheck27 = (obj, member, msg) => {
+  if (!member.has(obj))
+    throw TypeError("Cannot " + msg);
+};
+var __privateAdd27 = (obj, member, value) => {
+  if (member.has(obj))
+    throw TypeError("Cannot add the same private member more than once");
+  member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+};
+var __privateSet26 = (obj, member, value, setter) => {
+  __accessCheck27(obj, member, "write to private field");
+  setter ? setter.call(obj, value) : member.set(obj, value);
+  return value;
+};
+var _captionsReady;
+var ccIconOn2 = `<svg aria-hidden="true" viewBox="0 0 26 24">
   <path d="M22.83 5.68a2.58 2.58 0 0 0-2.3-2.5c-3.62-.24-11.44-.24-15.06 0a2.58 2.58 0 0 0-2.3 2.5c-.23 4.21-.23 8.43 0 12.64a2.58 2.58 0 0 0 2.3 2.5c3.62.24 11.44.24 15.06 0a2.58 2.58 0 0 0 2.3-2.5c.23-4.21.23-8.43 0-12.64Zm-11.39 9.45a3.07 3.07 0 0 1-1.91.57 3.06 3.06 0 0 1-2.34-1 3.75 3.75 0 0 1-.92-2.67 3.92 3.92 0 0 1 .92-2.77 3.18 3.18 0 0 1 2.43-1 2.94 2.94 0 0 1 2.13.78c.364.359.62.813.74 1.31l-1.43.35a1.49 1.49 0 0 0-1.51-1.17 1.61 1.61 0 0 0-1.29.58 2.79 2.79 0 0 0-.5 1.89 3 3 0 0 0 .49 1.93 1.61 1.61 0 0 0 1.27.58 1.48 1.48 0 0 0 1-.37 2.1 2.1 0 0 0 .59-1.14l1.4.44a3.23 3.23 0 0 1-1.07 1.69Zm7.22 0a3.07 3.07 0 0 1-1.91.57 3.06 3.06 0 0 1-2.34-1 3.75 3.75 0 0 1-.92-2.67 3.88 3.88 0 0 1 .93-2.77 3.14 3.14 0 0 1 2.42-1 3 3 0 0 1 2.16.82 2.8 2.8 0 0 1 .73 1.31l-1.43.35a1.49 1.49 0 0 0-1.51-1.21 1.61 1.61 0 0 0-1.29.58A2.79 2.79 0 0 0 15 12a3 3 0 0 0 .49 1.93 1.61 1.61 0 0 0 1.27.58 1.44 1.44 0 0 0 1-.37 2.1 2.1 0 0 0 .6-1.15l1.4.44a3.17 3.17 0 0 1-1.1 1.7Z"/>
-</svg>`,av=`<svg aria-hidden="true" viewBox="0 0 26 24">
+</svg>`;
+var ccIconOff2 = `<svg aria-hidden="true" viewBox="0 0 26 24">
   <path d="M17.73 14.09a1.4 1.4 0 0 1-1 .37 1.579 1.579 0 0 1-1.27-.58A3 3 0 0 1 15 12a2.8 2.8 0 0 1 .5-1.85 1.63 1.63 0 0 1 1.29-.57 1.47 1.47 0 0 1 1.51 1.2l1.43-.34A2.89 2.89 0 0 0 19 9.07a3 3 0 0 0-2.14-.78 3.14 3.14 0 0 0-2.42 1 3.91 3.91 0 0 0-.93 2.78 3.74 3.74 0 0 0 .92 2.66 3.07 3.07 0 0 0 2.34 1 3.07 3.07 0 0 0 1.91-.57 3.17 3.17 0 0 0 1.07-1.74l-1.4-.45c-.083.43-.3.822-.62 1.12Zm-7.22 0a1.43 1.43 0 0 1-1 .37 1.58 1.58 0 0 1-1.27-.58A3 3 0 0 1 7.76 12a2.8 2.8 0 0 1 .5-1.85 1.63 1.63 0 0 1 1.29-.57 1.47 1.47 0 0 1 1.51 1.2l1.43-.34a2.81 2.81 0 0 0-.74-1.32 2.94 2.94 0 0 0-2.13-.78 3.18 3.18 0 0 0-2.43 1 4 4 0 0 0-.92 2.78 3.74 3.74 0 0 0 .92 2.66 3.07 3.07 0 0 0 2.34 1 3.07 3.07 0 0 0 1.91-.57 3.23 3.23 0 0 0 1.07-1.74l-1.4-.45a2.06 2.06 0 0 1-.6 1.07Zm12.32-8.41a2.59 2.59 0 0 0-2.3-2.51C18.72 3.05 15.86 3 13 3c-2.86 0-5.72.05-7.53.17a2.59 2.59 0 0 0-2.3 2.51c-.23 4.207-.23 8.423 0 12.63a2.57 2.57 0 0 0 2.3 2.5c1.81.13 4.67.19 7.53.19 2.86 0 5.72-.06 7.53-.19a2.57 2.57 0 0 0 2.3-2.5c.23-4.207.23-8.423 0-12.63Zm-1.49 12.53a1.11 1.11 0 0 1-.91 1.11c-1.67.11-4.45.18-7.43.18-2.98 0-5.76-.07-7.43-.18a1.11 1.11 0 0 1-.91-1.11c-.21-4.14-.21-8.29 0-12.43a1.11 1.11 0 0 1 .91-1.11C7.24 4.56 10 4.49 13 4.49s5.76.07 7.43.18a1.11 1.11 0 0 1 .91 1.11c.21 4.14.21 8.29 0 12.43Z"/>
-</svg>`,Fm=h.createElement("template");Fm.innerHTML=`
+</svg>`;
+var slotTemplate14 = Document2.createElement("template");
+slotTemplate14.innerHTML = /*html*/
+`
   <style>
     :host([aria-checked="true"]) slot[name=off] {
       display: none !important;
     }
 
-    
+    ${/* Double negative, but safer if display doesn't equal 'block' */
+""}
     :host(:not([aria-checked="true"])) slot[name=on] {
       display: none !important;
     }
@@ -2954,10 +13293,252 @@ media-poster-image:not([src]):not([placeholdersrc]) {
   </style>
 
   <slot name="icon">
-    <slot name="on">${iv}</slot>
-    <slot name="off">${av}</slot>
+    <slot name="on">${ccIconOn2}</slot>
+    <slot name="off">${ccIconOff2}</slot>
   </slot>
-`;var Hm=i=>{i.setAttribute("aria-checked",Cr(i).toString())},so=class extends be{constructor(e={}){super({slotTemplate:Fm,tooltipContent:v("Captions"),...e}),ev(this,Wl,void 0),tv(this,Wl,!1)}static get observedAttributes(){return[...super.observedAttributes,o.MEDIA_SUBTITLES_LIST,o.MEDIA_SUBTITLES_SHOWING]}connectedCallback(){super.connectedCallback(),this.setAttribute("aria-label",v("closed captions")),Hm(this)}attributeChangedCallback(e,t,a){super.attributeChangedCallback(e,t,a),e===o.MEDIA_SUBTITLES_SHOWING&&Hm(this)}get invokeTargetElement(){var e;return this.invokeTarget!=null?super.invokeTargetElement:(e=q(this))==null?void 0:e.querySelector("media-captions-menu")}get mediaSubtitlesList(){return Wm(this,o.MEDIA_SUBTITLES_LIST)}set mediaSubtitlesList(e){$m(this,o.MEDIA_SUBTITLES_LIST,e)}get mediaSubtitlesShowing(){return Wm(this,o.MEDIA_SUBTITLES_SHOWING)}set mediaSubtitlesShowing(e){$m(this,o.MEDIA_SUBTITLES_SHOWING,e)}};Wl=new WeakMap;var Wm=(i,e)=>{let t=i.getAttribute(e);return t?Vt(t):[]},$m=(i,e,t)=>{if(!(t!=null&&t.length)){i.removeAttribute(e);return}let a=dt(t);i.getAttribute(e)!==a&&i.setAttribute(e,a)};d.customElements.get("media-captions-menu-button")||d.customElements.define("media-captions-menu-button",so);var Vm=(i,e,t)=>{if(!e.has(i))throw TypeError("Cannot "+t)},lo=(i,e,t)=>(Vm(i,e,"read from private field"),t?t.call(i):e.get(i)),$l=(i,e,t)=>{if(e.has(i))throw TypeError("Cannot add the same private member more than once");e instanceof WeakSet?e.add(i):e.set(i,t)},ja=(i,e,t)=>(Vm(i,e,"access private method"),t),ji,er,uo,co,Vl,Fl={RATES:"rates"},mo=class extends oe{constructor(){super(),$l(this,er),$l(this,co),$l(this,ji,new We(this,Fl.RATES,{defaultValue:Ss})),ja(this,er,uo).call(this)}static get observedAttributes(){return[...super.observedAttributes,o.MEDIA_PLAYBACK_RATE,Fl.RATES]}attributeChangedCallback(e,t,a){super.attributeChangedCallback(e,t,a),e===o.MEDIA_PLAYBACK_RATE&&t!=a?this.value=a:e===Fl.RATES&&t!=a&&(lo(this,ji).value=a,ja(this,er,uo).call(this))}connectedCallback(){super.connectedCallback(),this.addEventListener("change",ja(this,co,Vl))}disconnectedCallback(){super.disconnectedCallback(),this.removeEventListener("change",ja(this,co,Vl))}get anchorElement(){return this.anchor!=="auto"?super.anchorElement:q(this).querySelector("media-playback-rate-menu-button")}get rates(){return lo(this,ji)}set rates(e){e?Array.isArray(e)&&(lo(this,ji).value=e.join(" ")):lo(this,ji).value="",ja(this,er,uo).call(this)}get mediaPlaybackRate(){return x(this,o.MEDIA_PLAYBACK_RATE,Oi)}set mediaPlaybackRate(e){N(this,o.MEDIA_PLAYBACK_RATE,e)}};ji=new WeakMap;er=new WeakSet;uo=function(){this.defaultSlot.textContent="";for(let i of this.rates){let e=tt({type:"radio",text:this.formatMenuItemText(`${i}x`,i),value:i,checked:this.mediaPlaybackRate==i});e.prepend(Ue(this,"checked-indicator")),this.defaultSlot.append(e)}};co=new WeakSet;Vl=function(){if(!this.value)return;let i=new d.CustomEvent(f.MEDIA_PLAYBACK_RATE_REQUEST,{composed:!0,bubbles:!0,detail:this.value});this.dispatchEvent(i)};d.customElements.get("media-playback-rate-menu")||d.customElements.define("media-playback-rate-menu",mo);var rv=(i,e,t)=>{if(!e.has(i))throw TypeError("Cannot "+t)},ho=(i,e,t)=>(rv(i,e,"read from private field"),t?t.call(i):e.get(i)),nv=(i,e,t)=>{if(e.has(i))throw TypeError("Cannot add the same private member more than once");e instanceof WeakSet?e.add(i):e.set(i,t)},ea,Kl={RATES:"rates"},ov=[1,1.2,1.5,1.7,2],Gl=1,Km=h.createElement("template");Km.innerHTML=`
+`;
+var updateAriaChecked2 = (el) => {
+  el.setAttribute("aria-checked", areSubsOn(el).toString());
+};
+var MediaCaptionsMenuButton = class extends MediaChromeMenuButton {
+  constructor(options = {}) {
+    super({ slotTemplate: slotTemplate14, tooltipContent: t("Captions"), ...options });
+    __privateAdd27(this, _captionsReady, void 0);
+    __privateSet26(this, _captionsReady, false);
+  }
+  static get observedAttributes() {
+    return [
+      ...super.observedAttributes,
+      MediaUIAttributes.MEDIA_SUBTITLES_LIST,
+      MediaUIAttributes.MEDIA_SUBTITLES_SHOWING
+    ];
+  }
+  connectedCallback() {
+    super.connectedCallback();
+    this.setAttribute("aria-label", t("closed captions"));
+    updateAriaChecked2(this);
+  }
+  attributeChangedCallback(attrName, oldValue, newValue) {
+    super.attributeChangedCallback(attrName, oldValue, newValue);
+    if (attrName === MediaUIAttributes.MEDIA_SUBTITLES_SHOWING) {
+      updateAriaChecked2(this);
+    }
+  }
+  /**
+   * Returns the element with the id specified by the `invoketarget` attribute.
+   * @return {HTMLElement | null}
+   */
+  get invokeTargetElement() {
+    var _a3;
+    if (this.invokeTarget != void 0)
+      return super.invokeTargetElement;
+    return (_a3 = getMediaController(this)) == null ? void 0 : _a3.querySelector("media-captions-menu");
+  }
+  /**
+   * An array of TextTrack-like objects.
+   * Objects must have the properties: kind, language, and label.
+   */
+  get mediaSubtitlesList() {
+    return getSubtitlesListAttr3(this, MediaUIAttributes.MEDIA_SUBTITLES_LIST);
+  }
+  set mediaSubtitlesList(list) {
+    setSubtitlesListAttr3(this, MediaUIAttributes.MEDIA_SUBTITLES_LIST, list);
+  }
+  /**
+   * An array of TextTrack-like objects.
+   * Objects must have the properties: kind, language, and label.
+   */
+  get mediaSubtitlesShowing() {
+    return getSubtitlesListAttr3(
+      this,
+      MediaUIAttributes.MEDIA_SUBTITLES_SHOWING
+    );
+  }
+  set mediaSubtitlesShowing(list) {
+    setSubtitlesListAttr3(this, MediaUIAttributes.MEDIA_SUBTITLES_SHOWING, list);
+  }
+};
+_captionsReady = /* @__PURE__ */ new WeakMap();
+var getSubtitlesListAttr3 = (el, attrName) => {
+  const attrVal = el.getAttribute(attrName);
+  return attrVal ? parseTextTracksStr(attrVal) : [];
+};
+var setSubtitlesListAttr3 = (el, attrName, list) => {
+  if (!(list == null ? void 0 : list.length)) {
+    el.removeAttribute(attrName);
+    return;
+  }
+  const newValStr = stringifyTextTrackList(list);
+  const oldVal = el.getAttribute(attrName);
+  if (oldVal === newValStr)
+    return;
+  el.setAttribute(attrName, newValStr);
+};
+if (!GlobalThis.customElements.get("media-captions-menu-button")) {
+  GlobalThis.customElements.define(
+    "media-captions-menu-button",
+    MediaCaptionsMenuButton
+  );
+}
+
+// ../../node_modules/media-chrome/dist/menu/media-playback-rate-menu.js
+var __accessCheck28 = (obj, member, msg) => {
+  if (!member.has(obj))
+    throw TypeError("Cannot " + msg);
+};
+var __privateGet27 = (obj, member, getter) => {
+  __accessCheck28(obj, member, "read from private field");
+  return getter ? getter.call(obj) : member.get(obj);
+};
+var __privateAdd28 = (obj, member, value) => {
+  if (member.has(obj))
+    throw TypeError("Cannot add the same private member more than once");
+  member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+};
+var __privateMethod13 = (obj, member, method) => {
+  __accessCheck28(obj, member, "access private method");
+  return method;
+};
+var _rates2;
+var _render3;
+var render_fn3;
+var _onChange3;
+var onChange_fn3;
+var Attributes15 = {
+  RATES: "rates"
+};
+var MediaPlaybackRateMenu = class extends MediaChromeMenu {
+  constructor() {
+    super();
+    __privateAdd28(this, _render3);
+    __privateAdd28(this, _onChange3);
+    __privateAdd28(this, _rates2, new AttributeTokenList(this, Attributes15.RATES, {
+      defaultValue: DEFAULT_RATES
+    }));
+    __privateMethod13(this, _render3, render_fn3).call(this);
+  }
+  static get observedAttributes() {
+    return [
+      ...super.observedAttributes,
+      MediaUIAttributes.MEDIA_PLAYBACK_RATE,
+      Attributes15.RATES
+    ];
+  }
+  attributeChangedCallback(attrName, oldValue, newValue) {
+    super.attributeChangedCallback(attrName, oldValue, newValue);
+    if (attrName === MediaUIAttributes.MEDIA_PLAYBACK_RATE && oldValue != newValue) {
+      this.value = newValue;
+    } else if (attrName === Attributes15.RATES && oldValue != newValue) {
+      __privateGet27(this, _rates2).value = newValue;
+      __privateMethod13(this, _render3, render_fn3).call(this);
+    }
+  }
+  connectedCallback() {
+    super.connectedCallback();
+    this.addEventListener("change", __privateMethod13(this, _onChange3, onChange_fn3));
+  }
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    this.removeEventListener("change", __privateMethod13(this, _onChange3, onChange_fn3));
+  }
+  /**
+   * Returns the anchor element when it is a floating menu.
+   */
+  get anchorElement() {
+    if (this.anchor !== "auto")
+      return super.anchorElement;
+    return getMediaController(this).querySelector(
+      "media-playback-rate-menu-button"
+    );
+  }
+  /**
+   * Will return a DOMTokenList.
+   * Setting a value will accept an array of numbers.
+   */
+  get rates() {
+    return __privateGet27(this, _rates2);
+  }
+  set rates(value) {
+    if (!value) {
+      __privateGet27(this, _rates2).value = "";
+    } else if (Array.isArray(value)) {
+      __privateGet27(this, _rates2).value = value.join(" ");
+    }
+    __privateMethod13(this, _render3, render_fn3).call(this);
+  }
+  /**
+   * The current playback rate
+   */
+  get mediaPlaybackRate() {
+    return getNumericAttr(
+      this,
+      MediaUIAttributes.MEDIA_PLAYBACK_RATE,
+      DEFAULT_RATE
+    );
+  }
+  set mediaPlaybackRate(value) {
+    setNumericAttr(this, MediaUIAttributes.MEDIA_PLAYBACK_RATE, value);
+  }
+};
+_rates2 = /* @__PURE__ */ new WeakMap();
+_render3 = /* @__PURE__ */ new WeakSet();
+render_fn3 = function() {
+  this.defaultSlot.textContent = "";
+  for (const rate of this.rates) {
+    const item = createMenuItem({
+      type: "radio",
+      text: this.formatMenuItemText(`${rate}x`, rate),
+      value: rate,
+      checked: this.mediaPlaybackRate == rate
+    });
+    item.prepend(createIndicator(this, "checked-indicator"));
+    this.defaultSlot.append(item);
+  }
+};
+_onChange3 = /* @__PURE__ */ new WeakSet();
+onChange_fn3 = function() {
+  if (!this.value)
+    return;
+  const event = new GlobalThis.CustomEvent(
+    MediaUIEvents.MEDIA_PLAYBACK_RATE_REQUEST,
+    {
+      composed: true,
+      bubbles: true,
+      detail: this.value
+    }
+  );
+  this.dispatchEvent(event);
+};
+if (!GlobalThis.customElements.get("media-playback-rate-menu")) {
+  GlobalThis.customElements.define(
+    "media-playback-rate-menu",
+    MediaPlaybackRateMenu
+  );
+}
+
+// ../../node_modules/media-chrome/dist/menu/media-playback-rate-menu-button.js
+var __accessCheck29 = (obj, member, msg) => {
+  if (!member.has(obj))
+    throw TypeError("Cannot " + msg);
+};
+var __privateGet28 = (obj, member, getter) => {
+  __accessCheck29(obj, member, "read from private field");
+  return getter ? getter.call(obj) : member.get(obj);
+};
+var __privateAdd29 = (obj, member, value) => {
+  if (member.has(obj))
+    throw TypeError("Cannot add the same private member more than once");
+  member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+};
+var _rates3;
+var Attributes16 = {
+  RATES: "rates"
+};
+var DEFAULT_RATES2 = [1, 1.2, 1.5, 1.7, 2];
+var DEFAULT_RATE2 = 1;
+var slotTemplate15 = Document2.createElement("template");
+slotTemplate15.innerHTML = /*html*/
+`
   <style>
     :host {
       min-width: 5ch;
@@ -2969,26 +13550,1836 @@ media-poster-image:not([src]):not([placeholdersrc]) {
     }
   </style>
   <slot name="icon"></slot>
-`;var po=class extends be{constructor(e={}){super({slotTemplate:Km,tooltipContent:v("Playback rate"),...e}),nv(this,ea,new We(this,Kl.RATES,{defaultValue:ov})),this.container=this.shadowRoot.querySelector('slot[name="icon"]'),this.container.innerHTML=`${Gl}x`}static get observedAttributes(){return[...super.observedAttributes,o.MEDIA_PLAYBACK_RATE,Kl.RATES]}attributeChangedCallback(e,t,a){if(super.attributeChangedCallback(e,t,a),e===Kl.RATES&&(ho(this,ea).value=a),e===o.MEDIA_PLAYBACK_RATE){let r=a?+a:Number.NaN,n=Number.isNaN(r)?Gl:r;this.container.innerHTML=`${n}x`,this.setAttribute("aria-label",v("Playback rate {playbackRate}",{playbackRate:n}))}}get invokeTargetElement(){return this.invokeTarget!=null?super.invokeTargetElement:q(this).querySelector("media-playback-rate-menu")}get rates(){return ho(this,ea)}set rates(e){e?Array.isArray(e)&&(ho(this,ea).value=e.join(" ")):ho(this,ea).value=""}get mediaPlaybackRate(){return x(this,o.MEDIA_PLAYBACK_RATE,Gl)}set mediaPlaybackRate(e){N(this,o.MEDIA_PLAYBACK_RATE,e)}};ea=new WeakMap;d.customElements.get("media-playback-rate-menu-button")||d.customElements.define("media-playback-rate-menu-button",po);var ql=(i,e,t)=>{if(!e.has(i))throw TypeError("Cannot "+t)},tr=(i,e,t)=>(ql(i,e,"read from private field"),t?t.call(i):e.get(i)),fo=(i,e,t)=>{if(e.has(i))throw TypeError("Cannot add the same private member more than once");e instanceof WeakSet?e.add(i):e.set(i,t)},Gm=(i,e,t,a)=>(ql(i,e,"write to private field"),a?a.call(i,t):e.set(i,t),t),ta=(i,e,t)=>(ql(i,e,"access private method"),t),ir,aa,ia,ar,vo,Yl,Eo=class extends oe{constructor(){super(...arguments),fo(this,ia),fo(this,vo),fo(this,ir,[]),fo(this,aa,{})}static get observedAttributes(){return[...super.observedAttributes,o.MEDIA_RENDITION_LIST,o.MEDIA_RENDITION_SELECTED,o.MEDIA_RENDITION_UNAVAILABLE,o.MEDIA_HEIGHT]}attributeChangedCallback(e,t,a){super.attributeChangedCallback(e,t,a),e===o.MEDIA_RENDITION_SELECTED&&t!==a?(this.value=a!=null?a:"auto",ta(this,ia,ar).call(this)):e===o.MEDIA_RENDITION_LIST&&t!==a?(Gm(this,ir,Nd(a)),ta(this,ia,ar).call(this)):e===o.MEDIA_HEIGHT&&t!==a&&ta(this,ia,ar).call(this)}connectedCallback(){super.connectedCallback(),this.addEventListener("change",ta(this,vo,Yl))}disconnectedCallback(){super.disconnectedCallback(),this.removeEventListener("change",ta(this,vo,Yl))}get anchorElement(){return this.anchor!=="auto"?super.anchorElement:q(this).querySelector("media-rendition-menu-button")}get mediaRenditionList(){return tr(this,ir)}set mediaRenditionList(e){Gm(this,ir,e),ta(this,ia,ar).call(this)}get mediaRenditionSelected(){return M(this,o.MEDIA_RENDITION_SELECTED)}set mediaRenditionSelected(e){w(this,o.MEDIA_RENDITION_SELECTED,e)}get mediaHeight(){return x(this,o.MEDIA_HEIGHT)}set mediaHeight(e){N(this,o.MEDIA_HEIGHT,e)}};ir=new WeakMap;aa=new WeakMap;ia=new WeakSet;ar=function(){if(tr(this,aa).mediaRenditionList===JSON.stringify(this.mediaRenditionList)&&tr(this,aa).mediaHeight===this.mediaHeight)return;tr(this,aa).mediaRenditionList=JSON.stringify(this.mediaRenditionList),tr(this,aa).mediaHeight=this.mediaHeight;let i=this.mediaRenditionList.sort((n,s)=>s.height-n.height);for(let n of i)n.selected=n.id===this.mediaRenditionSelected;this.defaultSlot.textContent="";let e=!this.mediaRenditionSelected;for(let n of i){let s=this.formatMenuItemText(`${Math.min(n.width,n.height)}p`,n),l=tt({type:"radio",text:s,value:`${n.id}`,checked:n.selected&&!e});l.prepend(Ue(this,"checked-indicator")),this.defaultSlot.append(l)}let t=e?this.formatMenuItemText(`Auto (${this.mediaHeight}p)`):this.formatMenuItemText("Auto"),a=tt({type:"radio",text:t,value:"auto",checked:e}),r=this.mediaHeight>0?`Auto (${this.mediaHeight}p)`:"Auto";a.dataset.description=r,a.prepend(Ue(this,"checked-indicator")),this.defaultSlot.append(a)};vo=new WeakSet;Yl=function(){if(this.value==null)return;let i=new d.CustomEvent(f.MEDIA_RENDITION_REQUEST,{composed:!0,bubbles:!0,detail:this.value});this.dispatchEvent(i)};d.customElements.get("media-rendition-menu")||d.customElements.define("media-rendition-menu",Eo);var sv=`<svg aria-hidden="true" viewBox="0 0 24 24">
+`;
+var MediaPlaybackRateMenuButton = class extends MediaChromeMenuButton {
+  constructor(options = {}) {
+    super({
+      slotTemplate: slotTemplate15,
+      tooltipContent: t("Playback rate"),
+      ...options
+    });
+    __privateAdd29(this, _rates3, new AttributeTokenList(this, Attributes16.RATES, {
+      defaultValue: DEFAULT_RATES2
+    }));
+    this.container = this.shadowRoot.querySelector('slot[name="icon"]');
+    this.container.innerHTML = `${DEFAULT_RATE2}x`;
+  }
+  static get observedAttributes() {
+    return [
+      ...super.observedAttributes,
+      MediaUIAttributes.MEDIA_PLAYBACK_RATE,
+      Attributes16.RATES
+    ];
+  }
+  attributeChangedCallback(attrName, oldValue, newValue) {
+    super.attributeChangedCallback(attrName, oldValue, newValue);
+    if (attrName === Attributes16.RATES) {
+      __privateGet28(this, _rates3).value = newValue;
+    }
+    if (attrName === MediaUIAttributes.MEDIA_PLAYBACK_RATE) {
+      const newPlaybackRate = newValue ? +newValue : Number.NaN;
+      const playbackRate = !Number.isNaN(newPlaybackRate) ? newPlaybackRate : DEFAULT_RATE2;
+      this.container.innerHTML = `${playbackRate}x`;
+      this.setAttribute(
+        "aria-label",
+        t("Playback rate {playbackRate}", { playbackRate })
+      );
+    }
+  }
+  /**
+   * Returns the element with the id specified by the `invoketarget` attribute.
+   */
+  get invokeTargetElement() {
+    if (this.invokeTarget != void 0)
+      return super.invokeTargetElement;
+    return getMediaController(this).querySelector("media-playback-rate-menu");
+  }
+  /**
+   * Will return a DOMTokenList.
+   * Setting a value will accept an array of numbers.
+   */
+  get rates() {
+    return __privateGet28(this, _rates3);
+  }
+  set rates(value) {
+    if (!value) {
+      __privateGet28(this, _rates3).value = "";
+    } else if (Array.isArray(value)) {
+      __privateGet28(this, _rates3).value = value.join(" ");
+    }
+  }
+  /**
+   * The current playback rate
+   */
+  get mediaPlaybackRate() {
+    return getNumericAttr(
+      this,
+      MediaUIAttributes.MEDIA_PLAYBACK_RATE,
+      DEFAULT_RATE2
+    );
+  }
+  set mediaPlaybackRate(value) {
+    setNumericAttr(this, MediaUIAttributes.MEDIA_PLAYBACK_RATE, value);
+  }
+};
+_rates3 = /* @__PURE__ */ new WeakMap();
+if (!GlobalThis.customElements.get("media-playback-rate-menu-button")) {
+  GlobalThis.customElements.define(
+    "media-playback-rate-menu-button",
+    MediaPlaybackRateMenuButton
+  );
+}
+
+// ../../node_modules/media-chrome/dist/menu/media-rendition-menu.js
+var __accessCheck30 = (obj, member, msg) => {
+  if (!member.has(obj))
+    throw TypeError("Cannot " + msg);
+};
+var __privateGet29 = (obj, member, getter) => {
+  __accessCheck30(obj, member, "read from private field");
+  return getter ? getter.call(obj) : member.get(obj);
+};
+var __privateAdd30 = (obj, member, value) => {
+  if (member.has(obj))
+    throw TypeError("Cannot add the same private member more than once");
+  member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
+};
+var __privateSet27 = (obj, member, value, setter) => {
+  __accessCheck30(obj, member, "write to private field");
+  setter ? setter.call(obj, value) : member.set(obj, value);
+  return value;
+};
+var __privateMethod14 = (obj, member, method) => {
+  __accessCheck30(obj, member, "access private method");
+  return method;
+};
+var _renditionList;
+var _prevState3;
+var _render4;
+var render_fn4;
+var _onChange4;
+var onChange_fn4;
+var MediaRenditionMenu = class extends MediaChromeMenu {
+  constructor() {
+    super(...arguments);
+    __privateAdd30(this, _render4);
+    __privateAdd30(this, _onChange4);
+    __privateAdd30(this, _renditionList, []);
+    __privateAdd30(this, _prevState3, {});
+  }
+  static get observedAttributes() {
+    return [
+      ...super.observedAttributes,
+      MediaUIAttributes.MEDIA_RENDITION_LIST,
+      MediaUIAttributes.MEDIA_RENDITION_SELECTED,
+      MediaUIAttributes.MEDIA_RENDITION_UNAVAILABLE,
+      MediaUIAttributes.MEDIA_HEIGHT
+    ];
+  }
+  attributeChangedCallback(attrName, oldValue, newValue) {
+    super.attributeChangedCallback(attrName, oldValue, newValue);
+    if (attrName === MediaUIAttributes.MEDIA_RENDITION_SELECTED && oldValue !== newValue) {
+      this.value = newValue != null ? newValue : "auto";
+      __privateMethod14(this, _render4, render_fn4).call(this);
+    } else if (attrName === MediaUIAttributes.MEDIA_RENDITION_LIST && oldValue !== newValue) {
+      __privateSet27(this, _renditionList, parseRenditionList(newValue));
+      __privateMethod14(this, _render4, render_fn4).call(this);
+    } else if (attrName === MediaUIAttributes.MEDIA_HEIGHT && oldValue !== newValue) {
+      __privateMethod14(this, _render4, render_fn4).call(this);
+    }
+  }
+  connectedCallback() {
+    super.connectedCallback();
+    this.addEventListener("change", __privateMethod14(this, _onChange4, onChange_fn4));
+  }
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    this.removeEventListener("change", __privateMethod14(this, _onChange4, onChange_fn4));
+  }
+  /**
+   * Returns the anchor element when it is a floating menu.
+   */
+  get anchorElement() {
+    if (this.anchor !== "auto")
+      return super.anchorElement;
+    return getMediaController(this).querySelector(
+      "media-rendition-menu-button"
+    );
+  }
+  get mediaRenditionList() {
+    return __privateGet29(this, _renditionList);
+  }
+  set mediaRenditionList(list) {
+    __privateSet27(this, _renditionList, list);
+    __privateMethod14(this, _render4, render_fn4).call(this);
+  }
+  /**
+   * Get selected rendition id.
+   */
+  get mediaRenditionSelected() {
+    return getStringAttr(this, MediaUIAttributes.MEDIA_RENDITION_SELECTED);
+  }
+  set mediaRenditionSelected(id) {
+    setStringAttr(this, MediaUIAttributes.MEDIA_RENDITION_SELECTED, id);
+  }
+  get mediaHeight() {
+    return getNumericAttr(this, MediaUIAttributes.MEDIA_HEIGHT);
+  }
+  set mediaHeight(height) {
+    setNumericAttr(this, MediaUIAttributes.MEDIA_HEIGHT, height);
+  }
+};
+_renditionList = /* @__PURE__ */ new WeakMap();
+_prevState3 = /* @__PURE__ */ new WeakMap();
+_render4 = /* @__PURE__ */ new WeakSet();
+render_fn4 = function() {
+  if (__privateGet29(this, _prevState3).mediaRenditionList === JSON.stringify(this.mediaRenditionList) && __privateGet29(this, _prevState3).mediaHeight === this.mediaHeight)
+    return;
+  __privateGet29(this, _prevState3).mediaRenditionList = JSON.stringify(this.mediaRenditionList);
+  __privateGet29(this, _prevState3).mediaHeight = this.mediaHeight;
+  const renditionList = this.mediaRenditionList.sort(
+    (a, b) => b.height - a.height
+  );
+  for (const rendition of renditionList) {
+    rendition.selected = rendition.id === this.mediaRenditionSelected;
+  }
+  this.defaultSlot.textContent = "";
+  const isAuto = !this.mediaRenditionSelected;
+  for (const rendition of renditionList) {
+    const text2 = this.formatMenuItemText(
+      `${Math.min(rendition.width, rendition.height)}p`,
+      rendition
+    );
+    const item2 = createMenuItem({
+      type: "radio",
+      text: text2,
+      value: `${rendition.id}`,
+      checked: rendition.selected && !isAuto
+    });
+    item2.prepend(createIndicator(this, "checked-indicator"));
+    this.defaultSlot.append(item2);
+  }
+  const text = isAuto ? this.formatMenuItemText(`Auto (${this.mediaHeight}p)`) : this.formatMenuItemText("Auto");
+  const item = createMenuItem({
+    type: "radio",
+    text,
+    value: "auto",
+    checked: isAuto
+  });
+  const autoDescription = this.mediaHeight > 0 ? `Auto (${this.mediaHeight}p)` : "Auto";
+  item.dataset.description = autoDescription;
+  item.prepend(createIndicator(this, "checked-indicator"));
+  this.defaultSlot.append(item);
+};
+_onChange4 = /* @__PURE__ */ new WeakSet();
+onChange_fn4 = function() {
+  if (this.value == null)
+    return;
+  const event = new GlobalThis.CustomEvent(
+    MediaUIEvents.MEDIA_RENDITION_REQUEST,
+    {
+      composed: true,
+      bubbles: true,
+      detail: this.value
+    }
+  );
+  this.dispatchEvent(event);
+};
+if (!GlobalThis.customElements.get("media-rendition-menu")) {
+  GlobalThis.customElements.define("media-rendition-menu", MediaRenditionMenu);
+}
+
+// ../../node_modules/media-chrome/dist/menu/media-rendition-menu-button.js
+var renditionIcon = (
+  /*html*/
+  `<svg aria-hidden="true" viewBox="0 0 24 24">
   <path d="M13.5 2.5h2v6h-2v-2h-11v-2h11v-2Zm4 2h4v2h-4v-2Zm-12 4h2v6h-2v-2h-3v-2h3v-2Zm4 2h12v2h-12v-2Zm1 4h2v6h-2v-2h-8v-2h8v-2Zm4 2h7v2h-7v-2Z" />
-</svg>`,Ym=h.createElement("template");Ym.innerHTML=`
+</svg>`
+);
+var slotTemplate16 = Document2.createElement("template");
+slotTemplate16.innerHTML = /*html*/
+`
   <style>
     :host([aria-expanded="true"]) slot[name=tooltip] {
       display: none;
     }
   </style>
-  <slot name="icon">${sv}</slot>
-`;var bo=class extends be{static get observedAttributes(){return[...super.observedAttributes,o.MEDIA_RENDITION_SELECTED,o.MEDIA_RENDITION_UNAVAILABLE,o.MEDIA_HEIGHT]}constructor(){super({slotTemplate:Ym,tooltipContent:v("Quality")})}connectedCallback(){super.connectedCallback(),this.setAttribute("aria-label",v("quality"))}get invokeTargetElement(){return this.invokeTarget!=null?super.invokeTargetElement:q(this).querySelector("media-rendition-menu")}get mediaRenditionSelected(){return M(this,o.MEDIA_RENDITION_SELECTED)}set mediaRenditionSelected(e){w(this,o.MEDIA_RENDITION_SELECTED,e)}get mediaHeight(){return x(this,o.MEDIA_HEIGHT)}set mediaHeight(e){N(this,o.MEDIA_HEIGHT,e)}};d.customElements.get("media-rendition-menu-button")||d.customElements.define("media-rendition-menu-button",bo);var Zl=gi.createElement("template");"innerHTML"in Zl&&(Zl.innerHTML=um);var qm,Zm,go=class extends ui{};go.template=(Zm=(qm=Zl.content)==null?void 0:qm.children)==null?void 0:Zm[0];pe.customElements.get("media-theme-gerwig")||pe.customElements.define("media-theme-gerwig",go);var lv="gerwig";var vt={SRC:"src",POSTER:"poster"},m={STYLE:"style",DEFAULT_HIDDEN_CAPTIONS:"default-hidden-captions",PRIMARY_COLOR:"primary-color",SECONDARY_COLOR:"secondary-color",ACCENT_COLOR:"accent-color",FORWARD_SEEK_OFFSET:"forward-seek-offset",BACKWARD_SEEK_OFFSET:"backward-seek-offset",PLAYBACK_TOKEN:"playback-token",THUMBNAIL_TOKEN:"thumbnail-token",STORYBOARD_TOKEN:"storyboard-token",DRM_TOKEN:"drm-token",STORYBOARD_SRC:"storyboard-src",THUMBNAIL_TIME:"thumbnail-time",AUDIO:"audio",NOHOTKEYS:"nohotkeys",HOTKEYS:"hotkeys",PLAYBACK_RATES:"playbackrates",DEFAULT_SHOW_REMAINING_TIME:"default-show-remaining-time",DEFAULT_DURATION:"default-duration",TITLE:"title",PLACEHOLDER:"placeholder",THEME:"theme",DEFAULT_STREAM_TYPE:"default-stream-type",TARGET_LIVE_WINDOW:"target-live-window",EXTRA_SOURCE_PARAMS:"extra-source-params",NO_VOLUME_PREF:"no-volume-pref",CAST_RECEIVER:"cast-receiver",NO_TOOLTIPS:"no-tooltips",PROUDLY_DISPLAY_MUX_BADGE:"proudly-display-mux-badge",AD_TAG_URL:"adtagurl"},zl=["audio","backwardseekoffset","defaultduration","defaultshowremainingtime","defaultsubtitles","noautoseektolive","disabled","exportparts","forwardseekoffset","hideduration","hotkeys","nohotkeys","playbackrates","defaultstreamtype","streamtype","style","targetlivewindow","template","title","novolumepref","proudlydisplaymuxbadge","mediaadbreak"];function dv(i,e){var a,r;return{src:!i.playbackId&&i.src,playbackId:i.playbackId,hasSrc:!!i.playbackId||!!i.src||!!i.currentSrc,poster:i.poster,storyboard:i.storyboard,storyboardSrc:i.getAttribute(m.STORYBOARD_SRC),placeholder:i.getAttribute("placeholder"),themeTemplate:cv(i),thumbnailTime:!i.tokens.thumbnail&&i.thumbnailTime,autoplay:i.autoplay,crossOrigin:i.crossOrigin,loop:i.loop,noHotKeys:i.hasAttribute(m.NOHOTKEYS),hotKeys:i.getAttribute(m.HOTKEYS),muted:i.muted,paused:i.paused,preload:i.preload,envKey:i.envKey,preferCmcd:i.preferCmcd,debug:i.debug,disableTracking:i.disableTracking,disableCookies:i.disableCookies,tokens:i.tokens,beaconCollectionDomain:i.beaconCollectionDomain,maxResolution:i.maxResolution,minResolution:i.minResolution,programStartTime:i.programStartTime,programEndTime:i.programEndTime,assetStartTime:i.assetStartTime,assetEndTime:i.assetEndTime,renditionOrder:i.renditionOrder,metadata:i.metadata,playerInitTime:i.playerInitTime,playerSoftwareName:i.playerSoftwareName,playerSoftwareVersion:i.playerSoftwareVersion,startTime:i.startTime,preferPlayback:i.preferPlayback,audio:i.audio,defaultStreamType:i.defaultStreamType,targetLiveWindow:i.getAttribute(b.Attributes.TARGET_LIVE_WINDOW),streamType:xa(i.getAttribute(b.Attributes.STREAM_TYPE)),primaryColor:i.getAttribute(m.PRIMARY_COLOR),secondaryColor:i.getAttribute(m.SECONDARY_COLOR),accentColor:i.getAttribute(m.ACCENT_COLOR),forwardSeekOffset:i.forwardSeekOffset,backwardSeekOffset:i.backwardSeekOffset,defaultHiddenCaptions:i.defaultHiddenCaptions,defaultDuration:i.defaultDuration,defaultShowRemainingTime:i.defaultShowRemainingTime,hideDuration:mv(i),playbackRates:i.getAttribute(m.PLAYBACK_RATES),customDomain:(a=i.getAttribute(b.Attributes.CUSTOM_DOMAIN))!=null?a:void 0,title:i.getAttribute(m.TITLE),novolumepref:i.hasAttribute(m.NO_VOLUME_PREF),castReceiver:i.castReceiver,muxVideoElement:i.muxVideoElement,adTagUrl:(r=i.getAttribute(m.AD_TAG_URL))!=null?r:void 0,adBreak:i.adBreak,proudlyDisplayMuxBadge:i.hasAttribute(m.PROUDLY_DISPLAY_MUX_BADGE),...e,extraSourceParams:i.extraSourceParams}}var uv=tn.formatErrorMessage;tn.formatErrorMessage=i=>{var e,t;if(i instanceof b.MediaError){let a=dm(i,!1);return`
-      ${a!=null&&a.title?`<h3>${a.title}</h3>`:""}
-      ${a!=null&&a.message||a!=null&&a.linkUrl?`<p>
-        ${a==null?void 0:a.message}
-        ${a!=null&&a.linkUrl?`<a
-              href="${a.linkUrl}"
+  <slot name="icon">${renditionIcon}</slot>
+`;
+var MediaRenditionMenuButton = class extends MediaChromeMenuButton {
+  static get observedAttributes() {
+    return [
+      ...super.observedAttributes,
+      MediaUIAttributes.MEDIA_RENDITION_SELECTED,
+      MediaUIAttributes.MEDIA_RENDITION_UNAVAILABLE,
+      MediaUIAttributes.MEDIA_HEIGHT
+    ];
+  }
+  constructor() {
+    super({ slotTemplate: slotTemplate16, tooltipContent: t("Quality") });
+  }
+  connectedCallback() {
+    super.connectedCallback();
+    this.setAttribute("aria-label", t("quality"));
+  }
+  /**
+   * Returns the element with the id specified by the `invoketarget` attribute.
+   */
+  get invokeTargetElement() {
+    if (this.invokeTarget != void 0)
+      return super.invokeTargetElement;
+    return getMediaController(this).querySelector("media-rendition-menu");
+  }
+  /**
+   * Get selected rendition id.
+   */
+  get mediaRenditionSelected() {
+    return getStringAttr(this, MediaUIAttributes.MEDIA_RENDITION_SELECTED);
+  }
+  set mediaRenditionSelected(id) {
+    setStringAttr(this, MediaUIAttributes.MEDIA_RENDITION_SELECTED, id);
+  }
+  get mediaHeight() {
+    return getNumericAttr(this, MediaUIAttributes.MEDIA_HEIGHT);
+  }
+  set mediaHeight(height) {
+    setNumericAttr(this, MediaUIAttributes.MEDIA_HEIGHT, height);
+  }
+};
+if (!GlobalThis.customElements.get("media-rendition-menu-button")) {
+  GlobalThis.customElements.define(
+    "media-rendition-menu-button",
+    MediaRenditionMenuButton
+  );
+}
+
+// src/themes/gerwig/index.ts
+var template18 = internalDocument.createElement("template");
+if ("innerHTML" in template18) template18.innerHTML = gerwig_default;
+var _a2, _b;
+var MediaThemeGerwig = class extends MediaThemeElement {
+};
+MediaThemeGerwig.template = (_b = (_a2 = template18.content) == null ? void 0 : _a2.children) == null ? void 0 : _b[0];
+if (!internalGlobalThis.customElements.get("media-theme-gerwig")) {
+  internalGlobalThis.customElements.define("media-theme-gerwig", MediaThemeGerwig);
+}
+
+// src/index.ts
+var DefaultThemeName = "gerwig";
+var VideoAttributes = {
+  SRC: "src",
+  POSTER: "poster"
+};
+var PlayerAttributes = {
+  STYLE: "style",
+  DEFAULT_HIDDEN_CAPTIONS: "default-hidden-captions",
+  PRIMARY_COLOR: "primary-color",
+  SECONDARY_COLOR: "secondary-color",
+  ACCENT_COLOR: "accent-color",
+  FORWARD_SEEK_OFFSET: "forward-seek-offset",
+  BACKWARD_SEEK_OFFSET: "backward-seek-offset",
+  PLAYBACK_TOKEN: "playback-token",
+  THUMBNAIL_TOKEN: "thumbnail-token",
+  STORYBOARD_TOKEN: "storyboard-token",
+  DRM_TOKEN: "drm-token",
+  STORYBOARD_SRC: "storyboard-src",
+  THUMBNAIL_TIME: "thumbnail-time",
+  AUDIO: "audio",
+  NOHOTKEYS: "nohotkeys",
+  HOTKEYS: "hotkeys",
+  PLAYBACK_RATES: "playbackrates",
+  DEFAULT_SHOW_REMAINING_TIME: "default-show-remaining-time",
+  DEFAULT_DURATION: "default-duration",
+  TITLE: "title",
+  PLACEHOLDER: "placeholder",
+  THEME: "theme",
+  DEFAULT_STREAM_TYPE: "default-stream-type",
+  TARGET_LIVE_WINDOW: "target-live-window",
+  EXTRA_SOURCE_PARAMS: "extra-source-params",
+  NO_VOLUME_PREF: "no-volume-pref",
+  CAST_RECEIVER: "cast-receiver",
+  NO_TOOLTIPS: "no-tooltips",
+  PROUDLY_DISPLAY_MUX_BADGE: "proudly-display-mux-badge",
+  AD_TAG_URL: "adtagurl"
+};
+var ThemeAttributeNames = [
+  "audio",
+  "backwardseekoffset",
+  "defaultduration",
+  "defaultshowremainingtime",
+  "defaultsubtitles",
+  "noautoseektolive",
+  "disabled",
+  "exportparts",
+  "forwardseekoffset",
+  "hideduration",
+  "hotkeys",
+  "nohotkeys",
+  "playbackrates",
+  "defaultstreamtype",
+  "streamtype",
+  "style",
+  "targetlivewindow",
+  "template",
+  "title",
+  "novolumepref",
+  "proudlydisplaymuxbadge",
+  "mediaadbreak"
+];
+function getProps(el, state) {
+  var _a3, _b2;
+  const props = {
+    // Give priority to playbackId derrived asset URL's if playbackId is set.
+    src: !el.playbackId && el.src,
+    playbackId: el.playbackId,
+    hasSrc: !!el.playbackId || !!el.src || !!el.currentSrc,
+    poster: el.poster,
+    storyboard: el.storyboard,
+    storyboardSrc: el.getAttribute(PlayerAttributes.STORYBOARD_SRC),
+    placeholder: el.getAttribute("placeholder"),
+    themeTemplate: getThemeTemplate(el),
+    thumbnailTime: !el.tokens.thumbnail && el.thumbnailTime,
+    autoplay: el.autoplay,
+    crossOrigin: el.crossOrigin,
+    loop: el.loop,
+    // NOTE: Renaming internal prop due to state (sometimes derived from attributeChangedCallback attr values)
+    // overwriting prop value (type mismatch: string vs. boolean) (CJP)
+    noHotKeys: el.hasAttribute(PlayerAttributes.NOHOTKEYS),
+    hotKeys: el.getAttribute(PlayerAttributes.HOTKEYS),
+    muted: el.muted,
+    paused: el.paused,
+    // NOTE: Currently unsupported due to "default true attribute" problem
+    // playsInline: el.playsInline,
+    preload: el.preload,
+    envKey: el.envKey,
+    preferCmcd: el.preferCmcd,
+    debug: el.debug,
+    disableTracking: el.disableTracking,
+    disableCookies: el.disableCookies,
+    tokens: el.tokens,
+    beaconCollectionDomain: el.beaconCollectionDomain,
+    maxResolution: el.maxResolution,
+    minResolution: el.minResolution,
+    programStartTime: el.programStartTime,
+    programEndTime: el.programEndTime,
+    assetStartTime: el.assetStartTime,
+    assetEndTime: el.assetEndTime,
+    renditionOrder: el.renditionOrder,
+    metadata: el.metadata,
+    playerInitTime: el.playerInitTime,
+    playerSoftwareName: el.playerSoftwareName,
+    playerSoftwareVersion: el.playerSoftwareVersion,
+    startTime: el.startTime,
+    preferPlayback: el.preferPlayback,
+    audio: el.audio,
+    defaultStreamType: el.defaultStreamType,
+    targetLiveWindow: el.getAttribute(import_mux_video2.Attributes.TARGET_LIVE_WINDOW),
+    streamType: getStreamTypeFromAttr(el.getAttribute(import_mux_video2.Attributes.STREAM_TYPE)),
+    primaryColor: el.getAttribute(PlayerAttributes.PRIMARY_COLOR),
+    secondaryColor: el.getAttribute(PlayerAttributes.SECONDARY_COLOR),
+    accentColor: el.getAttribute(PlayerAttributes.ACCENT_COLOR),
+    forwardSeekOffset: el.forwardSeekOffset,
+    backwardSeekOffset: el.backwardSeekOffset,
+    defaultHiddenCaptions: el.defaultHiddenCaptions,
+    defaultDuration: el.defaultDuration,
+    defaultShowRemainingTime: el.defaultShowRemainingTime,
+    hideDuration: getHideDuration(el),
+    playbackRates: el.getAttribute(PlayerAttributes.PLAYBACK_RATES),
+    customDomain: (_a3 = el.getAttribute(import_mux_video2.Attributes.CUSTOM_DOMAIN)) != null ? _a3 : void 0,
+    title: el.getAttribute(PlayerAttributes.TITLE),
+    novolumepref: el.hasAttribute(PlayerAttributes.NO_VOLUME_PREF),
+    castReceiver: el.castReceiver,
+    muxVideoElement: el.muxVideoElement,
+    adTagUrl: (_b2 = el.getAttribute(PlayerAttributes.AD_TAG_URL)) != null ? _b2 : void 0,
+    adBreak: el.adBreak,
+    proudlyDisplayMuxBadge: el.hasAttribute(PlayerAttributes.PROUDLY_DISPLAY_MUX_BADGE),
+    ...state,
+    // NOTE: since the attribute value is used as the "source of truth" for the property getter,
+    // moving this below the `...state` spread so it resolves to the default value when unset (CJP)
+    extraSourceParams: el.extraSourceParams
+  };
+  return props;
+}
+var baseFormatErrorMessage = media_error_dialog_default.formatErrorMessage;
+media_error_dialog_default.formatErrorMessage = (error2) => {
+  var _a3, _b2;
+  if (error2 instanceof import_mux_video2.MediaError) {
+    const dialog = muxMediaErrorToDialog(error2, false);
+    return `
+      ${(dialog == null ? void 0 : dialog.title) ? `<h3>${dialog.title}</h3>` : ""}
+      ${(dialog == null ? void 0 : dialog.message) || (dialog == null ? void 0 : dialog.linkUrl) ? `<p>
+        ${dialog == null ? void 0 : dialog.message}
+        ${(dialog == null ? void 0 : dialog.linkUrl) ? `<a
+              href="${dialog.linkUrl}"
               target="_blank"
               rel="external noopener"
-              aria-label="${(e=a.linkText)!=null?e:""} ${(0,L.i18n)("(opens in a new window)")}"
-              >${(t=a.linkText)!=null?t:a.linkUrl}</a
-            >`:""}
-      </p>`:""}
-    `}return uv(i)};function cv(i){var t,a;let e=i.theme;if(e){let r=(a=(t=i.getRootNode())==null?void 0:t.getElementById)==null?void 0:a.call(t,e);if(r&&r instanceof HTMLTemplateElement)return r;e.startsWith("media-theme-")||(e=`media-theme-${e}`);let n=pe.customElements.get(e);if(n!=null&&n.template)return n.template}}function mv(i){var t;let e=(t=i.mediaController)==null?void 0:t.querySelector("media-time-display");return e&&getComputedStyle(e).getPropertyValue("--media-duration-display-display").trim()==="none"}function zm(i){let e=i.hasAttribute(m.TITLE)?{video_title:i.getAttribute(m.TITLE)}:{};return i.getAttributeNames().filter(t=>t.startsWith("metadata-")).reduce((t,a)=>{let r=i.getAttribute(a);return r!==null&&(t[a.replace(/^metadata-/,"").replace(/-/g,"_")]=r),t},e)}var hv=Object.values(b.Attributes),pv=Object.values(vt),fv=Object.values(m),Ql=wn(),Xl="mux-player",Qm={isDialogOpen:!1},vv={redundant_streams:!0},nr,or,sr,Pt,lr,fi,W,Dt,Xm,Jl,Ot,Jm,jm,eh,th,rr=class extends Qs{constructor(){super();he(this,W);he(this,nr);he(this,or,!1);he(this,sr,{});he(this,Pt,!0);he(this,lr,new Mn(this,"hotkeys"));he(this,fi,{...Qm,onCloseErrorDialog:t=>{var r;((r=t.composedPath()[0])==null?void 0:r.localName)==="media-error-dialog"&&Q(this,W,Jl).call(this,{isDialogOpen:!1})},onFocusInErrorDialog:t=>{var n;if(((n=t.composedPath()[0])==null?void 0:n.localName)!=="media-error-dialog")return;qs(this,gi.activeElement)||t.preventDefault()}});Ae(this,nr,(0,L.generatePlayerInitTime)()),this.attachShadow({mode:"open"}),Q(this,W,Xm).call(this),this.isConnected&&Q(this,W,Dt).call(this)}static get NAME(){return Xl}static get VERSION(){return Ql}static get observedAttributes(){var t;return[...(t=Qs.observedAttributes)!=null?t:[],...pv,...hv,...fv]}get mediaTheme(){var t;return(t=this.shadowRoot)==null?void 0:t.querySelector("media-theme")}get mediaController(){var t,a;return(a=(t=this.mediaTheme)==null?void 0:t.shadowRoot)==null?void 0:a.querySelector("media-controller")}connectedCallback(){var a;let t=this.media;t&&((a=this.media)==null||a.addEventListener("adbreakchange",()=>{Q(this,W,Ot).call(this)}),t.metadata=zm(this))}attributeChangedCallback(t,a,r){switch(Q(this,W,Dt).call(this),super.attributeChangedCallback(t,a,r),t){case m.HOTKEYS:B(this,lr).value=r;break;case m.THUMBNAIL_TIME:{r!=null&&this.tokens.thumbnail&&Xe((0,L.i18n)("Use of thumbnail-time with thumbnail-token is currently unsupported. Ignore thumbnail-time."));break}case m.THUMBNAIL_TOKEN:{if(r){let s=(0,L.parseJwt)(r);if(s){let{aud:l}=s,u=L.MuxJWTAud.THUMBNAIL;l!==u&&Xe((0,L.i18n)("The {tokenNamePrefix}-token has an incorrect aud value: {aud}. aud value should be {expectedAud}.").format({aud:l,expectedAud:u,tokenNamePrefix:"thumbnail"}))}}break}case m.STORYBOARD_TOKEN:{if(r){let s=(0,L.parseJwt)(r);if(s){let{aud:l}=s,u=L.MuxJWTAud.STORYBOARD;l!==u&&Xe((0,L.i18n)("The {tokenNamePrefix}-token has an incorrect aud value: {aud}. aud value should be {expectedAud}.").format({aud:l,expectedAud:u,tokenNamePrefix:"storyboard"}))}}break}case m.DRM_TOKEN:{if(r){let s=(0,L.parseJwt)(r);if(s){let{aud:l}=s,u=L.MuxJWTAud.DRM;l!==u&&Xe((0,L.i18n)("The {tokenNamePrefix}-token has an incorrect aud value: {aud}. aud value should be {expectedAud}.").format({aud:l,expectedAud:u,tokenNamePrefix:"drm"}))}}break}case b.Attributes.PLAYBACK_ID:{r!=null&&r.includes("?token")&&Ee((0,L.i18n)("The specificed playback ID {playbackId} contains a token which must be provided via the playback-token attribute.").format({playbackId:r}));break}case b.Attributes.STREAM_TYPE:r&&![L.StreamTypes.LIVE,L.StreamTypes.ON_DEMAND,L.StreamTypes.UNKNOWN].includes(r)?["ll-live","live:dvr","ll-live:dvr"].includes(this.streamType)?this.targetLiveWindow=r.includes("dvr")?Number.POSITIVE_INFINITY:0:Zs({file:"invalid-stream-type.md",message:(0,L.i18n)("Invalid stream-type value supplied: `{streamType}`. Please provide stream-type as either: `on-demand` or `live`").format({streamType:this.streamType})}):r===L.StreamTypes.LIVE?this.getAttribute(m.TARGET_LIVE_WINDOW)==null&&(this.targetLiveWindow=0):this.targetLiveWindow=Number.NaN}[b.Attributes.PLAYBACK_ID,vt.SRC,m.PLAYBACK_TOKEN].includes(t)&&a!==r&&Ae(this,fi,{...B(this,fi),...Qm}),Q(this,W,Ot).call(this,{[Hc(t)]:r})}get preferCmcd(){var t;return(t=this.getAttribute(b.Attributes.PREFER_CMCD))!=null?t:void 0}set preferCmcd(t){t!==this.preferCmcd&&(t?L.CmcdTypeValues.includes(t)?this.setAttribute(b.Attributes.PREFER_CMCD,t):Xe(`Invalid value for preferCmcd. Must be one of ${L.CmcdTypeValues.join()}`):this.removeAttribute(b.Attributes.PREFER_CMCD))}get hasPlayed(){var t,a;return(a=(t=this.mediaController)==null?void 0:t.hasAttribute(o.MEDIA_HAS_PLAYED))!=null?a:!1}get inLiveWindow(){var t;return(t=this.mediaController)==null?void 0:t.hasAttribute(o.MEDIA_TIME_IS_LIVE)}get _hls(){var t;return(t=this.media)==null?void 0:t._hls}get mux(){var t;return(t=this.media)==null?void 0:t.mux}get theme(){var t;return(t=this.getAttribute(m.THEME))!=null?t:lv}set theme(t){this.setAttribute(m.THEME,`${t}`)}get themeProps(){let t=this.mediaTheme;if(!t)return;let a={};for(let r of t.getAttributeNames()){if(zl.includes(r))continue;let n=t.getAttribute(r);a[Cn(r)]=n===""?!0:n}return a}set themeProps(t){var r,n;Q(this,W,Dt).call(this);let a={...this.themeProps,...t};for(let s in a){if(zl.includes(s))continue;let l=t==null?void 0:t[s];typeof l=="boolean"||l==null?(r=this.mediaTheme)==null||r.toggleAttribute(In(s),!!l):(n=this.mediaTheme)==null||n.setAttribute(In(s),l)}}get playbackId(){var t;return(t=this.getAttribute(b.Attributes.PLAYBACK_ID))!=null?t:void 0}set playbackId(t){t?this.setAttribute(b.Attributes.PLAYBACK_ID,t):this.removeAttribute(b.Attributes.PLAYBACK_ID)}get src(){var t,a;return this.playbackId?(t=Nt(this,vt.SRC))!=null?t:void 0:(a=this.getAttribute(vt.SRC))!=null?a:void 0}set src(t){t?this.setAttribute(vt.SRC,t):this.removeAttribute(vt.SRC)}get poster(){var r;let t=this.getAttribute(vt.POSTER);if(t!=null)return t;let{tokens:a}=this;if(a.playback&&!a.thumbnail){Xe("Missing expected thumbnail token. No poster image will be shown");return}if(this.playbackId&&!this.audio)return Uc(this.playbackId,{customDomain:this.customDomain,thumbnailTime:(r=this.thumbnailTime)!=null?r:this.startTime,programTime:this.programStartTime,token:a.thumbnail})}set poster(t){t||t===""?this.setAttribute(vt.POSTER,t):this.removeAttribute(vt.POSTER)}get storyboardSrc(){var t;return(t=this.getAttribute(m.STORYBOARD_SRC))!=null?t:void 0}set storyboardSrc(t){t?this.setAttribute(m.STORYBOARD_SRC,t):this.removeAttribute(m.STORYBOARD_SRC)}get storyboard(){let{tokens:t}=this;if(this.storyboardSrc&&!t.storyboard)return this.storyboardSrc;if(!(this.audio||!this.playbackId||!this.streamType||[L.StreamTypes.LIVE,L.StreamTypes.UNKNOWN].includes(this.streamType)||t.playback&&!t.storyboard))return Bc(this.playbackId,{customDomain:this.customDomain,token:t.storyboard,programStartTime:this.programStartTime,programEndTime:this.programEndTime})}get audio(){return this.hasAttribute(m.AUDIO)}set audio(t){if(!t){this.removeAttribute(m.AUDIO);return}this.setAttribute(m.AUDIO,"")}get hotkeys(){return B(this,lr)}get nohotkeys(){return this.hasAttribute(m.NOHOTKEYS)}set nohotkeys(t){if(!t){this.removeAttribute(m.NOHOTKEYS);return}this.setAttribute(m.NOHOTKEYS,"")}get thumbnailTime(){return ue(this.getAttribute(m.THUMBNAIL_TIME))}set thumbnailTime(t){this.setAttribute(m.THUMBNAIL_TIME,`${t}`)}get title(){var t;return(t=this.getAttribute(m.TITLE))!=null?t:""}set title(t){t!==this.title&&(t?this.setAttribute(m.TITLE,t):this.removeAttribute("title"),super.title=t)}get placeholder(){var t;return(t=Nt(this,m.PLACEHOLDER))!=null?t:""}set placeholder(t){this.setAttribute(m.PLACEHOLDER,`${t}`)}get primaryColor(){var a,r;let t=this.getAttribute(m.PRIMARY_COLOR);if(t!=null||this.mediaTheme&&(t=(r=(a=pe.getComputedStyle(this.mediaTheme))==null?void 0:a.getPropertyValue("--_primary-color"))==null?void 0:r.trim(),t))return t}set primaryColor(t){this.setAttribute(m.PRIMARY_COLOR,`${t}`)}get secondaryColor(){var a,r;let t=this.getAttribute(m.SECONDARY_COLOR);if(t!=null||this.mediaTheme&&(t=(r=(a=pe.getComputedStyle(this.mediaTheme))==null?void 0:a.getPropertyValue("--_secondary-color"))==null?void 0:r.trim(),t))return t}set secondaryColor(t){this.setAttribute(m.SECONDARY_COLOR,`${t}`)}get accentColor(){var a,r;let t=this.getAttribute(m.ACCENT_COLOR);if(t!=null||this.mediaTheme&&(t=(r=(a=pe.getComputedStyle(this.mediaTheme))==null?void 0:a.getPropertyValue("--_accent-color"))==null?void 0:r.trim(),t))return t}set accentColor(t){this.setAttribute(m.ACCENT_COLOR,`${t}`)}get defaultShowRemainingTime(){return this.hasAttribute(m.DEFAULT_SHOW_REMAINING_TIME)}set defaultShowRemainingTime(t){t?this.setAttribute(m.DEFAULT_SHOW_REMAINING_TIME,""):this.removeAttribute(m.DEFAULT_SHOW_REMAINING_TIME)}get playbackRates(){if(this.hasAttribute(m.PLAYBACK_RATES))return this.getAttribute(m.PLAYBACK_RATES).trim().split(/\s*,?\s+/).map(t=>Number(t)).filter(t=>!Number.isNaN(t)).sort((t,a)=>t-a)}set playbackRates(t){if(!t){this.removeAttribute(m.PLAYBACK_RATES);return}this.setAttribute(m.PLAYBACK_RATES,t.join(" "))}get forwardSeekOffset(){var t;return(t=ue(this.getAttribute(m.FORWARD_SEEK_OFFSET)))!=null?t:10}set forwardSeekOffset(t){this.setAttribute(m.FORWARD_SEEK_OFFSET,`${t}`)}get backwardSeekOffset(){var t;return(t=ue(this.getAttribute(m.BACKWARD_SEEK_OFFSET)))!=null?t:10}set backwardSeekOffset(t){this.setAttribute(m.BACKWARD_SEEK_OFFSET,`${t}`)}get defaultHiddenCaptions(){return this.hasAttribute(m.DEFAULT_HIDDEN_CAPTIONS)}set defaultHiddenCaptions(t){t?this.setAttribute(m.DEFAULT_HIDDEN_CAPTIONS,""):this.removeAttribute(m.DEFAULT_HIDDEN_CAPTIONS)}get defaultDuration(){return ue(this.getAttribute(m.DEFAULT_DURATION))}set defaultDuration(t){t==null?this.removeAttribute(m.DEFAULT_DURATION):this.setAttribute(m.DEFAULT_DURATION,`${t}`)}get playerInitTime(){return this.hasAttribute(b.Attributes.PLAYER_INIT_TIME)?ue(this.getAttribute(b.Attributes.PLAYER_INIT_TIME)):B(this,nr)}set playerInitTime(t){t!=this.playerInitTime&&(t==null?this.removeAttribute(b.Attributes.PLAYER_INIT_TIME):this.setAttribute(b.Attributes.PLAYER_INIT_TIME,`${+t}`))}get playerSoftwareName(){var t;return(t=this.getAttribute(b.Attributes.PLAYER_SOFTWARE_NAME))!=null?t:Xl}get playerSoftwareVersion(){var t;return(t=this.getAttribute(b.Attributes.PLAYER_SOFTWARE_VERSION))!=null?t:Ql}get beaconCollectionDomain(){var t;return(t=this.getAttribute(b.Attributes.BEACON_COLLECTION_DOMAIN))!=null?t:void 0}set beaconCollectionDomain(t){t!==this.beaconCollectionDomain&&(t?this.setAttribute(b.Attributes.BEACON_COLLECTION_DOMAIN,t):this.removeAttribute(b.Attributes.BEACON_COLLECTION_DOMAIN))}get adBreak(){var a;let t=this.media;return t&&(a=t.getAttribute("adBreak"))!=null?a:!1}get maxResolution(){var t;return(t=this.getAttribute(b.Attributes.MAX_RESOLUTION))!=null?t:void 0}set maxResolution(t){t!==this.maxResolution&&(t?this.setAttribute(b.Attributes.MAX_RESOLUTION,t):this.removeAttribute(b.Attributes.MAX_RESOLUTION))}get minResolution(){var t;return(t=this.getAttribute(b.Attributes.MIN_RESOLUTION))!=null?t:void 0}set minResolution(t){t!==this.minResolution&&(t?this.setAttribute(b.Attributes.MIN_RESOLUTION,t):this.removeAttribute(b.Attributes.MIN_RESOLUTION))}get renditionOrder(){var t;return(t=this.getAttribute(b.Attributes.RENDITION_ORDER))!=null?t:void 0}set renditionOrder(t){t!==this.renditionOrder&&(t?this.setAttribute(b.Attributes.RENDITION_ORDER,t):this.removeAttribute(b.Attributes.RENDITION_ORDER))}get programStartTime(){return ue(this.getAttribute(b.Attributes.PROGRAM_START_TIME))}set programStartTime(t){t==null?this.removeAttribute(b.Attributes.PROGRAM_START_TIME):this.setAttribute(b.Attributes.PROGRAM_START_TIME,`${t}`)}get programEndTime(){return ue(this.getAttribute(b.Attributes.PROGRAM_END_TIME))}set programEndTime(t){t==null?this.removeAttribute(b.Attributes.PROGRAM_END_TIME):this.setAttribute(b.Attributes.PROGRAM_END_TIME,`${t}`)}get assetStartTime(){return ue(this.getAttribute(b.Attributes.ASSET_START_TIME))}set assetStartTime(t){t==null?this.removeAttribute(b.Attributes.ASSET_START_TIME):this.setAttribute(b.Attributes.ASSET_START_TIME,`${t}`)}get assetEndTime(){return ue(this.getAttribute(b.Attributes.ASSET_END_TIME))}set assetEndTime(t){t==null?this.removeAttribute(b.Attributes.ASSET_END_TIME):this.setAttribute(b.Attributes.ASSET_END_TIME,`${t}`)}get extraSourceParams(){return this.hasAttribute(m.EXTRA_SOURCE_PARAMS)?[...new URLSearchParams(this.getAttribute(m.EXTRA_SOURCE_PARAMS)).entries()].reduce((t,[a,r])=>(t[a]=r,t),{}):vv}set extraSourceParams(t){t==null?this.removeAttribute(m.EXTRA_SOURCE_PARAMS):this.setAttribute(m.EXTRA_SOURCE_PARAMS,new URLSearchParams(t).toString())}get customDomain(){var t;return(t=this.getAttribute(b.Attributes.CUSTOM_DOMAIN))!=null?t:void 0}set customDomain(t){t!==this.customDomain&&(t?this.setAttribute(b.Attributes.CUSTOM_DOMAIN,t):this.removeAttribute(b.Attributes.CUSTOM_DOMAIN))}get envKey(){var t;return(t=Nt(this,b.Attributes.ENV_KEY))!=null?t:void 0}set envKey(t){this.setAttribute(b.Attributes.ENV_KEY,`${t}`)}get noVolumePref(){return this.hasAttribute(m.NO_VOLUME_PREF)}set noVolumePref(t){t?this.setAttribute(m.NO_VOLUME_PREF,""):this.removeAttribute(m.NO_VOLUME_PREF)}get debug(){return Nt(this,b.Attributes.DEBUG)!=null}set debug(t){t?this.setAttribute(b.Attributes.DEBUG,""):this.removeAttribute(b.Attributes.DEBUG)}get disableTracking(){return Nt(this,b.Attributes.DISABLE_TRACKING)!=null}set disableTracking(t){this.toggleAttribute(b.Attributes.DISABLE_TRACKING,!!t)}get disableCookies(){return Nt(this,b.Attributes.DISABLE_COOKIES)!=null}set disableCookies(t){t?this.setAttribute(b.Attributes.DISABLE_COOKIES,""):this.removeAttribute(b.Attributes.DISABLE_COOKIES)}get streamType(){var t,a,r;return(r=(a=this.getAttribute(b.Attributes.STREAM_TYPE))!=null?a:(t=this.media)==null?void 0:t.streamType)!=null?r:L.StreamTypes.UNKNOWN}set streamType(t){this.setAttribute(b.Attributes.STREAM_TYPE,`${t}`)}get defaultStreamType(){var t,a,r;return(r=(a=this.getAttribute(m.DEFAULT_STREAM_TYPE))!=null?a:(t=this.mediaController)==null?void 0:t.getAttribute(m.DEFAULT_STREAM_TYPE))!=null?r:L.StreamTypes.ON_DEMAND}set defaultStreamType(t){t?this.setAttribute(m.DEFAULT_STREAM_TYPE,t):this.removeAttribute(m.DEFAULT_STREAM_TYPE)}get targetLiveWindow(){var t,a;return this.hasAttribute(m.TARGET_LIVE_WINDOW)?+this.getAttribute(m.TARGET_LIVE_WINDOW):(a=(t=this.media)==null?void 0:t.targetLiveWindow)!=null?a:Number.NaN}set targetLiveWindow(t){t==this.targetLiveWindow||Number.isNaN(t)&&Number.isNaN(this.targetLiveWindow)||(t==null?this.removeAttribute(m.TARGET_LIVE_WINDOW):this.setAttribute(m.TARGET_LIVE_WINDOW,`${+t}`))}get liveEdgeStart(){var t;return(t=this.media)==null?void 0:t.liveEdgeStart}get startTime(){return ue(Nt(this,b.Attributes.START_TIME))}set startTime(t){this.setAttribute(b.Attributes.START_TIME,`${t}`)}get preferPlayback(){let t=this.getAttribute(b.Attributes.PREFER_PLAYBACK);if(t===L.PlaybackTypes.MSE||t===L.PlaybackTypes.NATIVE)return t}set preferPlayback(t){t!==this.preferPlayback&&(t===L.PlaybackTypes.MSE||t===L.PlaybackTypes.NATIVE?this.setAttribute(b.Attributes.PREFER_PLAYBACK,t):this.removeAttribute(b.Attributes.PREFER_PLAYBACK))}get metadata(){var t;return(t=this.media)==null?void 0:t.metadata}set metadata(t){if(Q(this,W,Dt).call(this),!this.media){Ee("underlying media element missing when trying to set metadata. metadata will not be set.");return}this.media.metadata={...zm(this),...t}}get _hlsConfig(){var t;return(t=this.media)==null?void 0:t._hlsConfig}set _hlsConfig(t){if(Q(this,W,Dt).call(this),!this.media){Ee("underlying media element missing when trying to set _hlsConfig. _hlsConfig will not be set.");return}this.media._hlsConfig=t}async addCuePoints(t){var a;if(Q(this,W,Dt).call(this),!this.media){Ee("underlying media element missing when trying to addCuePoints. cuePoints will not be added.");return}return(a=this.media)==null?void 0:a.addCuePoints(t)}get activeCuePoint(){var t;return(t=this.media)==null?void 0:t.activeCuePoint}get cuePoints(){var t,a;return(a=(t=this.media)==null?void 0:t.cuePoints)!=null?a:[]}addChapters(t){var a;if(Q(this,W,Dt).call(this),!this.media){Ee("underlying media element missing when trying to addChapters. chapters will not be added.");return}return(a=this.media)==null?void 0:a.addChapters(t)}get activeChapter(){var t;return(t=this.media)==null?void 0:t.activeChapter}get chapters(){var t,a;return(a=(t=this.media)==null?void 0:t.chapters)!=null?a:[]}getStartDate(){var t;return(t=this.media)==null?void 0:t.getStartDate()}get currentPdt(){var t;return(t=this.media)==null?void 0:t.currentPdt}get tokens(){let t=this.getAttribute(m.PLAYBACK_TOKEN),a=this.getAttribute(m.DRM_TOKEN),r=this.getAttribute(m.THUMBNAIL_TOKEN),n=this.getAttribute(m.STORYBOARD_TOKEN);return{...B(this,sr),...t!=null?{playback:t}:{},...a!=null?{drm:a}:{},...r!=null?{thumbnail:r}:{},...n!=null?{storyboard:n}:{}}}set tokens(t){Ae(this,sr,t!=null?t:{})}get playbackToken(){var t;return(t=this.getAttribute(m.PLAYBACK_TOKEN))!=null?t:void 0}set playbackToken(t){this.setAttribute(m.PLAYBACK_TOKEN,`${t}`)}get drmToken(){var t;return(t=this.getAttribute(m.DRM_TOKEN))!=null?t:void 0}set drmToken(t){this.setAttribute(m.DRM_TOKEN,`${t}`)}get thumbnailToken(){var t;return(t=this.getAttribute(m.THUMBNAIL_TOKEN))!=null?t:void 0}set thumbnailToken(t){this.setAttribute(m.THUMBNAIL_TOKEN,`${t}`)}get storyboardToken(){var t;return(t=this.getAttribute(m.STORYBOARD_TOKEN))!=null?t:void 0}set storyboardToken(t){this.setAttribute(m.STORYBOARD_TOKEN,`${t}`)}addTextTrack(t,a,r,n){var l;let s=(l=this.media)==null?void 0:l.nativeEl;if(s)return(0,L.addTextTrack)(s,t,a,r,n)}removeTextTrack(t){var r;let a=(r=this.media)==null?void 0:r.nativeEl;if(a)return(0,L.removeTextTrack)(a,t)}get textTracks(){var t;return(t=this.media)==null?void 0:t.textTracks}get castReceiver(){var t;return(t=this.getAttribute(m.CAST_RECEIVER))!=null?t:void 0}set castReceiver(t){t!==this.castReceiver&&(t?this.setAttribute(m.CAST_RECEIVER,t):this.removeAttribute(m.CAST_RECEIVER))}get castCustomData(){var t;return(t=this.media)==null?void 0:t.castCustomData}set castCustomData(t){if(!this.media){Ee("underlying media element missing when trying to set castCustomData. castCustomData will not be set.");return}this.media.castCustomData=t}get noTooltips(){return this.hasAttribute(m.NO_TOOLTIPS)}set noTooltips(t){if(!t){this.removeAttribute(m.NO_TOOLTIPS);return}this.setAttribute(m.NO_TOOLTIPS,"")}get proudlyDisplayMuxBadge(){return this.hasAttribute(m.PROUDLY_DISPLAY_MUX_BADGE)}set proudlyDisplayMuxBadge(t){t?this.setAttribute(m.PROUDLY_DISPLAY_MUX_BADGE,""):this.removeAttribute(m.PROUDLY_DISPLAY_MUX_BADGE)}};nr=new WeakMap,or=new WeakMap,sr=new WeakMap,Pt=new WeakMap,lr=new WeakMap,fi=new WeakMap,W=new WeakSet,Dt=function(){var t,a,r,n;if(!B(this,or)){Ae(this,or,!0),Q(this,W,Ot).call(this);try{if(customElements.upgrade(this.mediaTheme),!(this.mediaTheme instanceof pe.HTMLElement))throw""}catch{Ee("<media-theme> failed to upgrade!")}try{if(customElements.upgrade(this.media),this.muxVideoElement.includes("-")){customElements.upgrade(this.media);let s=customElements.get(this.muxVideoElement);if(!(s&&this.media instanceof s))throw""}}catch{Ee("underlying media element failed to upgrade!")}try{if(customElements.upgrade(this.mediaController),!(this.mediaController instanceof Yo))throw""}catch{Ee("<media-controller> failed to upgrade!")}this.init(),Q(this,W,Jm).call(this),Q(this,W,jm).call(this),Q(this,W,eh).call(this),Ae(this,Pt,(a=(t=this.mediaController)==null?void 0:t.hasAttribute(C.USER_INACTIVE))!=null?a:!0),Q(this,W,th).call(this),(r=this.media)==null||r.addEventListener("streamtypechange",()=>Q(this,W,Ot).call(this)),(n=this.media)==null||n.addEventListener("loadstart",()=>Q(this,W,Ot).call(this))}},Xm=function(){var t,a;try{(t=window==null?void 0:window.CSS)==null||t.registerProperty({name:"--media-primary-color",syntax:"<color>",inherits:!0}),(a=window==null?void 0:window.CSS)==null||a.registerProperty({name:"--media-secondary-color",syntax:"<color>",inherits:!0})}catch{}},Jl=function(t){Object.assign(B(this,fi),t),Q(this,W,Ot).call(this)},Ot=function(t={}){om(sm(dv(this,{...B(this,fi),...t})),this.shadowRoot)},Jm=function(){let t=r=>{var l,u;if(!(r!=null&&r.startsWith("theme-")))return;let n=r.replace(/^theme-/,"");if(zl.includes(n))return;let s=this.getAttribute(r);s!=null?(l=this.mediaTheme)==null||l.setAttribute(n,s):(u=this.mediaTheme)==null||u.removeAttribute(n)};new MutationObserver(r=>{for(let{attributeName:n}of r)t(n)}).observe(this,{attributes:!0}),this.getAttributeNames().forEach(t)},jm=function(){var a;let t=r=>{let{detail:n}=r;if(n instanceof b.MediaError||(n=new b.MediaError(n.message,n.code,n.fatal)),!(n!=null&&n.fatal)){Xe(n),n.data&&Xe(`${n.name} data:`,n.data);return}let s=sl(n,!1);s.message&&Zs(s),Ee(n),n.data&&Ee(`${n.name} data:`,n.data),Q(this,W,Jl).call(this,{isDialogOpen:!0})};this.addEventListener("error",t),this.media&&(this.media.errorTranslator=(r={})=>{var s,l,u;if(!(((s=this.media)==null?void 0:s.error)instanceof b.MediaError))return r;let n=sl((l=this.media)==null?void 0:l.error,!1);return{player_error_code:(u=this.media)==null?void 0:u.error.code,player_error_message:n.message?String(n.message):r.player_error_message,player_error_context:n.context?String(n.context):r.player_error_context}}),(a=this.media)==null||a.addEventListener("error",r=>{var s,l;let{detail:n}=r;if(!n){let{message:u,code:c}=(l=(s=this.media)==null?void 0:s.error)!=null?l:{};n=new b.MediaError(u,c)}n!=null&&n.fatal&&this.dispatchEvent(new CustomEvent("error",{detail:n}))})},eh=function(){var a,r,n,s;let t=()=>Q(this,W,Ot).call(this);(r=(a=this.media)==null?void 0:a.textTracks)==null||r.addEventListener("addtrack",t),(s=(n=this.media)==null?void 0:n.textTracks)==null||s.addEventListener("removetrack",t)},th=function(){var c,A;if(!/Firefox/i.test(navigator.userAgent))return;let a,r=new WeakMap,n=()=>this.streamType===L.StreamTypes.LIVE&&!this.secondaryColor&&this.offsetWidth>=800,s=(g,p,E=!1)=>{if(n())return;Array.from(g&&g.activeCues||[]).forEach(y=>{if(!(!y.snapToLines||y.line<-5||y.line>=0&&y.line<10))if(!p||this.paused){let I=y.text.split(`
-`).length,U=-3;this.streamType===L.StreamTypes.LIVE&&(U=-2);let z=U-I;if(y.line===z&&!E)return;r.has(y)||r.set(y,y.line),y.line=z}else setTimeout(()=>{y.line=r.get(y)||"auto"},500)})},l=()=>{var g,p;s(a,(p=(g=this.mediaController)==null?void 0:g.hasAttribute(C.USER_INACTIVE))!=null?p:!1)},u=()=>{var E,O;let p=Array.from(((O=(E=this.mediaController)==null?void 0:E.media)==null?void 0:O.textTracks)||[]).filter(y=>["subtitles","captions"].includes(y.kind)&&y.mode==="showing")[0];p!==a&&(a==null||a.removeEventListener("cuechange",l)),a=p,a==null||a.addEventListener("cuechange",l),s(a,B(this,Pt))};u(),(c=this.textTracks)==null||c.addEventListener("change",u),(A=this.textTracks)==null||A.addEventListener("addtrack",u),this.addEventListener("userinactivechange",()=>{var p,E;let g=(E=(p=this.mediaController)==null?void 0:p.hasAttribute(C.USER_INACTIVE))!=null?E:!0;B(this,Pt)!==g&&(Ae(this,Pt,g),s(a,B(this,Pt)))})};function Nt(i,e){return i.media?i.media.getAttribute(e):i.getAttribute(e)}pe.customElements.get("mux-player")||(pe.customElements.define("mux-player",rr),pe.MuxPlayerElement=rr);var Ev=rr;
+              aria-label="${(_a3 = dialog.linkText) != null ? _a3 : ""} ${(0, import_playback_core5.i18n)(`(opens in a new window)`)}"
+              >${(_b2 = dialog.linkText) != null ? _b2 : dialog.linkUrl}</a
+            >` : ""}
+      </p>` : ""}
+    `;
+  }
+  return baseFormatErrorMessage(error2);
+};
+function getThemeTemplate(el) {
+  var _a3, _b2;
+  let themeName = el.theme;
+  if (themeName) {
+    const templateElement = (_b2 = (_a3 = el.getRootNode()) == null ? void 0 : _a3.getElementById) == null ? void 0 : _b2.call(_a3, themeName);
+    if (templateElement && templateElement instanceof HTMLTemplateElement) return templateElement;
+    if (!themeName.startsWith("media-theme-")) {
+      themeName = `media-theme-${themeName}`;
+    }
+    const ThemeElement = internalGlobalThis.customElements.get(themeName);
+    if (ThemeElement == null ? void 0 : ThemeElement.template) return ThemeElement.template;
+  }
+}
+function getHideDuration(el) {
+  var _a3;
+  const timeDisplay = (_a3 = el.mediaController) == null ? void 0 : _a3.querySelector("media-time-display");
+  return timeDisplay && getComputedStyle(timeDisplay).getPropertyValue("--media-duration-display-display").trim() === "none";
+}
+function getMetadataFromAttrs(el) {
+  const seedValue = el.hasAttribute(PlayerAttributes.TITLE) ? { video_title: el.getAttribute(PlayerAttributes.TITLE) } : {};
+  return el.getAttributeNames().filter((attrName) => attrName.startsWith("metadata-")).reduce((currAttrs, attrName) => {
+    const value = el.getAttribute(attrName);
+    if (value !== null) {
+      currAttrs[attrName.replace(/^metadata-/, "").replace(/-/g, "_")] = value;
+    }
+    return currAttrs;
+  }, seedValue);
+}
+var MuxVideoAttributeNames = Object.values(import_mux_video2.Attributes);
+var VideoAttributeNames = Object.values(VideoAttributes);
+var PlayerAttributeNames = Object.values(PlayerAttributes);
+var playerSoftwareVersion = getPlayerVersion();
+var playerSoftwareName = "mux-player";
+var initialState = {
+  isDialogOpen: false
+};
+var DEFAULT_EXTRA_PLAYLIST_PARAMS = { redundant_streams: true };
+var _defaultPlayerInitTime, _isInit2, _tokens3, _userInactive, _hotkeys, _state, _MuxPlayerElement_instances, init_fn2, setupCSSProperties_fn, setState_fn, render_fn5, setUpThemeAttributes_fn, setUpErrors_fn, setUpCaptionsButton_fn, setUpCaptionsMovement_fn;
+var MuxPlayerElement = class extends video_api_default {
+  constructor() {
+    super();
+    __privateAdd(this, _MuxPlayerElement_instances);
+    __privateAdd(this, _defaultPlayerInitTime);
+    __privateAdd(this, _isInit2, false);
+    __privateAdd(this, _tokens3, {});
+    __privateAdd(this, _userInactive, true);
+    __privateAdd(this, _hotkeys, new AttributeTokenList2(this, "hotkeys"));
+    __privateAdd(this, _state, {
+      ...initialState,
+      onCloseErrorDialog: (event) => {
+        var _a3;
+        const localName = (_a3 = event.composedPath()[0]) == null ? void 0 : _a3.localName;
+        if (localName !== "media-error-dialog") return;
+        __privateMethod(this, _MuxPlayerElement_instances, setState_fn).call(this, { isDialogOpen: false });
+      },
+      onFocusInErrorDialog: (event) => {
+        var _a3;
+        const localName = (_a3 = event.composedPath()[0]) == null ? void 0 : _a3.localName;
+        if (localName !== "media-error-dialog") return;
+        const isFocusedElementInPlayer = containsComposedNode2(this, internalDocument.activeElement);
+        if (!isFocusedElementInPlayer) event.preventDefault();
+      }
+    });
+    __privateSet(this, _defaultPlayerInitTime, (0, import_playback_core5.generatePlayerInitTime)());
+    this.attachShadow({ mode: "open" });
+    __privateMethod(this, _MuxPlayerElement_instances, setupCSSProperties_fn).call(this);
+    if (this.isConnected) {
+      __privateMethod(this, _MuxPlayerElement_instances, init_fn2).call(this);
+    }
+  }
+  static get NAME() {
+    return playerSoftwareName;
+  }
+  static get VERSION() {
+    return playerSoftwareVersion;
+  }
+  static get observedAttributes() {
+    var _a3;
+    return [
+      ...(_a3 = video_api_default.observedAttributes) != null ? _a3 : [],
+      ...VideoAttributeNames,
+      ...MuxVideoAttributeNames,
+      ...PlayerAttributeNames
+    ];
+  }
+  get mediaTheme() {
+    var _a3;
+    return (_a3 = this.shadowRoot) == null ? void 0 : _a3.querySelector("media-theme");
+  }
+  get mediaController() {
+    var _a3, _b2;
+    return (_b2 = (_a3 = this.mediaTheme) == null ? void 0 : _a3.shadowRoot) == null ? void 0 : _b2.querySelector("media-controller");
+  }
+  connectedCallback() {
+    var _a3;
+    const muxVideo = this.media;
+    if (muxVideo) {
+      (_a3 = this.media) == null ? void 0 : _a3.addEventListener("adbreakchange", () => {
+        __privateMethod(this, _MuxPlayerElement_instances, render_fn5).call(this);
+      });
+      muxVideo.metadata = getMetadataFromAttrs(this);
+    }
+  }
+  attributeChangedCallback(attrName, oldValue, newValue) {
+    __privateMethod(this, _MuxPlayerElement_instances, init_fn2).call(this);
+    super.attributeChangedCallback(attrName, oldValue, newValue);
+    switch (attrName) {
+      case PlayerAttributes.HOTKEYS:
+        __privateGet(this, _hotkeys).value = newValue;
+        break;
+      case PlayerAttributes.THUMBNAIL_TIME: {
+        if (newValue != null && this.tokens.thumbnail) {
+          warn(
+            (0, import_playback_core5.i18n)(`Use of thumbnail-time with thumbnail-token is currently unsupported. Ignore thumbnail-time.`)
+          );
+        }
+        break;
+      }
+      case PlayerAttributes.THUMBNAIL_TOKEN: {
+        if (newValue) {
+          const jwtObj = (0, import_playback_core5.parseJwt)(newValue);
+          if (jwtObj) {
+            const { aud } = jwtObj;
+            const expectedAud = import_playback_core5.MuxJWTAud.THUMBNAIL;
+            const tokenNamePrefix = "thumbnail";
+            if (aud !== expectedAud) {
+              warn(
+                (0, import_playback_core5.i18n)(
+                  `The {tokenNamePrefix}-token has an incorrect aud value: {aud}. aud value should be {expectedAud}.`
+                ).format({ aud, expectedAud, tokenNamePrefix })
+              );
+            }
+          }
+        }
+        break;
+      }
+      case PlayerAttributes.STORYBOARD_TOKEN: {
+        if (newValue) {
+          const jwtObj = (0, import_playback_core5.parseJwt)(newValue);
+          if (jwtObj) {
+            const { aud } = jwtObj;
+            const expectedAud = import_playback_core5.MuxJWTAud.STORYBOARD;
+            const tokenNamePrefix = "storyboard";
+            if (aud !== expectedAud) {
+              warn(
+                (0, import_playback_core5.i18n)(
+                  `The {tokenNamePrefix}-token has an incorrect aud value: {aud}. aud value should be {expectedAud}.`
+                ).format({ aud, expectedAud, tokenNamePrefix })
+              );
+            }
+          }
+        }
+        break;
+      }
+      case PlayerAttributes.DRM_TOKEN: {
+        if (newValue) {
+          const jwtObj = (0, import_playback_core5.parseJwt)(newValue);
+          if (jwtObj) {
+            const { aud } = jwtObj;
+            const expectedAud = import_playback_core5.MuxJWTAud.DRM;
+            const tokenNamePrefix = "drm";
+            if (aud !== expectedAud) {
+              warn(
+                (0, import_playback_core5.i18n)(
+                  `The {tokenNamePrefix}-token has an incorrect aud value: {aud}. aud value should be {expectedAud}.`
+                ).format({ aud, expectedAud, tokenNamePrefix })
+              );
+            }
+          }
+        }
+        break;
+      }
+      case import_mux_video2.Attributes.PLAYBACK_ID: {
+        if (newValue == null ? void 0 : newValue.includes("?token")) {
+          error(
+            (0, import_playback_core5.i18n)(
+              "The specificed playback ID {playbackId} contains a token which must be provided via the playback-token attribute."
+            ).format({
+              playbackId: newValue
+            })
+          );
+        }
+        break;
+      }
+      case import_mux_video2.Attributes.STREAM_TYPE: {
+        if (newValue && ![import_playback_core5.StreamTypes.LIVE, import_playback_core5.StreamTypes.ON_DEMAND, import_playback_core5.StreamTypes.UNKNOWN].includes(newValue)) {
+          if (["ll-live", "live:dvr", "ll-live:dvr"].includes(this.streamType)) {
+            this.targetLiveWindow = newValue.includes("dvr") ? Number.POSITIVE_INFINITY : 0;
+          } else {
+            devlog({
+              file: "invalid-stream-type.md",
+              message: (0, import_playback_core5.i18n)(
+                "Invalid stream-type value supplied: `{streamType}`. Please provide stream-type as either: `on-demand` or `live`"
+              ).format({ streamType: this.streamType })
+            });
+          }
+        } else {
+          if (newValue === import_playback_core5.StreamTypes.LIVE) {
+            if (this.getAttribute(PlayerAttributes.TARGET_LIVE_WINDOW) == null) {
+              this.targetLiveWindow = 0;
+            }
+          } else {
+            this.targetLiveWindow = Number.NaN;
+          }
+        }
+      }
+    }
+    const shouldClearState = [
+      import_mux_video2.Attributes.PLAYBACK_ID,
+      VideoAttributes.SRC,
+      PlayerAttributes.PLAYBACK_TOKEN
+      // @ts-ignore
+    ].includes(attrName);
+    if (shouldClearState && oldValue !== newValue) {
+      __privateSet(this, _state, { ...__privateGet(this, _state), ...initialState });
+    }
+    __privateMethod(this, _MuxPlayerElement_instances, render_fn5).call(this, { [toPropName(attrName)]: newValue });
+  }
+  get preferCmcd() {
+    var _a3;
+    return (_a3 = this.getAttribute(import_mux_video2.Attributes.PREFER_CMCD)) != null ? _a3 : void 0;
+  }
+  set preferCmcd(value) {
+    if (value === this.preferCmcd) return;
+    if (!value) {
+      this.removeAttribute(import_mux_video2.Attributes.PREFER_CMCD);
+    } else if (import_playback_core5.CmcdTypeValues.includes(value)) {
+      this.setAttribute(import_mux_video2.Attributes.PREFER_CMCD, value);
+    } else {
+      warn(`Invalid value for preferCmcd. Must be one of ${import_playback_core5.CmcdTypeValues.join()}`);
+    }
+  }
+  get hasPlayed() {
+    var _a3, _b2;
+    return (_b2 = (_a3 = this.mediaController) == null ? void 0 : _a3.hasAttribute(MediaUIAttributes.MEDIA_HAS_PLAYED)) != null ? _b2 : false;
+  }
+  get inLiveWindow() {
+    var _a3;
+    return (_a3 = this.mediaController) == null ? void 0 : _a3.hasAttribute(MediaUIAttributes.MEDIA_TIME_IS_LIVE);
+  }
+  get _hls() {
+    var _a3;
+    return (_a3 = this.media) == null ? void 0 : _a3._hls;
+  }
+  get mux() {
+    var _a3;
+    return (_a3 = this.media) == null ? void 0 : _a3.mux;
+  }
+  /**
+   * Gets the theme.
+   */
+  get theme() {
+    var _a3;
+    return (_a3 = this.getAttribute(PlayerAttributes.THEME)) != null ? _a3 : DefaultThemeName;
+  }
+  /**
+   * Sets the theme.
+   */
+  set theme(val) {
+    this.setAttribute(PlayerAttributes.THEME, `${val}`);
+  }
+  /**
+   * Get the theme attributes in a plain object (camelCase keys).
+   * This doesn't include already defined attributes. e.g. streamType, disabled, etc.
+   */
+  get themeProps() {
+    const theme = this.mediaTheme;
+    if (!theme) return;
+    const props = {};
+    for (const name of theme.getAttributeNames()) {
+      if (ThemeAttributeNames.includes(name)) continue;
+      const value = theme.getAttribute(name);
+      props[camelCase2(name)] = value === "" ? true : value;
+    }
+    return props;
+  }
+  /**
+   * Set the theme attributes via a plain object.
+   */
+  set themeProps(props) {
+    var _a3, _b2;
+    __privateMethod(this, _MuxPlayerElement_instances, init_fn2).call(this);
+    const themeProps = { ...this.themeProps, ...props };
+    for (const name in themeProps) {
+      if (ThemeAttributeNames.includes(name)) continue;
+      const value = props == null ? void 0 : props[name];
+      if (typeof value === "boolean" || value == null) {
+        (_a3 = this.mediaTheme) == null ? void 0 : _a3.toggleAttribute(kebabCase(name), Boolean(value));
+      } else {
+        (_b2 = this.mediaTheme) == null ? void 0 : _b2.setAttribute(kebabCase(name), value);
+      }
+    }
+  }
+  /**
+   * Get Mux asset playback id.
+   */
+  get playbackId() {
+    var _a3;
+    return (_a3 = this.getAttribute(import_mux_video2.Attributes.PLAYBACK_ID)) != null ? _a3 : void 0;
+  }
+  /**
+   * Set Mux asset playback id.
+   */
+  set playbackId(val) {
+    if (val) {
+      this.setAttribute(import_mux_video2.Attributes.PLAYBACK_ID, val);
+    } else {
+      this.removeAttribute(import_mux_video2.Attributes.PLAYBACK_ID);
+    }
+  }
+  /**
+   * Get the string that reflects the src HTML attribute, which contains the URL of a media resource to use.
+   */
+  get src() {
+    var _a3, _b2;
+    if (this.playbackId) {
+      return (_a3 = getVideoAttribute2(this, VideoAttributes.SRC)) != null ? _a3 : void 0;
+    }
+    return (_b2 = this.getAttribute(VideoAttributes.SRC)) != null ? _b2 : void 0;
+  }
+  /**
+   * Set the string that reflects the src HTML attribute, which contains the URL of a media resource to use.
+   */
+  set src(val) {
+    if (val) {
+      this.setAttribute(VideoAttributes.SRC, val);
+    } else {
+      this.removeAttribute(VideoAttributes.SRC);
+    }
+  }
+  /**
+   * Gets a URL of an image to display, for example, like a movie poster. This can be a still frame from the video, or another image if no video data is available.
+   */
+  get poster() {
+    var _a3;
+    const val = this.getAttribute(VideoAttributes.POSTER);
+    if (val != null) return val;
+    const { tokens } = this;
+    if (tokens.playback && !tokens.thumbnail) {
+      warn("Missing expected thumbnail token. No poster image will be shown");
+      return void 0;
+    }
+    if (this.playbackId && !this.audio) {
+      return getPosterURLFromPlaybackId(this.playbackId, {
+        customDomain: this.customDomain,
+        thumbnailTime: (_a3 = this.thumbnailTime) != null ? _a3 : this.startTime,
+        programTime: this.programStartTime,
+        token: tokens.thumbnail
+      });
+    }
+    return void 0;
+  }
+  /**
+   * Sets a URL of an image to display, for example, like a movie poster. This can be a still frame from the video, or another image if no video data is available.
+   */
+  set poster(val) {
+    if (val || val === "") {
+      this.setAttribute(VideoAttributes.POSTER, val);
+    } else {
+      this.removeAttribute(VideoAttributes.POSTER);
+    }
+  }
+  /**
+   * Return the storyboard-src attribute URL
+   */
+  get storyboardSrc() {
+    var _a3;
+    return (_a3 = this.getAttribute(PlayerAttributes.STORYBOARD_SRC)) != null ? _a3 : void 0;
+  }
+  /**
+   * Set the storyboard-src attribute URL
+   */
+  set storyboardSrc(src) {
+    if (!src) {
+      this.removeAttribute(PlayerAttributes.STORYBOARD_SRC);
+    } else {
+      this.setAttribute(PlayerAttributes.STORYBOARD_SRC, src);
+    }
+  }
+  /**
+   * Return the storyboard URL when a playback ID or storyboard-src is provided,
+   * we aren't an audio player and the stream-type isn't live.
+   */
+  get storyboard() {
+    const { tokens } = this;
+    if (this.storyboardSrc && !tokens.storyboard) return this.storyboardSrc;
+    if (
+      // NOTE: Some audio use cases may have a storyboard (e.g. it's an audio+video stream being played *as* audio)
+      // Consider supporting cases (CJP)
+      this.audio || !this.playbackId || !this.streamType || [import_playback_core5.StreamTypes.LIVE, import_playback_core5.StreamTypes.UNKNOWN].includes(this.streamType) || // If a playback token but no storyboard token is provided,
+      // assume a token is required for the storyboard URL URL and
+      // simply avoid requesting it in this case.
+      tokens.playback && !tokens.storyboard
+    ) {
+      return void 0;
+    }
+    return getStoryboardURLFromPlaybackId(this.playbackId, {
+      customDomain: this.customDomain,
+      token: tokens.storyboard,
+      programStartTime: this.programStartTime,
+      programEndTime: this.programEndTime
+    });
+  }
+  /**
+   * Gets the boolean indicator this is an audio player.
+   */
+  get audio() {
+    return this.hasAttribute(PlayerAttributes.AUDIO);
+  }
+  /**
+   * Sets the boolean indicator this is an audio player.
+   */
+  set audio(val) {
+    if (!val) {
+      this.removeAttribute(PlayerAttributes.AUDIO);
+      return;
+    }
+    this.setAttribute(PlayerAttributes.AUDIO, "");
+  }
+  get hotkeys() {
+    return __privateGet(this, _hotkeys);
+  }
+  get nohotkeys() {
+    return this.hasAttribute(PlayerAttributes.NOHOTKEYS);
+  }
+  set nohotkeys(val) {
+    if (!val) {
+      this.removeAttribute(PlayerAttributes.NOHOTKEYS);
+      return;
+    }
+    this.setAttribute(PlayerAttributes.NOHOTKEYS, "");
+  }
+  /**
+   * Get the thumbnailTime offset used for the poster image.
+   */
+  get thumbnailTime() {
+    return toNumberOrUndefined(this.getAttribute(PlayerAttributes.THUMBNAIL_TIME));
+  }
+  /**
+   * Set the thumbnailTime offset used for the poster image.
+   */
+  set thumbnailTime(val) {
+    this.setAttribute(PlayerAttributes.THUMBNAIL_TIME, `${val}`);
+  }
+  /**
+   * Get the title shown in the player.
+   */
+  get title() {
+    var _a3;
+    return (_a3 = this.getAttribute(PlayerAttributes.TITLE)) != null ? _a3 : "";
+  }
+  /**
+   * Set the title shown in the player.
+   */
+  set title(val) {
+    if (val === this.title) return;
+    if (!!val) {
+      this.setAttribute(PlayerAttributes.TITLE, val);
+    } else {
+      this.removeAttribute("title");
+    }
+    super.title = val;
+  }
+  /**
+   * Gets the data URL of a placeholder image shown before the thumbnail is loaded.
+   */
+  get placeholder() {
+    var _a3;
+    return (_a3 = getVideoAttribute2(this, PlayerAttributes.PLACEHOLDER)) != null ? _a3 : "";
+  }
+  /**
+   * Sets the data URL of a placeholder image shown before the thumbnail is loaded.
+   */
+  set placeholder(val) {
+    this.setAttribute(PlayerAttributes.PLACEHOLDER, `${val}`);
+  }
+  /**
+   * Get the primary color used by the player.
+   */
+  get primaryColor() {
+    var _a3, _b2;
+    let color = this.getAttribute(PlayerAttributes.PRIMARY_COLOR);
+    if (color != null) return color;
+    if (this.mediaTheme) {
+      color = (_b2 = (_a3 = internalGlobalThis.getComputedStyle(this.mediaTheme)) == null ? void 0 : _a3.getPropertyValue("--_primary-color")) == null ? void 0 : _b2.trim();
+      if (color) return color;
+    }
+  }
+  /**
+   * Set the primary color used by the player.
+   */
+  set primaryColor(val) {
+    this.setAttribute(PlayerAttributes.PRIMARY_COLOR, `${val}`);
+  }
+  /**
+   * Get the secondary color used by the player.
+   */
+  get secondaryColor() {
+    var _a3, _b2;
+    let color = this.getAttribute(PlayerAttributes.SECONDARY_COLOR);
+    if (color != null) return color;
+    if (this.mediaTheme) {
+      color = (_b2 = (_a3 = internalGlobalThis.getComputedStyle(this.mediaTheme)) == null ? void 0 : _a3.getPropertyValue("--_secondary-color")) == null ? void 0 : _b2.trim();
+      if (color) return color;
+    }
+  }
+  /**
+   * Set the secondary color used by the player.
+   */
+  set secondaryColor(val) {
+    this.setAttribute(PlayerAttributes.SECONDARY_COLOR, `${val}`);
+  }
+  /**
+   * Get the accent color used by the player.
+   */
+  get accentColor() {
+    var _a3, _b2;
+    let color = this.getAttribute(PlayerAttributes.ACCENT_COLOR);
+    if (color != null) return color;
+    if (this.mediaTheme) {
+      color = (_b2 = (_a3 = internalGlobalThis.getComputedStyle(this.mediaTheme)) == null ? void 0 : _a3.getPropertyValue("--_accent-color")) == null ? void 0 : _b2.trim();
+      if (color) return color;
+    }
+  }
+  /**
+   * Set the accent color used by the player.
+   */
+  set accentColor(val) {
+    this.setAttribute(PlayerAttributes.ACCENT_COLOR, `${val}`);
+  }
+  get defaultShowRemainingTime() {
+    return this.hasAttribute(PlayerAttributes.DEFAULT_SHOW_REMAINING_TIME);
+  }
+  set defaultShowRemainingTime(val) {
+    if (!val) {
+      this.removeAttribute(PlayerAttributes.DEFAULT_SHOW_REMAINING_TIME);
+    } else {
+      this.setAttribute(PlayerAttributes.DEFAULT_SHOW_REMAINING_TIME, "");
+    }
+  }
+  /**
+   * Get the playback rates applied to the playback rate control.
+   */
+  get playbackRates() {
+    if (!this.hasAttribute(PlayerAttributes.PLAYBACK_RATES)) return void 0;
+    return this.getAttribute(PlayerAttributes.PLAYBACK_RATES).trim().split(/\s*,?\s+/).map((str) => Number(str)).filter((num) => !Number.isNaN(num)).sort((a, b) => a - b);
+  }
+  /**
+   * Set the playback rates applied to the playback rate control.
+   */
+  set playbackRates(val) {
+    if (!val) {
+      this.removeAttribute(PlayerAttributes.PLAYBACK_RATES);
+      return;
+    }
+    this.setAttribute(PlayerAttributes.PLAYBACK_RATES, val.join(" "));
+  }
+  /**
+   * Get the offset applied to the forward seek button.
+   */
+  get forwardSeekOffset() {
+    var _a3;
+    return (_a3 = toNumberOrUndefined(this.getAttribute(PlayerAttributes.FORWARD_SEEK_OFFSET))) != null ? _a3 : 10;
+  }
+  /**
+   * Set the offset applied to the forward seek button.
+   */
+  set forwardSeekOffset(val) {
+    this.setAttribute(PlayerAttributes.FORWARD_SEEK_OFFSET, `${val}`);
+  }
+  /**
+   * Get the offset applied to the backward seek button.
+   */
+  get backwardSeekOffset() {
+    var _a3;
+    return (_a3 = toNumberOrUndefined(this.getAttribute(PlayerAttributes.BACKWARD_SEEK_OFFSET))) != null ? _a3 : 10;
+  }
+  /**
+   * Set the offset applied to the forward seek button.
+   */
+  set backwardSeekOffset(val) {
+    this.setAttribute(PlayerAttributes.BACKWARD_SEEK_OFFSET, `${val}`);
+  }
+  /**
+   * Get the boolean value of default hidden captions.
+   * By default returns false so captions are enabled on initial load.
+   */
+  get defaultHiddenCaptions() {
+    return this.hasAttribute(PlayerAttributes.DEFAULT_HIDDEN_CAPTIONS);
+  }
+  /**
+   * Set the default hidden captions flag.
+   */
+  set defaultHiddenCaptions(val) {
+    if (!val) {
+      this.removeAttribute(PlayerAttributes.DEFAULT_HIDDEN_CAPTIONS);
+    } else {
+      this.setAttribute(PlayerAttributes.DEFAULT_HIDDEN_CAPTIONS, "");
+    }
+  }
+  /**
+   * Get the boolean value of default hidden captions.
+   * By default returns false so captions are enabled on initial load.
+   */
+  get defaultDuration() {
+    return toNumberOrUndefined(this.getAttribute(PlayerAttributes.DEFAULT_DURATION));
+  }
+  /**
+   * Set the default hidden captions flag.
+   */
+  set defaultDuration(val) {
+    if (val == void 0) {
+      this.removeAttribute(PlayerAttributes.DEFAULT_DURATION);
+    } else {
+      this.setAttribute(PlayerAttributes.DEFAULT_DURATION, `${val}`);
+    }
+  }
+  get playerInitTime() {
+    if (!this.hasAttribute(import_mux_video2.Attributes.PLAYER_INIT_TIME)) return __privateGet(this, _defaultPlayerInitTime);
+    return toNumberOrUndefined(this.getAttribute(import_mux_video2.Attributes.PLAYER_INIT_TIME));
+  }
+  set playerInitTime(val) {
+    if (val == this.playerInitTime) return;
+    if (val == null) {
+      this.removeAttribute(import_mux_video2.Attributes.PLAYER_INIT_TIME);
+    } else {
+      this.setAttribute(import_mux_video2.Attributes.PLAYER_INIT_TIME, `${+val}`);
+    }
+  }
+  /**
+   * Get the player software name. Used by Mux Data.
+   */
+  get playerSoftwareName() {
+    var _a3;
+    return (_a3 = this.getAttribute(import_mux_video2.Attributes.PLAYER_SOFTWARE_NAME)) != null ? _a3 : playerSoftwareName;
+  }
+  /**
+   * Get the player software version. Used by Mux Data.
+   */
+  get playerSoftwareVersion() {
+    var _a3;
+    return (_a3 = this.getAttribute(import_mux_video2.Attributes.PLAYER_SOFTWARE_VERSION)) != null ? _a3 : playerSoftwareVersion;
+  }
+  /**
+   * Get the beacon collection domain. Used by Mux Data.
+   */
+  get beaconCollectionDomain() {
+    var _a3;
+    return (_a3 = this.getAttribute(import_mux_video2.Attributes.BEACON_COLLECTION_DOMAIN)) != null ? _a3 : void 0;
+  }
+  /**
+   * Set the beacon collection domain. Used by Mux Data.
+   */
+  set beaconCollectionDomain(val) {
+    if (val === this.beaconCollectionDomain) return;
+    if (val) {
+      this.setAttribute(import_mux_video2.Attributes.BEACON_COLLECTION_DOMAIN, val);
+    } else {
+      this.removeAttribute(import_mux_video2.Attributes.BEACON_COLLECTION_DOMAIN);
+    }
+  }
+  get adBreak() {
+    var _a3;
+    const muxVideoAds = this.media;
+    if (muxVideoAds) {
+      return (_a3 = muxVideoAds.getAttribute("adBreak")) != null ? _a3 : false;
+    } else {
+      return false;
+    }
+  }
+  get maxResolution() {
+    var _a3;
+    return (_a3 = this.getAttribute(import_mux_video2.Attributes.MAX_RESOLUTION)) != null ? _a3 : void 0;
+  }
+  set maxResolution(val) {
+    if (val === this.maxResolution) return;
+    if (val) {
+      this.setAttribute(import_mux_video2.Attributes.MAX_RESOLUTION, val);
+    } else {
+      this.removeAttribute(import_mux_video2.Attributes.MAX_RESOLUTION);
+    }
+  }
+  get minResolution() {
+    var _a3;
+    return (_a3 = this.getAttribute(import_mux_video2.Attributes.MIN_RESOLUTION)) != null ? _a3 : void 0;
+  }
+  set minResolution(val) {
+    if (val === this.minResolution) return;
+    if (val) {
+      this.setAttribute(import_mux_video2.Attributes.MIN_RESOLUTION, val);
+    } else {
+      this.removeAttribute(import_mux_video2.Attributes.MIN_RESOLUTION);
+    }
+  }
+  get renditionOrder() {
+    var _a3;
+    return (_a3 = this.getAttribute(import_mux_video2.Attributes.RENDITION_ORDER)) != null ? _a3 : void 0;
+  }
+  set renditionOrder(val) {
+    if (val === this.renditionOrder) return;
+    if (val) {
+      this.setAttribute(import_mux_video2.Attributes.RENDITION_ORDER, val);
+    } else {
+      this.removeAttribute(import_mux_video2.Attributes.RENDITION_ORDER);
+    }
+  }
+  get programStartTime() {
+    return toNumberOrUndefined(this.getAttribute(import_mux_video2.Attributes.PROGRAM_START_TIME));
+  }
+  set programStartTime(val) {
+    if (val == void 0) {
+      this.removeAttribute(import_mux_video2.Attributes.PROGRAM_START_TIME);
+    } else {
+      this.setAttribute(import_mux_video2.Attributes.PROGRAM_START_TIME, `${val}`);
+    }
+  }
+  get programEndTime() {
+    return toNumberOrUndefined(this.getAttribute(import_mux_video2.Attributes.PROGRAM_END_TIME));
+  }
+  set programEndTime(val) {
+    if (val == void 0) {
+      this.removeAttribute(import_mux_video2.Attributes.PROGRAM_END_TIME);
+    } else {
+      this.setAttribute(import_mux_video2.Attributes.PROGRAM_END_TIME, `${val}`);
+    }
+  }
+  get assetStartTime() {
+    return toNumberOrUndefined(this.getAttribute(import_mux_video2.Attributes.ASSET_START_TIME));
+  }
+  set assetStartTime(val) {
+    if (val == void 0) {
+      this.removeAttribute(import_mux_video2.Attributes.ASSET_START_TIME);
+    } else {
+      this.setAttribute(import_mux_video2.Attributes.ASSET_START_TIME, `${val}`);
+    }
+  }
+  get assetEndTime() {
+    return toNumberOrUndefined(this.getAttribute(import_mux_video2.Attributes.ASSET_END_TIME));
+  }
+  set assetEndTime(val) {
+    if (val == void 0) {
+      this.removeAttribute(import_mux_video2.Attributes.ASSET_END_TIME);
+    } else {
+      this.setAttribute(import_mux_video2.Attributes.ASSET_END_TIME, `${val}`);
+    }
+  }
+  get extraSourceParams() {
+    if (!this.hasAttribute(PlayerAttributes.EXTRA_SOURCE_PARAMS)) {
+      return DEFAULT_EXTRA_PLAYLIST_PARAMS;
+    }
+    return [...new URLSearchParams(this.getAttribute(PlayerAttributes.EXTRA_SOURCE_PARAMS)).entries()].reduce(
+      (paramsObj, [k, v]) => {
+        paramsObj[k] = v;
+        return paramsObj;
+      },
+      {}
+    );
+  }
+  set extraSourceParams(value) {
+    if (value == null) {
+      this.removeAttribute(PlayerAttributes.EXTRA_SOURCE_PARAMS);
+    } else {
+      this.setAttribute(PlayerAttributes.EXTRA_SOURCE_PARAMS, new URLSearchParams(value).toString());
+    }
+  }
+  /**
+   * Get Mux asset custom domain.
+   */
+  get customDomain() {
+    var _a3;
+    return (_a3 = this.getAttribute(import_mux_video2.Attributes.CUSTOM_DOMAIN)) != null ? _a3 : void 0;
+  }
+  /**
+   * Set Mux asset custom domain.
+   */
+  set customDomain(val) {
+    if (val === this.customDomain) return;
+    if (val) {
+      this.setAttribute(import_mux_video2.Attributes.CUSTOM_DOMAIN, val);
+    } else {
+      this.removeAttribute(import_mux_video2.Attributes.CUSTOM_DOMAIN);
+    }
+  }
+  /**
+   * Get Mux Data env key.
+   */
+  get envKey() {
+    var _a3;
+    return (_a3 = getVideoAttribute2(this, import_mux_video2.Attributes.ENV_KEY)) != null ? _a3 : void 0;
+  }
+  /**
+   * Set Mux Data env key.
+   */
+  set envKey(val) {
+    this.setAttribute(import_mux_video2.Attributes.ENV_KEY, `${val}`);
+  }
+  /**
+   * Get no-volume-pref flag.
+   */
+  get noVolumePref() {
+    return this.hasAttribute(PlayerAttributes.NO_VOLUME_PREF);
+  }
+  /**
+   * Set video engine debug flag.
+   */
+  set noVolumePref(val) {
+    if (val) {
+      this.setAttribute(PlayerAttributes.NO_VOLUME_PREF, "");
+    } else {
+      this.removeAttribute(PlayerAttributes.NO_VOLUME_PREF);
+    }
+  }
+  /**
+   * Get video engine debug flag.
+   */
+  get debug() {
+    return getVideoAttribute2(this, import_mux_video2.Attributes.DEBUG) != null;
+  }
+  /**
+   * Set video engine debug flag.
+   */
+  set debug(val) {
+    if (val) {
+      this.setAttribute(import_mux_video2.Attributes.DEBUG, "");
+    } else {
+      this.removeAttribute(import_mux_video2.Attributes.DEBUG);
+    }
+  }
+  /**
+   * Get video engine disable tracking flag.
+   */
+  get disableTracking() {
+    return getVideoAttribute2(this, import_mux_video2.Attributes.DISABLE_TRACKING) != null;
+  }
+  /**
+   * Set video engine disable tracking flag.
+   */
+  set disableTracking(val) {
+    this.toggleAttribute(import_mux_video2.Attributes.DISABLE_TRACKING, !!val);
+  }
+  /**
+   * Get video engine disable cookies flag.
+   */
+  get disableCookies() {
+    return getVideoAttribute2(this, import_mux_video2.Attributes.DISABLE_COOKIES) != null;
+  }
+  /**
+   * Set video engine disable cookies flag.
+   */
+  set disableCookies(val) {
+    if (val) {
+      this.setAttribute(import_mux_video2.Attributes.DISABLE_COOKIES, "");
+    } else {
+      this.removeAttribute(import_mux_video2.Attributes.DISABLE_COOKIES);
+    }
+  }
+  /**
+   * Get stream type.
+   */
+  get streamType() {
+    var _a3, _b2, _c;
+    return (_c = (_b2 = this.getAttribute(import_mux_video2.Attributes.STREAM_TYPE)) != null ? _b2 : (_a3 = this.media) == null ? void 0 : _a3.streamType) != null ? _c : import_playback_core5.StreamTypes.UNKNOWN;
+  }
+  /**
+   * Set stream type.
+   */
+  set streamType(val) {
+    this.setAttribute(import_mux_video2.Attributes.STREAM_TYPE, `${val}`);
+  }
+  get defaultStreamType() {
+    var _a3, _b2, _c;
+    return (_c = (_b2 = this.getAttribute(PlayerAttributes.DEFAULT_STREAM_TYPE)) != null ? _b2 : (_a3 = this.mediaController) == null ? void 0 : _a3.getAttribute(PlayerAttributes.DEFAULT_STREAM_TYPE)) != null ? _c : import_playback_core5.StreamTypes.ON_DEMAND;
+  }
+  set defaultStreamType(val) {
+    if (val) {
+      this.setAttribute(PlayerAttributes.DEFAULT_STREAM_TYPE, val);
+    } else {
+      this.removeAttribute(PlayerAttributes.DEFAULT_STREAM_TYPE);
+    }
+  }
+  get targetLiveWindow() {
+    var _a3, _b2;
+    if (this.hasAttribute(PlayerAttributes.TARGET_LIVE_WINDOW)) {
+      return +this.getAttribute(PlayerAttributes.TARGET_LIVE_WINDOW);
+    }
+    return (_b2 = (_a3 = this.media) == null ? void 0 : _a3.targetLiveWindow) != null ? _b2 : Number.NaN;
+  }
+  set targetLiveWindow(val) {
+    if (val == this.targetLiveWindow || Number.isNaN(val) && Number.isNaN(this.targetLiveWindow)) return;
+    if (val == null) {
+      this.removeAttribute(PlayerAttributes.TARGET_LIVE_WINDOW);
+    } else {
+      this.setAttribute(PlayerAttributes.TARGET_LIVE_WINDOW, `${+val}`);
+    }
+  }
+  get liveEdgeStart() {
+    var _a3;
+    return (_a3 = this.media) == null ? void 0 : _a3.liveEdgeStart;
+  }
+  /**
+   * Get the start time.
+   */
+  get startTime() {
+    return toNumberOrUndefined(getVideoAttribute2(this, import_mux_video2.Attributes.START_TIME));
+  }
+  /**
+   * Set the start time.
+   */
+  set startTime(val) {
+    this.setAttribute(import_mux_video2.Attributes.START_TIME, `${val}`);
+  }
+  get preferPlayback() {
+    const val = this.getAttribute(import_mux_video2.Attributes.PREFER_PLAYBACK);
+    if (val === import_playback_core5.PlaybackTypes.MSE || val === import_playback_core5.PlaybackTypes.NATIVE) return val;
+    return void 0;
+  }
+  set preferPlayback(val) {
+    if (val === this.preferPlayback) return;
+    if (val === import_playback_core5.PlaybackTypes.MSE || val === import_playback_core5.PlaybackTypes.NATIVE) {
+      this.setAttribute(import_mux_video2.Attributes.PREFER_PLAYBACK, val);
+    } else {
+      this.removeAttribute(import_mux_video2.Attributes.PREFER_PLAYBACK);
+    }
+  }
+  /**
+   * Get the metadata object for Mux Data.
+   */
+  get metadata() {
+    var _a3;
+    return (_a3 = this.media) == null ? void 0 : _a3.metadata;
+  }
+  /**
+   * Set the metadata object for Mux Data.
+   */
+  set metadata(val) {
+    __privateMethod(this, _MuxPlayerElement_instances, init_fn2).call(this);
+    if (!this.media) {
+      error("underlying media element missing when trying to set metadata. metadata will not be set.");
+      return;
+    }
+    this.media.metadata = { ...getMetadataFromAttrs(this), ...val };
+  }
+  /**
+   * Get the metadata object for Mux Data.
+   */
+  get _hlsConfig() {
+    var _a3;
+    return (_a3 = this.media) == null ? void 0 : _a3._hlsConfig;
+  }
+  /**
+   * Set the metadata object for Mux Data.
+   */
+  set _hlsConfig(val) {
+    __privateMethod(this, _MuxPlayerElement_instances, init_fn2).call(this);
+    if (!this.media) {
+      error("underlying media element missing when trying to set _hlsConfig. _hlsConfig will not be set.");
+      return;
+    }
+    this.media._hlsConfig = val;
+  }
+  async addCuePoints(cuePoints) {
+    var _a3;
+    __privateMethod(this, _MuxPlayerElement_instances, init_fn2).call(this);
+    if (!this.media) {
+      error("underlying media element missing when trying to addCuePoints. cuePoints will not be added.");
+      return;
+    }
+    return (_a3 = this.media) == null ? void 0 : _a3.addCuePoints(cuePoints);
+  }
+  get activeCuePoint() {
+    var _a3;
+    return (_a3 = this.media) == null ? void 0 : _a3.activeCuePoint;
+  }
+  get cuePoints() {
+    var _a3, _b2;
+    return (_b2 = (_a3 = this.media) == null ? void 0 : _a3.cuePoints) != null ? _b2 : [];
+  }
+  addChapters(chapters) {
+    var _a3;
+    __privateMethod(this, _MuxPlayerElement_instances, init_fn2).call(this);
+    if (!this.media) {
+      error("underlying media element missing when trying to addChapters. chapters will not be added.");
+      return;
+    }
+    return (_a3 = this.media) == null ? void 0 : _a3.addChapters(chapters);
+  }
+  get activeChapter() {
+    var _a3;
+    return (_a3 = this.media) == null ? void 0 : _a3.activeChapter;
+  }
+  get chapters() {
+    var _a3, _b2;
+    return (_b2 = (_a3 = this.media) == null ? void 0 : _a3.chapters) != null ? _b2 : [];
+  }
+  getStartDate() {
+    var _a3;
+    return (_a3 = this.media) == null ? void 0 : _a3.getStartDate();
+  }
+  get currentPdt() {
+    var _a3;
+    return (_a3 = this.media) == null ? void 0 : _a3.currentPdt;
+  }
+  /**
+   * Get the signing tokens for the Mux asset URL's.
+   */
+  get tokens() {
+    const playback = this.getAttribute(PlayerAttributes.PLAYBACK_TOKEN);
+    const drm = this.getAttribute(PlayerAttributes.DRM_TOKEN);
+    const thumbnail = this.getAttribute(PlayerAttributes.THUMBNAIL_TOKEN);
+    const storyboard = this.getAttribute(PlayerAttributes.STORYBOARD_TOKEN);
+    return {
+      ...__privateGet(this, _tokens3),
+      ...playback != null ? { playback } : {},
+      ...drm != null ? { drm } : {},
+      ...thumbnail != null ? { thumbnail } : {},
+      ...storyboard != null ? { storyboard } : {}
+    };
+  }
+  /**
+   * Set the signing tokens for the Mux asset URL's.
+   */
+  set tokens(val) {
+    __privateSet(this, _tokens3, val != null ? val : {});
+  }
+  /**
+   * Get the playback token for signing the src URL.
+   */
+  get playbackToken() {
+    var _a3;
+    return (_a3 = this.getAttribute(PlayerAttributes.PLAYBACK_TOKEN)) != null ? _a3 : void 0;
+  }
+  /**
+   * Set the playback token for signing the src URL.
+   */
+  set playbackToken(val) {
+    this.setAttribute(PlayerAttributes.PLAYBACK_TOKEN, `${val}`);
+  }
+  /**
+   * Get the playback token for signing the src URL.
+   */
+  get drmToken() {
+    var _a3;
+    return (_a3 = this.getAttribute(PlayerAttributes.DRM_TOKEN)) != null ? _a3 : void 0;
+  }
+  /**
+   * Set the playback token for signing the src URL.
+   */
+  set drmToken(val) {
+    this.setAttribute(PlayerAttributes.DRM_TOKEN, `${val}`);
+  }
+  /**
+   * Get the thumbnail token for signing the poster URL.
+   */
+  get thumbnailToken() {
+    var _a3;
+    return (_a3 = this.getAttribute(PlayerAttributes.THUMBNAIL_TOKEN)) != null ? _a3 : void 0;
+  }
+  /**
+   * Set the thumbnail token for signing the poster URL.
+   */
+  set thumbnailToken(val) {
+    this.setAttribute(PlayerAttributes.THUMBNAIL_TOKEN, `${val}`);
+  }
+  /**
+   * Get the storyboard token for signing the storyboard URL.
+   */
+  get storyboardToken() {
+    var _a3;
+    return (_a3 = this.getAttribute(PlayerAttributes.STORYBOARD_TOKEN)) != null ? _a3 : void 0;
+  }
+  /**
+   * Set the storyboard token for signing the storyboard URL.
+   */
+  set storyboardToken(val) {
+    this.setAttribute(PlayerAttributes.STORYBOARD_TOKEN, `${val}`);
+  }
+  addTextTrack(kind, label, lang, id) {
+    var _a3;
+    const mediaEl = (_a3 = this.media) == null ? void 0 : _a3.nativeEl;
+    if (!mediaEl) return;
+    return (0, import_playback_core5.addTextTrack)(mediaEl, kind, label, lang, id);
+  }
+  removeTextTrack(track) {
+    var _a3;
+    const mediaEl = (_a3 = this.media) == null ? void 0 : _a3.nativeEl;
+    if (!mediaEl) return;
+    return (0, import_playback_core5.removeTextTrack)(mediaEl, track);
+  }
+  get textTracks() {
+    var _a3;
+    return (_a3 = this.media) == null ? void 0 : _a3.textTracks;
+  }
+  get castReceiver() {
+    var _a3;
+    return (_a3 = this.getAttribute(PlayerAttributes.CAST_RECEIVER)) != null ? _a3 : void 0;
+  }
+  set castReceiver(val) {
+    if (val === this.castReceiver) return;
+    if (val) {
+      this.setAttribute(PlayerAttributes.CAST_RECEIVER, val);
+    } else {
+      this.removeAttribute(PlayerAttributes.CAST_RECEIVER);
+    }
+  }
+  get castCustomData() {
+    var _a3;
+    return (_a3 = this.media) == null ? void 0 : _a3.castCustomData;
+  }
+  set castCustomData(val) {
+    if (!this.media) {
+      error(
+        "underlying media element missing when trying to set castCustomData. castCustomData will not be set."
+      );
+      return;
+    }
+    this.media.castCustomData = val;
+  }
+  get noTooltips() {
+    return this.hasAttribute(PlayerAttributes.NO_TOOLTIPS);
+  }
+  set noTooltips(val) {
+    if (!val) {
+      this.removeAttribute(PlayerAttributes.NO_TOOLTIPS);
+      return;
+    }
+    this.setAttribute(PlayerAttributes.NO_TOOLTIPS, "");
+  }
+  get proudlyDisplayMuxBadge() {
+    return this.hasAttribute(PlayerAttributes.PROUDLY_DISPLAY_MUX_BADGE);
+  }
+  set proudlyDisplayMuxBadge(val) {
+    if (!val) {
+      this.removeAttribute(PlayerAttributes.PROUDLY_DISPLAY_MUX_BADGE);
+    } else {
+      this.setAttribute(PlayerAttributes.PROUDLY_DISPLAY_MUX_BADGE, "");
+    }
+  }
+};
+_defaultPlayerInitTime = new WeakMap();
+_isInit2 = new WeakMap();
+_tokens3 = new WeakMap();
+_userInactive = new WeakMap();
+_hotkeys = new WeakMap();
+_state = new WeakMap();
+_MuxPlayerElement_instances = new WeakSet();
+init_fn2 = function() {
+  var _a3, _b2, _c, _d;
+  if (__privateGet(this, _isInit2)) return;
+  __privateSet(this, _isInit2, true);
+  __privateMethod(this, _MuxPlayerElement_instances, render_fn5).call(this);
+  try {
+    customElements.upgrade(this.mediaTheme);
+    if (!(this.mediaTheme instanceof internalGlobalThis.HTMLElement)) throw "";
+  } catch (_error) {
+    error(`<media-theme> failed to upgrade!`);
+  }
+  try {
+    customElements.upgrade(this.media);
+    if (this.muxVideoElement.includes("-")) {
+      customElements.upgrade(this.media);
+      const mediaClass = customElements.get(this.muxVideoElement);
+      if (!(mediaClass && this.media instanceof mediaClass)) {
+        throw "";
+      }
+    }
+  } catch (_error) {
+    error("underlying media element failed to upgrade!");
+  }
+  try {
+    customElements.upgrade(this.mediaController);
+    if (!(this.mediaController instanceof media_controller_default)) throw "";
+  } catch (_error) {
+    error(`<media-controller> failed to upgrade!`);
+  }
+  this.init();
+  __privateMethod(this, _MuxPlayerElement_instances, setUpThemeAttributes_fn).call(this);
+  __privateMethod(this, _MuxPlayerElement_instances, setUpErrors_fn).call(this);
+  __privateMethod(this, _MuxPlayerElement_instances, setUpCaptionsButton_fn).call(this);
+  __privateSet(this, _userInactive, (_b2 = (_a3 = this.mediaController) == null ? void 0 : _a3.hasAttribute(Attributes.USER_INACTIVE)) != null ? _b2 : true);
+  __privateMethod(this, _MuxPlayerElement_instances, setUpCaptionsMovement_fn).call(this);
+  (_c = this.media) == null ? void 0 : _c.addEventListener("streamtypechange", () => __privateMethod(this, _MuxPlayerElement_instances, render_fn5).call(this));
+  (_d = this.media) == null ? void 0 : _d.addEventListener("loadstart", () => __privateMethod(this, _MuxPlayerElement_instances, render_fn5).call(this));
+};
+setupCSSProperties_fn = function() {
+  var _a3, _b2;
+  try {
+    (_a3 = window == null ? void 0 : window.CSS) == null ? void 0 : _a3.registerProperty({
+      name: "--media-primary-color",
+      syntax: "<color>",
+      inherits: true
+    });
+    (_b2 = window == null ? void 0 : window.CSS) == null ? void 0 : _b2.registerProperty({
+      name: "--media-secondary-color",
+      syntax: "<color>",
+      inherits: true
+    });
+  } catch (_error) {
+  }
+};
+setState_fn = function(newState) {
+  Object.assign(__privateGet(this, _state), newState);
+  __privateMethod(this, _MuxPlayerElement_instances, render_fn5).call(this);
+};
+render_fn5 = function(props = {}) {
+  render(template12(getProps(this, { ...__privateGet(this, _state), ...props })), this.shadowRoot);
+};
+setUpThemeAttributes_fn = function() {
+  const setThemeAttribute = (attributeName) => {
+    var _a3, _b2;
+    if (!(attributeName == null ? void 0 : attributeName.startsWith("theme-"))) return;
+    const themeAttrName = attributeName.replace(/^theme-/, "");
+    if (ThemeAttributeNames.includes(themeAttrName)) return;
+    const value = this.getAttribute(attributeName);
+    if (value != null) {
+      (_a3 = this.mediaTheme) == null ? void 0 : _a3.setAttribute(themeAttrName, value);
+    } else {
+      (_b2 = this.mediaTheme) == null ? void 0 : _b2.removeAttribute(themeAttrName);
+    }
+  };
+  const observer2 = new MutationObserver((mutationList) => {
+    for (const { attributeName } of mutationList) {
+      setThemeAttribute(attributeName);
+    }
+  });
+  observer2.observe(this, { attributes: true });
+  this.getAttributeNames().forEach(setThemeAttribute);
+};
+setUpErrors_fn = function() {
+  var _a3;
+  const onError = (event) => {
+    let { detail: error2 } = event;
+    if (!(error2 instanceof import_mux_video2.MediaError)) {
+      error2 = new import_mux_video2.MediaError(error2.message, error2.code, error2.fatal);
+    }
+    if (!(error2 == null ? void 0 : error2.fatal)) {
+      warn(error2);
+      if (error2.data) {
+        warn(`${error2.name} data:`, error2.data);
+      }
+      return;
+    }
+    const devlog2 = muxMediaErrorToDevlog(error2, false);
+    if (devlog2.message) {
+      devlog(devlog2);
+    }
+    error(error2);
+    if (error2.data) {
+      error(`${error2.name} data:`, error2.data);
+    }
+    __privateMethod(this, _MuxPlayerElement_instances, setState_fn).call(this, { isDialogOpen: true });
+  };
+  this.addEventListener("error", onError);
+  if (this.media) {
+    this.media.errorTranslator = (errorEvent = {}) => {
+      var _a4, _b2, _c;
+      if (!(((_a4 = this.media) == null ? void 0 : _a4.error) instanceof import_mux_video2.MediaError)) return errorEvent;
+      const devlog2 = muxMediaErrorToDevlog((_b2 = this.media) == null ? void 0 : _b2.error, false);
+      return {
+        player_error_code: (_c = this.media) == null ? void 0 : _c.error.code,
+        player_error_message: devlog2.message ? String(devlog2.message) : errorEvent.player_error_message,
+        player_error_context: devlog2.context ? String(devlog2.context) : errorEvent.player_error_context
+      };
+    };
+  }
+  (_a3 = this.media) == null ? void 0 : _a3.addEventListener("error", (event) => {
+    var _a4, _b2;
+    let { detail: error2 } = event;
+    if (!error2) {
+      const { message, code } = (_b2 = (_a4 = this.media) == null ? void 0 : _a4.error) != null ? _b2 : {};
+      error2 = new import_mux_video2.MediaError(message, code);
+    }
+    if (!(error2 == null ? void 0 : error2.fatal)) return;
+    this.dispatchEvent(
+      new CustomEvent("error", {
+        detail: error2
+      })
+    );
+  });
+};
+setUpCaptionsButton_fn = function() {
+  var _a3, _b2, _c, _d;
+  const onTrackCountChange = () => __privateMethod(this, _MuxPlayerElement_instances, render_fn5).call(this);
+  (_b2 = (_a3 = this.media) == null ? void 0 : _a3.textTracks) == null ? void 0 : _b2.addEventListener("addtrack", onTrackCountChange);
+  (_d = (_c = this.media) == null ? void 0 : _c.textTracks) == null ? void 0 : _d.addEventListener("removetrack", onTrackCountChange);
+};
+setUpCaptionsMovement_fn = function() {
+  var _a3, _b2;
+  const isFirefox = /Firefox/i.test(navigator.userAgent);
+  if (!isFirefox) return;
+  let selectedTrack;
+  const cuesmap = /* @__PURE__ */ new WeakMap();
+  const shouldSkipLineToggle = () => {
+    return this.streamType === import_playback_core5.StreamTypes.LIVE && !this.secondaryColor && this.offsetWidth >= 800;
+  };
+  const toggleLines = (track, userInactive, force = false) => {
+    if (shouldSkipLineToggle()) {
+      return;
+    }
+    const cues = Array.from(track && track.activeCues || []);
+    cues.forEach((cue) => {
+      if (!cue.snapToLines || cue.line < -5 || cue.line >= 0 && cue.line < 10) {
+        return;
+      }
+      if (!userInactive || this.paused) {
+        const lines = cue.text.split("\n").length;
+        let offset = -3;
+        if (this.streamType === import_playback_core5.StreamTypes.LIVE) {
+          offset = -2;
+        }
+        const setTo = offset - lines;
+        if (cue.line === setTo && !force) {
+          return;
+        }
+        if (!cuesmap.has(cue)) {
+          cuesmap.set(cue, cue.line);
+        }
+        cue.line = setTo;
+      } else {
+        setTimeout(() => {
+          cue.line = cuesmap.get(cue) || "auto";
+        }, 500);
+      }
+    });
+  };
+  const cuechangeHandler = () => {
+    var _a4, _b3;
+    toggleLines(selectedTrack, (_b3 = (_a4 = this.mediaController) == null ? void 0 : _a4.hasAttribute(Attributes.USER_INACTIVE)) != null ? _b3 : false);
+  };
+  const selectTrack = () => {
+    var _a4, _b3;
+    const tracks = Array.from(((_b3 = (_a4 = this.mediaController) == null ? void 0 : _a4.media) == null ? void 0 : _b3.textTracks) || []);
+    const newSelectedTrack = tracks.filter(
+      (t2) => ["subtitles", "captions"].includes(t2.kind) && t2.mode === "showing"
+    )[0];
+    if (newSelectedTrack !== selectedTrack) {
+      selectedTrack == null ? void 0 : selectedTrack.removeEventListener("cuechange", cuechangeHandler);
+    }
+    selectedTrack = newSelectedTrack;
+    selectedTrack == null ? void 0 : selectedTrack.addEventListener("cuechange", cuechangeHandler);
+    toggleLines(selectedTrack, __privateGet(this, _userInactive));
+  };
+  selectTrack();
+  (_a3 = this.textTracks) == null ? void 0 : _a3.addEventListener("change", selectTrack);
+  (_b2 = this.textTracks) == null ? void 0 : _b2.addEventListener("addtrack", selectTrack);
+  this.addEventListener("userinactivechange", () => {
+    var _a4, _b3;
+    const newUserInactive = (_b3 = (_a4 = this.mediaController) == null ? void 0 : _a4.hasAttribute(Attributes.USER_INACTIVE)) != null ? _b3 : true;
+    if (__privateGet(this, _userInactive) === newUserInactive) {
+      return;
+    }
+    __privateSet(this, _userInactive, newUserInactive);
+    toggleLines(selectedTrack, __privateGet(this, _userInactive));
+  });
+};
+function getVideoAttribute2(el, name) {
+  return el.media ? el.media.getAttribute(name) : el.getAttribute(name);
+}
+if (!internalGlobalThis.customElements.get("mux-player")) {
+  internalGlobalThis.customElements.define("mux-player", MuxPlayerElement);
+  internalGlobalThis.MuxPlayerElement = MuxPlayerElement;
+}
+var index_default = MuxPlayerElement;
