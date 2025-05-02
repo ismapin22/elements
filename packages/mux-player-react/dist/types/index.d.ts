@@ -6,7 +6,7 @@ import { MediaError } from '@mux/mux-player';
 import type MuxPlayerElement from '@mux/mux-player';
 import type { Tokens, MuxPlayerElementEventMap } from '@mux/mux-player';
 export { MediaError, MaxResolution, MinResolution, RenditionOrder, generatePlayerInitTime };
-export { Playlist } from './playlist';
+export { NewsweekMuxPlayer } from './newsweek-mux-player';
 import PlaylistEndScreen from './playlist-end-screen';
 export { PlaylistEndScreen };
 type ValueOf<T> = T[keyof T];

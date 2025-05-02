@@ -1,5 +1,5 @@
 import React from 'react';
-import { VideoItem, PlaylistVideos } from './playlist';
+import { VideoItem, PlaylistVideos } from './newsweek-mux-player';
 interface PlaylistEndScreenProps {
     video: VideoItem;
     relatedVideos: PlaylistVideos;

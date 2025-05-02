@@ -76,7 +76,7 @@
       "imports": []
     },
     "src/playlist-end-screen.tsx": {
-      "bytes": 2948,
+      "bytes": 2959,
       "imports": [
         {
           "path": "react",
@@ -84,7 +84,7 @@
           "external": true
         },
         {
-          "path": "./playlist",
+          "path": "./newsweek-mux-player",
           "kind": "import-statement",
           "external": true
         },
@@ -1967,8 +1967,8 @@
       ],
       "format": "esm"
     },
-    "src/playlist.tsx": {
-      "bytes": 2700,
+    "src/newsweek-mux-player.tsx": {
+      "bytes": 2709,
       "imports": [
         {
           "path": "react",
@@ -1994,7 +1994,7 @@
       "format": "esm"
     },
     "src/index.tsx": {
-      "bytes": 10739,
+      "bytes": 10759,
       "imports": [
         {
           "path": "react",
@@ -2037,9 +2037,9 @@
           "original": "./env"
         },
         {
-          "path": "src/playlist.tsx",
+          "path": "src/newsweek-mux-player.tsx",
           "kind": "import-statement",
-          "original": "./playlist"
+          "original": "./newsweek-mux-player"
         },
         {
           "path": "src/playlist-end-screen.tsx",
@@ -2111,7 +2111,7 @@
           "external": true
         },
         {
-          "path": "dist/-54BIVGVJ.mjs",
+          "path": "dist/-227V4MGJ.mjs",
           "kind": "dynamic-import"
         }
       ],
@@ -2135,13 +2135,13 @@
       },
       "bytes": 4711
     },
-    "dist/-54BIVGVJ.mjs.map": {
+    "dist/-227V4MGJ.mjs.map": {
       "imports": [],
       "exports": [],
       "inputs": {},
-      "bytes": 718564
+      "bytes": 718617
     },
-    "dist/-54BIVGVJ.mjs": {
+    "dist/-227V4MGJ.mjs": {
       "imports": [
         {
           "path": "react",
@@ -2213,7 +2213,7 @@
         "MaxResolution",
         "MediaError",
         "MinResolution",
-        "Playlist",
+        "NewsweekMuxPlayer",
         "PlaylistEndScreen",
         "RenditionOrder",
         "default",
@@ -2238,8 +2238,8 @@
         "src/env.ts": {
           "bytesInOutput": 190
         },
-        "src/playlist.tsx": {
-          "bytesInOutput": 2401
+        "src/newsweek-mux-player.tsx": {
+          "bytesInOutput": 2410
         },
         "src/playlist-end-screen.tsx": {
           "bytesInOutput": 3024
@@ -2452,7 +2452,7 @@
           "bytesInOutput": 20849
         }
       },
-      "bytes": 432273
+      "bytes": 432324
     }
   }
 }

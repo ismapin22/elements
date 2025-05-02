@@ -1,55 +1,13 @@
-"use strict";
 "use client";
-var __create = Object.create;
-var __defProp = Object.defineProperty;
-var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
-var __getOwnPropNames = Object.getOwnPropertyNames;
-var __getProtoOf = Object.getPrototypeOf;
-var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __export = (target, all) => {
-  for (var name in all)
-    __defProp(target, name, { get: all[name], enumerable: true });
-};
-var __copyProps = (to, from, except, desc) => {
-  if (from && typeof from === "object" || typeof from === "function") {
-    for (let key of __getOwnPropNames(from))
-      if (!__hasOwnProp.call(to, key) && key !== except)
-        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
-  }
-  return to;
-};
-var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
-  // If the importer is in node compatibility mode or this is not an ESM
-  // file that has been converted to a CommonJS file using a Babel-
-  // compatible transform (i.e. "__esModule" has not been set), then set
-  // "default" to the CommonJS "module.exports" for node compatibility.
-  isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
-  mod
-));
-var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
 // src/index.tsx
-var index_exports = {};
-__export(index_exports, {
-  MaxResolution: () => import_playback_core.MaxResolution,
-  MediaError: () => import_mux_player.MediaError,
-  MinResolution: () => import_playback_core.MinResolution,
-  NewsweekMuxPlayer: () => NewsweekMuxPlayer,
-  PlaylistEndScreen: () => playlist_end_screen_default,
-  RenditionOrder: () => import_playback_core.RenditionOrder,
-  default: () => index_default,
-  generatePlayerInitTime: () => import_playback_core.generatePlayerInitTime,
-  playerSoftwareName: () => playerSoftwareName,
-  playerSoftwareVersion: () => playerSoftwareVersion
-});
-module.exports = __toCommonJS(index_exports);
-var import_react10 = __toESM(require("react"));
-var import_playback_core = require("@mux/playback-core");
-var import_mux_player = require("@mux/mux-player");
+import React7, { useEffect as useEffect4, useState as useState3 } from "react";
+import { MaxResolution, MinResolution, RenditionOrder, generatePlayerInitTime } from "@mux/playback-core";
+import { MediaError } from "@mux/mux-player";
 
 // src/common/utils.ts
-var import_react = __toESM(require("react"));
-var IS_REACT_19_OR_NEWER = parseInt(import_react.default.version) >= 19;
+import React from "react";
+var IS_REACT_19_OR_NEWER = parseInt(React.version) >= 19;
 var ReactPropToAttrNameMap = {
   className: "class",
   classname: "class",
@@ -91,13 +49,13 @@ var toNativeProps = (props = {}) => {
 };
 
 // src/index.tsx
-var import_react11 = require("react");
+import { useRef as useRef3 } from "react";
 
 // src/useCombinedRefs.ts
-var import_react2 = require("react");
+import { useEffect, useRef } from "react";
 var useCombinedRefs = (...refs) => {
-  const targetRef = (0, import_react2.useRef)(null);
-  (0, import_react2.useEffect)(() => {
+  const targetRef = useRef(null);
+  useEffect(() => {
     refs.forEach((ref) => {
       if (!ref) return;
       if (typeof ref === "function") {
@@ -111,7 +69,7 @@ var useCombinedRefs = (...refs) => {
 };
 
 // src/useObjectPropEffect.ts
-var import_react3 = require("react");
+import { useEffect as useEffect2 } from "react";
 var hasOwnProperty = Object.prototype.hasOwnProperty;
 var shallowEqual = (objA, objB) => {
   if (Object.is(objA, objB)) {
@@ -143,7 +101,7 @@ var defaultUpdateValue = (obj, v, k) => {
   obj[k] = v;
 };
 var useObjectPropEffect = (propName, propValue, ref, updateValue = defaultUpdateValue, hasChanged = defaultHasChanged) => {
-  return (0, import_react3.useEffect)(() => {
+  return useEffect2(() => {
     const obj = ref == null ? void 0 : ref.current;
     if (!obj) return;
     if (!hasChanged(obj, propValue, propName)) return;
@@ -164,10 +122,10 @@ var player_version = getEnvPlayerVersion();
 var getPlayerVersion = () => player_version;
 
 // src/newsweek-mux-player.tsx
-var import_react9 = __toESM(require("react"));
+import React6, { useRef as useRef2, useState as useState2 } from "react";
 
 // src/playlist-end-screen.tsx
-var import_react4 = __toESM(require("react"));
+import React2, { useEffect as useEffect3, useState } from "react";
 
 // src/end-screen.css
 var end_screen_default = "/* Main Playlist Container */\n.playlist {\n  /* Ensure it wraps on smaller screens */\n  display: inline;\n  position: relative;\n  background-color: #12121263;\n  z-index: 2;\n  top: 0;\n  position: absolute;\n  width: 100%;\n  height: 100%;\n}\n\n@media (min-width: 1336px) {\n  .playlist {\n    align-items: center;\n    justify-content: center;\n  }\n}\n\n.overlay {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  background: black;\n  opacity: 0.5;\n  z-index: 1;\n}\n\n.post-video-section {\n  display: grid;\n  grid-template-columns: 1fr auto 1fr;\n  padding: 1.5rem 2rem;\n  position: relative;\n  gap: 1rem;\n  padding: 1.5rem 2rem;\n  height: max-content;\n  box-sizing: border-box;\n  z-index: 2;\n  max-width: 1200px;\n}\n\n.post-video-section hr {\n  border: none;\n  background: rgba(255, 255, 255, 0.5);\n  height: 100%;\n  width: 1px;\n}\n\n/* Video Section */\n.video-section {\n  flex: 2;\n}\n\n.video-container {\n  position: relative;\n}\n\n.title {\n  font-size: 2.5rem;\n  font-weight: 500;\n  line-height: 3rem;\n  margin: 0;\n  margin-bottom: 1rem;\n}\n\n.video-wrapper {\n  position: relative;\n  width: 100%;\n  overflow: hidden;\n}\n\n.video-container > .video-title {\n  font-size: 1.3rem;\n  font-weight: 600;\n}\n\n.video-thumbnail {\n  width: 100%;\n  display: block;\n}\n\n.video-title {\n  font-size: 1rem;\n  margin-top: 0.5rem;\n  cursor: pointer;\n  color: #ffffff;\n  text-decoration: none;\n  line-height: 1.4;\n  /* Adjusted for better readability */\n  word-wrap: break-word;\n  font-weight: 500;\n  margin-bottom: 0;\n}\n\n.video-title:hover {\n  text-decoration: underline;\n}\n\n/* Countdown Timer */\n.countdown-overlay {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  width: 3.75rem;\n  height: 3.75rem;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.countdown-ring {\n  position: absolute;\n}\n\n.circle-background {\n  fill: none;\n  stroke: rgba(255, 255, 255, 0.2);\n  stroke-width: 0.25rem;\n}\n\n.circle-progress {\n  fill: none;\n  stroke: #00a3dd;\n  stroke-width: 0.25rem;\n  stroke-linecap: round;\n  transition: stroke-dashoffset 1s linear;\n}\n\n.count-text {\n  position: absolute;\n  font-size: 1rem;\n  font-weight: bold;\n  color: #ffffff;\n}\n\n/* Related Videos */\n.related-videos-section {\n  flex: 1;\n  width: 100%;\n}\n\n.related-title {\n  font-size: 1.125rem;\n  font-weight: bold;\n  margin: 0;\n  line-height: 2rem;\n}\n\n.related-list {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n\n.related-item {\n  display: flex;\n  align-items: start;\n  border-bottom: 1px solid rgba(255, 255, 255, 0.5);\n  width: 100%;\n  gap: 0.5rem;\n  padding: 0.5rem 0;\n  border-radius: 0;\n  background: none;\n}\n\n.related-item:hover {\n  background: none;\n}\n.related-thumbnail {\n  width: 7rem;\n  object-fit: cover;\n  aspect-ratio: 16 / 9;\n}\n\n.related-text {\n  font-size: 0.9rem;\n  color: white;\n  line-height: 1.4;\n  word-wrap: break-word;\n  max-width: 100%;\n  margin-top: 0.25rem;\n  display: block;\n}\n\n.related-text:hover {\n  text-decoration: underline;\n}\n\n/* Responsive  */\n\n@media (max-width: 768px) {\n  .post-video-section {\n    grid-template-columns: 1fr;\n    margin: auto;\n  }\n\n  .post-video-section h2 {\n    display: none;\n  }\n\n  hr {\n    display: none;\n  }\n\n  .video-section {\n    width: 60%;\n    margin: auto;\n  }\n\n  .related-videos-section {\n    display: none;\n  }\n}\n";
@@ -180,8 +138,8 @@ var PlaylistEndScreen = ({
   selectVideoCallback,
   timerCallback
 }) => {
-  const [count, setCount] = (0, import_react4.useState)(3);
-  (0, import_react4.useEffect)(() => {
+  const [count, setCount] = useState(3);
+  useEffect3(() => {
     if (!isVisible) {
       setCount(3);
       return;
@@ -195,7 +153,7 @@ var PlaylistEndScreen = ({
     }, 1e3);
     return () => clearInterval(timer);
   }, [count, isVisible]);
-  return /* @__PURE__ */ import_react4.default.createElement(import_react4.default.Fragment, null, /* @__PURE__ */ import_react4.default.createElement("style", null, end_screen_default), /* @__PURE__ */ import_react4.default.createElement("div", { className: "playlist", style: { display: isVisible ? "grid" : "none" } }, /* @__PURE__ */ import_react4.default.createElement("div", { className: "overlay", style: { display: isVisible ? "grid" : "none" } }), /* @__PURE__ */ import_react4.default.createElement("div", { className: "post-video-section", style: { display: isVisible ? "grid" : "none", zIndex: 99 } }, /* @__PURE__ */ import_react4.default.createElement("div", { className: "video-section" }, /* @__PURE__ */ import_react4.default.createElement("div", { className: "video-container" }, /* @__PURE__ */ import_react4.default.createElement("h2", { className: "title" }, "Video"), /* @__PURE__ */ import_react4.default.createElement("div", { className: "video-wrapper" }, /* @__PURE__ */ import_react4.default.createElement("img", { className: "video-thumbnail", src: video.imageUrl, alt: video.title }), /* @__PURE__ */ import_react4.default.createElement("div", { className: "countdown-overlay" }, /* @__PURE__ */ import_react4.default.createElement("svg", { className: "countdown-ring", width: "50", height: "50" }, /* @__PURE__ */ import_react4.default.createElement("circle", { cx: "25", cy: "25", r: "22", className: "circle-background" }), /* @__PURE__ */ import_react4.default.createElement(
+  return /* @__PURE__ */ React2.createElement(React2.Fragment, null, /* @__PURE__ */ React2.createElement("style", null, end_screen_default), /* @__PURE__ */ React2.createElement("div", { className: "playlist", style: { display: isVisible ? "grid" : "none" } }, /* @__PURE__ */ React2.createElement("div", { className: "overlay", style: { display: isVisible ? "grid" : "none" } }), /* @__PURE__ */ React2.createElement("div", { className: "post-video-section", style: { display: isVisible ? "grid" : "none", zIndex: 99 } }, /* @__PURE__ */ React2.createElement("div", { className: "video-section" }, /* @__PURE__ */ React2.createElement("div", { className: "video-container" }, /* @__PURE__ */ React2.createElement("h2", { className: "title" }, "Video"), /* @__PURE__ */ React2.createElement("div", { className: "video-wrapper" }, /* @__PURE__ */ React2.createElement("img", { className: "video-thumbnail", src: video.imageUrl, alt: video.title }), /* @__PURE__ */ React2.createElement("div", { className: "countdown-overlay" }, /* @__PURE__ */ React2.createElement("svg", { className: "countdown-ring", width: "50", height: "50" }, /* @__PURE__ */ React2.createElement("circle", { cx: "25", cy: "25", r: "22", className: "circle-background" }), /* @__PURE__ */ React2.createElement(
     "circle",
     {
       cx: "25",
@@ -207,15 +165,15 @@ var PlaylistEndScreen = ({
         strokeDashoffset: `${count / 3 * 138}`
       }
     }
-  )), /* @__PURE__ */ import_react4.default.createElement("span", { className: "count-text" }, count))), /* @__PURE__ */ import_react4.default.createElement("p", { className: "video-title" }, video.title))), /* @__PURE__ */ import_react4.default.createElement("hr", null), /* @__PURE__ */ import_react4.default.createElement("div", { className: "related-videos-section" }, /* @__PURE__ */ import_react4.default.createElement("h3", { className: "related-title" }, "Related Videos"), /* @__PURE__ */ import_react4.default.createElement("ul", { className: "related-list" }, relatedVideos.map((relatedVideo, index) => /* @__PURE__ */ import_react4.default.createElement("li", { key: index }, /* @__PURE__ */ import_react4.default.createElement("button", { className: "related-item", onClick: () => selectVideoCallback(index) }, /* @__PURE__ */ import_react4.default.createElement("img", { className: "related-thumbnail", src: relatedVideo.imageUrl, alt: relatedVideo.title }), /* @__PURE__ */ import_react4.default.createElement("p", { className: "related-text" }, relatedVideo.title)))))))));
+  )), /* @__PURE__ */ React2.createElement("span", { className: "count-text" }, count))), /* @__PURE__ */ React2.createElement("p", { className: "video-title" }, video.title))), /* @__PURE__ */ React2.createElement("hr", null), /* @__PURE__ */ React2.createElement("div", { className: "related-videos-section" }, /* @__PURE__ */ React2.createElement("h3", { className: "related-title" }, "Related Videos"), /* @__PURE__ */ React2.createElement("ul", { className: "related-list" }, relatedVideos.map((relatedVideo, index) => /* @__PURE__ */ React2.createElement("li", { key: index }, /* @__PURE__ */ React2.createElement("button", { className: "related-item", onClick: () => selectVideoCallback(index) }, /* @__PURE__ */ React2.createElement("img", { className: "related-thumbnail", src: relatedVideo.imageUrl, alt: relatedVideo.title }), /* @__PURE__ */ React2.createElement("p", { className: "related-text" }, relatedVideo.title)))))))));
 };
 var playlist_end_screen_default = PlaylistEndScreen;
 
 // src/newsweek-mux-player.tsx
-var import_mux_player_react = __toESM(require("@mux/mux-player-react"));
+import MuxPlayer from "@mux/mux-player-react";
 
 // ../../node_modules/media-chrome/dist/react/index.js
-var import_react5 = __toESM(require("react"), 1);
+import React3 from "react";
 
 // ../../node_modules/ce-la-react/dist/ce-la-react.js
 var reservedReactProps = /* @__PURE__ */ new Set([
@@ -8714,156 +8672,156 @@ var media_volume_range_default = MediaVolumeRange;
 var MediaGestureReceiver2 = createComponent({
   tagName: "media-gesture-receiver",
   elementClass: media_gesture_receiver_default,
-  react: import_react5.default
+  react: React3
 });
 var MediaContainer2 = createComponent({
   tagName: "media-container",
   elementClass: media_container_default,
-  react: import_react5.default
+  react: React3
 });
 var MediaController2 = createComponent({
   tagName: "media-controller",
   elementClass: media_controller_default,
-  react: import_react5.default
+  react: React3
 });
 var MediaChromeButton2 = createComponent({
   tagName: "media-chrome-button",
   elementClass: media_chrome_button_default,
-  react: import_react5.default
+  react: React3
 });
 var MediaAirplayButton2 = createComponent({
   tagName: "media-airplay-button",
   elementClass: media_airplay_button_default,
-  react: import_react5.default
+  react: React3
 });
 var MediaCaptionsButton2 = createComponent({
   tagName: "media-captions-button",
   elementClass: media_captions_button_default,
-  react: import_react5.default
+  react: React3
 });
 var MediaCastButton2 = createComponent({
   tagName: "media-cast-button",
   elementClass: media_cast_button_default,
-  react: import_react5.default
+  react: React3
 });
 var MediaChromeDialog2 = createComponent({
   tagName: "media-chrome-dialog",
   elementClass: media_chrome_dialog_default,
-  react: import_react5.default
+  react: React3
 });
 var MediaChromeRange2 = createComponent({
   tagName: "media-chrome-range",
   elementClass: media_chrome_range_default,
-  react: import_react5.default
+  react: React3
 });
 var MediaControlBar2 = createComponent({
   tagName: "media-control-bar",
   elementClass: media_control_bar_default,
-  react: import_react5.default
+  react: React3
 });
 var MediaTextDisplay2 = createComponent({
   tagName: "media-text-display",
   elementClass: media_text_display_default,
-  react: import_react5.default
+  react: React3
 });
 var MediaDurationDisplay2 = createComponent({
   tagName: "media-duration-display",
   elementClass: media_duration_display_default,
-  react: import_react5.default
+  react: React3
 });
 var MediaErrorDialog2 = createComponent({
   tagName: "media-error-dialog",
   elementClass: media_error_dialog_default,
-  react: import_react5.default
+  react: React3
 });
 var MediaFullscreenButton2 = createComponent({
   tagName: "media-fullscreen-button",
   elementClass: media_fullscreen_button_default,
-  react: import_react5.default
+  react: React3
 });
 var MediaLiveButton2 = createComponent({
   tagName: "media-live-button",
   elementClass: media_live_button_default,
-  react: import_react5.default
+  react: React3
 });
 var MediaLoadingIndicator2 = createComponent({
   tagName: "media-loading-indicator",
   elementClass: media_loading_indicator_default,
-  react: import_react5.default
+  react: React3
 });
 var MediaMuteButton2 = createComponent({
   tagName: "media-mute-button",
   elementClass: media_mute_button_default,
-  react: import_react5.default
+  react: React3
 });
 var MediaPipButton2 = createComponent({
   tagName: "media-pip-button",
   elementClass: media_pip_button_default,
-  react: import_react5.default
+  react: React3
 });
 var MediaPlaybackRateButton2 = createComponent({
   tagName: "media-playback-rate-button",
   elementClass: media_playback_rate_button_default,
-  react: import_react5.default
+  react: React3
 });
 var MediaPlayButton2 = createComponent({
   tagName: "media-play-button",
   elementClass: media_play_button_default,
-  react: import_react5.default
+  react: React3
 });
 var MediaPosterImage2 = createComponent({
   tagName: "media-poster-image",
   elementClass: media_poster_image_default,
-  react: import_react5.default
+  react: React3
 });
 var MediaPreviewChapterDisplay2 = createComponent({
   tagName: "media-preview-chapter-display",
   elementClass: media_preview_chapter_display_default,
-  react: import_react5.default
+  react: React3
 });
 var MediaPreviewThumbnail2 = createComponent({
   tagName: "media-preview-thumbnail",
   elementClass: media_preview_thumbnail_default,
-  react: import_react5.default
+  react: React3
 });
 var MediaPreviewTimeDisplay2 = createComponent({
   tagName: "media-preview-time-display",
   elementClass: media_preview_time_display_default,
-  react: import_react5.default
+  react: React3
 });
 var MediaSeekBackwardButton2 = createComponent({
   tagName: "media-seek-backward-button",
   elementClass: media_seek_backward_button_default,
-  react: import_react5.default
+  react: React3
 });
 var MediaSeekForwardButton2 = createComponent({
   tagName: "media-seek-forward-button",
   elementClass: media_seek_forward_button_default,
-  react: import_react5.default
+  react: React3
 });
 var MediaTimeDisplay2 = createComponent({
   tagName: "media-time-display",
   elementClass: media_time_display_default,
-  react: import_react5.default
+  react: React3
 });
 var MediaTimeRange2 = createComponent({
   tagName: "media-time-range",
   elementClass: media_time_range_default,
-  react: import_react5.default
+  react: React3
 });
 var MediaTooltip2 = createComponent({
   tagName: "media-tooltip",
   elementClass: media_tooltip_default,
-  react: import_react5.default
+  react: React3
 });
 var MediaVolumeRange2 = createComponent({
   tagName: "media-volume-range",
   elementClass: media_volume_range_default,
-  react: import_react5.default
+  react: React3
 });
 
 // ../../node_modules/media-chrome/dist/react/menu/index.js
-var import_react6 = __toESM(require("react"), 1);
+import React4 from "react";
 
 // ../../node_modules/media-chrome/dist/utils/anchor-utils.js
 function computePosition({
@@ -11388,78 +11346,78 @@ if (!GlobalThis.customElements.get("media-rendition-menu-button")) {
 var MediaChromeMenu2 = createComponent({
   tagName: "media-chrome-menu",
   elementClass: MediaChromeMenu,
-  react: import_react6.default
+  react: React4
 });
 var MediaChromeMenuItem2 = createComponent({
   tagName: "media-chrome-menu-item",
   elementClass: MediaChromeMenuItem,
-  react: import_react6.default
+  react: React4
 });
 var MediaSettingsMenu2 = createComponent({
   tagName: "media-settings-menu",
   elementClass: MediaSettingsMenu,
-  react: import_react6.default
+  react: React4
 });
 var MediaSettingsMenuItem2 = createComponent({
   tagName: "media-settings-menu-item",
   elementClass: MediaSettingsMenuItem,
-  react: import_react6.default
+  react: React4
 });
 var MediaChromeMenuButton2 = createComponent({
   tagName: "media-chrome-menu-button",
   elementClass: MediaChromeMenuButton,
-  react: import_react6.default
+  react: React4
 });
 var MediaSettingsMenuButton2 = createComponent({
   tagName: "media-settings-menu-button",
   elementClass: MediaSettingsMenuButton,
-  react: import_react6.default
+  react: React4
 });
 var MediaAudioTrackMenu2 = createComponent({
   tagName: "media-audio-track-menu",
   elementClass: MediaAudioTrackMenu,
-  react: import_react6.default
+  react: React4
 });
 var MediaAudioTrackMenuButton2 = createComponent({
   tagName: "media-audio-track-menu-button",
   elementClass: MediaAudioTrackMenuButton,
-  react: import_react6.default
+  react: React4
 });
 var MediaCaptionsMenu2 = createComponent({
   tagName: "media-captions-menu",
   elementClass: MediaCaptionsMenu,
-  react: import_react6.default
+  react: React4
 });
 var MediaCaptionsMenuButton2 = createComponent({
   tagName: "media-captions-menu-button",
   elementClass: MediaCaptionsMenuButton,
-  react: import_react6.default
+  react: React4
 });
 var MediaPlaybackRateMenu2 = createComponent({
   tagName: "media-playback-rate-menu",
   elementClass: MediaPlaybackRateMenu,
-  react: import_react6.default
+  react: React4
 });
 var MediaPlaybackRateMenuButton2 = createComponent({
   tagName: "media-playback-rate-menu-button",
   elementClass: MediaPlaybackRateMenuButton,
-  react: import_react6.default
+  react: React4
 });
 var MediaRenditionMenu2 = createComponent({
   tagName: "media-rendition-menu",
   elementClass: MediaRenditionMenu,
-  react: import_react6.default
+  react: React4
 });
 var MediaRenditionMenuButton2 = createComponent({
   tagName: "media-rendition-menu-button",
   elementClass: MediaRenditionMenuButton,
-  react: import_react6.default
+  react: React4
 });
 
 // src/themes/newsweek-theme.tsx
-var import_react8 = __toESM(require("react"));
+import React5 from "react";
 function NewsweekTheme() {
-  return /* @__PURE__ */ import_react8.default.createElement(import_react8.default.Fragment, null, /* @__PURE__ */ import_react8.default.createElement(
+  return /* @__PURE__ */ React5.createElement(React5.Fragment, null, /* @__PURE__ */ React5.createElement(
     "template",
     {
       id: "newsweek-theme",
@@ -12051,14 +12009,14 @@ function NewsweekTheme() {
 var INITIAL_AUTOPLAY = false;
 var INITIAL_MUTED = false;
 var NewsweekMuxPlayer = ({ videoList }) => {
-  const mediaElRef = (0, import_react9.useRef)(null);
-  const [autoplay, setAutoplay] = (0, import_react9.useState)(INITIAL_AUTOPLAY);
-  const [muted, setMuted] = (0, import_react9.useState)(INITIAL_MUTED);
-  const [paused, setPaused] = (0, import_react9.useState)(true);
-  const [sdkLoaded, setSdkLoaded] = (0, import_react9.useState)(false);
-  const [currentIndex, setCurrentIndex] = (0, import_react9.useState)(0);
-  const [isEndScreenVisible, setIsEndScreenVisible] = (0, import_react9.useState)(false);
-  const [playerKey, setPlayerKey] = (0, import_react9.useState)(0);
+  const mediaElRef = useRef2(null);
+  const [autoplay, setAutoplay] = useState2(INITIAL_AUTOPLAY);
+  const [muted, setMuted] = useState2(INITIAL_MUTED);
+  const [paused, setPaused] = useState2(true);
+  const [sdkLoaded, setSdkLoaded] = useState2(false);
+  const [currentIndex, setCurrentIndex] = useState2(0);
+  const [isEndScreenVisible, setIsEndScreenVisible] = useState2(false);
+  const [playerKey, setPlayerKey] = useState2(0);
   function playVideo() {
     setIsEndScreenVisible(false);
     setCurrentIndex(currentIndex + 1);
@@ -12073,8 +12031,8 @@ var NewsweekMuxPlayer = ({ videoList }) => {
       mediaElRef.current.play();
     }, 200);
   }
-  return /* @__PURE__ */ import_react9.default.createElement("div", null, /* @__PURE__ */ import_react9.default.createElement(NewsweekTheme, null), /* @__PURE__ */ import_react9.default.createElement(
-    import_mux_player_react.default,
+  return /* @__PURE__ */ React6.createElement("div", null, /* @__PURE__ */ React6.createElement(NewsweekTheme, null), /* @__PURE__ */ React6.createElement(
+    MuxPlayer,
     {
       ref: mediaElRef,
       theme: "newsweek-theme",
@@ -12106,7 +12064,7 @@ var NewsweekMuxPlayer = ({ videoList }) => {
         }
       }
     },
-    /* @__PURE__ */ import_react9.default.createElement(
+    /* @__PURE__ */ React6.createElement(
       playlist_end_screen_default,
       {
         video: currentIndex < videoList.length - 1 ? videoList[currentIndex + 1] : videoList[0],
@@ -12120,11 +12078,11 @@ var NewsweekMuxPlayer = ({ videoList }) => {
 };
 
 // src/index.tsx
-var MuxPlayerInternal = import_react10.default.forwardRef(({ children, ...props }, ref) => {
-  return import_react10.default.createElement("mux-player", toNativeProps({ ...props, ref }), children);
+var MuxPlayerInternal = React7.forwardRef(({ children, ...props }, ref) => {
+  return React7.createElement("mux-player", toNativeProps({ ...props, ref }), children);
 });
 var useEventCallbackEffect = (type, ref, callback) => {
-  return (0, import_react10.useEffect)(() => {
+  return useEffect4(() => {
     const eventTarget = ref == null ? void 0 : ref.current;
     if (!eventTarget || !callback) return;
     eventTarget.addEventListener(type, callback);
@@ -12234,13 +12192,13 @@ var usePlayer = (ref, props) => {
 };
 var playerSoftwareVersion = getPlayerVersion();
 var playerSoftwareName = "mux-player-react";
-var MuxPlayer2 = import_react10.default.forwardRef((props, ref) => {
+var MuxPlayer2 = React7.forwardRef((props, ref) => {
   var _a2;
-  const innerPlayerRef = (0, import_react11.useRef)(null);
+  const innerPlayerRef = useRef3(null);
   const playerRef = useCombinedRefs(innerPlayerRef, ref);
   const [remainingProps] = usePlayer(innerPlayerRef, props);
-  const [playerInitTime] = (0, import_react10.useState)((_a2 = props.playerInitTime) != null ? _a2 : (0, import_playback_core.generatePlayerInitTime)());
-  return /* @__PURE__ */ import_react10.default.createElement(
+  const [playerInitTime] = useState3((_a2 = props.playerInitTime) != null ? _a2 : generatePlayerInitTime());
+  return /* @__PURE__ */ React7.createElement(
     MuxPlayerInternal,
     {
       ref: playerRef,
@@ -12253,6 +12211,18 @@ var MuxPlayer2 = import_react10.default.forwardRef((props, ref) => {
   );
 });
 var index_default = MuxPlayer2;
+export {
+  MaxResolution,
+  MediaError,
+  MinResolution,
+  NewsweekMuxPlayer,
+  playlist_end_screen_default as PlaylistEndScreen,
+  RenditionOrder,
+  index_default as default,
+  generatePlayerInitTime,
+  playerSoftwareName,
+  playerSoftwareVersion
+};
 /*! Bundled license information:
 
 ce-la-react/dist/ce-la-react.js:
@@ -12264,4 +12234,4 @@ ce-la-react/dist/ce-la-react.js:
    * Modified version of `@lit/react` for vanilla custom elements with support for SSR.
    *)
 */
-//# sourceMappingURL=index.cjs.js.map
+//# sourceMappingURL=-227V4MGJ.mjs.map

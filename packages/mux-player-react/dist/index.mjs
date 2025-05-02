@@ -121,7 +121,7 @@ var getEnvPlayerVersion = () => {
 var player_version = getEnvPlayerVersion();
 var getPlayerVersion = () => player_version;
 
-// src/playlist.tsx
+// src/newsweek-mux-player.tsx
 import React6, { useRef as useRef2, useState as useState2 } from "react";
 
 // src/playlist-end-screen.tsx
@@ -169,7 +169,7 @@ var PlaylistEndScreen = ({
 };
 var playlist_end_screen_default = PlaylistEndScreen;
 
-// src/playlist.tsx
+// src/newsweek-mux-player.tsx
 import MuxPlayer from "@mux/mux-player-react";
 
 // ../../node_modules/media-chrome/dist/react/index.js
@@ -12005,10 +12005,10 @@ function NewsweekTheme() {
   ));
 }
 
-// src/playlist.tsx
+// src/newsweek-mux-player.tsx
 var INITIAL_AUTOPLAY = false;
 var INITIAL_MUTED = false;
-var Playlist = ({ videoList }) => {
+var NewsweekMuxPlayer = ({ videoList }) => {
   const mediaElRef = useRef2(null);
   const [autoplay, setAutoplay] = useState2(INITIAL_AUTOPLAY);
   const [muted, setMuted] = useState2(INITIAL_MUTED);
@@ -12215,7 +12215,7 @@ export {
   MaxResolution,
   MediaError,
   MinResolution,
-  Playlist,
+  NewsweekMuxPlayer,
   playlist_end_screen_default as PlaylistEndScreen,
   RenditionOrder,
   index_default as default,
