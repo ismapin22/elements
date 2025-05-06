@@ -20,6 +20,9 @@ import useObjectPropEffect, { defaultHasChanged } from './useObjectPropEffect';
 import { getPlayerVersion } from './env';
 
 export { MediaError, MaxResolution, MinResolution, RenditionOrder, generatePlayerInitTime };
+export { NewsweekMuxPlayer } from './newsweek-mux-player';
+import PlaylistEndScreen from './playlist-end-screen';
+export { PlaylistEndScreen };
 
 type ValueOf<T> = T[keyof T];
 interface GenericEventListener<T extends Event = CustomEvent> {

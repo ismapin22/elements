@@ -1,8 +1,38 @@
 import Head from 'next/head';
-import '../post-video.css'
-import Playlist from '../components/playlist';
+import { NewsweekMuxPlayer } from "@mux/mux-player-react"
+import { useEffect, useState } from 'react';
 
 function MuxVideoPage() {
+
+  const [sdkLoaded, setSdkLoaded] = useState(false);
+
+  useEffect(() => {
+    // Dynamically load the IMA SDK
+    const loadImaSdk = () => {
+      const script = document.createElement("script");
+      script.src = "https://imasdk.googleapis.com/js/sdkloader/ima3.js";
+      script.async = true;
+      script.onload = () => {
+        setSdkLoaded(true);  // Mark SDK as loaded
+        console.log("Google IMA SDK loaded");
+      };
+      document.head.appendChild(script);
+    };
+
+    if (!window.google || !window.google.ima) {
+      loadImaSdk();
+    } else {
+      setSdkLoaded(true);
+    }
+
+    return () => {
+      // Cleanup by removing the script
+      const scriptElement = document.querySelector('script[src="https://imasdk.googleapis.com/js/sdkloader/ima3.js"]');
+      if (scriptElement) {
+        scriptElement.remove();
+      }
+    };
+  }, []);
 
   const relatedVideos = [
     {
@@ -31,7 +61,7 @@ function MuxVideoPage() {
         <title>&lt;Playlist/&gt; Demo</title>
       </Head>
       
-      <Playlist videoList={relatedVideos}></Playlist>
+      {sdkLoaded && <NewsweekMuxPlayer videoList={relatedVideos}></NewsweekMuxPlayer>}
 
     </>
   );
