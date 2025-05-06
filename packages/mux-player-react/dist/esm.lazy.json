@@ -1968,7 +1968,7 @@
       "format": "esm"
     },
     "src/newsweek-mux-player.tsx": {
-      "bytes": 2709,
+      "bytes": 2875,
       "imports": [
         {
           "path": "react",
@@ -1979,6 +1979,11 @@
           "path": "src/playlist-end-screen.tsx",
           "kind": "import-statement",
           "original": "./playlist-end-screen"
+        },
+        {
+          "path": "@mux/mux-video-ads",
+          "kind": "import-statement",
+          "external": true
         },
         {
           "path": "@mux/mux-player-react",
@@ -2111,7 +2116,7 @@
           "external": true
         },
         {
-          "path": "dist/-227V4MGJ.mjs",
+          "path": "dist/-4KKFRWH3.mjs",
           "kind": "dynamic-import"
         }
       ],
@@ -2135,13 +2140,13 @@
       },
       "bytes": 4711
     },
-    "dist/-227V4MGJ.mjs.map": {
+    "dist/-4KKFRWH3.mjs.map": {
       "imports": [],
       "exports": [],
       "inputs": {},
-      "bytes": 718617
+      "bytes": 718804
     },
-    "dist/-227V4MGJ.mjs": {
+    "dist/-4KKFRWH3.mjs": {
       "imports": [
         {
           "path": "react",
@@ -2185,6 +2190,11 @@
         },
         {
           "path": "react",
+          "kind": "import-statement",
+          "external": true
+        },
+        {
+          "path": "@mux/mux-video-ads",
           "kind": "import-statement",
           "external": true
         },
@@ -2239,7 +2249,7 @@
           "bytesInOutput": 190
         },
         "src/newsweek-mux-player.tsx": {
-          "bytesInOutput": 2410
+          "bytesInOutput": 2439
         },
         "src/playlist-end-screen.tsx": {
           "bytesInOutput": 3024
@@ -2452,7 +2462,7 @@
           "bytesInOutput": 20849
         }
       },
-      "bytes": 432324
+      "bytes": 432353
     }
   }
 }

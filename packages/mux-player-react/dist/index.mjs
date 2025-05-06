@@ -170,6 +170,7 @@ var PlaylistEndScreen = ({
 var playlist_end_screen_default = PlaylistEndScreen;
 
 // src/newsweek-mux-player.tsx
+import "@mux/mux-video-ads";
 import MuxPlayer from "@mux/mux-player-react";
 
 // ../../node_modules/media-chrome/dist/react/index.js

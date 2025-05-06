@@ -121,17 +121,23 @@ var getEnvPlayerVersion = () => {
 var player_version = getEnvPlayerVersion();
 var getPlayerVersion = () => player_version;
 
-// src/playlist.tsx
+// src/newsweek-mux-player.tsx
 import React6, { useRef as useRef2, useState as useState2 } from "react";
 
-// src/playlist-post-video.tsx
+// src/playlist-end-screen.tsx
 import React2, { useEffect as useEffect3, useState } from "react";
 
-// src/styles.css
-var styles_default = "/* Main Playlist Container */\n.playlist {\n  /* Ensure it wraps on smaller screens */\n  display: inline;\n  position: relative;\n  background-color: #12121263;\n  z-index: 2;\n  top: 0;\n  position: absolute;\n  width: 100%;\n  height: 100%;\n}\n\n@media (min-width: 1336px) {\n  .playlist {\n    align-items: center;\n    justify-content: center;\n  }\n}\n\n.overlay {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  background: black;\n  opacity: 0.5;\n  z-index: 1;\n}\n\n.post-video-section {\n  display: grid;\n  grid-template-columns: 1fr auto 1fr;\n  padding: 1.5rem 2rem;\n  position:relative;\n  gap: 1rem;\n  padding: 1.5rem 2rem;\n  height: max-content;\n  box-sizing: border-box;\n  z-index: 2;\n  max-width: 1200px;\n}\n\n.post-video-section hr{\n  border: none;\n  background: rgba(255, 255, 255, .5);\n  height: 100%;\n  width: 1px;\n}\n\n\n/* Video Section */\n.video-section {\n  flex: 2;\n}\n\n.video-container {\n  position: relative;\n}\n\n.title {\n  font-size: 2.5rem;\n  font-weight: 500;\n  line-height: 3rem;\n  margin: 0;\n  margin-bottom: 1rem;\n}\n\n.video-wrapper {\n  position: relative;\n  width: 100%;\n  overflow: hidden;\n}\n\n.video-container > .video-title {\n  font-size: 1.3rem;\n  font-weight: 600;\n}\n\n.video-thumbnail {\n  width: 100%;\n  display: block;\n}\n\n.video-title {\n  font-size: 1rem;\n  margin-top: 0.5rem;\n  cursor: pointer;\n  color: #ffffff;\n  text-decoration: none;\n  line-height: 1.4;\n  /* Adjusted for better readability */\n  word-wrap: break-word;\n  font-weight: 500;\n  margin-bottom: 0;\n}\n\n.video-title:hover {\n  text-decoration: underline;\n}\n\n/* Countdown Timer */\n.countdown-overlay {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  width: 3.75rem;\n  height: 3.75rem;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.countdown-ring {\n  position: absolute;\n}\n\n.circle-background {\n  fill: none;\n  stroke: rgba(255, 255, 255, 0.2);\n  stroke-width: 0.25rem;\n}\n\n.circle-progress {\n  fill: none;\n  stroke: #00a3dd;\n  stroke-width: 0.25rem;\n  stroke-linecap: round;\n  transition: stroke-dashoffset 1s linear;\n}\n\n.count-text {\n  position: absolute;\n  font-size: 1rem;\n  font-weight: bold;\n  color: #ffffff;\n}\n\n/* Related Videos */\n.related-videos-section {\n  flex: 1;\n  width: 100%;\n}\n\n.related-title {\n  font-size: 1.125rem;\n  font-weight: bold;\n  margin: 0;\n  line-height: 2rem;\n}\n\n.related-list {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n\n.related-item {\n  display: flex;\n  align-items: start;\n  border-bottom: 1px solid rgba(255, 255, 255, .5);\n  width: 100%;\n  gap: 0.5rem;\n  padding: .5rem 0;\n  border-radius: 0;\n  background: none;\n}\n\n.related-item:hover {\n  background: none;\n}\n.related-thumbnail {\n  width: 7rem;\n  object-fit: cover;\n  aspect-ratio: 16 / 9;\n}\n\n.related-text {\n  font-size: .9rem;\n  color: white;\n  line-height: 1.4;\n  word-wrap: break-word;\n  max-width: 100%;\n  margin-top: 0.25rem;\n  display: block;\n  }\n  \n  .related-text:hover {\n    text-decoration: underline;\n}\n\n/* Responsive  */\n\n@media (max-width: 768px) {\n  .post-video-section {\n    grid-template-columns: 1fr;\n    margin: auto;\n  }\n\n  .post-video-section h2 {\n    display: none;\n  }\n\n  hr {\n    display: none;\n  }\n\n  .video-section {\n    width: 60%;\n    margin: auto;\n  }\n\n  .related-videos-section {\n    display: none;\n  }\n}";
+// src/end-screen.css
+var end_screen_default = "/* Main Playlist Container */\n.playlist {\n  /* Ensure it wraps on smaller screens */\n  display: inline;\n  position: relative;\n  background-color: #12121263;\n  z-index: 2;\n  top: 0;\n  position: absolute;\n  width: 100%;\n  height: 100%;\n}\n\n@media (min-width: 1336px) {\n  .playlist {\n    align-items: center;\n    justify-content: center;\n  }\n}\n\n.overlay {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  background: black;\n  opacity: 0.5;\n  z-index: 1;\n}\n\n.post-video-section {\n  display: grid;\n  grid-template-columns: 1fr auto 1fr;\n  padding: 1.5rem 2rem;\n  position: relative;\n  gap: 1rem;\n  padding: 1.5rem 2rem;\n  height: max-content;\n  box-sizing: border-box;\n  z-index: 2;\n  max-width: 1200px;\n}\n\n.post-video-section hr {\n  border: none;\n  background: rgba(255, 255, 255, 0.5);\n  height: 100%;\n  width: 1px;\n}\n\n/* Video Section */\n.video-section {\n  flex: 2;\n}\n\n.video-container {\n  position: relative;\n}\n\n.title {\n  font-size: 2.5rem;\n  font-weight: 500;\n  line-height: 3rem;\n  margin: 0;\n  margin-bottom: 1rem;\n}\n\n.video-wrapper {\n  position: relative;\n  width: 100%;\n  overflow: hidden;\n}\n\n.video-container > .video-title {\n  font-size: 1.3rem;\n  font-weight: 600;\n}\n\n.video-thumbnail {\n  width: 100%;\n  display: block;\n}\n\n.video-title {\n  font-size: 1rem;\n  margin-top: 0.5rem;\n  cursor: pointer;\n  color: #ffffff;\n  text-decoration: none;\n  line-height: 1.4;\n  /* Adjusted for better readability */\n  word-wrap: break-word;\n  font-weight: 500;\n  margin-bottom: 0;\n}\n\n.video-title:hover {\n  text-decoration: underline;\n}\n\n/* Countdown Timer */\n.countdown-overlay {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  width: 3.75rem;\n  height: 3.75rem;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.countdown-ring {\n  position: absolute;\n}\n\n.circle-background {\n  fill: none;\n  stroke: rgba(255, 255, 255, 0.2);\n  stroke-width: 0.25rem;\n}\n\n.circle-progress {\n  fill: none;\n  stroke: #00a3dd;\n  stroke-width: 0.25rem;\n  stroke-linecap: round;\n  transition: stroke-dashoffset 1s linear;\n}\n\n.count-text {\n  position: absolute;\n  font-size: 1rem;\n  font-weight: bold;\n  color: #ffffff;\n}\n\n/* Related Videos */\n.related-videos-section {\n  flex: 1;\n  width: 100%;\n}\n\n.related-title {\n  font-size: 1.125rem;\n  font-weight: bold;\n  margin: 0;\n  line-height: 2rem;\n}\n\n.related-list {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n\n.related-item {\n  display: flex;\n  align-items: start;\n  border-bottom: 1px solid rgba(255, 255, 255, 0.5);\n  width: 100%;\n  gap: 0.5rem;\n  padding: 0.5rem 0;\n  border-radius: 0;\n  background: none;\n}\n\n.related-item:hover {\n  background: none;\n}\n.related-thumbnail {\n  width: 7rem;\n  object-fit: cover;\n  aspect-ratio: 16 / 9;\n}\n\n.related-text {\n  font-size: 0.9rem;\n  color: white;\n  line-height: 1.4;\n  word-wrap: break-word;\n  max-width: 100%;\n  margin-top: 0.25rem;\n  display: block;\n}\n\n.related-text:hover {\n  text-decoration: underline;\n}\n\n/* Responsive  */\n\n@media (max-width: 768px) {\n  .post-video-section {\n    grid-template-columns: 1fr;\n    margin: auto;\n  }\n\n  .post-video-section h2 {\n    display: none;\n  }\n\n  hr {\n    display: none;\n  }\n\n  .video-section {\n    width: 60%;\n    margin: auto;\n  }\n\n  .related-videos-section {\n    display: none;\n  }\n}\n";
 
-// src/playlist-post-video.tsx
-var PlaylistEndScreen = ({ video, relatedVideos, isVisible, selectVideoCallback, timerCallback }) => {
+// src/playlist-end-screen.tsx
+var PlaylistEndScreen = ({
+  video,
+  relatedVideos,
+  isVisible,
+  selectVideoCallback,
+  timerCallback
+}) => {
   const [count, setCount] = useState(3);
   useEffect3(() => {
     if (!isVisible) {
@@ -147,7 +153,7 @@ var PlaylistEndScreen = ({ video, relatedVideos, isVisible, selectVideoCallback,
     }, 1e3);
     return () => clearInterval(timer);
   }, [count, isVisible]);
-  return /* @__PURE__ */ React2.createElement("div", { className: styles_default.wrapper }, /* @__PURE__ */ React2.createElement("div", { className: "playlist", style: { display: isVisible ? "grid" : "none" } }, /* @__PURE__ */ React2.createElement("div", { className: "overlay", style: { display: isVisible ? "grid" : "none" } }), /* @__PURE__ */ React2.createElement("div", { className: "post-video-section", style: { display: isVisible ? "grid" : "none", zIndex: 99 } }, /* @__PURE__ */ React2.createElement("div", { className: "video-section" }, /* @__PURE__ */ React2.createElement("div", { className: "video-container" }, /* @__PURE__ */ React2.createElement("h2", { className: "title" }, "Video"), /* @__PURE__ */ React2.createElement("div", { className: "video-wrapper" }, /* @__PURE__ */ React2.createElement("img", { className: "video-thumbnail", src: video.imageUrl, alt: video.title }), /* @__PURE__ */ React2.createElement("div", { className: "countdown-overlay" }, /* @__PURE__ */ React2.createElement("svg", { className: "countdown-ring", width: "50", height: "50" }, /* @__PURE__ */ React2.createElement("circle", { cx: "25", cy: "25", r: "22", className: "circle-background" }), /* @__PURE__ */ React2.createElement(
+  return /* @__PURE__ */ React2.createElement(React2.Fragment, null, /* @__PURE__ */ React2.createElement("style", null, end_screen_default), /* @__PURE__ */ React2.createElement("div", { className: "playlist", style: { display: isVisible ? "grid" : "none" } }, /* @__PURE__ */ React2.createElement("div", { className: "overlay", style: { display: isVisible ? "grid" : "none" } }), /* @__PURE__ */ React2.createElement("div", { className: "post-video-section", style: { display: isVisible ? "grid" : "none", zIndex: 99 } }, /* @__PURE__ */ React2.createElement("div", { className: "video-section" }, /* @__PURE__ */ React2.createElement("div", { className: "video-container" }, /* @__PURE__ */ React2.createElement("h2", { className: "title" }, "Video"), /* @__PURE__ */ React2.createElement("div", { className: "video-wrapper" }, /* @__PURE__ */ React2.createElement("img", { className: "video-thumbnail", src: video.imageUrl, alt: video.title }), /* @__PURE__ */ React2.createElement("div", { className: "countdown-overlay" }, /* @__PURE__ */ React2.createElement("svg", { className: "countdown-ring", width: "50", height: "50" }, /* @__PURE__ */ React2.createElement("circle", { cx: "25", cy: "25", r: "22", className: "circle-background" }), /* @__PURE__ */ React2.createElement(
     "circle",
     {
       cx: "25",
@@ -161,9 +167,10 @@ var PlaylistEndScreen = ({ video, relatedVideos, isVisible, selectVideoCallback,
     }
   )), /* @__PURE__ */ React2.createElement("span", { className: "count-text" }, count))), /* @__PURE__ */ React2.createElement("p", { className: "video-title" }, video.title))), /* @__PURE__ */ React2.createElement("hr", null), /* @__PURE__ */ React2.createElement("div", { className: "related-videos-section" }, /* @__PURE__ */ React2.createElement("h3", { className: "related-title" }, "Related Videos"), /* @__PURE__ */ React2.createElement("ul", { className: "related-list" }, relatedVideos.map((relatedVideo, index) => /* @__PURE__ */ React2.createElement("li", { key: index }, /* @__PURE__ */ React2.createElement("button", { className: "related-item", onClick: () => selectVideoCallback(index) }, /* @__PURE__ */ React2.createElement("img", { className: "related-thumbnail", src: relatedVideo.imageUrl, alt: relatedVideo.title }), /* @__PURE__ */ React2.createElement("p", { className: "related-text" }, relatedVideo.title)))))))));
 };
-var playlist_post_video_default = PlaylistEndScreen;
+var playlist_end_screen_default = PlaylistEndScreen;
 
-// src/playlist.tsx
+// src/newsweek-mux-player.tsx
+import "@mux/mux-video-ads";
 import MuxPlayer from "@mux/mux-player-react";
 
 // ../../node_modules/media-chrome/dist/react/index.js
@@ -11415,7 +11422,8 @@ function NewsweekTheme() {
     "template",
     {
       id: "newsweek-theme",
-      dangerouslySetInnerHTML: { __html: `
+      dangerouslySetInnerHTML: {
+        __html: `
           <style>
             media-controller {
               font-size: 13px;
@@ -11992,15 +12000,16 @@ function NewsweekTheme() {
       </svg>
     </media-fullscreen-button>
 
-  </media-control-bar>` }
+  </media-control-bar>`
+      }
     }
   ));
 }
 
-// src/playlist.tsx
+// src/newsweek-mux-player.tsx
 var INITIAL_AUTOPLAY = false;
 var INITIAL_MUTED = false;
-var Playlist = ({ videoList }) => {
+var NewsweekMuxPlayer = ({ videoList }) => {
   const mediaElRef = useRef2(null);
   const [autoplay, setAutoplay] = useState2(INITIAL_AUTOPLAY);
   const [muted, setMuted] = useState2(INITIAL_MUTED);
@@ -12056,7 +12065,16 @@ var Playlist = ({ videoList }) => {
         }
       }
     },
-    /* @__PURE__ */ React6.createElement(playlist_post_video_default, { video: currentIndex < videoList.length - 1 ? videoList[currentIndex + 1] : videoList[0], relatedVideos: videoList, isVisible: isEndScreenVisible, selectVideoCallback: selectVideo, timerCallback: playVideo })
+    /* @__PURE__ */ React6.createElement(
+      playlist_end_screen_default,
+      {
+        video: currentIndex < videoList.length - 1 ? videoList[currentIndex + 1] : videoList[0],
+        relatedVideos: videoList,
+        isVisible: isEndScreenVisible,
+        selectVideoCallback: selectVideo,
+        timerCallback: playVideo
+      }
+    )
   ));
 };
 
@@ -12198,7 +12216,8 @@ export {
   MaxResolution,
   MediaError,
   MinResolution,
-  Playlist,
+  NewsweekMuxPlayer,
+  playlist_end_screen_default as PlaylistEndScreen,
   RenditionOrder,
   index_default as default,
   generatePlayerInitTime,
@@ -12216,4 +12235,4 @@ ce-la-react/dist/ce-la-react.js:
    * Modified version of `@lit/react` for vanilla custom elements with support for SSR.
    *)
 */
-//# sourceMappingURL=-TX6YUQML.mjs.map
+//# sourceMappingURL=-4KKFRWH3.mjs.map

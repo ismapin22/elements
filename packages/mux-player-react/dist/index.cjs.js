@@ -212,6 +212,7 @@ var PlaylistEndScreen = ({
 var playlist_end_screen_default = PlaylistEndScreen;
 
 // src/newsweek-mux-player.tsx
+var import_mux_video_ads = require("@mux/mux-video-ads");
 var import_mux_player_react = __toESM(require("@mux/mux-player-react"));
 
 // ../../node_modules/media-chrome/dist/react/index.js
