@@ -45,7 +45,7 @@ var useIsIntersecting = (ref, options) => {
 var useIsIntersecting_default = useIsIntersecting;
 
 // src/lazy.tsx
-var MuxPlayerIndex = React2.lazy(() => import("./-4KKFRWH3.mjs"));
+var MuxPlayerIndex = React2.lazy(() => import("./-CVP7RJNQ.mjs"));
 var Fallback = (props) => {
   const { style, className, onIntersection, placeholder } = props;
   const intersectionRef = React2.useRef(null);
