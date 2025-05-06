@@ -122,5 +122,5 @@ export type MuxPlayerProps = {
 } & Partial<MuxMediaPropTypes> & Partial<VideoApiAttributes>;
 export declare const playerSoftwareVersion: string;
 export declare const playerSoftwareName = "mux-player-react";
-declare const MuxPlayer: React.ForwardRefExoticComponent<Pick<MuxPlayerProps, Exclude<keyof MuxPlayerProps, "playerSoftwareName" | "playerSoftwareVersion">> & React.RefAttributes<MuxPlayerElement>>;
+declare const MuxPlayer: React.ForwardRefExoticComponent<Pick<MuxPlayerProps, Exclude<keyof MuxPlayerProps, "playerSoftwareVersion" | "playerSoftwareName">> & React.RefAttributes<MuxPlayerElement>>;
 export default MuxPlayer;
